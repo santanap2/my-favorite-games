@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface ICard {
   image: string
   name: string
@@ -11,4 +13,22 @@ export interface ITextInput {
     name: string
     value: string
   }
+}
+
+export interface IChildren {
+  children: ReactNode
+}
+
+export interface IInitialValueContext {
+  headerSearch: {
+    headerInput: string
+  }
+  setHeaderSearch: React.Dispatch<React.SetStateAction<string>>
+
+  loginInputs: {
+    emailInput: string
+    passwordInput: string
+    remember: boolean
+  }
+  setLoginInputs: React.Dispatch<React.SetStateAction<string>>
 }

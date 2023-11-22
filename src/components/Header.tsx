@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 
 import {
@@ -10,21 +10,23 @@ import {
   User,
 } from '@phosphor-icons/react/dist/ssr'
 import { ITextInput } from '@/interfaces'
+import CoursesPlatformContext from '@/context/Context'
 
 export default function Header() {
+  const { headerSearch, setHeaderSearch } = useContext(CoursesPlatformContext)
+  const teste = useContext(CoursesPlatformContext)
+  console.log(teste)
   const router = useRouter()
   const pathname = usePathname()
 
   const handlePathname = () => {
-    if (pathname.includes('busca')) router.push(searchInput)
+    if (pathname.includes('busca')) router.push(headerSearch.headerInput)
     else {
-      router.push(`busca/${searchInput}`)
+      router.push(`busca/${headerSearch.headerInput}`)
     }
   }
-  const [searchInput, setSearchInput] = useState('')
-
   const inputHandler = ({ target: { value } }: ITextInput) =>
-    setSearchInput(value)
+    setHeaderSearch(value)
 
   const [hoverBtn, setHoverBtn] = useState({
     search: false,
@@ -55,10 +57,11 @@ export default function Header() {
               className="h-10 rounded-l-md pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
               placeholder="Qual curso procura?"
               onChange={inputHandler}
+              value={headerSearch.headerInput}
             />
             <button
               type="submit"
-              onClick={() => router.push(`busca/${searchInput}`)}
+              onClick={() => router.push(`busca/${headerSearch}`)}
             >
               <MagnifyingGlass
                 size={28}

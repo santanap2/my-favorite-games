@@ -1,15 +1,12 @@
 import { ITextInput } from '@/interfaces'
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import CoursesPlatformContext from '@/context/Context'
 
 export default function UnloggedUser() {
-  const [formInput, setFormInput] = useState({
-    emailInput: '',
-    passwordInput: '',
-    remember: false,
-  })
+  const { loginInputs, setLoginInputs } = useContext(CoursesPlatformContext)
 
   const inputHandler = ({ target: { name, value } }: ITextInput) =>
-    setFormInput({ ...formInput, [name]: value })
+    setLoginInputs({ ...loginInputs, [name]: value })
   return (
     <div className="px-20 py-8 rounded-lg flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
       <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
@@ -29,7 +26,7 @@ export default function UnloggedUser() {
             className="h-10 w-80 rounded-md px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
             name="emailInput"
             onChange={inputHandler}
-            value={formInput.emailInput}
+            value={loginInputs.emailInput}
           />
         </label>
 
@@ -50,7 +47,7 @@ export default function UnloggedUser() {
             className="h-10 w-80 rounded-md px-3 focus:outline-none text-zinc-700 focus:shadow-xl hover:shadow-lg shadow"
             name="passwordInput"
             onChange={inputHandler}
-            value={formInput.passwordInput}
+            value={loginInputs.passwordInput}
           />
         </label>
 
@@ -62,7 +59,10 @@ export default function UnloggedUser() {
             type="checkbox"
             id="remember"
             onChange={() =>
-              setFormInput((prev) => ({ ...prev, remember: !prev.remember }))
+              setLoginInputs({
+                ...loginInputs,
+                remember: !loginInputs.remember,
+              })
             }
           />
           <span>Lembre-me</span>
