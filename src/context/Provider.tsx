@@ -6,8 +6,8 @@ import { IChildren } from '@/interfaces'
 
 export const ContextCoursesPlatform = ({ children }: IChildren) => {
   const [loginInputs, setLoginInputs] = useState({
-    emailInput: '',
-    passwordInput: '',
+    emailLogin: '',
+    passwordLogin: '',
     remember: false,
   })
 
@@ -15,14 +15,47 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
     headerInput: '',
   })
 
+  const [resetPassword, setResetPassword] = useState({
+    emailReset: '',
+  })
+
+  const [registerUser, setRegisterUser] = useState({
+    emailRegister: '',
+    passwordRegister: '',
+  })
+
+  const [registerSuccess, setRegisterSuccess] = useState(false)
+
+  const [logged, setLogged] = useState(false)
+
   const context = useMemo(
     () => ({
       headerSearch,
       setHeaderSearch,
+
       loginInputs,
       setLoginInputs,
+
+      resetPassword,
+      setResetPassword,
+
+      registerUser,
+      setRegisterUser,
+
+      registerSuccess,
+      setRegisterSuccess,
+
+      logged,
+      setLogged,
     }),
-    [headerSearch, loginInputs],
+    [
+      headerSearch,
+      loginInputs,
+      resetPassword,
+      registerUser,
+      registerSuccess,
+      logged,
+    ],
   )
 
   return (

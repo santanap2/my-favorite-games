@@ -1,27 +1,23 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import LoggedUser from '@/components/LoggedUser'
+import React, { useContext, useEffect } from 'react'
 import UnloggedUser from '@/components/UnloggedUser'
+import CreateAccount from '@/components/CreateAccount'
+import CoursesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
 
 export default function Login() {
-  const [logged, setLogged] = useState(false)
+  const { logged } = useContext(CoursesPlatformContext)
   const router = useRouter()
+
   useEffect(() => {
     if (logged) router.push('/minha-conta')
   }, [logged, router])
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-      <button
-        className="border-zinc-700 border border-solid bg-sky-300 p-4 rounded mb-20"
-        type="button"
-        onClick={() => setLogged(!logged)}
-      >
-        {logged ? 'Deslogar' : 'Logar'}
-      </button>
+    <div className="w-full flex flex-col justify-center items-center gap-10 mt-20">
       <UnloggedUser />
+      <CreateAccount />
     </div>
   )
 }

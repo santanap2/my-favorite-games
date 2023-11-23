@@ -11,11 +11,10 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import { ITextInput } from '@/interfaces'
 import CoursesPlatformContext from '@/context/Context'
+import Link from 'next/link'
 
 export default function Header() {
   const { headerSearch, setHeaderSearch } = useContext(CoursesPlatformContext)
-  const teste = useContext(CoursesPlatformContext)
-  console.log(teste)
   const router = useRouter()
   const pathname = usePathname()
 
@@ -26,7 +25,7 @@ export default function Header() {
     }
   }
   const inputHandler = ({ target: { value } }: ITextInput) =>
-    setHeaderSearch(value)
+    setHeaderSearch({ headerInput: value })
 
   const [hoverBtn, setHoverBtn] = useState({
     search: false,
@@ -40,12 +39,12 @@ export default function Header() {
   return (
     <header>
       <div className="fixed left-0 top-0 z-50 flex h-14 w-screen items-center  justify-between bg-gray-800 px-48 text-sky-400 shadow-xl">
-        <a href="/">
+        <Link href="/">
           <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
             <BookOpenText size={28} weight="regular" />
             <span>My Fav Courses</span>
           </h1>
-        </a>
+        </Link>
         <div className="flex gap-3 items-center justify-center">
           <form
             action=""
@@ -77,7 +76,7 @@ export default function Header() {
             </button>
           </form>
 
-          <a href="/">
+          <Link href="/">
             <House
               size={28}
               weight={house ? 'duotone' : 'regular'}
@@ -88,8 +87,8 @@ export default function Header() {
                 setHoverBtn((prev) => ({ ...prev, house: false }))
               }
             />
-          </a>
-          <a href="/login">
+          </Link>
+          <Link href="/login">
             <User
               size={28}
               weight={user ? 'duotone' : 'regular'}
@@ -100,8 +99,8 @@ export default function Header() {
                 setHoverBtn((prev) => ({ ...prev, user: false }))
               }
             />
-          </a>
-          <a href="/cart">
+          </Link>
+          <Link href="/cart">
             <ShoppingCartSimple
               size={28}
               weight={cart ? 'duotone' : 'regular'}
@@ -113,7 +112,7 @@ export default function Header() {
                 setHoverBtn((prev) => ({ ...prev, cart: false }))
               }
             />
-          </a>
+          </Link>
         </div>
       </div>
     </header>

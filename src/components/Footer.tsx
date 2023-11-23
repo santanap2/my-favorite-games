@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Footer() {
@@ -9,27 +10,27 @@ export default function Footer() {
       </div>
       <ul className="flex flex-wrap items-center text-sm font-medium">
         <li>
-          <a href="/sobre" className="hover:underline me-4 md:me-6">
+          <Link href="/sobre" className="hover:underline me-4 md:me-6">
             Sobre
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/politica-de-privacidade"
             className="hover:underline me-4 md:me-6"
           >
             Política de privacidade
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/licenciamento" className="hover:underline me-4 md:me-6">
+          <Link href="/licenciamento" className="hover:underline me-4 md:me-6">
             Licenciamento
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/Contato" className="hover:underline">
+          <Link href="/Contato" className="hover:underline">
             Contato
-          </a>
+          </Link>
         </li>
       </ul>
     </footer>

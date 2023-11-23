@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import { IInitialValueContext } from '@/interfaces'
 import { createContext } from 'react'
 
 const initialValueContext = {
@@ -8,14 +6,25 @@ const initialValueContext = {
   },
 
   loginInputs: {
-    emailInput: '',
-    passwordInput: '',
+    emailLogin: '',
+    passwordLogin: '',
     remember: false,
   },
+
+  resetPassword: {
+    emailReset: '',
+  },
+
+  registerUser: {
+    emailRegister: '',
+    passwordRegister: '',
+  },
+
+  registerSuccess: false,
+
+  logged: false,
 }
 
-const CoursesPlatformContext = createContext(
-  initialValueContext as IInitialValueContext,
-)
+const CoursesPlatformContext = createContext(initialValueContext)
 
 export default CoursesPlatformContext
