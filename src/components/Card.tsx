@@ -18,7 +18,7 @@ export default function Card({ name, area, price, image, id }: ICard) {
           <div className="bg-zinc-400 w-72 h-px absolute top-24" />
           <div className="flex items-start justify-between w-full">
             <h2 className="font-regular">{area}</h2>
-            <div className="bg-orange-400 flex items-center justify-center w-24 h-24 rounded-lg relative">
+            <div className="bg-green-400 flex items-center justify-center w-24 h-24 rounded-lg relative">
               <span className="absolute text-sm top-3 left-2">R$</span>
               <span className="text-2xl font-bold">
                 {price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}

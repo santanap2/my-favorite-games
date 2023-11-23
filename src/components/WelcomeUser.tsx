@@ -30,7 +30,7 @@ export default function WelcomeUser({ username, email }: IWelcomeUser) {
         <LastOrderDetail
           order={5461541}
           name={courses[1].name}
-          status="Cancelado"
+          status="Concluído"
           date={new Date()}
           payment="Cartão de Crédito"
         />

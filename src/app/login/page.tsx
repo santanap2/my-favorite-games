@@ -15,7 +15,7 @@ export default function Login() {
   }, [logged, router])
 
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-10 mt-20">
+    <div className="w-full flex flex-col justify-center items-center gap-10 mt-32">
       <UnloggedUser />
       <CreateAccount />
     </div>

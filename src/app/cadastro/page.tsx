@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <div>
       {registerSuccess ? (
-        <div className="flex flex-col gap-10">
+        <div className="mt-32 flex flex-col gap-10">
           <RegisterSucess />
           <ReturnLogin />
         </div>

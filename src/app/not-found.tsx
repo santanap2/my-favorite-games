@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function NotFoundPage() {
   return (
-    <div>
+    <div className="mt-32">
       <h1>Página não encontrada, tente novamente</h1>
     </div>
   )

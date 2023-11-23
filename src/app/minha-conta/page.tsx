@@ -18,7 +18,7 @@ export default function MinhaConta() {
   // }, [logged, router, setLogged])
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full">
       <LoggedUser />
     </div>
   )

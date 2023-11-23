@@ -13,7 +13,7 @@ export default function LateralFilters() {
 
         <div className="pl-6 w-full mt-8 flex flex-col gap-12">
           <div>
-            <h1 className="text-sm font-semibold">Área do curso</h1>
+            <h1 className="text-sm font-semibold">Tópico</h1>
             <div className="flex flex-col gap-3 mt-3">
               {coursesAreas.map((item) => (
                 <label

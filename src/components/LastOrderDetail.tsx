@@ -18,10 +18,10 @@ export default function LastOrderDetail({
   }
 
   return (
-    <div className=" w-11/12 bg-white rounded-3xl p-6 shadow-xl">
+    <div className=" w-11/12 bg-white rounded-3xl p-6 shadow-md">
       <table className="w-full">
         <thead>
-          <tr className="font-bold text-md uppercase">
+          <tr className="font-bold text-sm uppercase">
             <td className="w-64 bg-sky-200 py-3 pl-3 rounded-l-lg">Nome</td>
             <td className="w-36 bg-sky-200 py-3">Número do pedido</td>
             <td className="w-40 bg-sky-200 py-3">Status</td>
