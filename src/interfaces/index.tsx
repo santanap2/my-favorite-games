@@ -41,3 +41,22 @@ export interface IMenuItem {
   iconClass: string
   especialClass?: string
 }
+
+export interface IWelcomeUser {
+  username: string
+  email: string
+}
+
+export interface IUserOrderCard {
+  image: string
+  name: string
+  id: number
+}
+
+export interface ILastOrderDetail {
+  order: number
+  name: string
+  status: string
+  date: Date
+  payment: string
+}

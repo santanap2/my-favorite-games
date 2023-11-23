@@ -13,7 +13,7 @@ import {
 
 export default function LateralMenu() {
   return (
-    <div className="flex flex-col absolute left-0 top-0 pt-20 pl-6 h-full justify-between">
+    <div className="fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100">
       <div className="flex flex-col">
         <MenuItem
           Icon={House}
@@ -68,10 +68,10 @@ export default function LateralMenu() {
 
       <MenuItem
         Icon={SignOut}
-        name="Logout"
+        name="Sair"
         size={34}
         link="/logout"
-        especialClass="mb-24 hover:text-orange-400"
+        especialClass="mb-4 hover:text-orange-400"
         iconClass="text-orange-600"
       />
     </div>

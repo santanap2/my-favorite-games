@@ -1,6 +1,5 @@
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
 import LoggedUser from '@/components/LoggedUser'
 import CoursesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
@@ -19,7 +18,7 @@ export default function MinhaConta() {
   // }, [logged, router, setLogged])
 
   return (
-    <div>
+    <div className="w-full h-full">
       <LoggedUser />
     </div>
   )

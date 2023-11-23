@@ -19,9 +19,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <ContextCoursesPlatform>
         <html lang="en">
           <body className={`${inter.className} bg-zinc-50 min-h-screen`}>
-            <div className="flex w-full min-h-screen items-center justify-center">
-              <div className="flex w-4/5 min-h-screen flex-col items-center justify-between">
-                <Header />
+            <div className="flex w-full min-h-screen items-center justify-between flex-col">
+              <Header />
+              <div className="flex w-4/5 min-h-screen flex-col justify-between items-center">
                 {children}
                 <Footer />
               </div>
