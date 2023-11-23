@@ -23,6 +23,8 @@ const initialValueContext = {
   registerSuccess: false,
 
   logged: false,
+
+  cart: [],
 }
 
 const CoursesPlatformContext = createContext(initialValueContext)

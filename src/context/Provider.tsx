@@ -28,6 +28,8 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
   const [logged, setLogged] = useState(false)
 
+  const [cart, setCart] = useState([])
+
   const context = useMemo(
     () => ({
       headerSearch,
@@ -47,6 +49,9 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
       logged,
       setLogged,
+
+      cart,
+      setCart,
     }),
     [
       headerSearch,
@@ -55,6 +60,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       registerUser,
       registerSuccess,
       logged,
+      cart,
     ],
   )
 

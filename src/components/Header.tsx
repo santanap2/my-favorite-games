@@ -15,7 +15,11 @@ import Link from 'next/link'
 import { UserCircle } from '@phosphor-icons/react'
 
 export default function Header() {
-  const { headerSearch, setHeaderSearch } = useContext(CoursesPlatformContext)
+  const {
+    headerSearch,
+    setHeaderSearch,
+    cart: cartState,
+  } = useContext(CoursesPlatformContext)
   const router = useRouter()
   const pathname = usePathname()
 
@@ -101,7 +105,7 @@ export default function Header() {
               }
             />
           </Link>
-          <Link href="/cart">
+          <Link href="/cart" className="relative">
             <ShoppingCartSimple
               size={28}
               weight={cart ? 'duotone' : 'regular'}
@@ -113,6 +117,9 @@ export default function Header() {
                 setHoverBtn((prev) => ({ ...prev, cart: false }))
               }
             />
+            <span className="absolute bg-red-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
+              {cartState.length}
+            </span>
           </Link>
         </div>
       </div>
