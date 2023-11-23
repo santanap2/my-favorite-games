@@ -12,6 +12,7 @@ import {
 import { ITextInput } from '@/interfaces'
 import CoursesPlatformContext from '@/context/Context'
 import Link from 'next/link'
+import { UserCircle } from '@phosphor-icons/react'
 
 export default function Header() {
   const { headerSearch, setHeaderSearch } = useContext(CoursesPlatformContext)
@@ -89,7 +90,7 @@ export default function Header() {
             />
           </Link>
           <Link href="/login">
-            <User
+            <UserCircle
               size={28}
               weight={user ? 'duotone' : 'regular'}
               onMouseEnter={() =>

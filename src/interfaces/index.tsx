@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { FunctionComponent, ReactNode } from 'react'
 
 export interface ICard {
   image: string
@@ -31,4 +31,13 @@ export interface IInitialValueContext {
     remember: boolean
   }
   setLoginInputs: React.Dispatch<React.SetStateAction<string>>
+}
+
+export interface IMenuItem {
+  Icon: string | FunctionComponent
+  name: string
+  size: number
+  link: string
+  iconClass: string
+  especialClass?: string
 }
