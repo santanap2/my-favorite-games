@@ -81,7 +81,7 @@ export default function Header() {
             </button>
           </form>
 
-          <Link href="/">
+          {/* <Link href="/">
             <House
               size={28}
               weight={house ? 'duotone' : 'regular'}
@@ -92,20 +92,21 @@ export default function Header() {
                 setHoverBtn((prev) => ({ ...prev, house: false }))
               }
             />
+          </Link> */}
+          <Link
+            href="/login"
+            className="flex items-center justify-center gap-1 hover:underline"
+            onMouseEnter={() =>
+              setHoverBtn((prev) => ({ ...prev, user: true }))
+            }
+            onMouseLeave={() =>
+              setHoverBtn((prev) => ({ ...prev, user: false }))
+            }
+          >
+            <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
+            <span className="uppercase font-semibold text-xs">fazer login</span>
           </Link>
-          <Link href="/login">
-            <UserCircle
-              size={28}
-              weight={user ? 'duotone' : 'regular'}
-              onMouseEnter={() =>
-                setHoverBtn((prev) => ({ ...prev, user: true }))
-              }
-              onMouseLeave={() =>
-                setHoverBtn((prev) => ({ ...prev, user: false }))
-              }
-            />
-          </Link>
-          <Link href="/cart" className="relative">
+          <Link href="/carrinho" className="relative">
             <ShoppingCartSimple
               size={28}
               weight={cart ? 'duotone' : 'regular'}

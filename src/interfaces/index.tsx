@@ -60,3 +60,9 @@ export interface ILastOrderDetail {
   date: Date
   payment: string
 }
+
+export interface IParams {
+  params: {
+    id: string
+  }
+}

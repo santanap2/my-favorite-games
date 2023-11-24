@@ -18,11 +18,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <React.StrictMode>
       <ContextCoursesPlatform>
         <html lang="en">
-          <body className={`${inter.className} bg-zinc-50`}>
-            <div className="flex w-full min-h-screen items-center justify-between flex-col">
+          <body className={`${inter.className} bg-zinc-50 overflow-x-hidden`}>
+            <div className="flex w-full items-center justify-start flex-col">
               <Header />
-              <div className="flex w-4/5 flex-col items-center">{children}</div>
-              <Footer />
+              <div className="flex w-4/5 flex-col items-center justify-between min-h-screen">
+                {children}
+                <Footer />
+              </div>
             </div>
           </body>
         </html>

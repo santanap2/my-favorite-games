@@ -22,7 +22,7 @@ export default function MenuItem({
   return (
     <Link href={link}>
       <div
-        className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-lg  hover:text-sky-400 ${especialClass}`}
+        className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-lg ${especialClass}`}
         onMouseEnter={hoverIconChange}
         onMouseLeave={hoverIconChange}
       >

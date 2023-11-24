@@ -5,7 +5,7 @@ import coursesAreas from '@/data/coursesAreas'
 
 export default function LateralFilters() {
   return (
-    <div className="w-64 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between bg-zinc-100">
+    <div className="w-72 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between bg-zinc-100">
       <div className="flex flex-col items-center h-full justify-start">
         <div className="w-full text-md font-bold text-center">
           Filtre sua busca
@@ -19,7 +19,7 @@ export default function LateralFilters() {
                 <label
                   htmlFor={item}
                   key={item}
-                  className="flex justify-start items-center gap-3 w-full"
+                  className="flex justify-start items-center gap-3 w-full hover:underline"
                 >
                   <input id={item} type="checkbox" />
                   <span className="text-zinc-600 tracking-wider text-sm font-light">
@@ -37,7 +37,7 @@ export default function LateralFilters() {
               <input
                 id="min-price"
                 type="number"
-                className="w-16 rounded-md shadow-sm focus:outline-none focus:shadow-lg p-2"
+                className="w-16 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
               />
             </label>
 
@@ -46,7 +46,7 @@ export default function LateralFilters() {
               <input
                 id="max-price"
                 type="number"
-                className="w-16 rounded-md shadow-sm focus:outline-none focus:shadow-lg p-2"
+                className="w-16 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
               />
             </label>
           </div>
@@ -54,7 +54,7 @@ export default function LateralFilters() {
 
         <button
           type="button"
-          className="w-52 bg-sky-400 rounded-md p-2 font-regular text-sm shadow-md hover:shadow-xl mt-20"
+          className="w-52 bg-sky-400 rounded-md p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-20"
         >
           Filtrar
         </button>

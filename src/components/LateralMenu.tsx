@@ -13,13 +13,14 @@ import {
 
 export default function LateralMenu() {
   return (
-    <div className="fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100">
+    <div className="w-72 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100">
       <div className="flex flex-col">
         <MenuItem
           Icon={House}
           name="Início"
           size={34}
           link="/minha-conta"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
         <MenuItem
@@ -27,6 +28,7 @@ export default function LateralMenu() {
           name="Meus dados"
           size={34}
           link="/meus-dados"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
         <MenuItem
@@ -34,6 +36,7 @@ export default function LateralMenu() {
           name="Meus pedidos"
           size={34}
           link="/meus-pedidos"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
         <MenuItem
@@ -41,6 +44,7 @@ export default function LateralMenu() {
           name="Meus cursos"
           size={34}
           link="/meus-cursos"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
         <MenuItem
@@ -48,6 +52,7 @@ export default function LateralMenu() {
           name="Avaliações"
           size={34}
           link="/minhas-avaliacoes"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
         <MenuItem
@@ -55,6 +60,7 @@ export default function LateralMenu() {
           name="Favoritos"
           size={34}
           link="/meus-favoritos"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
         <MenuItem
@@ -62,6 +68,7 @@ export default function LateralMenu() {
           name="Ajuda"
           size={34}
           link="/ajuda"
+          especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
       </div>
