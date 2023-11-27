@@ -17,3 +17,29 @@ input[type=number] {
  appearance: textfield;
 
 }
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(480px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 60%;
+  }
+}
+
+.slideshow {
+  animation: slideInRight 0.2s ease-out
+}
+
+.animation-opacity {
+  animation: opacity 0.2s ease-in;
+}

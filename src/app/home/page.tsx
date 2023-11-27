@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Card from '@/components/Card'
 import { courses } from '@/data/courses'

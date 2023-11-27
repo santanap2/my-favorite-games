@@ -30,6 +30,8 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
   const [cart, setCart] = useState([])
 
+  const [showCart, setShowCart] = useState(false)
+
   const context = useMemo(
     () => ({
       headerSearch,
@@ -52,6 +54,9 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
       cart,
       setCart,
+
+      showCart,
+      setShowCart,
     }),
     [
       headerSearch,
@@ -61,6 +66,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       registerSuccess,
       logged,
       cart,
+      showCart,
     ],
   )
 

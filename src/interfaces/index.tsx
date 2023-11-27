@@ -66,3 +66,12 @@ export interface IParams {
     id: string
   }
 }
+
+export interface ICartItem {
+  area: string
+  description: string
+  id: number
+  image: string
+  name: string
+  price: number
+}

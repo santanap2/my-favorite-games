@@ -4,10 +4,8 @@ import { useRouter, usePathname } from 'next/navigation'
 
 import {
   BookOpenText,
-  House,
   MagnifyingGlass,
   ShoppingCartSimple,
-  User,
 } from '@phosphor-icons/react/dist/ssr'
 import { ITextInput } from '@/interfaces'
 import CoursesPlatformContext from '@/context/Context'
@@ -15,6 +13,8 @@ import Link from 'next/link'
 import { UserCircle } from '@phosphor-icons/react'
 
 export default function Header() {
+  const { setShowCart, showCart } = useContext(CoursesPlatformContext)
+
   const {
     headerSearch,
     setHeaderSearch,
@@ -39,11 +39,11 @@ export default function Header() {
     cart: false,
   })
 
-  const { search, house, user, cart } = hoverBtn
+  const { search, user, cart } = hoverBtn
 
   return (
     <header>
-      <div className="fixed left-0 top-0 z-50 flex h-14 w-screen items-center  justify-between bg-gray-800 px-48 text-sky-400 shadow-xl">
+      <div className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-between bg-gray-800 px-48 text-sky-400 shadow-xl">
         <Link href="/">
           <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
             <BookOpenText size={28} weight="regular" />
@@ -81,18 +81,6 @@ export default function Header() {
             </button>
           </form>
 
-          {/* <Link href="/">
-            <House
-              size={28}
-              weight={house ? 'duotone' : 'regular'}
-              onMouseEnter={() =>
-                setHoverBtn((prev) => ({ ...prev, house: true }))
-              }
-              onMouseLeave={() =>
-                setHoverBtn((prev) => ({ ...prev, house: false }))
-              }
-            />
-          </Link> */}
           <Link
             href="/login"
             className="flex items-center justify-center gap-1 hover:underline"
@@ -106,7 +94,7 @@ export default function Header() {
             <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
             <span className="uppercase font-semibold text-xs">fazer login</span>
           </Link>
-          <Link href="/carrinho" className="relative">
+          <button className="relative" onClick={() => setShowCart(!showCart)}>
             <ShoppingCartSimple
               size={28}
               weight={cart ? 'duotone' : 'regular'}
@@ -121,7 +109,7 @@ export default function Header() {
             <span className="absolute bg-red-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
               {cartState.length}
             </span>
-          </Link>
+          </button>
         </div>
       </div>
     </header>

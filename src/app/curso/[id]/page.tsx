@@ -6,7 +6,7 @@ import EvaluationsCourse from '@/components/EvaluationsCourse'
 import LateralFilters from '@/components/LateralFilters'
 import CoursesPlatformContext from '@/context/Context'
 import { courses } from '@/data/courses'
-import { IParams } from '@/interfaces'
+import { ICartItem, IParams } from '@/interfaces'
 import {
   CaretDown,
   CaretRight,
@@ -23,17 +23,18 @@ export default function Page({ params: { id } }: IParams) {
     evaluation: true,
   })
 
+  const { cart, setCart, setShowCart } = useContext(CoursesPlatformContext)
+
   const course = courses.find((one) => one.id === Number(id))
 
   const { name, area, price, image, description } = course
+
   const convertedPrice = Number((price * 0.9).toFixed(2)).toLocaleString(
     'pt-BR',
     {
       minimumFractionDigits: 2,
     },
   )
-
-  const { cart, setCart } = useContext(CoursesPlatformContext)
 
   const portionPrice = (price: number, portions: number) => {
     const portion = price / portions
@@ -44,6 +45,17 @@ export default function Page({ params: { id } }: IParams) {
 
   const clickExpandMenu = (menu: string) => {
     setExpandMenus({ ...expandMenus, [menu]: !expandMenus[menu] })
+  }
+
+  const addCartItem = (item: ICartItem) => {
+    setShowCart(true)
+    setCart((prev: ICartItem[]) => {
+      if (prev.includes(item)) {
+        setCart(prev)
+      } else {
+        setCart([...cart, item])
+      }
+    })
   }
 
   return (
@@ -88,7 +100,7 @@ export default function Page({ params: { id } }: IParams) {
                 Comprar agora
               </button>
               <button
-                onClick={() => setCart([...cart, course])}
+                onClick={() => addCartItem(course)}
                 className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg"
               >
                 <ShoppingCartSimple

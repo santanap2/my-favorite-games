@@ -25,6 +25,8 @@ const initialValueContext = {
   logged: false,
 
   cart: [],
+
+  showCart: false,
 }
 
 const CoursesPlatformContext = createContext(initialValueContext)

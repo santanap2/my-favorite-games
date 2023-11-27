@@ -20,9 +20,9 @@ export default function EvaluationsCourse() {
           <div className="flex flex-col">
             <h1 className="font-bold">{client}</h1>
             <div className="flex">
-              {starsCount(stars).map((item) => (
+              {starsCount(stars).map((item, index) => (
                 <Star
-                  key={item}
+                  key={index}
                   size={20}
                   weight="duotone"
                   className="text-sky-400"
