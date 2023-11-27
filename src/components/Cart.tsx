@@ -47,7 +47,7 @@ export default function Cart() {
                 <img
                   src={image}
                   alt={name}
-                  className="w-32 h-32 object-cover rounded"
+                  className="w-32 h-32 object-cover rounded-md"
                 />
                 <div className="flex flex-col justify-between items-start">
                   <h1 className="font-bold text-sm tracking-tight">{name}</h1>
@@ -81,7 +81,7 @@ export default function Cart() {
             <Link href="/finalizar-compra" className="w-4/5">
               <button
                 type="button"
-                className="text-sm uppercase font-bold text-white w-full py-2 bg-sky-400 rounded tracking-wide shadow-sm hover:shadow-lg"
+                className="text-sm uppercase font-bold text-white w-full py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg"
               >
                 {`Finalizar compra -  R$ ${calcSum()}`}
               </button>

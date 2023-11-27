@@ -9,7 +9,7 @@ export default function Card({ name, area, price, image, id }: ICard) {
   return (
     <Link href={`/curso/${id}`}>
       <div className="flex flex-col w-80 bg-zinc-200 rounded-md relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer">
-        <div className="w-full h-40 bg-sky-400 rounded-t-lg" />
+        <div className="w-full h-40 bg-sky-400 rounded-t-md" />
         <img
           src={image}
           alt={name}

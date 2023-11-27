@@ -15,7 +15,7 @@ export default function EvaluationsCourse() {
       {evaluations.map(({ id, client, stars, date, description }) => (
         <div
           key={id}
-          className="w-[360px] h-[360px] bg-white px-9 py-6 rounded-lg shadow-md text-base text-zinc-600 flex flex-col gap-6"
+          className="w-[360px] h-[360px] bg-white px-9 py-6 rounded-md shadow-md text-base text-zinc-600 flex flex-col gap-6"
         >
           <div className="flex flex-col">
             <h1 className="font-bold">{client}</h1>

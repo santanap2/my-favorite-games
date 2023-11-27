@@ -80,7 +80,7 @@ export default function Page({ params: { id } }: IParams) {
           <img
             src={image}
             alt={name}
-            className="w-[640px] h-[400px] rounded-lg shadow-md object-cover"
+            className="w-[640px] h-[400px] rounded-md shadow-md object-cover"
           />
           <div className="flex flex-col justify-start items-start  w-full h-full text-zinc-600">
             <span>Vendido por: My Fav Courses™</span>

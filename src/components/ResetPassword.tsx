@@ -28,7 +28,7 @@ export default function ResetPassword() {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="px-20 py-8 rounded-lg flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
+      <div className="px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
         <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
           Redefinir senha
         </h1>

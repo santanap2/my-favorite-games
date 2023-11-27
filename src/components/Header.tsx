@@ -106,7 +106,7 @@ export default function Header() {
                 setHoverBtn((prev) => ({ ...prev, cart: false }))
               }
             />
-            <span className="absolute bg-red-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
+            <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
               {cartState.length}
             </span>
           </button>

@@ -32,7 +32,7 @@ export default function UnloggedUser() {
   }
 
   return (
-    <div className="px-20 py-8 rounded-lg flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow-md">
+    <div className="px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow-md">
       <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
         Fazer login
       </h1>
