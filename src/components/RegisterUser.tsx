@@ -72,7 +72,7 @@ export default function RegisterUser() {
 
         <button
           type="submit"
-          className="w-80 h-10 bg-sky-400 text-zinc-800 rounded-md text-md font-regular shadow hover:shadow-lg disabled:opacity-40"
+          className="w-80 h-10 bg-sky-400 font-light text-white rounded-md text-regular shadow hover:shadow-lg disabled:opacity-40"
           disabled={btnDisabled}
         >
           Cadastrar

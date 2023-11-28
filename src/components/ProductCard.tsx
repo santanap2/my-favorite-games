@@ -3,12 +3,11 @@
 import React from 'react'
 import { ICard } from '@/interfaces'
 import Link from 'next/link'
-// import CoursesPlatformContext from '@/context/Context'
 
 export default function Card({ name, area, price, image, id }: ICard) {
   return (
     <Link href={`/curso/${id}`}>
-      <div className="flex flex-col w-80 bg-zinc-200 rounded-md relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer">
+      <div className="flex flex-col w-80 bg-zinc-100 rounded-md relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer">
         <div className="w-full h-40 bg-sky-400 rounded-t-md" />
         <img
           src={image}
@@ -27,9 +26,6 @@ export default function Card({ name, area, price, image, id }: ICard) {
               </span>
             </div>
           </div>
-          {/* <button type="button" onClick={addCart}>
-          Add cart
-        </button> */}
         </div>
       </div>
     </Link>

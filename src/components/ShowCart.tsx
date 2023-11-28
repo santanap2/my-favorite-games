@@ -2,7 +2,7 @@
 
 import CoursesPlatformContext from '@/context/Context'
 import React, { useContext } from 'react'
-import Cart from './Cart'
+import ShoppingCart from './ShoppingCart'
 import BlackBg from './BlackBg'
 
 export default function ShowCart() {
@@ -11,7 +11,7 @@ export default function ShowCart() {
     <>
       {showCart ? (
         <>
-          <Cart />
+          <ShoppingCart />
           <BlackBg />
         </>
       ) : (

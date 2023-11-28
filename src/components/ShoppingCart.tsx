@@ -19,11 +19,15 @@ export default function Cart() {
 
   const calcSum = () => {
     let initialSum = 0
-    console.log(cart)
     cart.forEach(({ price }) => (initialSum += price))
     return initialSum.toLocaleString('pt-BR', {
       minimumFractionDigits: 2,
     })
+  }
+
+  const finalizePurchase = () => {
+    setShowCart(false)
+    router.push('/finalizar-compra')
   }
 
   return (
@@ -78,14 +82,13 @@ export default function Cart() {
 
         {cart.length > 0 ? (
           <div className="w-full flex flex-col items-center justify-center gap-3 mb-16">
-            <Link href="/finalizar-compra" className="w-4/5">
-              <button
-                type="button"
-                className="text-sm uppercase font-bold text-white w-full py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg"
-              >
-                {`Finalizar compra -  R$ ${calcSum()}`}
-              </button>
-            </Link>
+            <button
+              type="button"
+              onClick={finalizePurchase}
+              className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5"
+            >
+              {`Finalizar compra -  R$ ${calcSum()}`}
+            </button>
 
             <button
               type="button"

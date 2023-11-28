@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Card from '@/components/Card'
+import ProductCard from '@/components/ProductCard'
 import { courses } from '@/data/courses'
 import LateralFilters from '@/components/LateralFilters'
 
@@ -11,7 +11,7 @@ export default function Cursos() {
       <LateralFilters />
       <div className="ml-32 flex flex-wrap gap-6 justify-center items-center">
         {courses.map(({ name, area, price, id, image }) => (
-          <Card
+          <ProductCard
             key={id}
             name={name}
             id={id}

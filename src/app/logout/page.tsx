@@ -1,13 +1,16 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
+import CoursesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 export default function Page() {
   const router = useRouter()
+  const { setLogged } = useContext(CoursesPlatformContext)
 
   useEffect(() => {
+    setLogged(false)
     router.push('/')
   }, [router])
 

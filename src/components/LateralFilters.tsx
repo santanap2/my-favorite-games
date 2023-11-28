@@ -54,7 +54,7 @@ export default function LateralFilters() {
 
         <button
           type="button"
-          className="w-52 bg-sky-400 rounded-md p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-20"
+          className="w-52 bg-sky-400 rounded-md p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-20 font-light text-white"
         >
           Filtrar
         </button>

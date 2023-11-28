@@ -13,7 +13,7 @@ export default function ReturnLogin() {
       </div>
       <button
         type="button"
-        className="w-48 h-10 bg-orange-400 text-zinc-800 rounded-md text-sm font-regular shadow hover:shadow-lg"
+        className="w-48 h-10 bg-orange-400 text-zinc-800 rounded-md text-sm font-light shadow hover:shadow-lg"
         onClick={() => router.push('/login')}
       >
         Voltar
