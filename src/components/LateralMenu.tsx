@@ -27,7 +27,7 @@ export default function LateralMenu() {
           Icon={User}
           name="Meus dados"
           size={34}
-          link="/meus-dados"
+          link="/minha-conta/meus-dados"
           especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
@@ -35,7 +35,7 @@ export default function LateralMenu() {
           Icon={Bag}
           name="Meus pedidos"
           size={34}
-          link="/meus-pedidos"
+          link="/minha-conta/meus-pedidos"
           especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
@@ -43,7 +43,7 @@ export default function LateralMenu() {
           Icon={Books}
           name="Meus cursos"
           size={34}
-          link="/meus-cursos"
+          link="/minha-conta/meus-cursos"
           especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
@@ -51,7 +51,7 @@ export default function LateralMenu() {
           Icon={ThumbsUp}
           name="Avaliações"
           size={34}
-          link="/minhas-avaliacoes"
+          link="/minha-conta/minhas-avaliacoes"
           especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
@@ -59,7 +59,7 @@ export default function LateralMenu() {
           Icon={Heart}
           name="Favoritos"
           size={34}
-          link="/meus-favoritos"
+          link="/minha-conta/meus-favoritos"
           especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />
@@ -67,7 +67,7 @@ export default function LateralMenu() {
           Icon={Chat}
           name="Ajuda"
           size={34}
-          link="/ajuda"
+          link="/minha-conta/ajuda"
           especialClass="hover:text-sky-400"
           iconClass="text-sky-600"
         />

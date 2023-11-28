@@ -4,13 +4,13 @@ import UserOrderCard from './UserOrderCard'
 import LastOrderDetail from './LastOrderDetail'
 import { courses } from '@/data/courses'
 import Link from 'next/link'
-import { EnvelopeSimple, IdentificationCard } from '@phosphor-icons/react'
+import { EnvelopeSimple, UserCircle } from '@phosphor-icons/react'
 
 export default function WelcomeUser({ username, email }: IWelcomeUser) {
   return (
     <div className="ml-32 w-full h-full flex flex-col gap-16 text-zinc-800">
       <div className="flex gap-1 items-start w-fit">
-        <IdentificationCard weight="fill" size={56} className="text-sky-500" />
+        <UserCircle weight="fill" size={56} className="text-sky-500" />
         <div className="flex flex-col">
           <h1 className="font-regular text-xl">
             Olá <strong className="font-bold text-2xl">{` ${username}`}</strong>
@@ -49,7 +49,7 @@ export default function WelcomeUser({ username, email }: IWelcomeUser) {
         </div>
         <div className="flex gap-8 w-fit pb-4 items-center">
           {courses.map(({ image, name, id }, i) => {
-            if (i % 2 === 0)
+            if (i % 2 !== 0)
               return (
                 <UserOrderCard key={id} image={image} name={name} id={id} />
               )
