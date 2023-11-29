@@ -6,6 +6,7 @@ import EvaluationsCourse from '@/components/EvaluationsCourse'
 import LateralFilters from '@/components/LateralFilters'
 import CoursesPlatformContext from '@/context/Context'
 import { courses } from '@/data/courses'
+import { portionPrice, priceToBRL } from '@/helpers'
 import { ICartItem, IParams } from '@/interfaces'
 import {
   CaretDown,
@@ -28,20 +29,6 @@ export default function Page({ params: { id } }: IParams) {
   const course = courses.find((one) => one.id === Number(id))
 
   const { name, area, price, image, description } = course
-
-  const convertedPrice = Number((price * 0.9).toFixed(2)).toLocaleString(
-    'pt-BR',
-    {
-      minimumFractionDigits: 2,
-    },
-  )
-
-  const portionPrice = (price: number, portions: number) => {
-    const portion = price / portions
-    return Number(portion.toFixed(2)).toLocaleString('pt-BR', {
-      minimumFractionDigits: 2,
-    })
-  }
 
   const clickExpandMenu = (menu: string) => {
     setExpandMenus({ ...expandMenus, [menu]: !expandMenus[menu] })
@@ -86,7 +73,7 @@ export default function Page({ params: { id } }: IParams) {
             <span>Vendido por: My Fav Courses™</span>
             <div className="text-sky-500 text-4xl font-black">
               <span>{'R$ '}</span>
-              <span>{convertedPrice}</span>
+              <span>{priceToBRL(price * 0.9)}</span>
             </div>
             <div className="flex flex-col mt-6 text-zinc-500">
               <span>À vista no PIX com 10% de desconto</span>

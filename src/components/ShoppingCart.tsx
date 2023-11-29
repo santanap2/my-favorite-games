@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import CoursesPlatformContext from '@/context/Context'
+import { calcSum, priceToBRL } from '@/helpers'
 import { X } from '@phosphor-icons/react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
@@ -16,14 +16,6 @@ export default function Cart() {
   }
 
   const router = useRouter()
-
-  const calcSum = () => {
-    let initialSum = 0
-    cart.forEach(({ price }) => (initialSum += price))
-    return initialSum.toLocaleString('pt-BR', {
-      minimumFractionDigits: 2,
-    })
-  }
 
   const finalizePurchase = () => {
     setShowCart(false)
@@ -58,9 +50,7 @@ export default function Cart() {
                   <h3>{area}</h3>
                   <div className="flex justify-between items-center w-full">
                     <h2 className="font-extrabold tracking-wider text-lg">
-                      {`R$ ${price.toLocaleString('pt-BR', {
-                        minimumFractionDigits: 2,
-                      })}`}
+                      {`R$ ${priceToBRL(price)}`}
                     </h2>
                     <button
                       type="button"
@@ -87,7 +77,7 @@ export default function Cart() {
               onClick={finalizePurchase}
               className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5"
             >
-              {`Finalizar compra -  R$ ${calcSum()}`}
+              {`Finalizar compra -  R$ ${calcSum(cart).string}`}
             </button>
 
             <button

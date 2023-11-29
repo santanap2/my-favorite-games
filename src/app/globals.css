@@ -36,10 +36,25 @@ input[type=number] {
   }
 }
 
+@keyframes appearFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
 .slideshow {
   animation: slideInRight 0.2s ease-out
 }
 
 .animation-opacity {
   animation: opacity 0.2s ease-in;
+}
+
+.appear-animation {
+  animation: appearFromTop 0.3s ease-out;
 }

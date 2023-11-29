@@ -2,6 +2,7 @@
 'use client'
 
 import CoursesPlatformContext from '@/context/Context'
+import { calcSum, portionPrice, priceToBRL } from '@/helpers'
 import { Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
@@ -18,33 +19,15 @@ export default function Page() {
     }
   }, [logged, router, setShowCart])
 
-  const portionPrice = (price: number, portions: number) => {
-    const portion = price / portions
-    return Number(portion.toFixed(2)).toLocaleString('pt-BR', {
-      minimumFractionDigits: 2,
-    })
-  }
-
-  const calcSum = () => {
-    let initialSum = 0
-    cart.forEach(({ price }) => (initialSum += price))
-    return {
-      string: initialSum.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-      }),
-      number: initialSum,
-    }
-  }
-
   return (
     <div className="mt-32 w-4/5 flex flex-col gap-12">
       <div className="flex gap-1 w-fit items-center justify-center">
         <Wallet weight="fill" size={56} className="text-sky-500" />
-        <h1 className="font-regular text-xl font-semibold">Finalizar pedido</h1>
+        <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
 
       <div className="flex justify-between items-start w-full h-full ">
-        <div className="w-3/5 bg-white rounded-md shadow-md px-6">
+        <div className="w-[70%] bg-white rounded-md shadow-md px-6">
           {cart.map(({ area, id, image, name, price }) => (
             <div
               key={id}
@@ -68,28 +51,25 @@ export default function Page() {
                 <div className="flex justify-between items-center"></div>
               </div>
               <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-sky-500">
-                {`R$ ${price.toLocaleString('pt-BR', {
-                  minimumFractionDigits: 2,
-                })}`}
+                {`R$ ${priceToBRL(price)}`}
               </h2>
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-md shadow-md py-6 px-8 flex flex-col items-end gap-4">
+        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4">
           <h1 className="font-regular text-lg font-semibold uppercase text-zinc-700 tracking-tighter">
             Resumo
           </h1>
 
           <div className="text-zinc-700">
             <span>Valor total dos produtos: </span>
-            <span className="font-semibold">{`R$ ${calcSum().string}`}</span>
-            <h3 className="w-full text-end text-zinc-500 text-sm font-light">{`(Em até 3x de R$${(
-              calcSum().number / 3
-            ).toLocaleString('pt-BR', {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })})`}</h3>
+            <span className="font-semibold">{`R$ ${
+              calcSum(cart).string
+            }`}</span>
+            <h3 className="w-full text-end text-zinc-500 text-sm font-light">{`(Em até 3x de R$${priceToBRL(
+              calcSum(cart).number / 3,
+            )})`}</h3>
           </div>
 
           <div className="w-full h-30 bg-sky-50 p-4 rounded-md flex flex-col items-center justify-center text-sky-500">
@@ -98,19 +78,13 @@ export default function Page() {
               <span className="font-semibold">{` PIX`}</span>
             </div>
             <span className="text-3xl font-extrabold mt-2">
-              {`R$ ${(calcSum().number * 0.9).toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}`}
+              {`R$ ${priceToBRL(calcSum(cart).number * 0.9)}`}
             </span>
             <div className="text-xs font-light">
               <span>{`Economia de: `}</span>
-              <span className="font-bold">{`R$ ${(
-                calcSum().number * 0.1
-              ).toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}`}</span>
+              <span className="font-bold">{`R$ ${priceToBRL(
+                calcSum(cart).number * 0.1,
+              )}`}</span>
             </div>
           </div>
 

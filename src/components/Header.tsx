@@ -29,8 +29,10 @@ export default function Header() {
       router.push(`busca/${headerSearch.headerInput}`)
     }
   }
-  const inputHandler = ({ target: { value } }: ITextInput) =>
+  const inputHandler = ({ target: { value } }: ITextInput) => {
+    console.log(typeof value)
     setHeaderSearch({ headerInput: value })
+  }
 
   const [hoverBtn, setHoverBtn] = useState({
     search: false,
