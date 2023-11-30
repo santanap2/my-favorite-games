@@ -12,19 +12,21 @@ export default function CreditCardForm() {
       action=""
       className="flex flex-col gap-6 cursor-default appear-animation"
     >
-      <div className="w-full relative">
+      <label htmlFor="card-number" className="w-full relative">
         <input
           type="text"
+          id="card-number"
           placeholder="0000 0000 0000 0000"
           className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light"
         />
         <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-50 font-light py-[2px] px-1 text-zinc-500">
           Número do cartão *
         </span>
-      </div>
+      </label>
 
-      <div className="w-full relative">
+      <label htmlFor="card-name" className="w-full relative">
         <input
+          id="card-name"
           type="text"
           placeholder="Digite seu nome"
           className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light"
@@ -32,11 +34,12 @@ export default function CreditCardForm() {
         <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-50 font-light py-[2px] px-1 text-zinc-500">
           Nome impresso no cartão *
         </span>
-      </div>
+      </label>
 
       <div className="w-full flex items-center justify-between">
-        <div className="w-[47.5%] relative">
+        <label htmlFor="card-date" className="w-[47.5%] relative">
           <input
+            id="card-date"
             type="number"
             placeholder="MM/AA"
             className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light"
@@ -44,10 +47,11 @@ export default function CreditCardForm() {
           <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-50 font-light py-[2px] px-1 text-zinc-500">
             Data do vencimento *
           </span>
-        </div>
+        </label>
 
-        <div className="w-[47.5%] relative">
+        <label htmlFor="card-cvv" className="w-[47.5%] relative">
           <input
+            id="card-cvv"
             type="number"
             placeholder="000"
             className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light"
@@ -55,13 +59,13 @@ export default function CreditCardForm() {
           <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-50 font-light py-[2px] px-1 text-zinc-500">
             Código de verificação (CVV) *
           </span>
-        </div>
+        </label>
       </div>
 
-      <div className="w-full relative">
+      <label htmlFor="card-portions" className="w-full relative">
         <select
           name=""
-          id=""
+          id="card-portions"
           placeholder="1x de R$ 499,90"
           className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light"
         >
@@ -80,7 +84,7 @@ export default function CreditCardForm() {
         <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-50 font-light py-[2px] px-1 text-zinc-500">
           Parcelamento
         </span>
-      </div>
+      </label>
     </form>
   )
 }
