@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function CreditCardForm() {
-  const { cart } = useContext(CoursesPlatformContext)
+  const { cart, cardData, setCardData } = useContext(CoursesPlatformContext)
 
   const formSchema = z.object({
     cardData: z.object({
@@ -35,15 +35,6 @@ export default function CreditCardForm() {
         .max(3, 'Informe um numero de cartão válido'),
       cardPortions: z.string(),
     }),
-    // .transform((fields) => ({
-    //   cardData: {
-    //     cardNumber: fields.cardNumber.replace(/ /g, ''),
-    //     cardName: fields.cardName,
-    //     cardDate: fields.cardDate,
-    //     cardCvv: fields.cardCvv,
-    //     cardPortions: fields.cardPortions,
-    //   },
-    // })),
   })
 
   type FormProps = z.infer<typeof formSchema>
@@ -69,7 +60,9 @@ export default function CreditCardForm() {
   })
 
   const handleFormSubmit = (data: FormProps) => {
-    console.log(data)
+    console.log('enviou')
+    setCardData(data)
+    console.log(cardData)
   }
   const cardNumberValue = watch('cardData.cardNumber')
   const cardNameValue = watch('cardData.cardName')
@@ -97,11 +90,8 @@ export default function CreditCardForm() {
       onSubmit={handleSubmit(handleFormSubmit)}
       action=""
       className="flex flex-col gap-6 cursor-default appear-animation"
+      id="creditCardForm"
     >
-      <button type="submit" className="bg-sky-400 w-80 h-10 text-white mt-20">
-        Comprar
-      </button>
-
       <label htmlFor="card-number" className="w-full relative">
         <input
           {...register('cardData.cardNumber')}

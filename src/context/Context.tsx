@@ -8,6 +8,7 @@ import {
   LoginInputs,
   ResetPassword,
   RegisterUser,
+  CardData,
 } from '@/types'
 import { createContext } from 'react'
 
@@ -53,6 +54,17 @@ const initialValueContext = {
     bankSlip: false,
   },
   setPaymentMethod: (state: PaymentMethod) => {},
+
+  cardData: {
+    cardData: {
+      cardNumber: '',
+      cardName: '',
+      cardDate: '',
+      cardCvv: '',
+      cardPortions: '1',
+    },
+  },
+  setCardData: (state: CardData) => {},
 }
 
 const CoursesPlatformContext = createContext(initialValueContext)

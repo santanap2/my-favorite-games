@@ -67,6 +67,12 @@ export default function Page() {
       )
   }
 
+  const checkPaymentMethod = () => {
+    if (paymentMethod.bankSlip) console.log('boleto')
+    if (paymentMethod.pix) console.log('pix')
+    if (paymentMethod.creditCard) console.log('credito')
+  }
+
   return (
     <div className="mt-32 w-4/5 flex flex-col gap-12">
       <div className="flex gap-1 w-fit items-center justify-center">
@@ -212,8 +218,10 @@ export default function Page() {
             )}
           </div>
           <button
-            type="button"
+            type="submit"
             className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
+            form="creditCardForm"
+            onClick={checkPaymentMethod}
           >
             Finalizar
           </button>

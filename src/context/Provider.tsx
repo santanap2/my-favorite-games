@@ -38,6 +38,16 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
     bankSlip: false,
   })
 
+  const [cardData, setCardData] = useState({
+    cardData: {
+      cardNumber: '',
+      cardName: '',
+      cardDate: '',
+      cardCvv: '',
+      cardPortions: '1',
+    },
+  })
+
   const context = useMemo(
     () => ({
       headerSearch,
@@ -66,6 +76,9 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
       paymentMethod,
       setPaymentMethod,
+
+      cardData,
+      setCardData,
     }),
     [
       headerSearch,
@@ -77,6 +90,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       cart,
       showCart,
       paymentMethod,
+      cardData,
     ],
   )
 
