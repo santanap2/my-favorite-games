@@ -1,7 +1,9 @@
+import CoursesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useContext } from 'react'
 
 export default function ReturnLogin() {
+  const { setRegisterSuccess } = useContext(CoursesPlatformContext)
   const router = useRouter()
 
   return (
@@ -14,7 +16,10 @@ export default function ReturnLogin() {
       <button
         type="button"
         className="w-48 h-10 bg-orange-400 text-zinc-800 rounded-md text-sm font-light shadow hover:shadow-lg"
-        onClick={() => router.push('/login')}
+        onClick={() => {
+          setRegisterSuccess(false)
+          router.push('/login')
+        }}
       >
         Voltar
       </button>

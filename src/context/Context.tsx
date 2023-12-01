@@ -2,8 +2,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 
 import { ICartItem } from '@/interfaces'
-import { HeaderSearch, PaymentMethod, CardData } from '@/types'
+import { HeaderSearch, PaymentMethod, CardData, userOrders } from '@/types'
 import { createContext } from 'react'
+import orders from '@/data/userOrders'
 
 const initialValueContext = {
   headerSearch: {
@@ -43,6 +44,11 @@ const initialValueContext = {
     },
   },
   setCardData: (state: CardData) => {},
+
+  userOrders: {
+    orders,
+  },
+  setUserOrders: (state: userOrders) => {},
 }
 
 const CoursesPlatformContext = createContext(initialValueContext)

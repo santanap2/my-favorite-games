@@ -46,14 +46,6 @@ export interface IUserOrderCard {
   id: number
 }
 
-export interface ILastOrderDetail {
-  order: number
-  name: string
-  status: string
-  date: Date
-  payment: string
-}
-
 export interface IParams {
   params: {
     id: string
@@ -67,4 +59,14 @@ export interface ICartItem {
   image: string
   name: string
   price: number
+}
+
+export interface ILastOrderDetail {
+  orderNumber: number
+  price: number
+  date: Date
+  status: string
+  payment: string
+  showButton?: boolean
+  items: ICartItem[]
 }

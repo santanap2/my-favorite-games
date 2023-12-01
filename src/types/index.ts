@@ -1,19 +1,7 @@
+import { ICartItem } from '@/interfaces'
+
 export type HeaderSearch = {
   headerInput: string
-}
-export type LoginInputs = {
-  emailLogin: string
-  passwordLogin: string
-  remember: boolean
-}
-
-export type ResetPassword = {
-  emailReset: string
-}
-
-export type RegisterUser = {
-  emailRegister: string
-  passwordRegister: string
 }
 
 export type PaymentMethod = {
@@ -30,4 +18,14 @@ export type CardData = {
     cardCvv: string
     cardPortions: string
   }
+}
+
+export type userOrders = {
+  orders: {
+    orderNumber: number
+    price: number
+    date: Date
+    payment: string
+    items: ICartItem[]
+  }[]
 }

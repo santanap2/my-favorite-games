@@ -1,12 +1,14 @@
 import { IWelcomeUser } from '@/interfaces'
 import React from 'react'
 import UserOrderCard from './UserOrderCard'
-import LastOrderDetail from './LastOrderDetail'
 import { courses } from '@/data/courses'
 import Link from 'next/link'
+import orders from '@/data/userOrders'
 import { EnvelopeSimple, UserCircle } from '@phosphor-icons/react'
+import SingleOrder from './SingleOrder'
 
 export default function WelcomeUser({ username, email }: IWelcomeUser) {
+  const { orderNumber, price, status, date, payment, items } = orders[0]
   return (
     <div className="ml-32 w-full h-full flex flex-col gap-16 text-zinc-800">
       <div className="flex gap-1 items-start w-fit">
@@ -27,12 +29,15 @@ export default function WelcomeUser({ username, email }: IWelcomeUser) {
         <span className="font-semibold text-xl">
           Detalhes do seu último pedido
         </span>
-        <LastOrderDetail
-          order={5461541}
-          name={courses[1].name}
-          status="Concluído"
-          date={new Date()}
-          payment="Cartão de Crédito"
+        <SingleOrder
+          key={orderNumber}
+          orderNumber={orderNumber}
+          price={price}
+          date={date}
+          payment={payment}
+          status={status}
+          items={items}
+          showButton
         />
       </div>
 

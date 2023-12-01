@@ -16,6 +16,7 @@ import {
   ShoppingCartSimple,
 } from '@phosphor-icons/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React, { useContext, useState } from 'react'
 
 export default function Page({ params: { id } }: IParams) {
@@ -27,11 +28,15 @@ export default function Page({ params: { id } }: IParams) {
   const { cart, setCart, setShowCart } = useContext(CoursesPlatformContext)
 
   const course = courses.find((one) => one.id === Number(id))
-
   const { name, area, price, image, description } = course
 
+  const router = useRouter()
+
   const clickExpandMenu = (menu: string) => {
-    setExpandMenus({ ...expandMenus, [menu]: !expandMenus[menu] })
+    if (menu === 'description')
+      setExpandMenus({ ...expandMenus, description: !expandMenus.description })
+    if (menu === 'evaluation')
+      setExpandMenus({ ...expandMenus, description: !expandMenus.evaluation })
   }
 
   const addCartItem = (item: ICartItem) => {
@@ -83,7 +88,13 @@ export default function Page({ params: { id } }: IParams) {
               )} sem juros no cartão de crédito`}</span>
             </div>
             <div className="flex gap-4 mt-20">
-              <button className="w-64 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg">
+              <button
+                onClick={() => {
+                  setCart([course])
+                  router.push('/finalizar-compra')
+                }}
+                className="w-64 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg"
+              >
                 Comprar agora
               </button>
               <button
