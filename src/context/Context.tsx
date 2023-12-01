@@ -2,14 +2,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 
 import { ICartItem } from '@/interfaces'
-import {
-  HeaderSearch,
-  PaymentMethod,
-  LoginInputs,
-  ResetPassword,
-  RegisterUser,
-  CardData,
-} from '@/types'
+import { HeaderSearch, PaymentMethod, CardData } from '@/types'
 import { createContext } from 'react'
 
 const initialValueContext = {
@@ -18,23 +11,8 @@ const initialValueContext = {
   },
   setHeaderSearch: (state: HeaderSearch) => {},
 
-  loginInputs: {
-    emailLogin: '',
-    passwordLogin: '',
-    remember: false,
-  },
-  setLoginInputs: (state: LoginInputs) => {},
-
-  resetPassword: {
-    emailReset: '',
-  },
-  setResetPassword: (state: ResetPassword) => {},
-
-  registerUser: {
-    emailRegister: '',
-    passwordRegister: '',
-  },
-  setRegisterUser: (state: RegisterUser) => {},
+  reseted: false,
+  setReseted: (state: boolean) => {},
 
   registerSuccess: false,
   setRegisterSuccess: (state: boolean) => {},

@@ -1,42 +1,27 @@
 'use client'
 import React, { useContext, useState } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
 
 import {
   BookOpenText,
   MagnifyingGlass,
   ShoppingCartSimple,
 } from '@phosphor-icons/react/dist/ssr'
-import { ITextInput } from '@/interfaces'
 import CoursesPlatformContext from '@/context/Context'
 import Link from 'next/link'
 import { UserCircle } from '@phosphor-icons/react'
+import HeaderHooks from '@/hooks/HeaderHooks'
 
 export default function Header() {
-  const { setShowCart, showCart } = useContext(CoursesPlatformContext)
-
   const {
-    headerSearch,
-    setHeaderSearch,
+    setShowCart,
+    showCart,
     cart: cartState,
   } = useContext(CoursesPlatformContext)
-  const router = useRouter()
-  const pathname = usePathname()
 
-  const handlePathname = () => {
-    if (pathname.includes('busca')) router.push(headerSearch.headerInput)
-    else {
-      router.push(`busca/${headerSearch.headerInput}`)
-    }
-  }
-  const inputHandler = ({ target: { value } }: ITextInput) => {
-    console.log(typeof value)
-    setHeaderSearch({ headerInput: value })
-  }
+  const { handleSubmit, register, handleFormSubmit } = HeaderHooks()
 
   const [hoverBtn, setHoverBtn] = useState({
     search: false,
-    house: false,
     user: false,
     cart: false,
   })
@@ -54,20 +39,18 @@ export default function Header() {
         </Link>
         <div className="flex gap-3 items-center justify-center">
           <form
-            action=""
-            onSubmit={handlePathname}
+            onSubmit={handleSubmit(handleFormSubmit)}
             className="flex items-center justify-center"
           >
             <input
+              {...register('headerSearch.headerInput')}
               type="text"
               className="h-10 rounded-l-md pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
               placeholder="Qual curso procura?"
-              onChange={inputHandler}
-              value={headerSearch.headerInput}
             />
             <button
               type="submit"
-              onClick={() => router.push(`busca/${headerSearch}`)}
+              // onClick={() => router.push(`busca/${headerSearch}`)}
             >
               <MagnifyingGlass
                 size={28}
@@ -85,7 +68,7 @@ export default function Header() {
 
           <Link
             href="/login"
-            className="flex items-center justify-center gap-1 hover:underline"
+            className="flex items-center justify-center hover:underline"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, user: true }))
             }

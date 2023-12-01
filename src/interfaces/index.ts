@@ -8,13 +8,6 @@ export interface ICard {
   id: number
 }
 
-export interface ITextInput {
-  target: {
-    name: string
-    value: string
-  }
-}
-
 export interface IChildren {
   children: ReactNode
 }

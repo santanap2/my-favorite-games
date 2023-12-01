@@ -1,30 +1,15 @@
 'use client'
 
 import CoursesPlatformContext from '@/context/Context'
-import { ITextInput } from '@/interfaces'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import ReturnLogin from '@/components/ReturnLogin'
+import RedefinirSenhaHooks from '@/hooks/ResetPasswordHooks'
 
 export default function ResetPassword() {
-  const [reseted, setReseted] = useState(false)
-  const [btnDisabled, setBtnDisabled] = useState(true)
-  const { resetPassword, setResetPassword } = useContext(CoursesPlatformContext)
+  const { reseted } = useContext(CoursesPlatformContext)
 
-  const inputHandler = ({ target: { name, value } }: ITextInput) =>
-    setResetPassword({ ...resetPassword, [name]: value })
-
-  useEffect(() => {
-    const validator =
-      /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
-    const validInput =
-      resetPassword.emailReset && validator.test(resetPassword.emailReset)
-    setBtnDisabled(!validInput)
-  }, [resetPassword.emailReset])
-
-  const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setReseted(true)
-  }
+  const { handleFormSubmit, handleSubmit, errors, register } =
+    RedefinirSenhaHooks()
 
   return (
     <div className="flex flex-col gap-10 mt-32">
@@ -34,27 +19,28 @@ export default function ResetPassword() {
         </h1>
 
         <form
-          action=""
           className="flex flex-col justify-center items-center gap-10"
-          onSubmit={(e) => submitForm(e)}
+          onSubmit={handleSubmit(handleFormSubmit)}
         >
           <label htmlFor="email" className="flex flex-col gap-1">
             <span className="text-sm font-semibold">Email</span>
             <input
+              {...register('resetPassword.email')}
               type="email"
               id="email"
               placeholder="email@exemplo.com"
               className="h-10 w-80 rounded-md px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
-              name="emailReset"
-              onChange={inputHandler}
-              value={resetPassword.emailReset}
             />
+            {errors.resetPassword?.email && (
+              <span className="text-sm font-light text-red-500">
+                {errors.resetPassword.email.message}
+              </span>
+            )}
           </label>
 
           <button
             type="submit"
             className="w-80 h-10 bg-sky-400 text-zinc-800 rounded-md text-md font-regular shadow hover:shadow-lg disabled:opacity-40"
-            disabled={btnDisabled}
           >
             Enviar
           </button>

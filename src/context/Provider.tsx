@@ -5,24 +5,11 @@ import CoursesPlatformContext from './Context'
 import { IChildren } from '@/interfaces'
 
 export const ContextCoursesPlatform = ({ children }: IChildren) => {
-  const [loginInputs, setLoginInputs] = useState({
-    emailLogin: '',
-    passwordLogin: '',
-    remember: false,
-  })
-
   const [headerSearch, setHeaderSearch] = useState({
     headerInput: '',
   })
 
-  const [resetPassword, setResetPassword] = useState({
-    emailReset: '',
-  })
-
-  const [registerUser, setRegisterUser] = useState({
-    emailRegister: '',
-    passwordRegister: '',
-  })
+  const [reseted, setReseted] = useState(false)
 
   const [registerSuccess, setRegisterSuccess] = useState(false)
 
@@ -53,14 +40,8 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       headerSearch,
       setHeaderSearch,
 
-      loginInputs,
-      setLoginInputs,
-
-      resetPassword,
-      setResetPassword,
-
-      registerUser,
-      setRegisterUser,
+      reseted,
+      setReseted,
 
       registerSuccess,
       setRegisterSuccess,
@@ -82,9 +63,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
     }),
     [
       headerSearch,
-      loginInputs,
-      resetPassword,
-      registerUser,
+      reseted,
       registerSuccess,
       logged,
       cart,
