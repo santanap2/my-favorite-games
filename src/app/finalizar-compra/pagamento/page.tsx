@@ -6,7 +6,7 @@ import { calcSum, priceToBRL } from '@/helpers'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import React, { useContext } from 'react'
 
-export default function Page() {
+export default function Pagamento() {
   const { cart, paymentMethod, setPaymentMethod } = useContext(
     CoursesPlatformContext,
   )

@@ -63,7 +63,7 @@ export default function LateralMyAccount() {
             />
             <MenuItem
               Icon={Heart}
-              name="Favoritos"
+              name="Meus favoritos"
               size={34}
               link="/minha-conta/meus-favoritos"
               especialClass="hover:text-sky-400"

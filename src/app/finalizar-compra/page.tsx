@@ -7,7 +7,7 @@ import { Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
-export default function Page() {
+export default function FinalizarCompra() {
   const { cart, logged, setShowCart } = useContext(CoursesPlatformContext)
 
   const router = useRouter()

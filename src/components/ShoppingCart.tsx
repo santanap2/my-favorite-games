@@ -8,7 +8,7 @@ import { X } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
-export default function Cart() {
+export default function ShoppingCart() {
   const { showCart, setShowCart, cart, setCart } = useContext(
     CoursesPlatformContext,
   )

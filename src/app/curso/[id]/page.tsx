@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import DescriptionCourse from '@/components/DescriptionCourse'
 import EvaluationsCourse from '@/components/EvaluationsCourse'
 import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
@@ -20,7 +19,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 
-export default function Page({ params: { id } }: IParams) {
+export default function CursoId({ params: { id } }: IParams) {
   const [expandMenus, setExpandMenus] = useState({
     description: true,
     evaluation: true,

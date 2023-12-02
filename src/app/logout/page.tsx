@@ -4,7 +4,7 @@ import CoursesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
-export default function Page() {
+export default function Logout() {
   const router = useRouter()
   const { setLogged } = useContext(CoursesPlatformContext)
 

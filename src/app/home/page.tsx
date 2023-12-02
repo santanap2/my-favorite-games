@@ -7,7 +7,7 @@ import { courses } from '@/data/courses'
 import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
 
-export default function Cursos() {
+export default function Home() {
   const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
 
   useEffect(() => setShowMenu({ ...showMenu, filters: true }), [])

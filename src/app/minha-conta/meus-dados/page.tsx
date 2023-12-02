@@ -13,7 +13,7 @@ import {
 } from '@phosphor-icons/react'
 import React, { useContext, useEffect } from 'react'
 
-export default function Page() {
+export default function MeusDados() {
   const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 

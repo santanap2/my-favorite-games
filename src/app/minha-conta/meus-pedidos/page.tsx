@@ -8,7 +8,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import orders from '@/data/userOrders'
 import SingleOrder from '@/components/SingleOrder'
 
-export default function Page() {
+export default function MeusPedidos() {
   const { userOrders, setUserOrders, showMenu, setShowMenu } = useContext(
     CoursesPlatformContext,
   )

@@ -5,7 +5,7 @@ import { ICard } from '@/interfaces'
 import Link from 'next/link'
 import { priceToBRL } from '@/helpers'
 
-export default function Card({ name, area, price, image, id }: ICard) {
+export default function ProductCard({ name, area, price, image, id }: ICard) {
   return (
     <Link href={`/curso/${id}`}>
       <div className="flex flex-col w-80 bg-zinc-100 rounded-md relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer">

@@ -5,7 +5,7 @@ import React, { useContext } from 'react'
 import ReturnLogin from '@/components/ReturnLogin'
 import RedefinirSenhaHooks from '@/hooks/ResetPasswordHooks'
 
-export default function ResetPassword() {
+export default function RedefinirSenha() {
   const { reseted } = useContext(CoursesPlatformContext)
 
   const { handleFormSubmit, handleSubmit, errors, register } =
