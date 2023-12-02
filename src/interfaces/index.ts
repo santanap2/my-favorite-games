@@ -67,6 +67,5 @@ export interface ILastOrderDetail {
   date: Date
   status: string
   payment: string
-  showButton?: boolean
   items: ICartItem[]
 }

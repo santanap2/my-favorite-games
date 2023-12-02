@@ -13,13 +13,6 @@ export default function MenuItem({
   iconClass,
   especialClass,
 }: IMenuItem) {
-  //   const [hoverMenu, setHoverMenu] = useState('regular')
-  //
-  //   const hoverIconChange = () => {
-  //     if (hoverMenu === 'regular') setHoverMenu('fill')
-  //     if (hoverMenu === 'fill') setHoverMenu('regular')
-  //   }
-
   const pathname = usePathname()
   const isActive = pathname === link
 
@@ -27,8 +20,6 @@ export default function MenuItem({
     <Link href={link}>
       <div
         className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md ${especialClass}`}
-        // onMouseEnter={hoverIconChange}
-        // onMouseLeave={hoverIconChange}
       >
         <Icon
           weight={isActive ? 'fill' : 'duotone'}

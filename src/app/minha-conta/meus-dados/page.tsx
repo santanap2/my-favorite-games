@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
+import CoursesPlatformContext from '@/context/Context'
 import MyDataHooks from '@/hooks/MyDataHooks'
 import {
   Envelope,
@@ -9,15 +11,20 @@ import {
   Password,
   Phone,
 } from '@phosphor-icons/react'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 
-export default function page() {
+export default function Page() {
+  const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
+  useEffect(() => {
+    setShowMenu({ ...showMenu, myAccount: true })
+  }, [])
+
   return (
-    <div className="mt-32 w-full h-full">
+    <div className="mt-24 w-full h-full">
       <LateralMenu />
-      <div className="ml-32 w-full h-full flex flex-col gap-16 text-zinc-800">
+      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800">
         <div className="flex gap-1 w-fit items-center justify-center">
           <IdentificationCard
             weight="fill"

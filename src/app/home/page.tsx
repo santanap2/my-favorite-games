@@ -1,15 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import ProductCard from '@/components/ProductCard'
 import { courses } from '@/data/courses'
-import LateralFilters from '@/components/LateralFilters'
+import LateralMenu from '@/components/LateralMenu'
+import CoursesPlatformContext from '@/context/Context'
 
 export default function Cursos() {
+  const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
+
+  useEffect(() => setShowMenu({ ...showMenu, filters: true }), [])
   return (
-    <div className="mt-32 w-full">
-      <LateralFilters />
-      <div className="ml-32 flex flex-wrap gap-6 justify-center items-center">
+    <div className="mt-24 w-full">
+      <LateralMenu />
+      <div className="flex flex-wrap gap-6 justify-center items-center">
         {courses.map(({ name, area, price, id, image }) => (
           <ProductCard
             key={id}

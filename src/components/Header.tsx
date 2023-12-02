@@ -2,19 +2,21 @@
 import React, { useContext, useState } from 'react'
 
 import {
-  BookOpenText,
   MagnifyingGlass,
   ShoppingCartSimple,
 } from '@phosphor-icons/react/dist/ssr'
 import CoursesPlatformContext from '@/context/Context'
 import Link from 'next/link'
-import { UserCircle } from '@phosphor-icons/react'
+import { List, UserCircle } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const {
     setShowCart,
     showCart,
+    setShowMenu,
+    showMenu,
     cart: cartState,
   } = useContext(CoursesPlatformContext)
 
@@ -24,16 +26,39 @@ export default function Header() {
     search: false,
     user: false,
     cart: false,
+    menu: false,
   })
 
-  const { search, user, cart } = hoverBtn
+  const { search, user, cart, menu } = hoverBtn
+
+  const pathname = usePathname()
+
+  const clickMenu = () => {
+    if (pathname.includes('/minha-conta'))
+      setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
+
+    if (pathname.includes('/home'))
+      setShowMenu({ ...showMenu, filters: !showMenu.filters })
+
+    if (pathname.includes('/curso'))
+      setShowMenu({ ...showMenu, filters: !showMenu.filters })
+  }
 
   return (
-    <header>
-      <div className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-between bg-gray-800 px-48 text-sky-400 shadow-xl">
+    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-gray-800 text-sky-400 shadow-xl">
+      <button
+        type="button"
+        onClick={clickMenu}
+        className="absolute top-4 left-3"
+        onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
+        onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
+      >
+        <List size={28} weight={menu ? 'duotone' : 'regular'} />
+      </button>
+      <div className="w-3/4 flex justify-between items-center">
         <Link href="/">
           <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
-            <BookOpenText size={28} weight="regular" />
+            {/* <BookOpenText size={28} weight="regular" /> */}
             <span>My Fav Courses</span>
           </h1>
         </Link>
@@ -76,27 +101,26 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, user: false }))
             }
           >
+            <span className="uppercase font-semibold text-xs">login</span>
             <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
-            <span className="uppercase font-semibold text-xs">fazer login</span>
           </Link>
-          <button className="relative" onClick={() => setShowCart(!showCart)}>
-            <ShoppingCartSimple
-              size={28}
-              weight={cart ? 'duotone' : 'regular'}
-              className="text-orange-400"
-              onMouseEnter={() =>
-                setHoverBtn((prev) => ({ ...prev, cart: true }))
-              }
-              onMouseLeave={() =>
-                setHoverBtn((prev) => ({ ...prev, cart: false }))
-              }
-            />
-            <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
-              {cartState.length}
-            </span>
-          </button>
         </div>
       </div>
+      <button
+        className="absolute top-4 right-8"
+        onClick={() => setShowCart(!showCart)}
+      >
+        <ShoppingCartSimple
+          size={28}
+          weight={cart ? 'duotone' : 'regular'}
+          className="text-orange-400"
+          onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
+          onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
+        />
+        <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
+          {cartState.length}
+        </span>
+      </button>
     </header>
   )
 }

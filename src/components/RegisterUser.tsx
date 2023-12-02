@@ -5,7 +5,7 @@ export default function RegisterUser() {
   const { errors, handleFormSubmit, handleSubmit, register } = CadastroHooks()
 
   return (
-    <div className="mt-32 px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
+    <div className="mt-24 px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
       <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
         Cadastre-se
       </h1>

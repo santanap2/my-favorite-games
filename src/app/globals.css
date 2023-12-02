@@ -27,6 +27,15 @@ input[type=number] {
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-288px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes opacity {
   from {
     opacity: 0;
@@ -47,8 +56,12 @@ input[type=number] {
   }
 }
 
-.slideshow {
+.slideshow-right {
   animation: slideInRight 0.2s ease-out
+}
+
+.slideshow-left {
+  animation: slideInLeft 0.2s ease-out
 }
 
 .animation-opacity {
@@ -58,3 +71,4 @@ input[type=number] {
 .appear-animation {
   animation: appearFromTop 0.3s ease-out;
 }
+

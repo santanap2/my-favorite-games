@@ -3,16 +3,20 @@
 
 import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
-import { priceToBRL } from '@/helpers'
-import { Bag, ListPlus } from '@phosphor-icons/react'
+import { Bag } from '@phosphor-icons/react'
 import React, { useContext, useEffect, useState } from 'react'
-import Link from 'next/link'
 import orders from '@/data/userOrders'
 import SingleOrder from '@/components/SingleOrder'
 
 export default function Page() {
-  const { userOrders, setUserOrders } = useContext(CoursesPlatformContext)
+  const { userOrders, setUserOrders, showMenu, setShowMenu } = useContext(
+    CoursesPlatformContext,
+  )
   const [filter, setFilter] = useState('all')
+
+  useEffect(() => {
+    setShowMenu({ ...showMenu, myAccount: true })
+  }, [])
 
   useEffect(() => {
     const filteredOrders = orders.filter(({ status }) => status === filter)
@@ -21,9 +25,9 @@ export default function Page() {
   }, [filter])
 
   return (
-    <div className="mt-32 w-full h-full">
+    <div className="mt-24 w-full h-full">
       <LateralMenu />
-      <div className="ml-32 w-full h-full flex flex-col gap-16 text-zinc-800">
+      <div className="w-full h-full flex flex-col gap-10 text-zinc-800">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Bag weight="fill" size={56} className="text-sky-500" />
           <h1 className="font-regular text-xl font-semibold">Meus pedidos</h1>
@@ -64,7 +68,6 @@ export default function Page() {
                   payment={payment}
                   status={status}
                   items={items}
-                  showButton
                 />
               ),
             )}

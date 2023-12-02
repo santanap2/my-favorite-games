@@ -10,7 +10,6 @@ export default function SingleOrder({
   date,
   payment,
   price,
-  showButton,
 }: ILastOrderDetail) {
   const setStatusColor = (status: string) => {
     if (status === 'concluded')

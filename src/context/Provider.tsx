@@ -20,6 +20,11 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
   const [showCart, setShowCart] = useState(false)
 
+  const [showMenu, setShowMenu] = useState({
+    filters: false,
+    myAccount: true,
+  })
+
   const [paymentMethod, setPaymentMethod] = useState({
     pix: true,
     creditCard: false,
@@ -60,6 +65,9 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       showCart,
       setShowCart,
 
+      showMenu,
+      setShowMenu,
+
       paymentMethod,
       setPaymentMethod,
 
@@ -76,6 +84,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       logged,
       cart,
       showCart,
+      showMenu,
       paymentMethod,
       cardData,
       userOrders,

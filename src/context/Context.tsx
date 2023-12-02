@@ -49,6 +49,12 @@ const initialValueContext = {
     orders,
   },
   setUserOrders: (state: userOrders) => {},
+
+  showMenu: {
+    filters: false,
+    myAccount: true,
+  },
+  setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
 }
 
 const CoursesPlatformContext = createContext(initialValueContext)

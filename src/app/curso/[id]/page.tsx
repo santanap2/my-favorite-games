@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
 import DescriptionCourse from '@/components/DescriptionCourse'
 import EvaluationsCourse from '@/components/EvaluationsCourse'
-import LateralFilters from '@/components/LateralFilters'
+import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
 import { courses } from '@/data/courses'
 import { portionPrice, priceToBRL } from '@/helpers'
@@ -17,7 +18,7 @@ import {
 } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 export default function Page({ params: { id } }: IParams) {
   const [expandMenus, setExpandMenus] = useState({
@@ -25,11 +26,14 @@ export default function Page({ params: { id } }: IParams) {
     evaluation: true,
   })
 
-  const { cart, setCart, setShowCart } = useContext(CoursesPlatformContext)
+  const { cart, setCart, setShowCart, showMenu, setShowMenu } = useContext(
+    CoursesPlatformContext,
+  )
 
   const course = courses.find((one) => one.id === Number(id))
   const { name, area, price, image, description } = course
 
+  useEffect(() => setShowMenu({ ...showMenu, filters: false }), [])
   const router = useRouter()
 
   const clickExpandMenu = (menu: string) => {
@@ -51,8 +55,8 @@ export default function Page({ params: { id } }: IParams) {
   }
 
   return (
-    <div className="ml-64 mt-32 w-full h-full">
-      <LateralFilters />
+    <div className="ml-64 mt-24 w-full h-full">
+      <LateralMenu />
       <div className="w-full h-full">
         <div className="flex gap-1 justify-center items-center w-fit">
           <Link href="/" className="text-zinc-500 hover:text-sky-400">
@@ -68,7 +72,7 @@ export default function Page({ params: { id } }: IParams) {
         </div>
         <h1 className="mt-4 font-bold text-2xl text-zinc-800">{name}</h1>
 
-        <div className="flex gap-16 mt-10 w-4/5">
+        <div className="flex gap-10 mt-10 w-4/5">
           <img
             src={image}
             alt={name}
@@ -128,10 +132,11 @@ export default function Page({ params: { id } }: IParams) {
                 <CaretDown size={28} />
               )}
             </button>
-            {expandMenus.description ? (
-              <DescriptionCourse name={name} text={description} />
-            ) : (
-              ''
+            {expandMenus.description && (
+              <div className="tracking-wide pb-8">
+                <h1 className=" font-normal text-lg">{name}</h1>
+                <p className="font-light text-base">{description}</p>
+              </div>
             )}
           </div>
 
@@ -147,7 +152,7 @@ export default function Page({ params: { id } }: IParams) {
                 <CaretDown size={28} />
               )}
             </button>
-            {expandMenus.evaluation ? <EvaluationsCourse /> : ''}
+            {expandMenus.evaluation && <EvaluationsCourse />}
           </div>
         </div>
       </div>
