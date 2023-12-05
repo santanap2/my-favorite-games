@@ -52,3 +52,9 @@ export const phoneNumberMask = (number: string) => {
     .replace(/(\d)(\d{4})$/, '$1-$2')
   return number
 }
+
+export const currencyMask = (value: string) => {
+  value = value.replace(/\D/g, '')
+
+  return value
+}

@@ -53,7 +53,6 @@ export default function CredCardFormHooks() {
   })
 
   const handleFormSubmit = (data: FormProps) => {
-    console.log('enviou')
     setCardData(data)
     console.log(cardData)
   }

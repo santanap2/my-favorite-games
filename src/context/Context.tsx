@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { ICartItem } from '@/interfaces'
+import { ICartItem, ILateralFilters } from '@/interfaces'
 import { HeaderSearch, PaymentMethod, CardData, userOrders } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
+import { courses } from '@/data/courses'
 
 const initialValueContext = {
   headerSearch: {
@@ -55,6 +56,9 @@ const initialValueContext = {
     myAccount: true,
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
+
+  filteredProducts: courses,
+  setFilteredProducts: (state: ICartItem[]) => {},
 }
 
 const CoursesPlatformContext = createContext(initialValueContext)

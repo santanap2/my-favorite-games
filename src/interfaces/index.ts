@@ -3,7 +3,8 @@ import { FunctionComponent, ReactNode } from 'react'
 export interface ICard {
   image: string
   name: string
-  area: string
+  areaPt?: string
+  area?: string
   price: number
   id: number
 }
@@ -68,4 +69,22 @@ export interface ILastOrderDetail {
   status: string
   payment: string
   items: ICartItem[]
+}
+
+export interface ICoursesAreas {
+  camelCaseName: string
+  name: string
+}
+
+export interface ILateralFilters {
+  arquitecture?: boolean
+  fisiotherapy?: boolean
+  financialEducation?: boolean
+  entrepreneurship?: boolean
+  civilEngeneering?: boolean
+  audiovisual?: boolean
+  programming?: boolean
+  marketing?: boolean
+  minPrice?: string
+  maxPrice?: string
 }

@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import CoursesPlatformContext from './Context'
 import { IChildren } from '@/interfaces'
 import orders from '@/data/userOrders'
+import { courses } from '@/data/courses'
 
 export const ContextCoursesPlatform = ({ children }: IChildren) => {
   const [headerSearch, setHeaderSearch] = useState({
@@ -45,6 +46,8 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
     orders,
   })
 
+  const [filteredProducts, setFilteredProducts] = useState(courses)
+
   const context = useMemo(
     () => ({
       headerSearch,
@@ -76,6 +79,9 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
 
       userOrders,
       setUserOrders,
+
+      filteredProducts,
+      setFilteredProducts,
     }),
     [
       headerSearch,
@@ -88,6 +94,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
       paymentMethod,
       cardData,
       userOrders,
+      filteredProducts,
     ],
   )
 

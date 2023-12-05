@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="flex h-14 text-zinc-800 w-screen border-t border-zinc-300 bg-zinc-50 justify-center items-center">
+    <footer className="flex h-14 text-zinc-800 w-screen border-t border-zinc-300 bg-zinc-50 justify-center items-center mt-16">
       <div className="w-3/5 flex justify-between items-center">
         <div className="flex gap-4">
           <h1>© 2023 My Fav Courses™</h1>
