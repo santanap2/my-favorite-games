@@ -73,10 +73,7 @@ export default function Header() {
               className="h-10 rounded-l-md pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
               placeholder="Qual curso procura?"
             />
-            <button
-              type="submit"
-              // onClick={() => router.push(`busca/${headerSearch}`)}
-            >
+            <button type="submit">
               <MagnifyingGlass
                 size={28}
                 weight={search ? 'duotone' : 'regular'}

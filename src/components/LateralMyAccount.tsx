@@ -53,14 +53,14 @@ export default function LateralMyAccount() {
               especialClass="hover:text-sky-400"
               iconClass="text-sky-600"
             />
-            <MenuItem
+            {/* <MenuItem
               Icon={ThumbsUp}
               name="Avaliações"
               size={34}
               link="/minha-conta/minhas-avaliacoes"
               especialClass="hover:text-sky-400"
               iconClass="text-sky-600"
-            />
+            /> */}
             <MenuItem
               Icon={Heart}
               name="Meus favoritos"

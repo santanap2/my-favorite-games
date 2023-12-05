@@ -44,7 +44,9 @@ export interface IWelcomeUser {
 export interface IUserOrderCard {
   image: string
   name: string
-  id: number
+  orderId: number
+  productId?: number
+  notBought?: boolean
 }
 
 export interface IParams {

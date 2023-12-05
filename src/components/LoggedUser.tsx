@@ -60,7 +60,12 @@ export default function LoggedUser() {
             {courses.map(({ image, name, id }, i) => {
               if (i % 2 !== 0)
                 return (
-                  <UserOrderCard key={id} image={image} name={name} id={id} />
+                  <UserOrderCard
+                    key={id}
+                    image={image}
+                    name={name}
+                    orderId={id}
+                  />
                 )
               return ''
             })}
