@@ -3,7 +3,14 @@
 
 import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
-import { Chat } from '@phosphor-icons/react'
+import {
+  Chat,
+  Clock,
+  Envelope,
+  Watch,
+  WhatsappLogo,
+} from '@phosphor-icons/react'
+import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
 
 export default function Ajuda() {
@@ -16,9 +23,69 @@ export default function Ajuda() {
   return (
     <div className="mt-24 w-full h-full">
       <LateralMenu />
-      <div className="flex gap-1 w-fit items-center justify-center">
-        <Chat weight="fill" size={56} className="text-sky-500" />
-        <h1 className="font-regular text-xl font-semibold">Ajuda</h1>
+      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800">
+        <div className="flex gap-1 w-fit items-center justify-center">
+          <Chat weight="fill" size={56} className="text-sky-500" />
+          <h1 className="font-regular text-xl font-semibold">Ajuda</h1>
+        </div>
+
+        <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded-md shadow-md">
+          <h1 className="text-lg font-semibold">Horário de atendimento</h1>
+
+          <div className="flex gap-2 items-center justify-start">
+            <Clock size={28} weight="bold" className="text-sky-400" />
+            <h3 className="text-sm">10:00h às 20:00h</h3>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded-md shadow-md">
+          <h1 className="font-semibold text-lg">Atendimento via WhatsApp</h1>
+
+          <Link
+            href="https://api.whatsapp.com/send?phone=5531998695219"
+            className="flex gap-2 items-start justify-start hover:text-sky-400 text-sm font-light"
+          >
+            <WhatsappLogo
+              size={28}
+              weight="duotone"
+              className="text-green-400"
+            />
+            <h3 className="flex flex-col">
+              <span>(31) 99869-5219</span>
+              <span className="font-semibold">Pedro Santana</span>
+            </h3>
+          </Link>
+
+          <Link
+            href="https://api.whatsapp.com/send?phone=553799042144"
+            className="flex gap-2 items-start justify-start hover:text-sky-400 text-sm font-light"
+          >
+            <WhatsappLogo
+              size={28}
+              weight="duotone"
+              className="text-green-400"
+            />
+            <h3 className="flex flex-col">
+              <span>(37) 9904-2144</span>
+              <span className="font-semibold">Italo Zampese</span>
+            </h3>
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded-md shadow-md">
+          <h1 className="font-semibold text-lg">Atendimento via E-mail</h1>
+
+          <Link
+            href="mailto:suporte@myfavcourses.com"
+            className="flex gap-2 items-start justify-start hover:text-sky-400 text-sm font-light"
+          >
+            <Envelope size={28} weight="duotone" className="text-sky-400" />
+            <h3 className="flex flex-col">
+              <span>suporte@myfavcourses.com</span>
+              <span className="font-semibold">Suporte My Fav Courses</span>
+            </h3>
+          </Link>
+        </div>
       </div>
     </div>
   )

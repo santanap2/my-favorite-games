@@ -12,6 +12,8 @@ import {
   CaretDown,
   CaretRight,
   CaretUp,
+  Heart,
+  MinusCircle,
   PlusCircle,
   ShoppingCartSimple,
 } from '@phosphor-icons/react'
@@ -24,6 +26,8 @@ export default function CursoId({ params: { id } }: IParams) {
     description: true,
     evaluation: true,
   })
+
+  const [isFavorite, setIsFavorite] = useState(false)
 
   const { cart, setCart, setShowCart, showMenu, setShowMenu } = useContext(
     CoursesPlatformContext,
@@ -113,6 +117,16 @@ export default function CursoId({ params: { id } }: IParams) {
                   size={20}
                   weight="fill"
                   className="absolute top-2 right-1"
+                />
+              </button>
+              <button
+                onClick={() => setIsFavorite(!isFavorite)}
+                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg"
+              >
+                <Heart
+                  size={28}
+                  weight={isFavorite ? 'fill' : 'bold'}
+                  className="text-white relative"
                 />
               </button>
             </div>
