@@ -32,9 +32,10 @@ export default function MeusFavoritos() {
                 key={id}
                 image={image}
                 name={name}
+                isFavorite
                 orderId={id}
                 productId={id}
-                notBought
+                courseId={id}
               />
             ))
           ) : (

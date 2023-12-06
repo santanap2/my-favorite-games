@@ -28,7 +28,6 @@ const orders = [
       },
     ],
   },
-
   {
     orderNumber: 6562,
     price: 321,

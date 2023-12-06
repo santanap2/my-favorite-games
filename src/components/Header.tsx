@@ -9,7 +9,8 @@ import CoursesPlatformContext from '@/context/Context'
 import Link from 'next/link'
 import { List, UserCircle } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { courses } from '@/data/courses'
 
 export default function Header() {
   const {
@@ -18,6 +19,7 @@ export default function Header() {
     setShowMenu,
     showMenu,
     cart: cartState,
+    setFilteredProducts,
   } = useContext(CoursesPlatformContext)
 
   const { handleSubmit, register, handleFormSubmit } = HeaderHooks()
@@ -44,6 +46,8 @@ export default function Header() {
       setShowMenu({ ...showMenu, filters: !showMenu.filters })
   }
 
+  const router = useRouter()
+
   return (
     <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-gray-800 text-sky-400 shadow-xl">
       <button
@@ -56,12 +60,17 @@ export default function Header() {
         <List size={28} weight={menu ? 'duotone' : 'regular'} />
       </button>
       <div className="w-3/4 flex justify-between items-center">
-        <Link href="/">
+        <button
+          onClick={() => {
+            setFilteredProducts(courses)
+            router.push('/')
+          }}
+        >
           <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
             {/* <BookOpenText size={28} weight="regular" /> */}
             <span>My Fav Courses</span>
           </h1>
-        </Link>
+        </button>
         <div className="flex gap-3 items-center justify-center">
           <form
             onSubmit={handleSubmit(handleFormSubmit)}

@@ -18,7 +18,7 @@ export default function Ajuda() {
       <LateralMenu />
       <div className="flex gap-1 w-fit items-center justify-center">
         <Chat weight="fill" size={56} className="text-sky-500" />
-        <h1 className="font-regular text-xl font-semibold">Meus cursos</h1>
+        <h1 className="font-regular text-xl font-semibold">Ajuda</h1>
       </div>
     </div>
   )
