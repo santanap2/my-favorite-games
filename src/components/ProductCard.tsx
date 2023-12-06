@@ -1,42 +1,55 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import { ICard } from '@/interfaces'
 import Link from 'next/link'
 import { priceToBRL } from '@/helpers'
+import CoursesPlatformContext from '@/context/Context'
+import { useRouter } from 'next/navigation'
+import { courses } from '@/data/courses'
 
 export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
+  const { setCart } = useContext(CoursesPlatformContext)
+
+  const course = courses.find((one) => one.id === id)
+
+  const router = useRouter()
+
   return (
-    <Link href={`/curso/${id}`}>
-      <div className="flex flex-col w-80 bg-zinc-100 rounded-md relative items-center justify-center shadow-md hover:shadow-lg cursor-pointe h-[450px]">
-        <div className="w-full h-44 absolute top-0 bg-sky-400 rounded-t-md" />
+    <div className="rounded-md flex flex-col w-72 h-[450px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer transition-all hover:scale-105">
+      <Link href={`/curso/${id}`} className="w-full">
         <img
           src={image}
           alt={name}
-          className="rounded-md h-48 w-72 absolute top-4 left-4 right-4 object-cover"
+          className="rounded-t-md h-60 w-72 absolute top-0 left-0 object-cover"
         />
-        <div className="flex flex-col gap-10 justify-between items-start mt-48 p-4 relative w-full">
-          <h1 className="font-semibold text-xl text-zinc-800 w-full h-20">
-            {name.length > 70 ? `${name.slice(0, 70)}...` : name}
-          </h1>
-          <div className="bg-zinc-400 w-72 h-px absolute top-24" />
-          <div className="flex items-start justify-between w-72 h-24 max-w-72 max-h-48">
-            <h2 className="font-regular w-48 h-full max-w-48">{areaPt}</h2>
-            <div className="flex items-center justify-center w-24 h-24 rounded-md relative bg-sky-400">
-              <span className="absolute text-sm top-3 left-2">R$</span>
-              <span className="text-2xl font-bold">
-                {priceToBRL(price).length > 6
-                  ? `${price.toString().slice(0, 4)},`
-                  : priceToBRL(price)}
-                <span className="absolute bottom-1 right-2">
-                  {priceToBRL(price).length > 6 &&
-                    `${priceToBRL(price).slice(6, 8)}`}
-                </span>
-              </span>
-            </div>
+      </Link>
+
+      <Link href={`/curso/${id}`} className="w-full">
+        <div className="absolute top-60 h-40 flex flex-col justify-between items-start px-4 py-2 w-full">
+          <div className="flex flex-col gap-1">
+            <h1 className="font-semibold text-xl text-zinc-800 w-full max-h-20">
+              {name.length > 50 ? `${name.slice(0, 50)}...` : name}
+            </h1>
+            <h2 className="font-light text-sm w-full">{areaPt}</h2>
           </div>
+
+          <span className="text-xl font-bold text-sky-400">
+            {`R$ ${priceToBRL(price)}`}
+          </span>
         </div>
-      </div>
-    </Link>
+      </Link>
+
+      <button
+        type="button"
+        onClick={() => {
+          setCart([course])
+          router.push('/finalizar-compra')
+        }}
+        className="absolute w-64 left-4 right-4 bottom-2 bg-sky-400 py-2 rounded-md text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md"
+      >
+        Comprar
+      </button>
+    </div>
   )
 }
