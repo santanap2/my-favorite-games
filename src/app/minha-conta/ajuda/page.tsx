@@ -3,13 +3,7 @@
 
 import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
-import {
-  Chat,
-  Clock,
-  Envelope,
-  Watch,
-  WhatsappLogo,
-} from '@phosphor-icons/react'
+import { Chat, Clock, Envelope, WhatsappLogo } from '@phosphor-icons/react'
 import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
 

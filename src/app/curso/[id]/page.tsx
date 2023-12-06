@@ -13,7 +13,6 @@ import {
   CaretRight,
   CaretUp,
   Heart,
-  MinusCircle,
   PlusCircle,
   ShoppingCartSimple,
 } from '@phosphor-icons/react'
@@ -43,7 +42,7 @@ export default function CursoId({ params: { id } }: IParams) {
     if (menu === 'description')
       setExpandMenus({ ...expandMenus, description: !expandMenus.description })
     if (menu === 'evaluation')
-      setExpandMenus({ ...expandMenus, description: !expandMenus.evaluation })
+      setExpandMenus({ ...expandMenus, evaluation: !expandMenus.evaluation })
   }
 
   const addCartItem = (item: ICartItem) => {
