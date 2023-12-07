@@ -53,11 +53,13 @@ export default function ShoppingCart() {
                         alt={name}
                         className="w-32 h-32 object-cover rounded-md"
                       />
-                      <div className="flex flex-col justify-between items-start">
-                        <h1 className="font-bold text-sm tracking-tight">
-                          {name}
-                        </h1>
-                        <h3>{areaPt}</h3>
+                      <div className="flex flex-col justify-between items-start w-full">
+                        <div className="flex flex-col">
+                          <h1 className="font-bold text-lg tracking-tight">
+                            {name}
+                          </h1>
+                          <h3 className="text-sm font-light">{areaPt}</h3>
+                        </div>
                         <div className="flex justify-between items-center w-full">
                           <h2 className="font-extrabold tracking-wider text-lg">
                             {`R$ ${priceToBRL(price)}`}

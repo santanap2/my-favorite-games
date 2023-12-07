@@ -17,7 +17,7 @@ export default function Home() {
     <div className="mt-24 w-full">
       <LateralMenu />
       <div className="flex justify-center items-center w-full">
-        <div className="flex w-[1224px] gap-6 flex-wrap justify-start items-start">
+        <div className="flex w-[1096px] gap-6 flex-wrap justify-start items-start">
           {filteredProducts.map(({ name, areaPt, price, id, image }) => (
             <ProductCard
               key={id}

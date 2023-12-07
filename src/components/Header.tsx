@@ -68,7 +68,7 @@ export default function Header() {
         >
           <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
             {/* <BookOpenText size={28} weight="regular" /> */}
-            <span>My Fav Courses</span>
+            <span>My Fav Games</span>
           </h1>
         </button>
         <div className="flex gap-3 items-center justify-center">

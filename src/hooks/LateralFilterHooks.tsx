@@ -48,27 +48,10 @@ export default function LateralFilterHooks() {
     },
   })
 
-  const changedFilters = ({
-    lateralFilters: {
-      arquitecture,
-      audiovisual,
-      civilEngeneering,
-      entrepreneurship,
-      financialEducation,
-      fisiotherapy,
-      marketing,
-      programming,
-    },
-  }: FormProps) => {
-    const result = []
-    if (arquitecture) result.push('arquitecture')
-    if (audiovisual) result.push('audiovisual')
-    if (civilEngeneering) result.push('civilEngeneering')
-    if (entrepreneurship) result.push('entrepreneurship')
-    if (financialEducation) result.push('financialEducation')
-    if (fisiotherapy) result.push('fisiotherapy')
-    if (marketing) result.push('marketing')
-    if (programming) result.push('programming')
+  const changedFilters = ({ lateralFilters }: FormProps) => {
+    const keys = Object.keys(lateralFilters)
+    const values = Object.values(lateralFilters)
+    const result = keys.filter((_key, index) => values[index] === true)
     return result
   }
 

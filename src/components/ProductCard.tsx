@@ -16,20 +16,20 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
   const router = useRouter()
 
   return (
-    <div className="rounded-md flex flex-col w-72 h-[450px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer transition-all">
+    <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer transition-all">
       <Link href={`/curso/${id}`} className="w-full">
         <img
           src={image}
           alt={name}
-          className="rounded-t-md h-60 w-72 absolute top-0 left-0 object-cover"
+          className="rounded-t-md h-72 w-64 absolute top-0 left-0 object-cover"
         />
       </Link>
 
       <Link href={`/curso/${id}`} className="w-full">
-        <div className="absolute top-60 h-40 flex flex-col justify-between items-start px-4 py-2 w-full">
+        <div className="absolute top-72 h-40 flex flex-col justify-between items-start px-4 py-2 w-full">
           <div className="flex flex-col gap-1">
-            <h1 className="font-semibold text-xl text-zinc-800 w-full max-h-20">
-              {name.length > 50 ? `${name.slice(0, 50)}...` : name}
+            <h1 className="font-semibold text-lg text-zinc-800 w-full max-h-20">
+              {name.length > 40 ? `${name.slice(0, 40)}...` : name}
             </h1>
             <h2 className="font-light text-sm w-full">{areaPt}</h2>
           </div>
@@ -46,7 +46,7 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
           setCart([course])
           router.push('/finalizar-compra')
         }}
-        className="absolute w-64 left-4 right-4 bottom-2 bg-sky-400 py-2 rounded-md text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md"
+        className="absolute w-56 left-4 right-4 bottom-2 bg-sky-400 py-2 rounded-md text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md"
       >
         Comprar
       </button>
