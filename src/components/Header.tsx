@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import React, { useContext, useState } from 'react'
 
@@ -49,7 +50,7 @@ export default function Header() {
   const router = useRouter()
 
   return (
-    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-gray-800 text-sky-400 shadow-xl">
+    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-sky-900 text-sky-400 shadow-xl">
       <button
         type="button"
         onClick={clickMenu}
@@ -66,9 +67,7 @@ export default function Header() {
             router.push('/')
           }}
         >
-          <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
-            <span>My Fav Games</span>
-          </h1>
+          <img src="/logo.png" alt="My Favorite Games Logo" className="h-12" />
         </button>
         <div className="flex gap-3 items-center justify-center">
           <form
