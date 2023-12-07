@@ -16,7 +16,7 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
   const router = useRouter()
 
   return (
-    <div className="rounded-md flex flex-col w-72 h-[450px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer transition-all hover:scale-105">
+    <div className="rounded-md flex flex-col w-72 h-[450px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer transition-all">
       <Link href={`/curso/${id}`} className="w-full">
         <img
           src={image}

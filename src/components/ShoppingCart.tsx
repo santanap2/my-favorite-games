@@ -46,7 +46,7 @@ export default function ShoppingCart() {
             <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
               {cart.length > 0 ? (
                 <div className="w-full h-fit flex flex-col gap-10 pr-4">
-                  {cart.map(({ area, id, image, name, price }) => (
+                  {cart.map(({ areaPt, id, image, name, price }) => (
                     <div key={id} className="flex w-full gap-3 border-b pb-6">
                       <img
                         src={image}
@@ -57,7 +57,7 @@ export default function ShoppingCart() {
                         <h1 className="font-bold text-sm tracking-tight">
                           {name}
                         </h1>
-                        <h3>{area}</h3>
+                        <h3>{areaPt}</h3>
                         <div className="flex justify-between items-center w-full">
                           <h2 className="font-extrabold tracking-wider text-lg">
                             {`R$ ${priceToBRL(price)}`}

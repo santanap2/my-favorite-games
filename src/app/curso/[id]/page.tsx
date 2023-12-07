@@ -28,12 +28,17 @@ export default function CursoId({ params: { id } }: IParams) {
 
   const [isFavorite, setIsFavorite] = useState(false)
 
-  const { cart, setCart, setShowCart, showMenu, setShowMenu } = useContext(
-    CoursesPlatformContext,
-  )
+  const {
+    cart,
+    setCart,
+    setShowCart,
+    showMenu,
+    setShowMenu,
+    setFilteredProducts,
+  } = useContext(CoursesPlatformContext)
 
   const course = courses.find((one) => one.id === Number(id))
-  const { name, area, price, image, description } = course
+  const { name, area, areaPt, price, image, description } = course
 
   useEffect(() => setShowMenu({ ...showMenu, filters: false }), [])
   const router = useRouter()
@@ -57,19 +62,26 @@ export default function CursoId({ params: { id } }: IParams) {
   }
 
   return (
-    <div className="ml-64 mt-24 w-full h-full">
+    <div className="mt-24 w-full h-full">
       <LateralMenu />
       <div className="w-full h-full">
         <div className="flex gap-1 justify-center items-center w-fit">
-          <Link href="/" className="text-zinc-500 hover:text-sky-400">
+          <Link
+            href="/"
+            className="text-zinc-500 hover:text-sky-400"
+            onClick={() => setFilteredProducts(courses)}
+          >
             Início
           </Link>
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
-            href={`/cursos/${area}`}
+            onClick={() =>
+              setFilteredProducts(courses.filter((item) => item.area === area))
+            }
+            href={`/home`}
             className="text-zinc-500 hover:text-sky-400"
           >
-            {area}
+            {areaPt}
           </Link>
         </div>
         <h1 className="mt-4 font-bold text-2xl text-zinc-800">{name}</h1>
@@ -131,7 +143,7 @@ export default function CursoId({ params: { id } }: IParams) {
             </div>
           </div>
         </div>
-        <div className="mt-12 font-semibold text-xl text-zinc-500 w-4/5 flex flex-col gap-4">
+        <div className="mt-12 font-semibold text-xl text-zinc-500 w-full flex flex-col gap-4">
           <div className="w-full border-b">
             <button
               className="tracking-wide flex gap-2 py-3 hover:underline"
@@ -152,7 +164,7 @@ export default function CursoId({ params: { id } }: IParams) {
             )}
           </div>
 
-          <div className="w-full border-b">
+          <div className={`w-full ${!expandMenus.evaluation && 'border-b'}`}>
             <button
               className="tracking-wide flex gap-2 py-3 hover:underline"
               onClick={() => clickExpandMenu('evaluation')}

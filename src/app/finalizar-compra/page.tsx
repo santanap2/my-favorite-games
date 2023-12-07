@@ -5,19 +5,12 @@ import CoursesPlatformContext from '@/context/Context'
 import { calcSum, portionPrice, priceToBRL } from '@/helpers'
 import { Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 export default function FinalizarCompra() {
-  const { cart, logged, setShowCart } = useContext(CoursesPlatformContext)
+  const { cart } = useContext(CoursesPlatformContext)
 
   const router = useRouter()
-
-  useEffect(() => {
-    if (!logged) {
-      setShowCart(false)
-      router.push('/login')
-    }
-  }, [logged, router, setShowCart])
 
   return (
     <div className="mt-24 w-4/5 flex flex-col gap-12">
@@ -28,7 +21,7 @@ export default function FinalizarCompra() {
 
       <div className="flex justify-between items-start w-full h-full ">
         <div className="w-[70%] bg-white rounded-md shadow-md px-6">
-          {cart.map(({ area, id, image, name, price }) => (
+          {cart.map(({ areaPt, id, image, name, price }) => (
             <div
               key={id}
               className="flex items-center w-full gap-3 border-b p-6"
@@ -40,7 +33,7 @@ export default function FinalizarCompra() {
               />
               <div className="flex flex-col justify-between items-start w-full h-32">
                 <h1 className="font-bold text-md tracking-tight">{name}</h1>
-                <h3 className="font-semibold text-sm">{area}</h3>
+                <h3 className="font-semibold text-sm">{areaPt}</h3>
                 <div className="flex flex-col mt-6 text-zinc-500 text-sm">
                   <span>À vista no PIX com 10% de desconto</span>
                   <span>{`Ou em até 3x de R$${portionPrice(
