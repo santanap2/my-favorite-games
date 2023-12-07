@@ -18,15 +18,6 @@ input[type=number] {
 
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(480px);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
 @keyframes slideInLeft {
   from {
     transform: translateX(-288px);
@@ -56,10 +47,6 @@ input[type=number] {
   }
 }
 
-.slideshow-right {
-  animation: slideInRight 0.2s ease-out
-}
-
 .slideshow-left {
   animation: slideInLeft 0.2s ease-out
 }
@@ -72,3 +59,32 @@ input[type=number] {
   animation: appearFromTop 0.3s ease-out;
 }
 
+.slide-cart-enter {
+  transform: translateX(100%);
+}
+.slide-cart-enter-active {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
+.slide-cart-exit {
+  transform: translateX(0);
+}
+.slide-cart-exit-active {
+  transform: translateX(100%);
+  transition: transform 200ms ease-out;
+}
+
+.slide-menu-enter {
+  transform: translateX(-100%);
+}
+.slide-menu-enter-active {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
+.slide-menu-exit {
+  transform: translateX(0);
+}
+.slide-menu-exit-active {
+  transform: translateX(-100%);
+  transition: transform 200ms ease-out;
+}

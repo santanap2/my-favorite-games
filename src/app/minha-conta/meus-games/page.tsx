@@ -6,7 +6,7 @@ import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
 import { IGame } from '@/interfaces'
-import { Books } from '@phosphor-icons/react'
+import { GameController } from '@phosphor-icons/react'
 import React, { useContext, useEffect } from 'react'
 
 export default function MeusGames() {
@@ -25,7 +25,7 @@ export default function MeusGames() {
       <LateralMenu />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800">
         <div className="flex gap-1 w-fit items-center justify-center">
-          <Books weight="fill" size={56} className="text-sky-500" />
+          <GameController weight="fill" size={56} className="text-sky-500" />
           <h1 className="font-regular text-xl font-semibold">Meus Games</h1>
         </div>
 
