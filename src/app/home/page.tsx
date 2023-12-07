@@ -5,13 +5,30 @@ import React, { useContext, useEffect } from 'react'
 import ProductCard from '@/components/ProductCard'
 import LateralMenu from '@/components/LateralMenu'
 import CoursesPlatformContext from '@/context/Context'
+import { useSearchParams } from 'next/navigation'
+import { ICartItem } from '@/interfaces'
+import { courses } from '@/data/courses'
 
 export default function Home() {
-  const { showMenu, setShowMenu, filteredProducts } = useContext(
-    CoursesPlatformContext,
-  )
+  const { showMenu, setShowMenu, filteredProducts, setFilteredProducts } =
+    useContext(CoursesPlatformContext)
 
-  useEffect(() => setShowMenu({ ...showMenu, filters: true }), [])
+  const searchParams = useSearchParams()
+  const headerSearch = searchParams.get('busca')
+
+  useEffect(() => {
+    if (headerSearch) {
+      const filteredBySearch = courses.filter((item: ICartItem) =>
+        item.name.toLowerCase().includes(headerSearch.toLowerCase()),
+      )
+      setFilteredProducts(filteredBySearch)
+    }
+  }, [headerSearch])
+
+  useEffect(() => {
+    // setFilteredProducts(filteredBySearch)
+    setShowMenu({ ...showMenu, filters: true })
+  }, [])
 
   return (
     <div className="mt-24 w-full">

@@ -1,7 +1,7 @@
 import CoursesPlatformContext from '@/context/Context'
 import { courses } from '@/data/courses'
 import { currencyMask } from '@/helpers'
-import { ICartItem } from '@/interfaces'
+import { ICartItem, IGamesGenres } from '@/interfaces'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { useContext, useEffect } from 'react'
@@ -13,14 +13,14 @@ export default function LateralFilterHooks() {
 
   const formSchema = z.object({
     lateralFilters: z.object({
-      arquitecture: z.boolean(),
-      fisiotherapy: z.boolean(),
-      financialEducation: z.boolean(),
-      entrepreneurship: z.boolean(),
-      civilEngeneering: z.boolean(),
-      audiovisual: z.boolean(),
-      programming: z.boolean(),
-      marketing: z.boolean(),
+      actionAdventure: z.boolean(),
+      rpgOpenWorld: z.boolean(),
+      rpgTurnBased: z.boolean(),
+      actionTerror: z.boolean(),
+      fps: z.boolean(),
+      survivalHorror: z.boolean(),
+      racing: z.boolean(),
+      actionRhythm: z.boolean(),
       minPrice: z.string(),
       maxPrice: z.string(),
     }),
@@ -34,14 +34,11 @@ export default function LateralFilterHooks() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       lateralFilters: {
-        arquitecture: false,
-        fisiotherapy: false,
-        financialEducation: false,
-        entrepreneurship: false,
-        civilEngeneering: false,
-        audiovisual: false,
-        programming: false,
-        marketing: false,
+        actionAdventure: false,
+        rpgOpenWorld: false,
+        rpgTurnBased: false,
+        actionTerror: false,
+        fps: false,
         minPrice: '',
         maxPrice: '',
       },
@@ -105,9 +102,19 @@ export default function LateralFilterHooks() {
     setValue('lateralFilters.maxPrice', currencyMask(maxPrice))
   }, [maxPrice, setValue])
 
+  function sortByName(a: IGamesGenres, b: IGamesGenres) {
+    const nomeA = a.name.toUpperCase()
+    const nomeB = b.name.toUpperCase()
+
+    if (nomeA < nomeB) return -1
+    if (nomeA > nomeB) return 1
+    return 0
+  }
+
   return {
     handleSubmit,
     register,
     handleFormSubmit,
+    sortByName,
   }
 }

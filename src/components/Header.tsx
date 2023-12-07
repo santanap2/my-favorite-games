@@ -80,7 +80,7 @@ export default function Header() {
               {...register('headerSearch.headerInput')}
               type="text"
               className="h-10 rounded-l-md pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
-              placeholder="Qual curso procura?"
+              placeholder="Qual jogo procura?"
             />
             <button type="submit">
               <MagnifyingGlass

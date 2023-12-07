@@ -1,7 +1,7 @@
 export const courses = [
   {
     name: 'Red Dead Redemption 2',
-    area: 'arquitecture',
+    area: 'actionAdventure',
     areaPt: 'Ação e aventura de mundo aberto',
     price: 249.9,
     id: 0,
@@ -12,18 +12,18 @@ export const courses = [
   },
   {
     name: 'Cyberpunk 2077 Complete Edition',
-    area: 'fisiotherapy',
+    area: 'rpgOpenWorld',
     areaPt: 'RPG de mundo aberto',
     price: 299.99,
     id: 1,
     image:
-      'https://flowgames.gg/wp-content/uploads/2023/10/CP2077_EP1_PhL_ESG_product_landscape_image_2560x1440_EN_2560x1440-4436283026fe6c7769eccf77ad60d26c-1044x587.jpg',
+      'https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7',
     description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
   },
   {
     name: `Baldur's Gate 3`,
-    area: 'financialEducation',
+    area: 'rpgTurnBased',
     areaPt: 'RPG de turnos',
     price: 199.9,
     id: 2,
@@ -34,7 +34,7 @@ export const courses = [
   },
   {
     name: 'Dead Space Remake',
-    area: 'entrepreneurship',
+    area: 'actionTerror',
     areaPt: 'Ação e terror',
     price: 249.9,
     id: 3,
@@ -44,7 +44,7 @@ export const courses = [
   },
   {
     name: 'Battlefield 2042',
-    area: 'civilEngeneering',
+    area: 'fps',
     areaPt: 'Tiro em primeira pessoa',
     price: 199.9,
     id: 4,
@@ -54,7 +54,7 @@ export const courses = [
   },
   {
     name: 'Starfield',
-    area: 'audiovisual',
+    area: 'rpgOpenWorld',
     areaPt: 'RPG de mundo aberto',
     price: 279.9,
     id: 5,
@@ -65,7 +65,7 @@ export const courses = [
   },
   {
     name: 'Grand Theft Auto VI',
-    area: 'programming',
+    area: 'actionAdventure',
     areaPt: 'Ação e aventura de mundo aberto',
     price: 349.9,
     id: 6,
@@ -76,11 +76,98 @@ export const courses = [
   },
   {
     name: 'Call Of Duty: MODERN WARFARE III',
-    area: 'marketing',
+    area: 'fps',
     areaPt: 'Tiro em primeira pessoa',
     price: 349.9,
     id: 7,
     image: 'https://gameranx.com/wp-content/uploads/2023/10/mw3-featured2.jpg',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'Alan Wake II',
+    area: 'survivalHorror',
+    areaPt: 'Survival Horror',
+    price: 249.9,
+    id: 8,
+    image:
+      'https://image.api.playstation.com/vulcan/ap/rnd/202305/2420/c3daf3037feb797d9e71b81618e3b5ff3ff1f9609db5a4a2.png',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'The Witcher 3',
+    area: 'rpgOpenWorld',
+    areaPt: 'RPG de mundo aberto',
+    price: 249.9,
+    id: 9,
+    image:
+      'https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S2_1200x1600-53a8fb2c0201cd8aea410f2a049aba3f',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'Resident Evil 4 Remake',
+    area: 'survivalHorror',
+    areaPt: 'Survival Horror',
+    price: 199.9,
+    id: 10,
+    image:
+      'https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/EVWyZD63pahuh95eKloFaJuC.png',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'Forza Motorsport',
+    area: 'racing',
+    areaPt: 'Corrida',
+    price: 299.9,
+    id: 11,
+    image: 'https://pbs.twimg.com/media/Fw67HSUWcAQHnCP.jpg',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'God of War Ragnarok',
+    area: 'actionAdventure',
+    areaPt: 'Ação e aventura',
+    price: 349.9,
+    id: 12,
+    image:
+      'https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'Hi-Fi Rush',
+    area: 'actionRhythm',
+    areaPt: 'Ação e ritmo',
+    price: 89.9,
+    id: 13,
+    image:
+      'https://store-images.s-microsoft.com/image/apps.54250.13592675470908447.79efa8be-9602-4911-867c-3b27d26ad414.5083e064-e3e9-4a23-bb10-684f7be75d15',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'Forza Horizon 5',
+    area: 'racing',
+    areaPt: 'Corrida',
+    price: 249.9,
+    id: 14,
+    image:
+      'https://www.gtplanet.net/wp-content/uploads/2021/08/ForzaHorizon5_KeyArt_Horiz_RGB_Final.jpg',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  },
+  {
+    name: 'Horizon Forbidden West',
+    area: 'rpgOpenWorld',
+    areaPt: 'RPG de mundo aberto',
+    price: 299.9,
+    id: 15,
+    image:
+      'https://image.api.playstation.com/vulcan/ap/rnd/202107/3100/ki0STHGAkIF06Q4AU8Ow4OkV.png',
     description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
   },

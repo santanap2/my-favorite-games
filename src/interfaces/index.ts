@@ -93,3 +93,14 @@ export interface ILateralFilters {
   minPrice?: string
   maxPrice?: string
 }
+
+export interface IGamesGenres {
+  camelCaseName: string
+  name: string
+}
+
+export interface IParamSearch {
+  params: {
+    search: string
+  }
+}

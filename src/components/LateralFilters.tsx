@@ -9,7 +9,10 @@ import { ICoursesAreas } from '@/interfaces'
 
 export default function LateralFilters() {
   const { showMenu } = useContext(CoursesPlatformContext)
-  const { handleSubmit, register, handleFormSubmit } = LateralFilterHooks()
+  const { handleSubmit, register, handleFormSubmit, sortByName } =
+    LateralFilterHooks()
+
+  const ordered = coursesAreas.sort(sortByName)
 
   return (
     <>
@@ -28,24 +31,22 @@ export default function LateralFilters() {
                   id="lateral-filters"
                   className="flex flex-col gap-3 mt-3"
                 >
-                  {coursesAreas.map(
-                    ({ camelCaseName, name }: ICoursesAreas) => (
-                      <label
-                        htmlFor={camelCaseName}
-                        key={camelCaseName}
-                        className="flex justify-start items-center gap-3 w-full hover:underline"
-                      >
-                        <input
-                          {...register(`lateralFilters.${camelCaseName}`)}
-                          id={camelCaseName}
-                          type="checkbox"
-                        />
-                        <span className="text-zinc-600 tracking-wider text-sm font-light">
-                          {name}
-                        </span>
-                      </label>
-                    ),
-                  )}
+                  {ordered.map(({ camelCaseName, name }: ICoursesAreas) => (
+                    <label
+                      htmlFor={camelCaseName}
+                      key={camelCaseName}
+                      className="flex justify-start items-center gap-3 w-full hover:underline"
+                    >
+                      <input
+                        {...register(`lateralFilters.${camelCaseName}`)}
+                        id={camelCaseName}
+                        type="checkbox"
+                      />
+                      <span className="text-zinc-600 tracking-wider text-sm font-light">
+                        {name}
+                      </span>
+                    </label>
+                  ))}
                   <div className="flex flex-col gap-3 mt-5">
                     <h1 className="text-sm font-semibold">Preço</h1>
                     <label
