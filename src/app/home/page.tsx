@@ -50,14 +50,3 @@ export default function Home() {
     </div>
   )
 }
-
-// (
-//   <ProductCard
-//     key={id}
-//     name={name}
-//     id={id}
-//     area={area}
-//     price={price}
-//     image={image}
-//   />
-// )
