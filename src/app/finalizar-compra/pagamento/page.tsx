@@ -1,7 +1,7 @@
 'use client'
 
 import CreditCardForm from '@/components/CreditCardForm'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { calcSum, priceToBRL } from '@/helpers'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
@@ -9,7 +9,7 @@ import React, { useContext, useEffect } from 'react'
 
 export default function Pagamento() {
   const { cart, paymentMethod, setPaymentMethod, logged, setShowCart } =
-    useContext(CoursesPlatformContext)
+    useContext(GamesPlatformContext)
 
   const router = useRouter()
 

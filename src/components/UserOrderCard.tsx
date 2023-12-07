@@ -7,16 +7,16 @@ import React, { useState } from 'react'
 export default function UserOrderCard({
   image,
   name,
-  isCourse,
-  courseId,
+  isGame,
+  gameId,
   isFavorite,
   productId,
 }: IUserOrderCard) {
   const [favorited, setFavorited] = useState(true)
 
   const whichLink = () => {
-    if (isFavorite) return `/curso/${productId}`
-    if (isCourse) return `/minha-conta/meus-cursos/${courseId}`
+    if (isFavorite) return `/game/${productId}`
+    if (isGame) return `/minha-conta/meus-games/${gameId}`
     return '/'
   }
 

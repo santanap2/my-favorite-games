@@ -2,13 +2,13 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { Chat, Clock, Envelope, WhatsappLogo } from '@phosphor-icons/react'
 import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
 
 export default function Ajuda() {
-  const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
+  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
 
   useEffect(() => {
     setShowMenu({ ...showMenu, myAccount: true })
@@ -70,13 +70,13 @@ export default function Ajuda() {
           <h1 className="font-semibold text-lg">Atendimento via E-mail</h1>
 
           <Link
-            href="mailto:suporte@myfavcourses.com"
+            href="mailto:suporte@myfavgames.com"
             className="flex gap-2 items-start justify-start hover:text-sky-400 text-sm font-light"
           >
             <Envelope size={28} weight="duotone" className="text-sky-400" />
             <h3 className="flex flex-col">
-              <span>suporte@myfavcourses.com</span>
-              <span className="font-semibold">Suporte My Fav Courses</span>
+              <span>suporte@myfavgames.com</span>
+              <span className="font-semibold">Suporte My Fav Games</span>
             </h3>
           </Link>
         </div>

@@ -1,4 +1,4 @@
-const coursesAreas = [
+const gamesGenres = [
   { camelCaseName: 'actionAdventure', name: 'Ação e aventura' },
   { camelCaseName: 'rpgOpenWorld', name: 'RPG de mundo aberto' },
   { camelCaseName: 'rpgTurnBased', name: 'RPG de turnos' },
@@ -9,4 +9,4 @@ const coursesAreas = [
   { camelCaseName: 'actionRhythm', name: 'Ação e ritmo' },
 ]
 
-export default coursesAreas
+export default gamesGenres

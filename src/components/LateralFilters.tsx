@@ -2,17 +2,17 @@
 'use client'
 
 import React, { useContext } from 'react'
-import coursesAreas from '@/data/coursesAreas'
-import CoursesPlatformContext from '@/context/Context'
+import gamesGenres from '@/data/gamesGenres'
+import GamesPlatformContext from '@/context/Context'
 import LateralFilterHooks from '@/hooks/LateralFilterHooks'
-import { ICoursesAreas } from '@/interfaces'
+import { IGamesGenres } from '@/interfaces'
 
 export default function LateralFilters() {
-  const { showMenu } = useContext(CoursesPlatformContext)
+  const { showMenu } = useContext(GamesPlatformContext)
   const { handleSubmit, register, handleFormSubmit, sortByName } =
     LateralFilterHooks()
 
-  const ordered = coursesAreas.sort(sortByName)
+  const ordered = gamesGenres.sort(sortByName)
 
   return (
     <>
@@ -31,7 +31,7 @@ export default function LateralFilters() {
                   id="lateral-filters"
                   className="flex flex-col gap-3 mt-3"
                 >
-                  {ordered.map(({ camelCaseName, name }: ICoursesAreas) => (
+                  {ordered.map(({ camelCaseName, name }: IGamesGenres) => (
                     <label
                       htmlFor={camelCaseName}
                       key={camelCaseName}

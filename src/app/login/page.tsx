@@ -3,11 +3,11 @@
 import React, { useContext, useEffect } from 'react'
 import UnloggedUser from '@/components/UnloggedUser'
 import CreateAccount from '@/components/CreateAccount'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
 
 export default function Login() {
-  const { logged } = useContext(CoursesPlatformContext)
+  const { logged } = useContext(GamesPlatformContext)
   const router = useRouter()
 
   useEffect(() => {

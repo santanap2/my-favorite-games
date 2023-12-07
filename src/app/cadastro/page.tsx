@@ -3,11 +3,11 @@
 import RegisterSuccess from '@/components/RegisterSuccess'
 import RegisterUser from '@/components/RegisterUser'
 import ReturnLogin from '@/components/ReturnLogin'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import React, { useContext } from 'react'
 
 export default function Cadastro() {
-  const { registerSuccess } = useContext(CoursesPlatformContext)
+  const { registerSuccess } = useContext(GamesPlatformContext)
   return (
     <div>
       {registerSuccess ? (

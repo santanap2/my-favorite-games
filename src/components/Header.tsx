@@ -5,12 +5,12 @@ import {
   MagnifyingGlass,
   ShoppingCartSimple,
 } from '@phosphor-icons/react/dist/ssr'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
 import { List, UserCircle } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
-import { courses } from '@/data/courses'
+import { games } from '@/data/games'
 
 export default function Header() {
   const {
@@ -20,7 +20,7 @@ export default function Header() {
     showMenu,
     cart: cartState,
     setFilteredProducts,
-  } = useContext(CoursesPlatformContext)
+  } = useContext(GamesPlatformContext)
 
   const { handleSubmit, register, handleFormSubmit } = HeaderHooks()
 
@@ -42,7 +42,7 @@ export default function Header() {
     if (pathname.includes('/home'))
       setShowMenu({ ...showMenu, filters: !showMenu.filters })
 
-    if (pathname.includes('/curso'))
+    if (pathname.includes('/game'))
       setShowMenu({ ...showMenu, filters: !showMenu.filters })
   }
 
@@ -62,12 +62,11 @@ export default function Header() {
       <div className="w-3/4 flex justify-between items-center">
         <button
           onClick={() => {
-            setFilteredProducts(courses)
+            setFilteredProducts(games)
             router.push('/')
           }}
         >
           <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
-            {/* <BookOpenText size={28} weight="regular" /> */}
             <span>My Fav Games</span>
           </h1>
         </button>

@@ -2,12 +2,12 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import EvaluationsCourse from '@/components/EvaluationsCourse'
+import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
-import { courses } from '@/data/courses'
+import GamesPlatformContext from '@/context/Context'
+import { games } from '@/data/games'
 import { portionPrice, priceToBRL } from '@/helpers'
-import { ICartItem, IParams } from '@/interfaces'
+import { IGame, IGameIDParams } from '@/interfaces'
 import {
   CaretDown,
   CaretRight,
@@ -20,7 +20,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 
-export default function CursoId({ params: { id } }: IParams) {
+export default function GameId({ params: { id } }: IGameIDParams) {
   const [expandMenus, setExpandMenus] = useState({
     description: true,
     evaluation: true,
@@ -35,10 +35,10 @@ export default function CursoId({ params: { id } }: IParams) {
     showMenu,
     setShowMenu,
     setFilteredProducts,
-  } = useContext(CoursesPlatformContext)
+  } = useContext(GamesPlatformContext)
 
-  const course = courses.find((one) => one.id === Number(id))
-  const { name, area, areaPt, price, image, description } = course
+  const game = games.find((one) => one.id === Number(id))
+  const { name, area, areaPt, price, image, description } = game
 
   useEffect(() => setShowMenu({ ...showMenu, filters: false }), [])
   const router = useRouter()
@@ -50,9 +50,9 @@ export default function CursoId({ params: { id } }: IParams) {
       setExpandMenus({ ...expandMenus, evaluation: !expandMenus.evaluation })
   }
 
-  const addCartItem = (item: ICartItem) => {
+  const addCartItem = (item: IGame) => {
     setShowCart(true)
-    setCart((prev: ICartItem[]) => {
+    setCart((prev: IGame[]) => {
       if (prev.includes(item)) {
         setCart(prev)
       } else {
@@ -69,14 +69,14 @@ export default function CursoId({ params: { id } }: IParams) {
           <Link
             href="/"
             className="text-zinc-500 hover:text-sky-400"
-            onClick={() => setFilteredProducts(courses)}
+            onClick={() => setFilteredProducts(games)}
           >
             Início
           </Link>
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
             onClick={() =>
-              setFilteredProducts(courses.filter((item) => item.area === area))
+              setFilteredProducts(games.filter((item) => item.area === area))
             }
             href={`/home`}
             className="text-zinc-500 hover:text-sky-400"
@@ -93,7 +93,7 @@ export default function CursoId({ params: { id } }: IParams) {
             className="w-[640px] h-[400px] rounded-md shadow-md object-cover"
           />
           <div className="flex flex-col justify-start items-start  w-full h-full text-zinc-600">
-            <span>Vendido por: My Fav Courses™</span>
+            <span>Vendido por: My Fav Games™</span>
             <div className="text-sky-500 text-4xl font-black">
               <span>{'R$ '}</span>
               <span>{priceToBRL(price * 0.9)}</span>
@@ -108,7 +108,7 @@ export default function CursoId({ params: { id } }: IParams) {
             <div className="flex gap-4 mt-20">
               <button
                 onClick={() => {
-                  setCart([course])
+                  setCart([game])
                   router.push('/finalizar-compra')
                 }}
                 className="w-64 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg"
@@ -116,7 +116,7 @@ export default function CursoId({ params: { id } }: IParams) {
                 Comprar agora
               </button>
               <button
-                onClick={() => addCartItem(course)}
+                onClick={() => addCartItem(game)}
                 className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg"
               >
                 <ShoppingCartSimple
@@ -176,7 +176,7 @@ export default function CursoId({ params: { id } }: IParams) {
                 <CaretDown size={28} />
               )}
             </button>
-            {expandMenus.evaluation && <EvaluationsCourse />}
+            {expandMenus.evaluation && <EvaluationsGame />}
           </div>
         </div>
       </div>

@@ -4,21 +4,21 @@
 import React, { useContext, useEffect } from 'react'
 import ProductCard from '@/components/ProductCard'
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { useSearchParams } from 'next/navigation'
-import { ICartItem } from '@/interfaces'
-import { courses } from '@/data/courses'
+import { IGame } from '@/interfaces'
+import { games } from '@/data/games'
 
 export default function Home() {
   const { showMenu, setShowMenu, filteredProducts, setFilteredProducts } =
-    useContext(CoursesPlatformContext)
+    useContext(GamesPlatformContext)
 
   const searchParams = useSearchParams()
   const headerSearch = searchParams.get('busca')
 
   useEffect(() => {
     if (headerSearch) {
-      const filteredBySearch = courses.filter((item: ICartItem) =>
+      const filteredBySearch = games.filter((item: IGame) =>
         item.name.toLowerCase().includes(headerSearch.toLowerCase()),
       )
       setFilteredProducts(filteredBySearch)

@@ -2,7 +2,7 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import MyDataHooks from '@/hooks/MyDataHooks'
 import {
   Envelope,
@@ -14,7 +14,7 @@ import {
 import React, { useContext, useEffect } from 'react'
 
 export default function MeusDados() {
-  const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
+  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
   useEffect(() => {

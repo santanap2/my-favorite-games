@@ -1,4 +1,4 @@
-import { ICartItem } from '@/interfaces'
+import { IGame } from '@/interfaces'
 
 export type HeaderSearch = {
   headerInput: string
@@ -26,6 +26,6 @@ export type userOrders = {
     price: number
     date: Date
     payment: string
-    items: ICartItem[]
+    items: IGame[]
   }[]
 }

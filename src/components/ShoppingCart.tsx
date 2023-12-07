@@ -2,16 +2,15 @@
 
 'use client'
 
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { calcSum, priceToBRL } from '@/helpers'
 import { X } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
 export default function ShoppingCart() {
-  const { showCart, setShowCart, cart, setCart } = useContext(
-    CoursesPlatformContext,
-  )
+  const { showCart, setShowCart, cart, setCart } =
+    useContext(GamesPlatformContext)
 
   const removeItemCart = (id: number) => {
     const newCart = cart.filter((item) => item.id !== id)

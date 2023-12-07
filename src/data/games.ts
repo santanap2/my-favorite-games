@@ -1,4 +1,4 @@
-export const courses = [
+export const games = [
   {
     name: 'Red Dead Redemption 2',
     area: 'actionAdventure',

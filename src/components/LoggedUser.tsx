@@ -4,16 +4,16 @@ import Link from 'next/link'
 import SingleOrder from './SingleOrder'
 import UserOrderCard from './UserOrderCard'
 import orders from '@/data/userOrders'
-import { ICartItem } from '@/interfaces'
+import { IGame } from '@/interfaces'
 
 export default function LoggedUser() {
   const { orderNumber, price, status, date, payment, items } =
     orders[orders.length - 1]
 
-  const allCourses: ICartItem[] = []
+  const allGames: IGame[] = []
   const concludedOrders = orders.filter((item) => item.status === 'concluded')
   concludedOrders.forEach((order) =>
-    order.items.forEach((course) => allCourses.push(course)),
+    order.items.forEach((game) => allGames.push(game)),
   )
 
   return (
@@ -55,29 +55,29 @@ export default function LoggedUser() {
         <div className="flex flex-col gap-4">
           <div className="w-full flex justify-between items-center">
             <span className="font-semibold text-xl">
-              Seus últimos cursos comprados
+              Seus últimos games comprados
             </span>
             <Link
-              href="/minha-conta/meus-cursos"
+              href="/minha-conta/meus-games"
               className="font-semibold text-lg text-sky-400 hover:underline"
             >
               Ver todos
             </Link>
           </div>
           <div className="flex flex-wrap max-w-full gap-8 w-fit pb-4 items-center">
-            {allCourses.length > 0 ? (
-              allCourses.map(({ name, id, image }: ICartItem) => (
+            {allGames.length > 0 ? (
+              allGames.map(({ name, id, image }: IGame) => (
                 <UserOrderCard
                   key={id}
                   name={name}
                   image={image}
-                  courseId={id}
+                  gameId={id}
                   productId={id}
-                  isCourse
+                  isGame
                 />
               ))
             ) : (
-              <span>Você não possui nenhum curso comprado.</span>
+              <span>Você não possui nenhum game comprado.</span>
             )}
           </div>
         </div>

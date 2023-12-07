@@ -1,7 +1,8 @@
-import CoursesPlatformContext from '@/context/Context'
-import { courses } from '@/data/courses'
+import GamesPlatformContext from '@/context/Context'
+import { games } from '@/data/games'
+
 import { currencyMask } from '@/helpers'
-import { ICartItem, IGamesGenres } from '@/interfaces'
+import { IGame, IGamesGenres } from '@/interfaces'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { useContext, useEffect } from 'react'
@@ -9,7 +10,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LateralFilterHooks() {
-  const { setFilteredProducts } = useContext(CoursesPlatformContext)
+  const { setFilteredProducts } = useContext(GamesPlatformContext)
 
   const formSchema = z.object({
     lateralFilters: z.object({
@@ -54,39 +55,39 @@ export default function LateralFilterHooks() {
 
   const router = useRouter()
 
-  function filterCourses(
-    courses: ICartItem[],
-    area: string[],
+  function filterGames(
+    games: IGame[],
+    genres: string[],
     minPrice: number | string,
     maxPrice: number | string,
   ) {
     const minPriceNumber = minPrice === '' ? null : Number(minPrice)
     const maxPriceNumber = maxPrice === '' ? null : Number(maxPrice)
 
-    const cursosFiltrados = courses.filter((curso: ICartItem) => {
-      const areaCondition = area.length === 0 || area.includes(curso.area)
+    const gamesFiltrados = games.filter((game: IGame) => {
+      const areaCondition = genres.length === 0 || genres.includes(game.area)
       const minPriceCondition =
-        minPriceNumber === null || curso.price >= minPriceNumber
+        minPriceNumber === null || game.price >= minPriceNumber
       const maxPriceCondition =
-        maxPriceNumber === null || curso.price <= maxPriceNumber
+        maxPriceNumber === null || game.price <= maxPriceNumber
 
       return areaCondition && minPriceCondition && maxPriceCondition
     })
 
-    return cursosFiltrados
+    return gamesFiltrados
   }
 
   const handleFormSubmit = (data: FormProps) => {
     const filters = changedFilters(data)
 
-    const filteredCourses = filterCourses(
-      courses,
+    const filteredGames = filterGames(
+      games,
       filters,
       data.lateralFilters.minPrice,
       data.lateralFilters.maxPrice,
     )
 
-    setFilteredProducts(filteredCourses)
+    setFilteredProducts(filteredGames)
 
     router.push('/home')
   }

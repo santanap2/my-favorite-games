@@ -4,20 +4,20 @@ import React, { useContext } from 'react'
 import { ICard } from '@/interfaces'
 import Link from 'next/link'
 import { priceToBRL } from '@/helpers'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
-import { courses } from '@/data/courses'
+import { games } from '@/data/games'
 
 export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
-  const { setCart } = useContext(CoursesPlatformContext)
+  const { setCart } = useContext(GamesPlatformContext)
 
-  const course = courses.find((one) => one.id === id)
+  const game = games.find((one) => one.id === id)
 
   const router = useRouter()
 
   return (
     <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer transition-all">
-      <Link href={`/curso/${id}`} className="w-full">
+      <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
           alt={name}
@@ -25,7 +25,7 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
         />
       </Link>
 
-      <Link href={`/curso/${id}`} className="w-full">
+      <Link href={`/game/${id}`} className="w-full">
         <div className="absolute top-72 h-40 flex flex-col justify-between items-start px-4 py-2 w-full">
           <div className="flex flex-col gap-1">
             <h1 className="font-semibold text-lg text-zinc-800 w-full max-h-20">
@@ -43,7 +43,7 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
       <button
         type="button"
         onClick={() => {
-          setCart([course])
+          setCart([game])
           router.push('/finalizar-compra')
         }}
         className="absolute w-56 left-4 right-4 bottom-2 bg-sky-400 py-2 rounded-md text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md"

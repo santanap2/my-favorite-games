@@ -12,10 +12,10 @@ import {
   ThumbsUp,
   UserCircle,
 } from '@phosphor-icons/react'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 
 export default function LateralMyAccount() {
-  const { showMenu } = useContext(CoursesPlatformContext)
+  const { showMenu } = useContext(GamesPlatformContext)
   return (
     <>
       {showMenu.myAccount && (
@@ -47,9 +47,9 @@ export default function LateralMyAccount() {
             />
             <MenuItem
               Icon={Books}
-              name="Meus cursos"
+              name="Meus games"
               size={34}
-              link="/minha-conta/meus-cursos"
+              link="/minha-conta/meus-games"
               especialClass="hover:text-sky-400"
               iconClass="text-sky-600"
             />

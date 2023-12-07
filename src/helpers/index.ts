@@ -1,6 +1,6 @@
-import { ICartItem } from '@/interfaces'
+import { IGame } from '@/interfaces'
 
-export const calcSum = (cart: ICartItem[]) => {
+export const calcSum = (cart: IGame[]) => {
   let initialSum = 0
   cart.forEach(({ price }) => (initialSum += price))
   return {
