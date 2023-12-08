@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { calcSum, portionPrice, priceToBRL } from '@/helpers'
 import { Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
 export default function FinalizarCompra() {
-  const { cart } = useContext(CoursesPlatformContext)
+  const { cart } = useContext(GamesPlatformContext)
 
   const router = useRouter()
 

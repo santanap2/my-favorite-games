@@ -1,7 +1,8 @@
-import CoursesPlatformContext from '@/context/Context'
-import { courses } from '@/data/courses'
+import GamesPlatformContext from '@/context/Context'
+import { games } from '@/data/games'
+
 import { currencyMask } from '@/helpers'
-import { ICartItem } from '@/interfaces'
+import { IGame, IGamesGenres } from '@/interfaces'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { useContext, useEffect } from 'react'
@@ -9,18 +10,18 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LateralFilterHooks() {
-  const { setFilteredProducts } = useContext(CoursesPlatformContext)
+  const { setFilteredProducts } = useContext(GamesPlatformContext)
 
   const formSchema = z.object({
     lateralFilters: z.object({
-      arquitecture: z.boolean(),
-      fisiotherapy: z.boolean(),
-      financialEducation: z.boolean(),
-      entrepreneurship: z.boolean(),
-      civilEngeneering: z.boolean(),
-      audiovisual: z.boolean(),
-      programming: z.boolean(),
-      marketing: z.boolean(),
+      actionAdventure: z.boolean(),
+      rpgOpenWorld: z.boolean(),
+      rpgTurnBased: z.boolean(),
+      actionTerror: z.boolean(),
+      fps: z.boolean(),
+      survivalHorror: z.boolean(),
+      racing: z.boolean(),
+      actionRhythm: z.boolean(),
       minPrice: z.string(),
       maxPrice: z.string(),
     }),
@@ -34,79 +35,59 @@ export default function LateralFilterHooks() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       lateralFilters: {
-        arquitecture: false,
-        fisiotherapy: false,
-        financialEducation: false,
-        entrepreneurship: false,
-        civilEngeneering: false,
-        audiovisual: false,
-        programming: false,
-        marketing: false,
+        actionAdventure: false,
+        rpgOpenWorld: false,
+        rpgTurnBased: false,
+        actionTerror: false,
+        fps: false,
         minPrice: '',
         maxPrice: '',
       },
     },
   })
 
-  const changedFilters = ({
-    lateralFilters: {
-      arquitecture,
-      audiovisual,
-      civilEngeneering,
-      entrepreneurship,
-      financialEducation,
-      fisiotherapy,
-      marketing,
-      programming,
-    },
-  }: FormProps) => {
-    const result = []
-    if (arquitecture) result.push('arquitecture')
-    if (audiovisual) result.push('audiovisual')
-    if (civilEngeneering) result.push('civilEngeneering')
-    if (entrepreneurship) result.push('entrepreneurship')
-    if (financialEducation) result.push('financialEducation')
-    if (fisiotherapy) result.push('fisiotherapy')
-    if (marketing) result.push('marketing')
-    if (programming) result.push('programming')
+  const changedFilters = ({ lateralFilters }: FormProps) => {
+    const keys = Object.keys(lateralFilters)
+    const values = Object.values(lateralFilters)
+    const result = keys.filter((_key, index) => values[index] === true)
     return result
   }
 
   const router = useRouter()
 
-  function filterCourses(
-    courses: ICartItem[],
-    area: string[],
+  function filterGames(
+    games: IGame[],
+    genres: string[],
     minPrice: number | string,
     maxPrice: number | string,
   ) {
     const minPriceNumber = minPrice === '' ? null : Number(minPrice)
     const maxPriceNumber = maxPrice === '' ? null : Number(maxPrice)
 
-    const cursosFiltrados = courses.filter((curso: ICartItem) => {
-      const areaCondition = area.length === 0 || area.includes(curso.area)
+    const gamesFiltrados = games.filter((game: IGame) => {
+      const areaCondition = genres.length === 0 || genres.includes(game.area)
       const minPriceCondition =
-        minPriceNumber === null || curso.price >= minPriceNumber
+        minPriceNumber === null || game.price >= minPriceNumber
       const maxPriceCondition =
-        maxPriceNumber === null || curso.price <= maxPriceNumber
+        maxPriceNumber === null || game.price <= maxPriceNumber
 
       return areaCondition && minPriceCondition && maxPriceCondition
     })
 
-    return cursosFiltrados
+    return gamesFiltrados
   }
 
   const handleFormSubmit = (data: FormProps) => {
     const filters = changedFilters(data)
 
-    const filteredCourses = filterCourses(
-      courses,
+    const filteredGames = filterGames(
+      games,
       filters,
       data.lateralFilters.minPrice,
       data.lateralFilters.maxPrice,
     )
 
-    setFilteredProducts(filteredCourses)
+    setFilteredProducts(filteredGames)
 
     router.push('/home')
   }
@@ -122,9 +103,19 @@ export default function LateralFilterHooks() {
     setValue('lateralFilters.maxPrice', currencyMask(maxPrice))
   }, [maxPrice, setValue])
 
+  function sortByName(a: IGamesGenres, b: IGamesGenres) {
+    const nomeA = a.name.toUpperCase()
+    const nomeB = b.name.toUpperCase()
+
+    if (nomeA < nomeB) return -1
+    if (nomeA > nomeB) return 1
+    return 0
+  }
+
   return {
     handleSubmit,
     register,
     handleFormSubmit,
+    sortByName,
   }
 }

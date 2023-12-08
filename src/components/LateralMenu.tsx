@@ -9,7 +9,7 @@ export default function LateralMenu() {
   return (
     <>
       {pathname.includes('/home') && <LateralFilters />}
-      {pathname.includes('/curso') && <LateralFilters />}
+      {pathname.includes('/game') && <LateralFilters />}
       {pathname.includes('/minha-conta') && <LateralMyAccount />}
     </>
   )

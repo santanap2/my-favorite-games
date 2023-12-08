@@ -1,11 +1,11 @@
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function ResetPasswordHooks() {
-  const { setReseted } = useContext(CoursesPlatformContext)
+  const { setReseted } = useContext(GamesPlatformContext)
 
   const formSchema = z.object({
     resetPassword: z.object({

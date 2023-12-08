@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -28,14 +28,9 @@ export default function HeaderHooks() {
   })
 
   const router = useRouter()
-  const pathname = usePathname()
 
   const handleFormSubmit = (data: FormProps) => {
-    console.log(data)
-    if (pathname.includes('busca')) router.push(data.headerSearch.headerInput)
-    else {
-      router.push(`busca/${data.headerSearch.headerInput}`)
-    }
+    router.push(`/home?busca=${data.headerSearch.headerInput}`)
   }
 
   return {

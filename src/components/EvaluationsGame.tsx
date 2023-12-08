@@ -2,7 +2,7 @@ import React from 'react'
 import evaluations from '@/data/evaluations'
 import { Star } from '@phosphor-icons/react'
 
-export default function EvaluationsCourse() {
+export default function EvaluationsGame() {
   const starsCount = (stars: number) => {
     if (stars === 2) return ['a', 'a']
     if (stars === 3) return ['a', 'a', 'a']

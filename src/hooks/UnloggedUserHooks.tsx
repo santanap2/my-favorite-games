@@ -1,11 +1,11 @@
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function UnloggedUserHooks() {
-  const { setLogged } = useContext(CoursesPlatformContext)
+  const { setLogged } = useContext(GamesPlatformContext)
 
   const formSchema = z.object({
     unloggedUser: z.object({

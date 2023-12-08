@@ -1,12 +1,12 @@
 'use client'
 
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import React, { useContext } from 'react'
 import ReturnLogin from '@/components/ReturnLogin'
 import RedefinirSenhaHooks from '@/hooks/ResetPasswordHooks'
 
 export default function RedefinirSenha() {
-  const { reseted } = useContext(CoursesPlatformContext)
+  const { reseted } = useContext(GamesPlatformContext)
 
   const { handleFormSubmit, handleSubmit, errors, register } =
     RedefinirSenhaHooks()

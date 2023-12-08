@@ -1,4 +1,4 @@
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { creditCardMask, credCardDateMask, cvvMask } from '@/helpers'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useEffect } from 'react'
@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function CredCardFormHooks() {
-  const { cardData, setCardData } = useContext(CoursesPlatformContext)
+  const { cardData, setCardData } = useContext(GamesPlatformContext)
 
   const formSchema = z.object({
     cardData: z.object({

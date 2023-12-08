@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import React, { useContext, useState } from 'react'
 
@@ -5,12 +6,12 @@ import {
   MagnifyingGlass,
   ShoppingCartSimple,
 } from '@phosphor-icons/react/dist/ssr'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
 import { List, UserCircle } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
-import { courses } from '@/data/courses'
+import { games } from '@/data/games'
 
 export default function Header() {
   const {
@@ -20,7 +21,7 @@ export default function Header() {
     showMenu,
     cart: cartState,
     setFilteredProducts,
-  } = useContext(CoursesPlatformContext)
+  } = useContext(GamesPlatformContext)
 
   const { handleSubmit, register, handleFormSubmit } = HeaderHooks()
 
@@ -42,14 +43,14 @@ export default function Header() {
     if (pathname.includes('/home'))
       setShowMenu({ ...showMenu, filters: !showMenu.filters })
 
-    if (pathname.includes('/curso'))
+    if (pathname.includes('/game'))
       setShowMenu({ ...showMenu, filters: !showMenu.filters })
   }
 
   const router = useRouter()
 
   return (
-    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-gray-800 text-sky-400 shadow-xl">
+    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-sky-900 text-sky-400 shadow-xl">
       <button
         type="button"
         onClick={clickMenu}
@@ -62,14 +63,11 @@ export default function Header() {
       <div className="w-3/4 flex justify-between items-center">
         <button
           onClick={() => {
-            setFilteredProducts(courses)
+            setFilteredProducts(games)
             router.push('/')
           }}
         >
-          <h1 className="text-2xl font-extrabold flex items-center justify-center gap-3">
-            {/* <BookOpenText size={28} weight="regular" /> */}
-            <span>My Fav Courses</span>
-          </h1>
+          <img src="/logo.png" alt="My Favorite Games Logo" className="h-12" />
         </button>
         <div className="flex gap-3 items-center justify-center">
           <form
@@ -80,7 +78,7 @@ export default function Header() {
               {...register('headerSearch.headerInput')}
               type="text"
               className="h-10 rounded-l-md pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
-              placeholder="Qual curso procura?"
+              placeholder="Qual jogo procura?"
             />
             <button type="submit">
               <MagnifyingGlass

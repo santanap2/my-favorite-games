@@ -7,21 +7,21 @@ import React, { useState } from 'react'
 export default function UserOrderCard({
   image,
   name,
-  isCourse,
-  courseId,
+  isGame,
+  gameId,
   isFavorite,
   productId,
 }: IUserOrderCard) {
   const [favorited, setFavorited] = useState(true)
 
   const whichLink = () => {
-    if (isFavorite) return `/curso/${productId}`
-    if (isCourse) return `/minha-conta/meus-cursos/${courseId}`
+    if (isFavorite) return `/game/${productId}`
+    if (isGame) return `/minha-conta/meus-games/${gameId}`
     return '/'
   }
 
   return (
-    <div className="bg-white rounded-md shadow-md w-80 h-60 relative flex justify-center items-end hover:scale-105 transition-all">
+    <div className="bg-white rounded-md shadow-md w-80 h-60 relative flex justify-center items-end hover:scale-105 hover:shadow-lg transition-all">
       <Link href={whichLink()}>
         <img
           className="w-full absolute top-0 left-0 right-0 rounded-t-md h-40 object-cover"

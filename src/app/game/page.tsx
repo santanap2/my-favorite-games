@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-export default function Curso() {
+export default function Game() {
   const router = useRouter()
 
   useEffect(() => {

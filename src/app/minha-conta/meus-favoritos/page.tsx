@@ -2,15 +2,15 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { Heart } from '@phosphor-icons/react'
 import React, { useContext, useEffect } from 'react'
-import { courses } from '@/data/courses'
 import UserOrderCard from '@/components/UserOrderCard'
-import { ICartItem } from '@/interfaces'
+import { IGame } from '@/interfaces'
+import { games } from '@/data/games'
 
 export default function MeusFavoritos() {
-  const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
+  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
 
   useEffect(() => {
     setShowMenu({ ...showMenu, myAccount: true })
@@ -26,16 +26,15 @@ export default function MeusFavoritos() {
         </div>
 
         <div className="flex flex-wrap gap-8 w-fit pb-4 items-center">
-          {courses.length > 0 ? (
-            courses.map(({ image, name, id }: ICartItem) => (
+          {games.length > 0 ? (
+            games.map(({ image, name, id }: IGame) => (
               <UserOrderCard
                 key={id}
                 image={image}
                 name={name}
                 isFavorite
-                orderId={id}
                 productId={id}
-                courseId={id}
+                gameId={id}
               />
             ))
           ) : (

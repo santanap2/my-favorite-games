@@ -1,25 +1,36 @@
 'use client'
 
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import MenuItem from './MenuItem'
 import {
   Bag,
-  Books,
+  GameController,
   Chat,
   Heart,
   IdentificationCard,
   SignOut,
-  ThumbsUp,
   UserCircle,
 } from '@phosphor-icons/react'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
+import { CSSTransition } from 'react-transition-group'
 
 export default function LateralMyAccount() {
-  const { showMenu } = useContext(CoursesPlatformContext)
+  const { showMenu } = useContext(GamesPlatformContext)
+  const nodeRef = useRef(null)
+
   return (
     <>
-      {showMenu.myAccount && (
-        <div className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100 shadow-md slideshow-left">
+      <CSSTransition
+        nodeRef={nodeRef}
+        in={showMenu.myAccount}
+        timeout={200}
+        classNames="slide-menu"
+        unmountOnExit
+      >
+        <div
+          className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100 shadow-md"
+          ref={nodeRef}
+        >
           <div className="flex flex-col">
             <MenuItem
               Icon={UserCircle}
@@ -46,21 +57,13 @@ export default function LateralMyAccount() {
               iconClass="text-sky-600"
             />
             <MenuItem
-              Icon={Books}
-              name="Meus cursos"
+              Icon={GameController}
+              name="Meus games"
               size={34}
-              link="/minha-conta/meus-cursos"
+              link="/minha-conta/meus-games"
               especialClass="hover:text-sky-400"
               iconClass="text-sky-600"
             />
-            {/* <MenuItem
-              Icon={ThumbsUp}
-              name="Avaliações"
-              size={34}
-              link="/minha-conta/minhas-avaliacoes"
-              especialClass="hover:text-sky-400"
-              iconClass="text-sky-600"
-            /> */}
             <MenuItem
               Icon={Heart}
               name="Meus favoritos"
@@ -88,7 +91,7 @@ export default function LateralMyAccount() {
             iconClass="text-orange-600"
           />
         </div>
-      )}
+      </CSSTransition>
     </>
   )
 }

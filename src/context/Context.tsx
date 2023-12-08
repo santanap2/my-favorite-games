@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { ICartItem, ILateralFilters } from '@/interfaces'
+import { IGame } from '@/interfaces'
 import { HeaderSearch, PaymentMethod, CardData, userOrders } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
-import { courses } from '@/data/courses'
+import { games } from '@/data/games'
 
 const initialValueContext = {
   headerSearch: {
@@ -23,7 +23,7 @@ const initialValueContext = {
   setLogged: (state: boolean) => {},
 
   cart: [],
-  setCart: (state: ICartItem[]) => {},
+  setCart: (state: IGame[]) => {},
 
   showCart: false,
   setShowCart: (state: boolean) => {},
@@ -57,10 +57,10 @@ const initialValueContext = {
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
 
-  filteredProducts: courses,
-  setFilteredProducts: (state: ICartItem[]) => {},
+  filteredProducts: games,
+  setFilteredProducts: (state: IGame[]) => {},
 }
 
-const CoursesPlatformContext = createContext(initialValueContext)
+const GamesPlatformContext = createContext(initialValueContext)
 
-export default CoursesPlatformContext
+export default GamesPlatformContext

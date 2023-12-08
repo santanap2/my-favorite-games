@@ -2,16 +2,15 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { Bag } from '@phosphor-icons/react'
 import React, { useContext, useEffect, useState } from 'react'
 import orders from '@/data/userOrders'
 import SingleOrder from '@/components/SingleOrder'
 
 export default function MeusPedidos() {
-  const { userOrders, setUserOrders, showMenu, setShowMenu } = useContext(
-    CoursesPlatformContext,
-  )
+  const { userOrders, setUserOrders, showMenu, setShowMenu } =
+    useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {

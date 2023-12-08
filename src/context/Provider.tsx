@@ -1,12 +1,12 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import CoursesPlatformContext from './Context'
+import GamesPlatformContext from './Context'
 import { IChildren } from '@/interfaces'
 import orders from '@/data/userOrders'
-import { courses } from '@/data/courses'
+import { games } from '@/data/games'
 
-export const ContextCoursesPlatform = ({ children }: IChildren) => {
+export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [headerSearch, setHeaderSearch] = useState({
     headerInput: '',
   })
@@ -46,7 +46,7 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
     orders,
   })
 
-  const [filteredProducts, setFilteredProducts] = useState(courses)
+  const [filteredProducts, setFilteredProducts] = useState(games)
 
   const context = useMemo(
     () => ({
@@ -99,8 +99,8 @@ export const ContextCoursesPlatform = ({ children }: IChildren) => {
   )
 
   return (
-    <CoursesPlatformContext.Provider value={context}>
+    <GamesPlatformContext.Provider value={context}>
       {children}
-    </CoursesPlatformContext.Provider>
+    </GamesPlatformContext.Provider>
   )
 }

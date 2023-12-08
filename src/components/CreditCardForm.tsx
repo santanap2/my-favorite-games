@@ -1,12 +1,12 @@
 'use client'
 
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { calcSum, priceToBRL } from '@/helpers'
 import CredCardFormHooks from '@/hooks/CredCardFormHooks'
 import React, { useContext } from 'react'
 
 export default function CreditCardForm() {
-  const { cart } = useContext(CoursesPlatformContext)
+  const { cart } = useContext(GamesPlatformContext)
   const { handleSubmit, register, errors, handleFormSubmit } =
     CredCardFormHooks()
 

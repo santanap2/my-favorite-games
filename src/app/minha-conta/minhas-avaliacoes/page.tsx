@@ -2,12 +2,12 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
-import CoursesPlatformContext from '@/context/Context'
+import GamesPlatformContext from '@/context/Context'
 import { ThumbsUp } from '@phosphor-icons/react'
 import React, { useContext, useEffect } from 'react'
 
 export default function MinhasAvaliacoes() {
-  const { showMenu, setShowMenu } = useContext(CoursesPlatformContext)
+  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
 
   useEffect(() => {
     setShowMenu({ ...showMenu, myAccount: true })
