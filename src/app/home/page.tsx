@@ -27,7 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     // setFilteredProducts(filteredBySearch)
-    setShowMenu({ ...showMenu, filters: true })
+    // setShowMenu({ ...showMenu, filters: true })
   }, [])
 
   return (

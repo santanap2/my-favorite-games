@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import GamesPlatformContext from './Context'
 import { IChildren } from '@/interfaces'
 import orders from '@/data/userOrders'
@@ -21,9 +21,20 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [showCart, setShowCart] = useState(false)
 
+  const [screenSize, setScreenSize] = useState(window.innerWidth)
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setScreenSize(window.innerWidth))
+    return () => {
+      window.removeEventListener('resize', () =>
+        setScreenSize(window.innerWidth),
+      )
+    }
+  }, [])
+
   const [showMenu, setShowMenu] = useState({
-    filters: false,
-    myAccount: true,
+    filters: !(screenSize <= 600),
+    myAccount: !(screenSize <= 600),
   })
 
   const [paymentMethod, setPaymentMethod] = useState({

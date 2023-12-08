@@ -23,7 +23,14 @@ export default function Header() {
     setFilteredProducts,
   } = useContext(GamesPlatformContext)
 
-  const { handleSubmit, register, handleFormSubmit } = HeaderHooks()
+  const {
+    handleSubmit,
+    register,
+    handleFormSubmit,
+    handleSubmitMobile,
+    registerMobile,
+    handleFormMobileSubmit,
+  } = HeaderHooks()
 
   const [hoverBtn, setHoverBtn] = useState({
     search: false,
@@ -31,6 +38,8 @@ export default function Header() {
     cart: false,
     menu: false,
   })
+
+  const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
   const { search, user, cart, menu } = hoverBtn
 
@@ -50,29 +59,52 @@ export default function Header() {
   const router = useRouter()
 
   return (
-    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center  justify-center bg-sky-900 text-sky-400 shadow-xl">
+    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-sky-900 text-sky-400 shadow-xl sm:shadow-lg sm:justify-between sm:px-1 sm:gap-0">
       <button
         type="button"
         onClick={clickMenu}
-        className="absolute top-4 left-3"
+        className="absolute top-4 left-3 sm:static"
         onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
         onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
       >
         <List size={28} weight={menu ? 'duotone' : 'regular'} />
       </button>
-      <div className="w-3/4 flex justify-between items-center">
-        <button
-          onClick={() => {
-            setFilteredProducts(games)
-            router.push('/')
-          }}
-        >
-          <img src="/logo.png" alt="My Favorite Games Logo" className="h-12" />
-        </button>
+      <div className="w-3/4 flex justify-between items-center sm:w-fit">
+        {showSearchInputMobile ? (
+          <form
+            onSubmit={handleSubmitMobile(handleFormMobileSubmit)}
+            className="relative"
+            id="HeaderMobileForm"
+          >
+            <input
+              {...registerMobile('headerMobileSearch.headerMobileInput')}
+              type="text"
+              className="h-9 rounded-md px-3 focus:outline-none text-zinc-700 w-64"
+              placeholder="Qual jogo procura?"
+            />
+            <button type="submit" className="absolute top-1 right-2">
+              <MagnifyingGlass size={28} weight="regular" />
+            </button>
+          </form>
+        ) : (
+          <button
+            onClick={() => {
+              setFilteredProducts(games)
+              router.push('/')
+            }}
+          >
+            <img
+              src="/logo.png"
+              alt="My Favorite Games Logo"
+              className="h-12 sm:w-48 sm:h-auto"
+            />
+          </button>
+        )}
+
         <div className="flex gap-3 items-center justify-center">
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center sm:hidden"
           >
             <input
               {...register('headerSearch.headerInput')}
@@ -84,7 +116,7 @@ export default function Header() {
               <MagnifyingGlass
                 size={28}
                 weight={search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r-md flex items-center justify-center cursor-pointer"
+                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r-md flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-sky-400"
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }
@@ -97,7 +129,7 @@ export default function Header() {
 
           <Link
             href="/login"
-            className="flex items-center justify-center hover:underline"
+            className="flex items-center justify-center hover:underline sm:hidden"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, user: true }))
             }
@@ -111,20 +143,66 @@ export default function Header() {
         </div>
       </div>
       <button
-        className="absolute top-4 right-8"
+        className="absolute top-4 right-8 sm:static"
         onClick={() => setShowCart(!showCart)}
       >
         <ShoppingCartSimple
           size={28}
           weight={cart ? 'duotone' : 'regular'}
-          className="text-orange-400"
+          className="text-orange-400 sm:hidden"
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
-        <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px]">
+        <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] sm:hidden">
           {cartState.length}
         </span>
       </button>
+
+      <div className="hidden sm:static sm:flex sm:gap-1">
+        {!showSearchInputMobile && (
+          <button
+            type="button"
+            onClick={() => {
+              setShowSearchInputMobile(true)
+            }}
+          >
+            <MagnifyingGlass
+              size={28}
+              weight={search ? 'duotone' : 'regular'}
+              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent sm:text-sky-400"
+            />
+          </button>
+        )}
+        <Link
+          href="/login"
+          className="flex items-center justify-center hover:underline"
+        >
+          <span className="uppercase font-semibold text-xs sm:hidden">
+            login
+          </span>
+          <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
+        </Link>
+
+        <button
+          className="absolute top-4 right-8 sm:static"
+          onClick={() => setShowCart(!showCart)}
+        >
+          <ShoppingCartSimple
+            size={28}
+            weight={cart ? 'duotone' : 'regular'}
+            className="text-orange-400"
+            onMouseEnter={() =>
+              setHoverBtn((prev) => ({ ...prev, cart: true }))
+            }
+            onMouseLeave={() =>
+              setHoverBtn((prev) => ({ ...prev, cart: false }))
+            }
+          />
+          <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 right-1">
+            {cartState.length}
+          </span>
+        </button>
+      </div>
     </header>
   )
 }

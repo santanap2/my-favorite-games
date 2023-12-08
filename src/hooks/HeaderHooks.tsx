@@ -10,6 +10,13 @@ export default function HeaderHooks() {
     }),
   })
 
+  const formMobileSchema = z.object({
+    headerMobileSearch: z.object({
+      headerMobileInput: z.string().min(1, 'Informe o que deseja buscar'),
+    }),
+  })
+
+  type FormMobileProps = z.infer<typeof formMobileSchema>
   type FormProps = z.infer<typeof formSchema>
 
   const {
@@ -27,10 +34,26 @@ export default function HeaderHooks() {
     },
   })
 
+  const { handleSubmit: handleSubmitMobile, register: registerMobile } =
+    useForm<FormMobileProps>({
+      criteriaMode: 'all',
+      mode: 'all',
+      resolver: zodResolver(formMobileSchema),
+      defaultValues: {
+        headerMobileSearch: {
+          headerMobileInput: '',
+        },
+      },
+    })
+
   const router = useRouter()
 
   const handleFormSubmit = (data: FormProps) => {
     router.push(`/home?busca=${data.headerSearch.headerInput}`)
+  }
+
+  const handleFormMobileSubmit = (data: FormMobileProps) => {
+    router.push(`/home?busca=${data.headerMobileSearch.headerMobileInput}`)
   }
 
   return {
@@ -38,5 +61,8 @@ export default function HeaderHooks() {
     register,
     errors,
     handleFormSubmit,
+    handleSubmitMobile,
+    registerMobile,
+    handleFormMobileSubmit,
   }
 }
