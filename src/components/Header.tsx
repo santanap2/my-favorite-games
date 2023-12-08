@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 
 import {
   MagnifyingGlass,
@@ -12,6 +12,7 @@ import { List, UserCircle } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
 import { games } from '@/data/games'
+import { CSSTransition } from 'react-transition-group'
 
 export default function Header() {
   const {
@@ -21,6 +22,8 @@ export default function Header() {
     showMenu,
     cart: cartState,
     setFilteredProducts,
+    showSearchInputMobile,
+    setShowSearchInputMobile,
   } = useContext(GamesPlatformContext)
 
   const {
@@ -39,8 +42,6 @@ export default function Header() {
     menu: false,
   })
 
-  const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
-
   const { search, user, cart, menu } = hoverBtn
 
   const pathname = usePathname()
@@ -57,6 +58,7 @@ export default function Header() {
   }
 
   const router = useRouter()
+  const nodeRef = useRef(null)
 
   return (
     <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-sky-900 text-sky-400 shadow-xl sm:shadow-lg sm:justify-between sm:px-1 sm:gap-0">
@@ -70,11 +72,18 @@ export default function Header() {
         <List size={28} weight={menu ? 'duotone' : 'regular'} />
       </button>
       <div className="w-3/4 flex justify-between items-center sm:w-fit">
-        {showSearchInputMobile ? (
+        <CSSTransition
+          nodeRef={nodeRef}
+          in={showSearchInputMobile}
+          timeout={200}
+          classNames="slide-menu"
+          unmountOnExit
+        >
           <form
             onSubmit={handleSubmitMobile(handleFormMobileSubmit)}
-            className="relative"
+            className="absolute left-10"
             id="HeaderMobileForm"
+            ref={nodeRef}
           >
             <input
               {...registerMobile('headerMobileSearch.headerMobileInput')}
@@ -86,20 +95,19 @@ export default function Header() {
               <MagnifyingGlass size={28} weight="regular" />
             </button>
           </form>
-        ) : (
-          <button
-            onClick={() => {
-              setFilteredProducts(games)
-              router.push('/')
-            }}
-          >
-            <img
-              src="/logo.png"
-              alt="My Favorite Games Logo"
-              className="h-12 sm:w-48 sm:h-auto"
-            />
-          </button>
-        )}
+        </CSSTransition>
+        <button
+          onClick={() => {
+            setFilteredProducts(games)
+            router.push('/')
+          }}
+        >
+          <img
+            src="/logo.png"
+            alt="My Favorite Games Logo"
+            className="h-12 sm:w-48 sm:h-auto"
+          />
+        </button>
 
         <div className="flex gap-3 items-center justify-center">
           <form

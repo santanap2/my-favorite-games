@@ -59,6 +59,8 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [filteredProducts, setFilteredProducts] = useState(games)
 
+  const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
+
   const context = useMemo(
     () => ({
       headerSearch,
@@ -93,6 +95,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
       filteredProducts,
       setFilteredProducts,
+
+      showSearchInputMobile,
+      setShowSearchInputMobile,
     }),
     [
       headerSearch,
@@ -106,6 +111,7 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
       cardData,
       userOrders,
       filteredProducts,
+      showSearchInputMobile,
     ],
   )
 

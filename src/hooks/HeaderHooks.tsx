@@ -1,18 +1,21 @@
+import GamesPlatformContext from '@/context/Context'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function HeaderHooks() {
+  const { setShowSearchInputMobile } = useContext(GamesPlatformContext)
   const formSchema = z.object({
     headerSearch: z.object({
-      headerInput: z.string().min(1, 'Informe o que deseja buscar'),
+      headerInput: z.string(),
     }),
   })
 
   const formMobileSchema = z.object({
     headerMobileSearch: z.object({
-      headerMobileInput: z.string().min(1, 'Informe o que deseja buscar'),
+      headerMobileInput: z.string(),
     }),
   })
 
@@ -53,7 +56,13 @@ export default function HeaderHooks() {
   }
 
   const handleFormMobileSubmit = (data: FormMobileProps) => {
-    router.push(`/home?busca=${data.headerMobileSearch.headerMobileInput}`)
+    if (data.headerMobileSearch.headerMobileInput.length === 0) {
+      router.push('/home')
+      setShowSearchInputMobile(false)
+    } else {
+      router.push(`/home?busca=${data.headerMobileSearch.headerMobileInput}`)
+      setShowSearchInputMobile(false)
+    }
   }
 
   return {

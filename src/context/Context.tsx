@@ -8,9 +8,7 @@ import orders from '@/data/userOrders'
 import { games } from '@/data/games'
 
 const initialValueContext = {
-  headerSearch: {
-    headerInput: '',
-  },
+  headerSearch: { headerInput: '' },
   setHeaderSearch: (state: HeaderSearch) => {},
 
   reseted: false,
@@ -59,6 +57,9 @@ const initialValueContext = {
 
   filteredProducts: games,
   setFilteredProducts: (state: IGame[]) => {},
+
+  showSearchInputMobile: false,
+  setShowSearchInputMobile: (state: boolean) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)
