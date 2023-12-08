@@ -34,7 +34,7 @@ export default function Home() {
     <div className="mt-24 w-full">
       <LateralMenu />
       <div className="flex justify-center items-center w-full">
-        <div className="flex w-[1096px] gap-6 flex-wrap justify-start items-start sm:w-screen">
+        <div className="flex w-[1096px] gap-6 flex-wrap justify-start items-start sm:w-screen sm:gap-x-2 sm:gap-y-4 sm:justify-between">
           {filteredProducts.length > 0 ? (
             filteredProducts.map(({ name, areaPt, price, id, image }) => (
               <ProductCard
