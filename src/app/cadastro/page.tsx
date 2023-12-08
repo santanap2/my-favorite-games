@@ -9,9 +9,9 @@ import React, { useContext } from 'react'
 export default function Cadastro() {
   const { registerSuccess } = useContext(GamesPlatformContext)
   return (
-    <div>
+    <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 sm:gap-6">
       {registerSuccess ? (
-        <div className="mt-24 flex flex-col gap-10">
+        <div className="flex flex-col gap-10 w-full items-center justify-center">
           <RegisterSuccess />
           <ReturnLogin />
         </div>

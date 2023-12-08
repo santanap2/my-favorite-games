@@ -7,14 +7,14 @@ export default function UnloggedUser() {
     UnloggedUserHooks()
 
   return (
-    <div className="px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow-md">
-      <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
+    <div className="px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow-md sm:w-full sm:py-3 sm:gap-6">
+      <h1 className="font-semibold text-xl text-zinc-800 text-shadow sm:text-lg">
         Fazer login
       </h1>
 
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
-        className="flex flex-col justify-center items-center gap-10"
+        className="flex flex-col justify-center items-center gap-10 sm:w-full sm:gap-6"
       >
         <label htmlFor="email" className="flex flex-col gap-1">
           <span className="text-sm font-semibold">Email</span>

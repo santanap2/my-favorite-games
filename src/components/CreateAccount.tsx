@@ -5,11 +5,13 @@ export default function CreateAccount() {
   const router = useRouter()
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center">
-      <div className="flex items-center justify-center gap-3">
-        <div className="border-t w-32"></div>
-        <span className="font-light text-sm">Novo na plataforma?</span>
-        <div className="border-t w-32"></div>
+    <div className="flex flex-col gap-2 justify-center items-center sm:w-full">
+      <div className="flex items-center justify-center gap-3 w-full">
+        <div className="w-40 border-t sm:w-full" />
+        <span className="font-light text-sm text-center sm:w-40">
+          Novo na plataforma?
+        </span>
+        <div className="w-40 border-t sm:w-full" />
       </div>
       <button
         type="button"
