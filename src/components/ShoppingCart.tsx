@@ -37,7 +37,7 @@ export default function ShoppingCart() {
         unmountOnExit
       >
         <aside
-          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-8"
+          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-8 sm:w-[90%] sm:py-3 sm:pl-3"
           ref={nodeRef}
         >
           <div className="flex w-full justify-between pr-4 items-center">
@@ -55,23 +55,28 @@ export default function ShoppingCart() {
 
           <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
             {cart.length > 0 ? (
-              <div className="w-full h-fit flex flex-col gap-10 pr-4">
+              <div className="w-full h-fit flex flex-col gap-10 pr-4 sm:pr-2 sm:gap-4">
                 {cart.map(({ areaPt, id, image, name, price }) => (
-                  <div key={id} className="flex w-full gap-3 border-b pb-6">
+                  <div
+                    key={id}
+                    className="flex w-full gap-3 border-b pb-6 sm:pb-2"
+                  >
                     <img
                       src={image}
                       alt={name}
-                      className="w-32 h-32 object-cover rounded-md"
+                      className="w-32 h-32 object-cover rounded-md sm:w-24"
                     />
                     <div className="flex flex-col justify-between items-start w-full">
                       <div className="flex flex-col">
-                        <h1 className="font-bold text-lg tracking-tight">
+                        <h1 className="font-bold text-lg tracking-tight sm:text-sm sm:font-semibold">
                           {name}
                         </h1>
-                        <h3 className="text-sm font-light">{areaPt}</h3>
+                        <h3 className="text-sm font-light sm:text-xs sm:font-light">
+                          {areaPt}
+                        </h3>
                       </div>
                       <div className="flex justify-between items-center w-full">
-                        <h2 className="font-extrabold tracking-wider text-lg">
+                        <h2 className="font-extrabold tracking-wider text-lg sm:text-sm sm:font-bold">
                           {`R$ ${priceToBRL(price)}`}
                         </h2>
                         <button
@@ -87,7 +92,7 @@ export default function ShoppingCart() {
                 ))}
               </div>
             ) : (
-              <div className="flex w-full h-full justify-center items-start font-light">
+              <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
                 <span className="mt-16">Seu carrinho está vazio.</span>
               </div>
             )}
