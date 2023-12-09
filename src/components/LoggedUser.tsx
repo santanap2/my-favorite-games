@@ -37,7 +37,7 @@ export default function LoggedUser() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="w-full flex flex-col gap-2">
           <span className="font-semibold text-xl">
             Detalhes do seu último pedido
           </span>
@@ -52,7 +52,7 @@ export default function LoggedUser() {
           />
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="w-full flex flex-col gap-4">
           <div className="w-full flex justify-between items-center">
             <span className="font-semibold text-xl">
               Seus últimos games comprados
@@ -64,7 +64,7 @@ export default function LoggedUser() {
               Ver todos
             </Link>
           </div>
-          <div className="flex flex-wrap max-w-full gap-8 w-fit pb-4 items-center">
+          <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6">
             {allGames.length > 0 ? (
               allGames.map(({ name, id, image }: IGame) => (
                 <UserOrderCard

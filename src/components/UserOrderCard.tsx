@@ -30,7 +30,7 @@ export default function UserOrderCard({
         />
       </Link>
       <div className="absolute top-40 px-3 py-3 w-full h-20 rounded-b-md">
-        <Link href={whichLink()} className="bg-red-200">
+        <Link href={whichLink()} className="">
           <div className="w-64 text-md font-semibold mb-4 text-zinc-700 h-14">
             {name.length > 55 ? `${name.slice(0, 55)}...` : name}
           </div>

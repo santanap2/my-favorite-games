@@ -25,7 +25,7 @@ export default function MeusFavoritos() {
           <h1 className="font-regular text-xl font-semibold">Meus favoritos</h1>
         </div>
 
-        <div className="flex flex-wrap gap-8 w-fit pb-4 items-center">
+        <div className="grid grid-cols-4 gap-x-12 gap-y-6 w-full">
           {games.length > 0 ? (
             games.map(({ image, name, id }: IGame) => (
               <UserOrderCard

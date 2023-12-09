@@ -16,7 +16,7 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
   const router = useRouter()
 
   return (
-    <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-[47.5%] sm:h-96 sm:hover:scale-100">
+    <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 sm:hover:scale-100">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
