@@ -65,7 +65,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
     <div className="mt-24 w-full h-full">
       <LateralMenu />
       <div className="w-full h-full">
-        <div className="flex gap-1 justify-center items-center w-fit">
+        <div className="flex gap-1 w-fit sm:w-full sm:text-xs">
           <Link
             href="/"
             className="text-zinc-500 hover:text-sky-400"
@@ -84,40 +84,44 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             {areaPt}
           </Link>
         </div>
-        <h1 className="mt-4 font-bold text-2xl text-zinc-800">{name}</h1>
+        <h1 className="mt-4 font-bold text-2xl text-zinc-800 sm:text-xl sm:mt-2">
+          {name}
+        </h1>
 
-        <div className="flex gap-10 mt-10 w-4/5">
+        <div className="flex gap-10 mt-10 w-4/5 sm:mt-2 sm:w-full sm:justify-center sm:items-center sm:flex-col sm:gap-4">
           <img
             src={image}
             alt={name}
-            className="w-[640px] h-[400px] rounded-md shadow-md object-cover"
+            className="w-[640px] h-[400px] rounded-md shadow-md object-cover sm:w-4/5 sm:h-96"
           />
-          <div className="flex flex-col justify-start items-start  w-full h-full text-zinc-600">
-            <span>Vendido por: My Fav Games™</span>
-            <div className="text-sky-500 text-4xl font-black">
+          <div className="flex flex-col justify-start items-start w-full h-full text-zinc-600">
+            <span className="font-light sm:text-sm">
+              Vendido por: My Fav Games™
+            </span>
+            <div className="text-sky-500 text-4xl font-black sm:text-3xl">
               <span>{'R$ '}</span>
               <span>{priceToBRL(price * 0.9)}</span>
             </div>
-            <div className="flex flex-col mt-6 text-zinc-500">
+            <div className="flex flex-col mt-6 text-zinc-500 sm:mt-0 sm:text-xs">
               <span>À vista no PIX com 10% de desconto</span>
               <span>{`Ou em até 3x de R$${portionPrice(
                 price,
                 3,
               )} sem juros no cartão de crédito`}</span>
             </div>
-            <div className="flex gap-4 mt-20">
+            <div className="flex gap-4 mt-20 sm:mt-6 sm:w-full sm:justify-center sm:items-center sm:gap-1">
               <button
                 onClick={() => {
                   setCart([game])
                   router.push('/finalizar-compra')
                 }}
-                className="w-64 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg"
+                className="w-64 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
               >
                 Comprar agora
               </button>
               <button
                 onClick={() => addCartItem(game)}
-                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg"
+                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <ShoppingCartSimple
                   size={28}
@@ -127,12 +131,12 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 <PlusCircle
                   size={20}
                   weight="fill"
-                  className="absolute top-2 right-1"
+                  className="absolute top-2 right-1 sm:top-1 sm:right-0"
                 />
               </button>
               <button
                 onClick={() => setIsFavorite(!isFavorite)}
-                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg"
+                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <Heart
                   size={28}
@@ -143,13 +147,15 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             </div>
           </div>
         </div>
-        <div className="mt-12 font-semibold text-xl text-zinc-500 w-full flex flex-col gap-4">
+        <div className="mt-12 text-zinc-500 w-full flex flex-col gap-4">
           <div className="w-full border-b">
             <button
-              className="tracking-wide flex gap-2 py-3 hover:underline"
+              className="tracking-wide flex gap-2 py-3 hover:underline sm:pb-2"
               onClick={() => clickExpandMenu('description')}
             >
-              <span>Descrição</span>
+              <span className="text-xl font-semibold sm:text-base">
+                Descrição
+              </span>
               {expandMenus.description ? (
                 <CaretUp size={28} />
               ) : (
@@ -158,18 +164,20 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             </button>
             {expandMenus.description && (
               <div className="tracking-wide pb-8">
-                <h1 className=" font-normal text-lg">{name}</h1>
-                <p className="font-light text-base">{description}</p>
+                <h1 className=" font-normal text-lg sm:text-base">{name}</h1>
+                <p className="font-light text-base sm:text-sm">{description}</p>
               </div>
             )}
           </div>
 
           <div className={`w-full ${!expandMenus.evaluation && 'border-b'}`}>
             <button
-              className="tracking-wide flex gap-2 py-3 hover:underline"
+              className="tracking-wide flex gap-2 py-3 hover:underline sm:pb-2"
               onClick={() => clickExpandMenu('evaluation')}
             >
-              <span>Avaliações</span>
+              <span className="text-xl font-semibold sm:text-base ">
+                Avaliações
+              </span>
               {expandMenus.evaluation ? (
                 <CaretUp size={28} />
               ) : (
