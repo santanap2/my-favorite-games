@@ -36,16 +36,20 @@ export default function Home() {
       <div className="flex justify-center items-center w-full">
         <div className="grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4">
           {filteredProducts.length > 0 ? (
-            filteredProducts.map(({ name, areaPt, price, id, image }) => (
-              <ProductCard
-                key={id}
-                name={name}
-                id={id}
-                areaPt={areaPt}
-                price={price}
-                image={image}
-              />
-            ))
+            filteredProducts.map(
+              ({ name, area, areaPt, price, id, image, description }) => (
+                <ProductCard
+                  key={id}
+                  name={name}
+                  id={id}
+                  area={area}
+                  areaPt={areaPt}
+                  price={price}
+                  image={image}
+                  description={description}
+                />
+              ),
+            )
           ) : (
             <div className="w-full flex flex-col gap-6 justify-center items-center">
               <span className="w-full text-sm text-center">

@@ -4,9 +4,10 @@ export interface ICard {
   image: string
   name: string
   areaPt?: string
-  area?: string
+  area: string
   price: number
   id: number
+  description: string
 }
 
 export interface IChildren {
@@ -39,6 +40,7 @@ export interface IGameIDParams {
 
 export interface IGame {
   area: string
+  areaPt?: string
   description: string
   id: number
   image: string

@@ -6,12 +6,17 @@ import Link from 'next/link'
 import { priceToBRL } from '@/helpers'
 import GamesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
-import { games } from '@/data/games'
 
-export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
+export default function ProductCard({
+  name,
+  area,
+  areaPt,
+  price,
+  image,
+  id,
+  description,
+}: ICard) {
   const { setCart } = useContext(GamesPlatformContext)
-
-  const game = games.find((one) => one.id === id)
 
   const router = useRouter()
 
@@ -45,7 +50,7 @@ export default function ProductCard({ name, areaPt, price, image, id }: ICard) {
       <button
         type="button"
         onClick={() => {
-          setCart([game])
+          setCart([{ name, area, areaPt, price, image, id, description }])
           router.push('/finalizar-compra')
         }}
         className="absolute w-56 left-4 right-4 bottom-2 bg-sky-400 py-2 rounded-md text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md sm:w-[90%] sm:left-[5%] sm:right-[5%] sm:bottom-[1.5%] sm:text-xs"
