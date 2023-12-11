@@ -37,7 +37,7 @@ export default function ShoppingCart() {
         unmountOnExit
       >
         <aside
-          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-8 sm:w-[90%] sm:py-3 sm:pl-3"
+          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-8 sm:w-[85%] sm:py-3 sm:px-3"
           ref={nodeRef}
         >
           <div className="flex w-full justify-between pr-4 items-center">
@@ -102,7 +102,7 @@ export default function ShoppingCart() {
                 <button
                   type="button"
                   onClick={finalizePurchase}
-                  className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5"
+                  className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${calcSum(cart).string}`}
                 </button>

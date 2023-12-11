@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import GamesPlatformContext from './Context'
-import { IChildren } from '@/interfaces'
+import { IChildren, IGame } from '@/interfaces'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
 
@@ -17,7 +17,7 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [logged, setLogged] = useState(false)
 
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState<IGame[]>([])
 
   const [showCart, setShowCart] = useState(false)
 

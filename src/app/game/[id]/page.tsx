@@ -9,6 +9,7 @@ import { games } from '@/data/games'
 import { portionPrice, priceToBRL } from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
 import {
+  ArrowUUpLeft,
   CaretDown,
   CaretRight,
   CaretUp,
@@ -37,9 +38,6 @@ export default function GameId({ params: { id } }: IGameIDParams) {
     setFilteredProducts,
   } = useContext(GamesPlatformContext)
 
-  const game = games.find((one) => one.id === Number(id))
-  const { name, area, areaPt, price, image, description } = game
-
   useEffect(() => setShowMenu({ ...showMenu, filters: false }), [])
   const router = useRouter()
 
@@ -52,14 +50,29 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
   const addCartItem = (item: IGame) => {
     setShowCart(true)
-    setCart((prev: IGame[]) => {
-      if (prev.includes(item)) {
-        setCart(prev)
-      } else {
-        setCart([...cart, item])
-      }
-    })
+    const isItemInCart = cart.some((cartItem) => cartItem.id === item.id)
+    if (!isItemInCart) setCart([...cart, item])
   }
+
+  const game = games.find((one) => one.id === Number(id))
+  if (!game)
+    return (
+      <div className="mt-24 w-full h-full flex flex-col items-center justify-center gap-10">
+        <LateralMenu />
+        <h1 className="text-sm font-regular">
+          Produto não encontrado, tente novamente.
+        </h1>
+        <button
+          onClick={() => router.push('/home')}
+          className="flex gap-3 items-center justify-center px-8 py-2 bg-sky-400 rounded-md text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+        >
+          <ArrowUUpLeft size={28} />
+          <span>Retornar ao início</span>
+        </button>
+      </div>
+    )
+
+  const { name, area, areaPt, price, image, description } = game
 
   return (
     <div className="mt-24 w-full h-full">
