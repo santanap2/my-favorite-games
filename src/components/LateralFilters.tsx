@@ -2,7 +2,7 @@
 'use client'
 
 import React, { useContext, useRef } from 'react'
-import gamesGenres from '@/data/gamesGenres'
+import { defineInputName, gamesGenres } from '@/data/gamesGenres'
 import LateralFilterHooks from '@/hooks/LateralFilterHooks'
 import { IGamesGenres } from '@/interfaces'
 import { CSSTransition } from 'react-transition-group'
@@ -48,7 +48,9 @@ export default function LateralFilters() {
                     className="flex justify-start items-center gap-3 w-full hover:underline"
                   >
                     <input
-                      {...register(`lateralFilters.${camelCaseName}`)}
+                      {...register(
+                        `lateralFilters.${defineInputName(camelCaseName)}`,
+                      )}
                       id={camelCaseName}
                       type="checkbox"
                     />
