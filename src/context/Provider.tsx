@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
-import GamesPlatformContext from './Context'
-import { IChildren, IGame } from '@/interfaces'
+import { useEffect, useState } from 'react'
+import { IChildren, IGame, IUserOrders } from '@/interfaces'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
+import GamesPlatformContext from './Context'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [headerSearch, setHeaderSearch] = useState({
@@ -22,15 +22,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [showCart, setShowCart] = useState(false)
 
   const [screenSize, setScreenSize] = useState(window.innerWidth)
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setScreenSize(window.innerWidth))
-    return () => {
-      window.removeEventListener('resize', () =>
-        setScreenSize(window.innerWidth),
-      )
-    }
-  }, [])
 
   const [showMenu, setShowMenu] = useState({
     filters: !(screenSize <= 600),
@@ -53,70 +44,64 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     },
   })
 
-  const [userOrders, setUserOrders] = useState({
-    orders,
-  })
+  const [userOrders, setUserOrders] = useState<IUserOrders[]>(orders)
 
   const [filteredProducts, setFilteredProducts] = useState(games)
 
   const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
-  const context = useMemo(
-    () => ({
-      headerSearch,
-      setHeaderSearch,
+  useEffect(() => {
+    window.addEventListener('resize', () => setScreenSize(window.innerWidth))
+    return () => {
+      window.removeEventListener('resize', () =>
+        setScreenSize(window.innerWidth),
+      )
+    }
+  }, [])
 
-      reseted,
-      setReseted,
+  const contextValues = {
+    headerSearch,
+    setHeaderSearch,
 
-      registerSuccess,
-      setRegisterSuccess,
+    reseted,
+    setReseted,
 
-      logged,
-      setLogged,
+    registerSuccess,
+    setRegisterSuccess,
 
-      cart,
-      setCart,
+    logged,
+    setLogged,
 
-      showCart,
-      setShowCart,
+    cart,
+    setCart,
 
-      showMenu,
-      setShowMenu,
+    showCart,
+    setShowCart,
 
-      paymentMethod,
-      setPaymentMethod,
+    screenSize,
+    setScreenSize,
 
-      cardData,
-      setCardData,
+    showMenu,
+    setShowMenu,
 
-      userOrders,
-      setUserOrders,
+    paymentMethod,
+    setPaymentMethod,
 
-      filteredProducts,
-      setFilteredProducts,
+    cardData,
+    setCardData,
 
-      showSearchInputMobile,
-      setShowSearchInputMobile,
-    }),
-    [
-      headerSearch,
-      reseted,
-      registerSuccess,
-      logged,
-      cart,
-      showCart,
-      showMenu,
-      paymentMethod,
-      cardData,
-      userOrders,
-      filteredProducts,
-      showSearchInputMobile,
-    ],
-  )
+    userOrders,
+    setUserOrders,
+
+    filteredProducts,
+    setFilteredProducts,
+
+    showSearchInputMobile,
+    setShowSearchInputMobile,
+  }
 
   return (
-    <GamesPlatformContext.Provider value={context}>
+    <GamesPlatformContext.Provider value={contextValues}>
       {children}
     </GamesPlatformContext.Provider>
   )

@@ -16,23 +16,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <React.StrictMode>
-      <ContextGamesPlatform>
-        <html lang="en">
-          <body className={`${inter.className} bg-zinc-50 overflow-x-hidden`}>
-            <div className="flex w-full items-center justify-start flex-col">
-              <Header />
-              <ShoppingCart />
-              <div className="flex flex-col min-h-screen justify-between items-center w-full">
-                <div className="flex w-3/4 flex-col items-center justify-between sm:w-[95%]">
-                  {children}
-                </div>
-                <Footer />
+    <ContextGamesPlatform>
+      <html lang="en">
+        <body className={`${inter.className} bg-zinc-50 overflow-x-hidden`}>
+          <div className="flex w-full items-center justify-start flex-col">
+            <Header />
+            <ShoppingCart />
+            <div className="flex flex-col min-h-screen justify-between items-center w-full">
+              <div className="flex w-3/4 flex-col items-center justify-between sm:w-[95%]">
+                {children}
               </div>
+              <Footer />
             </div>
-          </body>
-        </html>
-      </ContextGamesPlatform>
-    </React.StrictMode>
+          </div>
+        </body>
+      </html>
+    </ContextGamesPlatform>
   )
 }

@@ -1,5 +1,3 @@
-import { IGame } from '@/interfaces'
-
 export type HeaderSearch = {
   headerInput: string
 }
@@ -18,14 +16,4 @@ export type CardData = {
     cardCvv: string
     cardPortions: string
   }
-}
-
-export type userOrders = {
-  orders: {
-    orderNumber: number
-    price: number
-    date: Date
-    payment: string
-    items: IGame[]
-  }[]
 }

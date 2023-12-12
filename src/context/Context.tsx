@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { IGame } from '@/interfaces'
-import { HeaderSearch, PaymentMethod, CardData, userOrders } from '@/types'
+import { IGame, IUserOrders } from '@/interfaces'
+import { HeaderSearch, PaymentMethod, CardData } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
@@ -44,10 +44,8 @@ const initialValueContext = {
   },
   setCardData: (state: CardData) => {},
 
-  userOrders: {
-    orders,
-  },
-  setUserOrders: (state: userOrders) => {},
+  userOrders: orders,
+  setUserOrders: (state: IUserOrders[]) => {},
 
   showMenu: {
     filters: false,

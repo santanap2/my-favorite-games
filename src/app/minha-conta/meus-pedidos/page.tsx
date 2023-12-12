@@ -7,11 +7,13 @@ import { Bag } from '@phosphor-icons/react'
 import React, { useContext, useEffect, useState } from 'react'
 import orders from '@/data/userOrders'
 import SingleOrder from '@/components/SingleOrder'
+import { IUserOrders } from '@/interfaces'
 
 export default function MeusPedidos() {
   const { userOrders, setUserOrders, showMenu, setShowMenu } =
     useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('all')
+  console.log(userOrders)
 
   useEffect(() => {
     setShowMenu({ ...showMenu, myAccount: true })
@@ -19,8 +21,8 @@ export default function MeusPedidos() {
 
   useEffect(() => {
     const filteredOrders = orders.filter(({ status }) => status === filter)
-    setUserOrders({ orders: filteredOrders })
-    if (filter === 'all') setUserOrders({ orders })
+    setUserOrders(filteredOrders)
+    if (filter === 'all') setUserOrders(orders)
   }, [filter])
 
   return (
@@ -57,8 +59,15 @@ export default function MeusPedidos() {
           </form>
 
           <div className="flex flex-col gap-4 w-full">
-            {userOrders.orders.map(
-              ({ orderNumber, price, date, payment, status, items }) => (
+            {userOrders.map(
+              ({
+                orderNumber,
+                price,
+                date,
+                payment,
+                status,
+                items,
+              }: IUserOrders) => (
                 <SingleOrder
                   key={orderNumber}
                   orderNumber={orderNumber}
