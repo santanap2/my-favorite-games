@@ -57,7 +57,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   const game = games.find((one) => one.id === Number(id))
   if (!game)
     return (
-      <div className="mt-24 w-full h-full flex flex-col items-center justify-center gap-10">
+      <div className="mt-24 sm:mt-20 w-full h-full flex flex-col items-center justify-center gap-10">
         <LateralMenu />
         <h1 className="text-sm font-regular">
           Produto não encontrado, tente novamente.
@@ -75,7 +75,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   const { name, area, areaPt, price, image, description } = game
 
   return (
-    <div className="mt-24 w-full h-full">
+    <div className="mt-24 sm:mt-20 w-full h-full">
       <LateralMenu />
       <div className="w-full h-full">
         <div className="flex gap-1 w-fit sm:w-full sm:text-xs">

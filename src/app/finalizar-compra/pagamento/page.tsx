@@ -8,8 +8,14 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Pagamento() {
-  const { cart, paymentMethod, setPaymentMethod, logged, setShowCart } =
-    useContext(GamesPlatformContext)
+  const {
+    cart,
+    paymentMethod,
+    setPaymentMethod,
+    logged,
+    setShowCart,
+    screenSize,
+  } = useContext(GamesPlatformContext)
 
   const router = useRouter()
 
@@ -83,9 +89,13 @@ export default function Pagamento() {
   }
 
   return (
-    <div className="mt-24 w-4/5 flex flex-col gap-12">
+    <div className="mt-24 sm:mt-20 w-4/5 flex flex-col gap-12">
       <div className="flex gap-1 w-fit items-center justify-center">
-        <Wallet weight="fill" size={56} className="text-sky-500" />
+        <Wallet
+          weight="fill"
+          size={screenSize < 600 ? 36 : 56}
+          className="text-sky-500"
+        />
         <h1 className="font-regular text-xl font-semibold">
           Forma de pagamento
         </h1>

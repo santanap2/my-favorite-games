@@ -58,6 +58,9 @@ const initialValueContext = {
 
   showSearchInputMobile: false,
   setShowSearchInputMobile: (state: boolean) => {},
+
+  screenSize: 0,
+  setScreenSize: (state: number) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

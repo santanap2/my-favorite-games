@@ -14,7 +14,7 @@ export default function Logout() {
   }, [router, setLogged])
 
   return (
-    <div className="mt-24">
+    <div className="mt-24 sm:mt-20">
       <div>Saindo...</div>
     </div>
   )

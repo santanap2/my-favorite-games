@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import {
   Bag,
   GameController,
@@ -16,7 +17,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function LateralMyAccount() {
-  const { showMenu } = useContext(GamesPlatformContext)
+  const { showMenu, setShowMenu, screenSize } = useContext(GamesPlatformContext)
   const nodeRef = useRef(null)
 
   const pathname = usePathname()
@@ -30,6 +31,11 @@ export default function LateralMyAccount() {
     logout: '/logout',
   }
 
+  useEffect(() => {
+    if (screenSize < 600) setShowMenu({ ...showMenu, myAccount: false })
+    else setShowMenu({ ...showMenu, myAccount: true })
+  }, [])
+
   return (
     <>
       <CSSTransition
@@ -40,7 +46,7 @@ export default function LateralMyAccount() {
         unmountOnExit
       >
         <div
-          className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100 shadow-md"
+          className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100 shadow-md z-20 sm:shadow-2xl"
           ref={nodeRef}
         >
           <div className="flex flex-col">

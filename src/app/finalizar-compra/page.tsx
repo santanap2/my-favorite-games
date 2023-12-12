@@ -8,14 +8,18 @@ import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
 export default function FinalizarCompra() {
-  const { cart } = useContext(GamesPlatformContext)
+  const { cart, screenSize } = useContext(GamesPlatformContext)
 
   const router = useRouter()
 
   return (
-    <div className="mt-24 w-4/5 flex flex-col gap-12">
+    <div className="mt-24 sm:mt-20 w-4/5 flex flex-col gap-12">
       <div className="flex gap-1 w-fit items-center justify-center">
-        <Wallet weight="fill" size={56} className="text-sky-500" />
+        <Wallet
+          weight="fill"
+          size={screenSize < 600 ? 36 : 56}
+          className="text-sky-500"
+        />
         <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
 

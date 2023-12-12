@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
@@ -10,27 +9,26 @@ import SingleOrder from '@/components/SingleOrder'
 import { IUserOrders } from '@/interfaces'
 
 export default function MeusPedidos() {
-  const { userOrders, setUserOrders, showMenu, setShowMenu } =
+  const { userOrders, setUserOrders, screenSize } =
     useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('all')
-  console.log(userOrders)
-
-  useEffect(() => {
-    setShowMenu({ ...showMenu, myAccount: true })
-  }, [])
 
   useEffect(() => {
     const filteredOrders = orders.filter(({ status }) => status === filter)
     setUserOrders(filteredOrders)
     if (filter === 'all') setUserOrders(orders)
-  }, [filter])
+  }, [filter, setUserOrders])
 
   return (
-    <div className="mt-24 w-full h-full">
+    <div className="mt-24 sm:mt-20 w-full h-full">
       <LateralMenu />
-      <div className="w-full h-full flex flex-col gap-10 text-zinc-800">
+      <div className="w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
-          <Bag weight="fill" size={56} className="text-sky-500" />
+          <Bag
+            weight="fill"
+            size={screenSize < 600 ? 36 : 56}
+            className="text-sky-500"
+          />
           <h1 className="font-regular text-xl font-semibold">Meus pedidos</h1>
         </div>
 

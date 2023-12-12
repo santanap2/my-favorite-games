@@ -31,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="mt-24 w-full">
+    <div className="mt-24 sm:mt-20 w-full">
       <LateralMenu />
       <div className="flex justify-center items-center w-full">
         <div className="grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4">
