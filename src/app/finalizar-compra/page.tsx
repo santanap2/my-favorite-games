@@ -105,7 +105,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/finalizar-compra/pagamento')}
-              className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
+              className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg sm:px-4"
             >
               Ir para o pagamento
             </button>
@@ -113,7 +113,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/home')}
-              className="w-full bg-white h-10 rounded-md text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg"
+              className="w-full bg-white h-10 rounded-md text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg sm:px-4"
             >
               Continuar comprando
             </button>
