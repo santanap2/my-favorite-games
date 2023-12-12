@@ -19,12 +19,12 @@ export default function Pagamento() {
 
   const router = useRouter()
 
-  useEffect(() => {
-    if (!logged) {
-      setShowCart(false)
-      router.push('/login')
-    }
-  }, [logged, router, setShowCart])
+  // useEffect(() => {
+  //   if (!logged) {
+  //     setShowCart(false)
+  //     router.push('/login')
+  //   }
+  // }, [logged, router, setShowCart])
 
   const pickPaymentMethod = (payment: string) => {
     switch (payment) {
@@ -89,7 +89,7 @@ export default function Pagamento() {
   }
 
   return (
-    <div className="mt-24 sm:mt-20 w-4/5 flex flex-col gap-12">
+    <div className="mt-24 sm:mt-20 w-4/5 flex flex-col gap-10 sm:w-full sm:gap-6">
       <div className="flex gap-1 w-fit items-center justify-center">
         <Wallet
           weight="fill"
@@ -101,8 +101,8 @@ export default function Pagamento() {
         </h1>
       </div>
 
-      <div className="flex justify-between items-start w-full h-full ">
-        <div className="w-[70%] bg-white rounded-md shadow-md p-6 flex flex-col gap-4">
+      <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center">
+        <div className="w-[70%] bg-white rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full">
           <div
             onClick={() => pickPaymentMethod('pix')}
             className={` ${
@@ -113,18 +113,22 @@ export default function Pagamento() {
               <div>
                 {paymentMethod.pix ? (
                   <CheckCircle
-                    size={28}
+                    size={screenSize < 600 ? 24 : 28}
                     weight="fill"
                     className="text-sky-400"
                   />
                 ) : (
-                  <Circle size={28} weight="regular" className="text-sky-400" />
+                  <Circle
+                    size={screenSize < 600 ? 24 : 28}
+                    weight="regular"
+                    className="text-sky-400"
+                  />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
                   paymentMethod.pix ? 'text-sky-400' : 'text-zinc-700'
-                }`}
+                } sm:text-base`}
               >
                 PIX
               </h1>
@@ -152,18 +156,22 @@ export default function Pagamento() {
               <div>
                 {paymentMethod.bankSlip ? (
                   <CheckCircle
-                    size={28}
+                    size={screenSize < 600 ? 24 : 28}
                     weight="fill"
                     className="text-sky-400"
                   />
                 ) : (
-                  <Circle size={28} weight="regular" className="text-sky-400" />
+                  <Circle
+                    size={screenSize < 600 ? 24 : 28}
+                    weight="regular"
+                    className="text-sky-400"
+                  />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
                   paymentMethod.bankSlip ? 'text-sky-400' : 'text-zinc-700'
-                }`}
+                } sm:text-base`}
               >
                 Boleto bancário
               </h1>
@@ -192,18 +200,22 @@ export default function Pagamento() {
               <div>
                 {paymentMethod.creditCard ? (
                   <CheckCircle
-                    size={28}
+                    size={screenSize < 600 ? 24 : 28}
                     weight="fill"
                     className="text-sky-400"
                   />
                 ) : (
-                  <Circle size={28} weight="regular" className="text-sky-400" />
+                  <Circle
+                    size={screenSize < 600 ? 24 : 28}
+                    weight="regular"
+                    className="text-sky-400"
+                  />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
                   paymentMethod.creditCard ? 'text-sky-400' : 'text-zinc-700'
-                }`}
+                } sm:text-base`}
               >
                 Cartão de crédito
               </h1>
@@ -213,20 +225,20 @@ export default function Pagamento() {
           </div>
         </div>
 
-        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4">
-          <div className="w-full h-30 bg-sky-50 p-4 rounded-md flex flex-col items-center justify-center text-sky-500">
+        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2">
+          <div className="w-full h-30 bg-sky-50 p-4 rounded-md flex flex-col items-center justify-center text-sky-500 sm:w-60 sm:p-2">
             <div className="text-sm flex">{whichPaymentMethod()}</div>
-            <span className="text-3xl font-extrabold mt-2">
-              {paymentMethod.creditCard ? (
-                <span className="text-3xl font-extrabold mt-2">{`R$ ${priceToBRL(
-                  calcSum(cart).number,
-                )}`}</span>
-              ) : (
-                <span className="text-3xl font-extrabold mt-2">{`R$ ${priceToBRL(
-                  calcSum(cart).number * 0.9,
-                )}`}</span>
-              )}
-            </span>
+
+            {paymentMethod.creditCard ? (
+              <span className="text-3xl font-extrabold mt-2 sm:text-2xl">
+                {`R$ ${priceToBRL(calcSum(cart).number)}`}
+              </span>
+            ) : (
+              <span className="text-3xl font-extrabold mt-2 sm:text-2xl">
+                {`R$ ${priceToBRL(calcSum(cart).number * 0.9)}`}
+              </span>
+            )}
+
             {(paymentMethod.bankSlip || paymentMethod.pix) && (
               <div className="text-xs font-light">
                 <span>{`Economia de: `}</span>

@@ -4,7 +4,7 @@
 
 import GamesPlatformContext from '@/context/Context'
 import { calcSum, priceToBRL } from '@/helpers'
-import { X } from '@phosphor-icons/react'
+import { Trash, X } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
@@ -37,13 +37,24 @@ export default function ShoppingCart() {
         unmountOnExit
       >
         <aside
-          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-8 sm:w-[85%] sm:py-3 sm:px-3"
+          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
           ref={nodeRef}
         >
           <div className="flex w-full justify-between pr-4 items-center">
-            <h1 className="uppercase tracking-wider font-bold text-sm">
-              Carrinho
-            </h1>
+            <div className="flex flex-col relative">
+              <h1 className="uppercase tracking-wider font-bold text-sm">
+                Carrinho
+              </h1>
+              {cart.length > 0 && (
+                <button
+                  onClick={() => setCart([])}
+                  className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center"
+                >
+                  <Trash size={20} weight="light" />
+                  <span>Esvaziar</span>
+                </button>
+              )}
+            </div>
             <button type="button" onClick={() => setShowCart(!showCart)}>
               <X
                 size={28}
