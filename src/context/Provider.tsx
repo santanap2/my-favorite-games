@@ -7,6 +7,8 @@ import { games } from '@/data/games'
 import GamesPlatformContext from './Context'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
+  const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0
+
   const [headerSearch, setHeaderSearch] = useState({
     headerInput: '',
   })
@@ -21,7 +23,7 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [showCart, setShowCart] = useState(false)
 
-  const [screenSize, setScreenSize] = useState(window.innerWidth)
+  const [screenSize, setScreenSize] = useState(windowWidth)
 
   const [showMenu, setShowMenu] = useState({
     filters: !(screenSize <= 600),
@@ -51,11 +53,13 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('resize', () => setScreenSize(window.innerWidth))
-    return () => {
-      window.removeEventListener('resize', () =>
-        setScreenSize(window.innerWidth),
-      )
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => setScreenSize(window.innerWidth))
+      return () => {
+        window.removeEventListener('resize', () =>
+          setScreenSize(window.innerWidth),
+        )
+      }
     }
   }, [])
 
