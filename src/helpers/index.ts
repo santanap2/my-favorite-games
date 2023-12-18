@@ -60,3 +60,28 @@ export const currencyMask = (value: string) => {
 
   return value
 }
+
+export const getCartLocalStorage = () => {
+  const cart = JSON.parse(localStorage.getItem('cart') || 'null')
+  return cart
+}
+
+export const addToCart = (item: IGame) => {
+  const cart: IGame[] =
+    JSON.parse(localStorage.getItem('cart') || 'false') || []
+  const isItemInCart = cart.some((cartItem) => cartItem.id === item.id)
+  if (isItemInCart) return
+
+  localStorage.setItem('cart', JSON.stringify([...cart, item]))
+}
+
+export const addOnlyOneToCart = (item: IGame) =>
+  localStorage.setItem('cart', JSON.stringify([item]))
+
+export const removeFromCart = (id: number) => {
+  const cart = getCartLocalStorage() || []
+  const newCart = cart.filter((item: IGame) => item.id !== id)
+  localStorage.setItem('cart', JSON.stringify(newCart))
+}
+
+export const emptyCart = () => localStorage.setItem('cart', '[]')

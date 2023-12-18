@@ -6,7 +6,13 @@ import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
 import { games } from '@/data/games'
-import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
+import {
+  addOnlyOneToCart,
+  addToCart,
+  pageTitle,
+  portionPrice,
+  priceToBRL,
+} from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
 import {
   ArrowUUpLeft,
@@ -46,12 +52,6 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       setExpandMenus({ ...expandMenus, description: !expandMenus.description })
     if (menu === 'evaluation')
       setExpandMenus({ ...expandMenus, evaluation: !expandMenus.evaluation })
-  }
-
-  const addCartItem = (item: IGame) => {
-    setShowCart(true)
-    const isItemInCart = cart.some((cartItem) => cartItem.id === item.id)
-    if (!isItemInCart) setCart([...cart, item])
   }
 
   const game = games.find((one) => one.id === Number(id))
@@ -128,7 +128,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             <div className="flex gap-4 mt-20 sm:mt-6 sm:w-full sm:justify-center sm:items-center sm:gap-1">
               <button
                 onClick={() => {
-                  setCart([game])
+                  addOnlyOneToCart(game)
                   router.push('/finalizar-compra')
                 }}
                 className="w-64 h-14 bg-sky-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
@@ -136,7 +136,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 Comprar agora
               </button>
               <button
-                onClick={() => addCartItem(game)}
+                type="button"
+                onClick={() => {
+                  addToCart(game)
+                  setShowCart(true)
+                }}
                 className="w-14 h-14 bg-sky-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <ShoppingCartSimple

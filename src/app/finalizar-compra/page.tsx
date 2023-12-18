@@ -2,15 +2,22 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, pageTitle, portionPrice, priceToBRL } from '@/helpers'
+import {
+  calcSum,
+  getCartLocalStorage,
+  pageTitle,
+  portionPrice,
+  priceToBRL,
+} from '@/helpers'
+import { IGame } from '@/interfaces'
 import { Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
 export default function FinalizarCompra() {
-  const { cart, screenSize } = useContext(GamesPlatformContext)
-
+  const { screenSize } = useContext(GamesPlatformContext)
   const router = useRouter()
+  const cart = getCartLocalStorage()
 
   const calcNameSlice = (name: string) => {
     const small = name.length > 25 ? `${name.slice(0, 25)}...` : name
@@ -36,7 +43,7 @@ export default function FinalizarCompra() {
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
         <div className="w-[70%] bg-white rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
-          {cart.map(({ areaPt, id, image, name, price }) => (
+          {cart.map(({ areaPt, id, image, name, price }: IGame) => (
             <div
               key={id}
               className="flex items-center w-full gap-3 border-b p-4 lg:p-2"

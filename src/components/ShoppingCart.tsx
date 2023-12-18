@@ -3,29 +3,29 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, priceToBRL } from '@/helpers'
+import {
+  calcSum,
+  emptyCart,
+  getCartLocalStorage,
+  priceToBRL,
+  removeFromCart,
+} from '@/helpers'
+import { IGame } from '@/interfaces'
 import { Trash, X } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 export default function ShoppingCart() {
-  const { showCart, setShowCart, cart, setCart } =
-    useContext(GamesPlatformContext)
-
-  const removeItemCart = (id: number) => {
-    const newCart = cart.filter((item) => item.id !== id)
-    setCart(newCart)
-  }
-
+  const { showCart, setShowCart } = useContext(GamesPlatformContext)
+  const cart: IGame[] = getCartLocalStorage() || []
   const router = useRouter()
+  const nodeRef = useRef(null)
 
   const finalizePurchase = () => {
     setShowCart(false)
     router.push('/finalizar-compra')
   }
-
-  const nodeRef = useRef(null)
 
   return (
     <>
@@ -47,7 +47,10 @@ export default function ShoppingCart() {
               </h1>
               {cart.length > 0 && (
                 <button
-                  onClick={() => setCart([])}
+                  onClick={() => {
+                    router.refresh()
+                    emptyCart()
+                  }}
                   className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center"
                 >
                   <Trash size={20} weight="light" />
@@ -93,7 +96,10 @@ export default function ShoppingCart() {
                         <button
                           type="button"
                           className="text-xs font-regular tracking-wider uppercase underline hover:text-sky-400"
-                          onClick={() => removeItemCart(id)}
+                          onClick={() => {
+                            router.refresh()
+                            removeFromCart(id)
+                          }}
                         >
                           Remover
                         </button>
