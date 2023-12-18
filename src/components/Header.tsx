@@ -8,7 +8,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
-import { List, UserCircle, X } from '@phosphor-icons/react'
+import { SlidersHorizontal, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
 import { games } from '@/data/games'
@@ -70,7 +70,7 @@ export default function Header() {
         onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
         onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
       >
-        <List size={28} weight={menu ? 'duotone' : 'regular'} />
+        <SlidersHorizontal size={28} weight={menu ? 'duotone' : 'regular'} />
       </button>
       <div className="w-3/4 flex justify-between items-center xl:w-fit">
         <CSSTransition

@@ -22,7 +22,7 @@ export default function FinalizarCompra() {
   }
 
   return (
-    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 sm:w-full sm:gap-6">
+    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6">
       <title>{`${pageTitle} - Finalizar compra`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">
@@ -34,29 +34,29 @@ export default function FinalizarCompra() {
         <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
 
-      <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-end">
-        <div className="w-[70%] bg-white rounded-md shadow-md px-6 sm:w-full sm:px-0">
+      <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
+        <div className="w-[70%] bg-white rounded-md shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
           {cart.map(({ areaPt, id, image, name, price }) => (
             <div
               key={id}
-              className="flex items-center w-full gap-3 border-b p-4 sm:p-2"
+              className="flex items-center w-full gap-3 border-b p-4 lg:p-2"
             >
               <img
                 src={image}
                 alt={name}
-                className="w-32 h-48 object-cover rounded-md sm:w-28 sm:h-44"
+                className="w-32 h-48 object-cover rounded-md lg:w-28 lg:h-44"
               />
 
-              <div className="flex flex-col justify-between items-start w-full h-48 sm:h-44">
+              <div className="flex flex-col justify-between items-start w-full h-48 lg:h-44">
                 <div className="flex flex-col gap-0 items-start justify-center w-full">
-                  <h1 className="font-bold text-lg tracking-tight sm:text-base sm:font-semibold sm:w-full">
+                  <h1 className="font-bold text-lg tracking-tight lg:text-base lg:font-semibold lg:w-full">
                     {calcNameSlice(name)}
                   </h1>
-                  <h3 className="font-semibold text-sm sm:font-light sm:w-full">
+                  <h3 className="font-semibold text-sm lg:font-light lg:w-full">
                     {areaPt}
                   </h3>
                 </div>
-                <div className="flex flex-col text-zinc-500 text-sm sm:text-xxs sm:mt-0 sm:font-extralight sm:text-black">
+                <div className="flex flex-col text-zinc-500 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-black">
                   <span>No PIX com 10% de desconto</span>
                   <span>{`Ou em até 3x de R$${portionPrice(
                     price,
@@ -65,19 +65,19 @@ export default function FinalizarCompra() {
                 </div>
               </div>
 
-              <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-sky-500 sm:text-sm sm:text-right sm:w-20">
+              <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-sky-500 lg:text-sm lg:text-right lg:w-20">
                 {`R$ ${priceToBRL(price)}`}
               </h2>
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-fit sm:p-4">
+        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
           <h1 className="font-regular text-lg font-semibold uppercase text-zinc-700 tracking-tighter">
             Resumo
           </h1>
 
-          <div className="text-zinc-700 sm:text-sm">
+          <div className="text-zinc-700 lg:text-sm">
             <span>Valor total: </span>
             <span className="font-semibold">{`R$ ${
               calcSum(cart).string
@@ -103,11 +103,11 @@ export default function FinalizarCompra() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col gap-6 sm:gap-4">
+          <div className="w-full flex flex-col gap-6 lg:gap-4">
             <button
               type="button"
               onClick={() => router.push('/finalizar-compra/pagamento')}
-              className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg sm:px-4"
+              className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
             >
               Ir para o pagamento
             </button>
@@ -115,7 +115,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/home')}
-              className="w-full bg-white h-10 rounded-md text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg sm:px-4"
+              className="w-full bg-white h-10 rounded-md text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
             >
               Continuar comprando
             </button>

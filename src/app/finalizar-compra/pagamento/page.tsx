@@ -89,7 +89,7 @@ export default function Pagamento() {
   }
 
   return (
-    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 sm:w-full sm:gap-6">
+    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6">
       <title>{`${pageTitle} - Pagamento`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">
@@ -104,7 +104,7 @@ export default function Pagamento() {
       </div>
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center">
-        <div className="w-[70%] bg-white rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full">
+        <div className="w-[70%] bg-white rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
           <div
             onClick={() => pickPaymentMethod('pix')}
             className={` ${
@@ -227,7 +227,7 @@ export default function Pagamento() {
           </div>
         </div>
 
-        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2">
+        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
           <div className="w-full h-30 bg-sky-50 p-4 rounded-md flex flex-col items-center justify-center text-sky-500 sm:w-60 sm:p-2">
             <div className="text-sm flex">{whichPaymentMethod()}</div>
 
