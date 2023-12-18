@@ -4,6 +4,7 @@ import LateralMenu from '@/components/LateralMenu'
 import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
+import { pageTitle } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { GameController } from '@phosphor-icons/react'
 import React, { useContext } from 'react'
@@ -19,6 +20,8 @@ export default function MeusGames() {
 
   return (
     <div className="mt-24 sm:mt-20 w-full h-full">
+      <title>{`${pageTitle} - Meus games`}</title>
+
       <LateralMenu />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">

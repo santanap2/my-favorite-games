@@ -6,7 +6,7 @@ import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
 import { games } from '@/data/games'
-import { portionPrice, priceToBRL } from '@/helpers'
+import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
 import {
   ArrowUUpLeft,
@@ -58,6 +58,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   if (!game)
     return (
       <div className="mt-24 sm:mt-20 w-full h-full flex flex-col items-center justify-center gap-10">
+        <title>{`${pageTitle} - Produto não encontrado`}</title>
+
         <LateralMenu />
         <h1 className="text-sm font-regular">
           Produto não encontrado, tente novamente.
@@ -76,6 +78,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
   return (
     <div className="mt-24 sm:mt-20 w-full h-full">
+      <title>{`${pageTitle} - ${name}`}</title>
       <LateralMenu />
       <div className="w-full h-full">
         <div className="flex gap-1 w-fit sm:w-full sm:text-xs">

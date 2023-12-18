@@ -1,5 +1,7 @@
 import { IGame } from '@/interfaces'
 
+export const pageTitle = 'My Favorite Games'
+
 export const calcSum = (cart: IGame[]) => {
   let initialSum = 0
   cart.forEach(({ price }) => (initialSum += price))

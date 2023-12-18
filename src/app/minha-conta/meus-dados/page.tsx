@@ -3,6 +3,7 @@
 
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
+import { pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'
 import {
   Envelope,
@@ -20,6 +21,7 @@ export default function MeusDados() {
 
   return (
     <div className="mt-24 sm:mt-20 w-full h-full">
+      <title>{`${pageTitle} - Meus dados`}</title>
       <LateralMenu />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">

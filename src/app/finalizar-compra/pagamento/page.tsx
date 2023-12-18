@@ -2,7 +2,7 @@
 
 import CreditCardForm from '@/components/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, priceToBRL } from '@/helpers'
+import { calcSum, pageTitle, priceToBRL } from '@/helpers'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
@@ -90,6 +90,8 @@ export default function Pagamento() {
 
   return (
     <div className="mt-24 sm:mt-20 w-4/5 flex flex-col gap-10 sm:w-full sm:gap-6">
+      <title>{`${pageTitle} - Pagamento`}</title>
+
       <div className="flex gap-1 w-fit items-center justify-center">
         <Wallet
           weight="fill"

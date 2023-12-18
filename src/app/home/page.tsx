@@ -8,6 +8,7 @@ import GamesPlatformContext from '@/context/Context'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { IGame } from '@/interfaces'
 import { games } from '@/data/games'
+import { pageTitle } from '@/helpers'
 
 export default function Home() {
   const { filteredProducts, setFilteredProducts, setShowSearchInputMobile } =
@@ -32,9 +33,16 @@ export default function Home() {
 
   return (
     <div className="mt-24 sm:mt-20 w-full">
+      <title>{`${pageTitle}`}</title>
       <LateralMenu />
       <div className="flex justify-center items-center w-full">
-        <div className="grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4">
+        <div
+          className={`${
+            filteredProducts.length === 0
+              ? 'flex items-center justify-center'
+              : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4'
+          }`}
+        >
           {filteredProducts.length > 0 ? (
             filteredProducts.map(
               ({ name, area, areaPt, price, id, image, description }) => (
