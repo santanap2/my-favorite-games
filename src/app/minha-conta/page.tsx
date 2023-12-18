@@ -39,8 +39,8 @@ export default function MinhaConta() {
       <title>{`${pageTitle} - Minha conta`}</title>
 
       <LateralMenu />
-      <div className="w-full h-full mt-24 lg:mt-20 flex flex-col items-start justify-start">
-        <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start sm:gap-6">
+      <div className="w-full h-full mt-24 xl:mt-20 flex flex-col items-start justify-start">
+        <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
           <div className="flex gap-1 items-start w-fit">
             <UserCircle
               weight="fill"
@@ -48,14 +48,14 @@ export default function MinhaConta() {
               className="text-sky-500"
             />
             <div className="flex flex-col">
-              <h1 className="font-regular text-xl sm:text-base">
+              <h1 className="font-regular text-xl lg:text-base">
                 Olá{' '}
-                <strong className="font-bold text-2xl sm:text-xl">
+                <strong className="font-bold text-2xl lg:text-xl">
                   Pedro Santana
                 </strong>
                 , bem vindo de volta!
               </h1>
-              <h2 className="text-sm font-light flex sm:text-xs">
+              <h2 className="text-sm font-light flex lg:text-xs">
                 <EnvelopeSimple
                   size={20}
                   weight="fill"
@@ -67,7 +67,7 @@ export default function MinhaConta() {
           </div>
 
           <div className="w-full flex flex-col gap-2">
-            <span className="font-semibold text-xl sm:text-base">
+            <span className="font-semibold text-xl lg:text-base">
               Detalhes do seu último pedido
             </span>
             <SingleOrder
@@ -83,17 +83,17 @@ export default function MinhaConta() {
 
           <div className="w-full flex flex-col gap-4">
             <div className="w-full flex justify-between items-center">
-              <span className="font-semibold text-xl sm:text-base">
+              <span className="font-semibold text-xl lg:text-base">
                 Seus últimos games comprados
               </span>
               <Link
                 href="/minha-conta/meus-games"
-                className="font-semibold text-lg text-sky-400 hover:underline sm:text-base"
+                className="font-semibold text-lg text-sky-400 hover:underline lg:text-base"
               >
                 Ver todos
               </Link>
             </div>
-            <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 sm:gap-3">
+            <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-3 xl:grid-cols-3 xl:gap-3 xxl:grid-cols-3">
               {allGames.length > 0 ? (
                 allGames.map(({ name, id, image }: IGame) => (
                   <UserOrderCard

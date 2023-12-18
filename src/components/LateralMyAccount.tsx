@@ -32,7 +32,7 @@ export default function LateralMyAccount() {
   }
 
   useEffect(() => {
-    if (screenSize < 600) setShowMenu({ ...showMenu, myAccount: false })
+    if (screenSize < 1280) setShowMenu({ ...showMenu, myAccount: false })
     else setShowMenu({ ...showMenu, myAccount: true })
   }, [])
 

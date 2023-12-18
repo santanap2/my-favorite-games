@@ -13,7 +13,7 @@ export default function RedefinirSenha() {
     RedefinirSenhaHooks()
 
   return (
-    <div className="flex flex-col gap-10 mt-24 lg:mt-20">
+    <div className="flex flex-col gap-10 mt-24 xl:mt-20">
       <title>{`${pageTitle} - Redefinir senha`}</title>
 
       <div className="px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">

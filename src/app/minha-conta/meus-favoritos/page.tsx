@@ -14,7 +14,7 @@ export default function MeusFavoritos() {
   const { screenSize } = useContext(GamesPlatformContext)
 
   return (
-    <div className="mt-24 lg:mt-20 w-full h-full">
+    <div className="mt-24 xl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus favoritos`}</title>
 
       <LateralMenu />

@@ -21,7 +21,7 @@ export default function MeusPedidos() {
   }, [filter, setUserOrders])
 
   return (
-    <div className="mt-24 lg:mt-20 w-full h-full">
+    <div className="mt-24 xl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus pedidos`}</title>
 
       <LateralMenu />
