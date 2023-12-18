@@ -13,7 +13,7 @@ import {
   portionPrice,
   priceToBRL,
 } from '@/helpers'
-import { IGame, IGameIDParams } from '@/interfaces'
+import { IGameIDParams } from '@/interfaces'
 import {
   ArrowUUpLeft,
   CaretDown,

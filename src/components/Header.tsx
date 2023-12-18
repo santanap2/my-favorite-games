@@ -49,7 +49,7 @@ export default function Header() {
 
   const { search, user, cart, menu } = hoverBtn
 
-  const cartLocalStorage = getCartLocalStorage()
+  const cartLocalStorage = getCartLocalStorage() || []
 
   const clickMenu = () => {
     if (pathname.includes('/minha-conta'))

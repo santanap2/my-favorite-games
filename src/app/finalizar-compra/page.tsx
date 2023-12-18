@@ -17,7 +17,7 @@ import React, { useContext } from 'react'
 export default function FinalizarCompra() {
   const { screenSize } = useContext(GamesPlatformContext)
   const router = useRouter()
-  const cart = getCartLocalStorage()
+  const cart = getCartLocalStorage() || []
 
   const calcNameSlice = (name: string) => {
     const small = name.length > 25 ? `${name.slice(0, 25)}...` : name

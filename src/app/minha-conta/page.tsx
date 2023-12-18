@@ -10,13 +10,10 @@ import { pageTitle } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function MinhaConta() {
-  const { logged, setLogged, screenSize } = useContext(GamesPlatformContext)
-
-  const router = useRouter()
+  const { screenSize } = useContext(GamesPlatformContext)
 
   const { orderNumber, price, status, date, payment, items } =
     orders[orders.length - 1]
