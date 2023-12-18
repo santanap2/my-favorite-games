@@ -17,26 +17,26 @@ export default function SingleOrder({
   const setStatusColor = (status: string) => {
     if (status === 'concluded')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-green-500 font-bold xl:p-1 xl:w-20 xl:text-xxs xl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-green-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Concluído
         </td>
       )
     if (status === 'canceled')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-red-500 font-bold xl:p-1 xl:w-20 xl:text-xxs xl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-red-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Cancelado
         </td>
       )
 
     if (status === 'processing')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-yellow-500 font-bold xl:p-1 xl:w-20 xl:text-xxs xl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-yellow-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Processando
         </td>
       )
     if (status === 'awaitingPayment')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-sky-500 font-bold xl:p-1 xl:w-20 xl:text-xxs xl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-sky-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Aguardando pagamento
         </td>
       )
@@ -45,35 +45,35 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full bg-white py-3 px-4 rounded-md shadow-sm flex justify-between items-end xl:px-0 xl:justify-center xl:flex-col xl:gap-2 xl:pb-1"
+      className="w-full bg-white py-3 px-4 rounded-md shadow-sm flex justify-between items-end xxl:px-0 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1"
     >
-      <table className="w-5/6 xl:w-full">
+      <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
-          <tr className="font-semibold text-sm uppercase text-zinc-700 flex justify-between gap-2 xl:text-xs">
-            <td className="py-3 px-4 w-60 xl:p-1 md:w-12 xl:w-40">
+          <tr className="font-semibold text-sm uppercase text-zinc-700 flex justify-between gap-2 xxl:text-xs">
+            <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40">
               {screenSize < 800 ? 'Pedido' : 'Número do pedido'}
             </td>
-            <td className="py-3 px-4 w-52 xl:p-1 xl:w-20">Status</td>
-            <td className="py-3 px-4 w-40 xl:p-1 xl:w-16">Data</td>
-            <td className="py-3 px-4 w-52 xl:p-1 xl:w-20">Pagamento</td>
-            <td className="py-3 px-4 w-40 xl:p-1 xl:w-16">Valor</td>
+            <td className="py-3 px-4 w-52 xxl:p-1 xxl:w-20">Status</td>
+            <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">Data</td>
+            <td className="py-3 px-4 w-52 xxl:p-1 xxl:w-20">Pagamento</td>
+            <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">Valor</td>
           </tr>
         </thead>
 
-        <tbody className="w-full xl:text-xs">
+        <tbody className="w-full xxl:text-xs">
           <tr className="text-zinc-600 flex justify-between items-center gap-2">
-            <td className="py-3 px-4 w-60 xl:p-1 md:w-12 xl:w-40">
+            <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40">
               {orderNumber}
             </td>
 
             {setStatusColor(status)}
-            <td className="py-3 px-4 w-40 xl:p-1 xl:w-16">
+            <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
               {date.toLocaleDateString('pt-BR')}
             </td>
-            <td className="py-3 px-4 w-52 text-sky-400 font-semibold text-sm xl:p-1 xl:w-20">
+            <td className="py-3 px-4 w-52 text-sky-400 font-semibold text-sm xxl:p-1 xxl:w-20">
               {payment}
             </td>
-            <td className="py-3 px-4 w-40 xl:p-1 xl:w-16">{`R$ ${priceToBRL(
+            <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">{`R$ ${priceToBRL(
               price,
             )}`}</td>
           </tr>
@@ -82,10 +82,10 @@ export default function SingleOrder({
 
       <Link
         href={`/minha-conta/meus-pedidos/${orderNumber}`}
-        className=" w-48 text-sky-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xl:ml-0 xl:justify-end xl:px-2 xl:w-fit xl:font-semibold xl:text-xs"
+        className=" w-48 text-sky-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
       >
         <ListPlus size={20} />
-        <span className="xl:">Detalhes do pedido</span>
+        <span className="xxl:">Detalhes do pedido</span>
       </Link>
     </div>
   )

@@ -10,7 +10,7 @@ import React, { useContext } from 'react'
 export default function Cadastro() {
   const { registerSuccess } = useContext(GamesPlatformContext)
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xl:mt-20 sm:gap-6">
+    <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6">
       <title>{`${pageTitle} - Cadastro`}</title>
       {registerSuccess ? (
         <div className="flex flex-col gap-10 w-full items-center justify-center">

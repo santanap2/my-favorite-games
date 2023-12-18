@@ -39,7 +39,7 @@ export default function MinhaConta() {
       <title>{`${pageTitle} - Minha conta`}</title>
 
       <LateralMenu />
-      <div className="w-full h-full mt-24 xl:mt-20 flex flex-col items-start justify-start">
+      <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start">
         <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
           <div className="flex gap-1 items-start w-fit">
             <UserCircle
@@ -93,7 +93,7 @@ export default function MinhaConta() {
                 Ver todos
               </Link>
             </div>
-            <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-3 xl:grid-cols-3 xl:gap-3 xxl:grid-cols-3">
+            <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
               {allGames.length > 0 ? (
                 allGames.map(({ name, id, image }: IGame) => (
                   <UserOrderCard

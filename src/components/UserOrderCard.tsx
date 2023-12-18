@@ -21,7 +21,7 @@ export default function UserOrderCard({
   }
 
   return (
-    <div className="bg-white rounded-md shadow-md w-80 h-60 relative flex justify-center items-end hover:scale-105 hover:shadow-lg transition-all lg:w-44 lg:h-56 lg:hover:scale-100">
+    <div className="bg-white rounded-md shadow-md w-80 h-60 relative flex justify-center items-end hover:scale-105 hover:shadow-lg transition-all sm:w-44 md:w-52 lg:w-64 lg:h-56 xxl:w-72 xxl:hover:scale-100">
       <Link href={whichLink()}>
         <img
           className="w-full absolute top-0 left-0 right-0 rounded-t-md h-40 object-cover"

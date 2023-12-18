@@ -19,7 +19,7 @@ export default function MeusGames() {
   )
 
   return (
-    <div className="mt-24 xl:mt-20 w-full h-full">
+    <div className="mt-24 xxl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus games`}</title>
 
       <LateralMenu />
@@ -33,7 +33,7 @@ export default function MeusGames() {
           <h1 className="font-regular text-xl font-semibold">Meus Games</h1>
         </div>
 
-        <div className="grid grid-cols-4 gap-x-12 gap-y-6 w-full sm:grid-cols-2 sm:gap-3">
+        <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
           {allGames.length > 0 ? (
             allGames.map(({ name, id, image }: IGame) => (
               <UserOrderCard

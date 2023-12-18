@@ -32,7 +32,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="mt-24 xl:mt-20 w-full">
+    <div className="mt-24 xxl:mt-20 w-full">
       <title>{headerSearch ? `${pageTitle} - Busca` : `${pageTitle}`}</title>
       <LateralMenu />
       <div className="flex justify-center items-center w-full">
@@ -40,7 +40,7 @@ export default function Home() {
           className={`${
             filteredProducts.length === 0
               ? 'flex items-center justify-center'
-              : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6'
+              : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
           }`}
         >
           {filteredProducts.length > 0 ? (

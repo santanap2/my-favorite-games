@@ -16,7 +16,7 @@ export default function Login() {
   }, [logged, router])
 
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xl:mt-20 sm:gap-6">
+    <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6">
       <title>{`${pageTitle} - Entrar`}</title>
       <UnloggedUser />
       <CreateAccount />
