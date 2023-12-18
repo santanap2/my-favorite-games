@@ -75,7 +75,7 @@ export default function ShoppingCart() {
                     <img
                       src={image}
                       alt={name}
-                      className="w-32 h-32 object-cover rounded-md sm:w-24"
+                      className="w-32 h-32 object-cover rounded sm:w-24"
                     />
                     <div className="flex flex-col justify-between items-start w-full">
                       <div className="flex flex-col">
@@ -113,7 +113,7 @@ export default function ShoppingCart() {
                 <button
                   type="button"
                   onClick={finalizePurchase}
-                  className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${calcSum(cart).string}`}
                 </button>

@@ -96,7 +96,7 @@ export default function Header() {
             <input
               {...registerMobile('headerMobileSearch.headerMobileInput')}
               type="text"
-              className="h-9 rounded-md px-3 focus:outline-none text-zinc-700 sm:w-64 xl:w-96"
+              className="h-9 rounded px-3 focus:outline-none text-zinc-700 sm:w-64 xl:w-96"
               placeholder="Qual jogo procura?"
             />
             <button type="submit" className="absolute top-1 right-2">
@@ -137,14 +137,14 @@ export default function Header() {
             <input
               {...register('headerSearch.headerInput')}
               type="text"
-              className="h-10 rounded-l-md pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
+              className="h-10 rounded-l pl-3 focus:outline-none text-zinc-700 hover:shadow-lg"
               placeholder="Qual jogo procura?"
             />
             <button type="submit">
               <MagnifyingGlass
                 size={28}
                 weight={search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r-md flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-sky-400"
+                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-sky-400"
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }

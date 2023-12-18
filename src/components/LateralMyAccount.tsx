@@ -52,7 +52,7 @@ export default function LateralMyAccount() {
           <div className="flex flex-col">
             <Link href={links.myAccount}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
               >
                 <UserCircle
                   weight={pathname === links.myAccount ? 'fill' : 'duotone'}
@@ -65,7 +65,7 @@ export default function LateralMyAccount() {
 
             <Link href={links.myData}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
               >
                 <IdentificationCard
                   weight={pathname === links.myData ? 'fill' : 'duotone'}
@@ -78,7 +78,7 @@ export default function LateralMyAccount() {
 
             <Link href={links.myOrders}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
               >
                 <Bag
                   weight={pathname === links.myOrders ? 'fill' : 'duotone'}
@@ -91,7 +91,7 @@ export default function LateralMyAccount() {
 
             <Link href={links.myGames}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
               >
                 <GameController
                   weight={pathname === links.myGames ? 'fill' : 'duotone'}
@@ -104,7 +104,7 @@ export default function LateralMyAccount() {
 
             <Link href={links.myFavorites}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
               >
                 <Heart
                   weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
@@ -117,7 +117,7 @@ export default function LateralMyAccount() {
 
             <Link href={links.help}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
               >
                 <Chat
                   weight={pathname === links.help ? 'fill' : 'duotone'}
@@ -131,7 +131,7 @@ export default function LateralMyAccount() {
 
           <Link href={links.logout}>
             <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded-md mb-4 hover:text-orange-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
             >
               <SignOut
                 weight={pathname === links.help ? 'fill' : 'duotone'}

@@ -16,7 +16,7 @@ export default function RedefinirSenha() {
     <div className="flex flex-col gap-10 mt-24 xxl:mt-20">
       <title>{`${pageTitle} - Redefinir senha`}</title>
 
-      <div className="px-20 py-8 rounded-md flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
+      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
         <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
           Redefinir senha
         </h1>
@@ -32,7 +32,7 @@ export default function RedefinirSenha() {
               type="email"
               id="email"
               placeholder="email@exemplo.com"
-              className="h-10 w-80 rounded-md px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
+              className="h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
             />
             {errors.resetPassword?.email && (
               <span className="text-sm font-light text-red-500">
@@ -43,7 +43,7 @@ export default function RedefinirSenha() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-sky-400 text-zinc-800 rounded-md text-md font-regular shadow hover:shadow-lg disabled:opacity-40"
+            className="w-80 h-10 bg-sky-400 text-zinc-800 rounded text-md font-regular shadow hover:shadow-lg disabled:opacity-40"
           >
             Enviar
           </button>

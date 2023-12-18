@@ -23,7 +23,7 @@ export default function CreditCardForm() {
           id="card-number"
           placeholder="0000 0000 0000 0000"
           maxLength={19}
-          className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="relative rounded w-full border border-sky-400 bg-zinc-50 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
         />
         {errors.cardData?.cardNumber && (
           <span className="text-sm font-light text-red-500">
@@ -41,7 +41,7 @@ export default function CreditCardForm() {
           id="card-name"
           type="text"
           placeholder="Digite seu nome"
-          className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="relative rounded w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
         />
         {errors.cardData?.cardName && (
           <span className="text-sm font-light text-red-500">
@@ -61,7 +61,7 @@ export default function CreditCardForm() {
             type="text"
             maxLength={5}
             placeholder="MM/AA"
-            className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+            className="relative rounded w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
           />
           {errors.cardData?.cardDate && (
             <span className="text-sm font-light text-red-500">
@@ -80,7 +80,7 @@ export default function CreditCardForm() {
             type="text"
             maxLength={3}
             placeholder="000"
-            className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm "
+            className="relative rounded w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm "
           />
           {errors.cardData?.cardCvv && (
             <span className="text-sm font-light text-red-500">
@@ -98,17 +98,17 @@ export default function CreditCardForm() {
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="relative rounded-md w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="relative rounded w-full border border-sky-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
         >
-          <option value="1" className="rounded-md py-4 h-10">
+          <option value="1" className="rounded py-4 h-10">
             {`1x sem juros de R$ ${priceToBRL(calcSum(cart).number)}`}
           </option>
 
-          <option value="2" className="rounded-md py-">
+          <option value="2" className="rounded py-">
             {`2x sem juros de R$ ${priceToBRL(calcSum(cart).number / 2)}`}
           </option>
 
-          <option value="3" className="rounded-md py-">
+          <option value="3" className="rounded py-">
             {`3x sem juros de R$ ${priceToBRL(calcSum(cart).number / 3)}`}
           </option>
         </select>

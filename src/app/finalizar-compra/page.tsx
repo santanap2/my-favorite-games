@@ -35,7 +35,7 @@ export default function FinalizarCompra() {
       </div>
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
-        <div className="w-[70%] bg-white rounded-md shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
+        <div className="w-[70%] bg-white rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
           {cart.map(({ areaPt, id, image, name, price }) => (
             <div
               key={id}
@@ -44,7 +44,7 @@ export default function FinalizarCompra() {
               <img
                 src={image}
                 alt={name}
-                className="w-32 h-48 object-cover rounded-md lg:w-28 lg:h-44"
+                className="w-32 h-48 object-cover rounded lg:w-28 lg:h-44"
               />
 
               <div className="flex flex-col justify-between items-start w-full h-48 lg:h-44">
@@ -72,7 +72,7 @@ export default function FinalizarCompra() {
           ))}
         </div>
 
-        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
+        <div className="bg-white rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
           <h1 className="font-regular text-lg font-semibold uppercase text-zinc-700 tracking-tighter">
             Resumo
           </h1>
@@ -87,7 +87,7 @@ export default function FinalizarCompra() {
             )})`}</h3>
           </div>
 
-          <div className="w-full h-30 bg-sky-50 p-4 rounded-md flex flex-col items-center justify-center text-sky-500">
+          <div className="w-full h-30 bg-sky-50 p-4 rounded flex flex-col items-center justify-center text-sky-500">
             <div className="text-sm">
               <span>Valor à vista no</span>
               <span className="font-semibold">{` PIX`}</span>
@@ -107,7 +107,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/finalizar-compra/pagamento')}
-              className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
+              className="w-full bg-sky-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
             >
               Ir para o pagamento
             </button>
@@ -115,7 +115,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/home')}
-              className="w-full bg-white h-10 rounded-md text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
+              className="w-full bg-white h-10 rounded text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
             >
               Continuar comprando
             </button>

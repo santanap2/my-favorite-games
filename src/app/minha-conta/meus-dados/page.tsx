@@ -34,7 +34,7 @@ export default function MeusDados() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="w-3/4 h-full bg-zinc-100 p-6 rounded-md shadow-md sm:w-full flex flex-col gap-10">
+          <div className="w-3/4 h-full bg-zinc-100 p-6 rounded shadow-md sm:w-full flex flex-col gap-10">
             <form
               id="myDataForm"
               className="w-full flex flex-col gap-3"
@@ -53,7 +53,7 @@ export default function MeusDados() {
                   {...register('userData.name')}
                   type="text"
                   id="name"
-                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded"
                 />
                 {errors.userData?.name && (
                   <span className="text-sm font-light text-red-500">
@@ -71,7 +71,7 @@ export default function MeusDados() {
                   {...register('userData.email')}
                   type="email"
                   id="email"
-                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded"
                 />
                 {errors.userData?.email && (
                   <span className="text-sm font-light text-red-500">
@@ -90,7 +90,7 @@ export default function MeusDados() {
                   type="tel"
                   id="phone"
                   maxLength={15}
-                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded"
                 />
                 {errors.userData?.phone && (
                   <span className="text-sm font-light text-red-500">
@@ -116,7 +116,7 @@ export default function MeusDados() {
                     {...register('userData.currentPassword')}
                     type="password"
                     id="currentPassword"
-                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md xxl:w-full"
+                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded xxl:w-full"
                   />
                   {errors.userData?.currentPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -141,7 +141,7 @@ export default function MeusDados() {
                     {...register('userData.newPassword')}
                     type="password"
                     id="newPassword"
-                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md xxl:w-full"
+                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded xxl:w-full"
                   />
                   {errors.userData?.newPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -166,7 +166,7 @@ export default function MeusDados() {
                     {...register('userData.confirmNewPassword')}
                     type="password"
                     id="confirmNewPassword"
-                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md xxl:w-full"
+                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded xxl:w-full"
                   />
                   {errors.userData?.confirmNewPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -180,7 +180,7 @@ export default function MeusDados() {
               <button
                 type="submit"
                 form="myDataForm"
-                className="bg-sky-400 w-80 px-6 py-3 rounded-md shadow-md hover:shadow-lg font-regular text-sm text-white sm:w-fit sm:px-16"
+                className="bg-sky-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-regular text-sm text-white sm:w-fit sm:px-16"
               >
                 Atualizar dados
               </button>

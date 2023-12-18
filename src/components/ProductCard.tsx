@@ -29,12 +29,12 @@ export default function ProductCard({
   }
 
   return (
-    <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100">
+    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
           alt={name}
-          className="rounded-t-md h-72 w-64 absolute top-0 left-0 object-cover sm:h-52 xxl:h-52"
+          className="rounded-t h-72 w-64 absolute top-0 left-0 object-cover sm:h-52 xxl:h-52"
         />
       </Link>
 
@@ -62,7 +62,7 @@ export default function ProductCard({
             setCart([{ name, area, areaPt, price, image, id, description }])
             router.push('/finalizar-compra')
           }}
-          className="w-[72.5%] bg-sky-400 py-2 rounded-md text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md  sm:text-xs"
+          className="w-[72.5%] bg-sky-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-sky-500 transition-all shadow-md  sm:text-xs"
         >
           Comprar
         </button>
@@ -71,7 +71,7 @@ export default function ProductCard({
           onClick={() =>
             addCartItem({ name, area, areaPt, price, image, id, description })
           }
-          className="w-1/4 bg-sky-400 py-1 rounded-md text-sm uppercase flex items-center justify-center relative hover:bg-sky-500 transition-all shadow-md sm:text-xs"
+          className="w-1/4 bg-sky-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-sky-500 transition-all shadow-md sm:text-xs"
         >
           <ShoppingCartSimple
             size={screenSize < 1000 ? 20 : 24}

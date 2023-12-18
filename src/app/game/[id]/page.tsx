@@ -66,7 +66,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
         </h1>
         <button
           onClick={() => router.push('/home')}
-          className="flex gap-3 items-center justify-center px-8 py-2 bg-sky-400 rounded-md text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+          className="flex gap-3 items-center justify-center px-8 py-2 bg-sky-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
         >
           <ArrowUUpLeft size={28} />
           <span>Retornar ao início</span>
@@ -108,7 +108,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           <img
             src={image}
             alt={name}
-            className="w-[300px] h-[400px] rounded-md shadow-md object-cover sm:w-4/5 sm:h-96 md:w-72 md:h-96"
+            className="w-[300px] h-[400px] rounded shadow-md object-cover sm:w-4/5 sm:h-96 md:w-72 md:h-96"
           />
           <div className="flex flex-col justify-start items-start w-full h-full text-zinc-600">
             <span className="font-light sm:text-sm">
@@ -131,13 +131,13 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   setCart([game])
                   router.push('/finalizar-compra')
                 }}
-                className="w-64 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                className="w-64 h-14 bg-sky-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
               >
                 Comprar agora
               </button>
               <button
                 onClick={() => addCartItem(game)}
-                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                className="w-14 h-14 bg-sky-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <ShoppingCartSimple
                   size={28}
@@ -152,7 +152,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               </button>
               <button
                 onClick={() => setIsFavorite(!isFavorite)}
-                className="w-14 h-14 bg-sky-400 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                className="w-14 h-14 bg-sky-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <Heart
                   size={28}

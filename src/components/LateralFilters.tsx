@@ -72,7 +72,7 @@ export default function LateralFilters() {
                       id="min-price"
                       type="text"
                       placeholder="R$ 00,00"
-                      className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
+                      className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
                     />
                   </label>
 
@@ -88,7 +88,7 @@ export default function LateralFilters() {
                       id="max-price"
                       type="text"
                       placeholder="R$ 00,00"
-                      className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 "
+                      className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 "
                     />
                   </label>
                 </div>
@@ -98,7 +98,7 @@ export default function LateralFilters() {
           <button
             type="submit"
             form="lateral-filters"
-            className="w-52 bg-sky-400 rounded-md p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
+            className="w-52 bg-sky-400 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
           >
             Filtrar
           </button>

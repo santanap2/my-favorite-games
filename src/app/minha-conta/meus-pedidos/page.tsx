@@ -47,7 +47,7 @@ export default function MeusPedidos() {
               <select
                 name=""
                 id="filters"
-                className="h-10 rounded-md px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
                 onChange={({ target: { value } }) => setFilter(value)}
               >
                 <option value="all">Todos</option>

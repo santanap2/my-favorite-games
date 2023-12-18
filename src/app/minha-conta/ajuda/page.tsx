@@ -26,7 +26,7 @@ export default function Ajuda() {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded-md shadow-md">
+          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded shadow-md">
             <h1 className="text-lg font-semibold">Horário de atendimento</h1>
 
             <div className="flex gap-2 items-center justify-start">
@@ -35,7 +35,7 @@ export default function Ajuda() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded-md shadow-md">
+          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded shadow-md">
             <h1 className="font-semibold text-lg">Atendimento via WhatsApp</h1>
 
             <Link
@@ -69,7 +69,7 @@ export default function Ajuda() {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded-md shadow-md">
+          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded shadow-md">
             <h1 className="font-semibold text-lg">Atendimento via E-mail</h1>
 
             <Link
