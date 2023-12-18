@@ -9,6 +9,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { IGame } from '@/interfaces'
 import { games } from '@/data/games'
 import { pageTitle } from '@/helpers'
+import { ArrowUUpLeft } from '@phosphor-icons/react'
 
 export default function Home() {
   const { filteredProducts, setFilteredProducts, setShowSearchInputMobile } =
@@ -70,9 +71,11 @@ export default function Home() {
                   router.push('/home')
                   setFilteredProducts(games)
                 }}
-                className="bg-sky-400 px-3 py-2 rounded-md shadow-md text-sm font-light text-white"
+                className="flex gap-3 items-center justify-center px-8 py-2 bg-sky-400 rounded-md text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
               >
-                Voltar para a página inicial
+                <ArrowUUpLeft size={28} />
+
+                <span>Voltar para a página inicial</span>
               </button>
             </div>
           )}

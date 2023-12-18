@@ -11,11 +11,11 @@ export default function EvaluationsGame() {
     return ['a']
   }
   return (
-    <div className="grid grid-cols-4 gap-6 pb-8 sm:flex sm:flex-col sm:gap-4 sm:w-full">
+    <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full">
       {evaluations.map(({ id, client, stars, date, description }) => (
         <div
           key={id}
-          className="w-80 h-80 bg-white p-4 rounded-md shadow-md text-base text-zinc-600 flex flex-col gap-6 sm:p-5 sm:w-full sm:h-fit"
+          className="w-full h-fit bg-white p-4 rounded-md shadow-md text-base text-zinc-600 flex flex-col gap-6 sm:p-5 lg:w-full lg:h-fit"
         >
           <div className="flex flex-col">
             <h1 className="font-bold">{client}</h1>

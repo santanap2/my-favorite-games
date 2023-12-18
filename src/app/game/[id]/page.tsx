@@ -81,7 +81,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       <title>{`${pageTitle} - ${name}`}</title>
       <LateralMenu />
       <div className="w-full h-full">
-        <div className="flex gap-1 w-fit sm:w-full sm:text-xs">
+        <div className="flex items-center gap-1 w-fit sm:w-full sm:text-xs">
           <Link
             href="/"
             className="text-zinc-500 hover:text-sky-400"
@@ -108,7 +108,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           <img
             src={image}
             alt={name}
-            className="w-[640px] h-[400px] rounded-md shadow-md object-cover sm:w-4/5 sm:h-96"
+            className="w-[300px] h-[400px] rounded-md shadow-md object-cover sm:w-4/5 sm:h-96 md:w-72 md:h-96"
           />
           <div className="flex flex-col justify-start items-start w-full h-full text-zinc-600">
             <span className="font-light sm:text-sm">
