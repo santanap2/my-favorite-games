@@ -20,7 +20,7 @@ export default function MeusDados() {
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
   return (
-    <div className="mt-24 sm:mt-20 w-full h-full">
+    <div className="mt-24 lg:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus dados`}</title>
       <LateralMenu />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">

@@ -8,7 +8,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
-import { List, UserCircle } from '@phosphor-icons/react'
+import { List, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
 import { games } from '@/data/games'
@@ -24,6 +24,7 @@ export default function Header() {
     setFilteredProducts,
     showSearchInputMobile,
     setShowSearchInputMobile,
+    screenSize,
   } = useContext(GamesPlatformContext)
 
   const {
@@ -61,17 +62,17 @@ export default function Header() {
   const nodeRef = useRef(null)
 
   return (
-    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-sky-900 text-sky-400 shadow-xl sm:shadow-lg sm:justify-between sm:px-1 sm:gap-0">
+    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-sky-900 text-sky-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8">
       <button
         type="button"
         onClick={clickMenu}
-        className="absolute top-4 left-3 sm:static"
+        className="absolute top-4 left-3 xl:static"
         onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
         onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
       >
         <List size={28} weight={menu ? 'duotone' : 'regular'} />
       </button>
-      <div className="w-3/4 flex justify-between items-center sm:w-fit">
+      <div className="w-3/4 flex justify-between items-center xl:w-fit">
         <CSSTransition
           nodeRef={nodeRef}
           in={showSearchInputMobile}
@@ -81,19 +82,31 @@ export default function Header() {
         >
           <form
             onSubmit={handleSubmitMobile(handleFormMobileSubmit)}
-            className="absolute left-10"
+            className="absolute sm:left-10"
             id="HeaderMobileForm"
             ref={nodeRef}
           >
             <input
               {...registerMobile('headerMobileSearch.headerMobileInput')}
               type="text"
-              className="h-9 rounded-md px-3 focus:outline-none text-zinc-700 w-64"
+              className="h-9 rounded-md px-3 focus:outline-none text-zinc-700 sm:w-64 xl:w-96"
               placeholder="Qual jogo procura?"
             />
             <button type="submit" className="absolute top-1 right-2">
               <MagnifyingGlass size={28} weight="regular" />
             </button>
+            {screenSize > 376 && (
+              <button
+                type="button"
+                onClick={() => setShowSearchInputMobile(false)}
+              >
+                <X
+                  size={20}
+                  weight="bold"
+                  className="text-sky-400 absolute top-2 -right-6"
+                />
+              </button>
+            )}
           </form>
         </CSSTransition>
         <button
@@ -112,7 +125,7 @@ export default function Header() {
         <div className="flex gap-3 items-center justify-center">
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
-            className="flex items-center justify-center sm:hidden"
+            className="flex items-center justify-center xl:hidden"
           >
             <input
               {...register('headerSearch.headerInput')}
@@ -137,7 +150,7 @@ export default function Header() {
 
           <Link
             href="/login"
-            className="flex items-center justify-center hover:underline sm:hidden"
+            className="flex items-center justify-center hover:underline xl:hidden"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, user: true }))
             }
@@ -157,16 +170,16 @@ export default function Header() {
         <ShoppingCartSimple
           size={28}
           weight={cart ? 'duotone' : 'regular'}
-          className="text-orange-400 sm:hidden"
+          className="text-orange-400 xl:hidden"
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
-        <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] sm:hidden">
+        <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
           {cartState.length}
         </span>
       </button>
 
-      <div className="hidden sm:static sm:flex sm:gap-1">
+      <div className="hidden xl:static xl:flex xl:gap-1 items-center justify-center">
         {!showSearchInputMobile && (
           <button
             type="button"
@@ -177,7 +190,7 @@ export default function Header() {
             <MagnifyingGlass
               size={28}
               weight={search ? 'duotone' : 'regular'}
-              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent sm:text-sky-400"
+              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-sky-400"
             />
           </button>
         )}
@@ -186,13 +199,13 @@ export default function Header() {
           className="flex items-center justify-center hover:underline"
         >
           <span className="uppercase font-semibold text-xs sm:hidden">
-            login
+            entrar
           </span>
           <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
         </Link>
 
         <button
-          className="absolute top-4 right-8 sm:static"
+          className="absolute top-4 right-8 xl:static"
           onClick={() => setShowCart(!showCart)}
         >
           <ShoppingCartSimple
@@ -206,7 +219,7 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, cart: false }))
             }
           />
-          <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 right-1">
+          <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
             {cartState.length}
           </span>
         </button>

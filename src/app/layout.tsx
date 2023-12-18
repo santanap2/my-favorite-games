@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Header />
             <ShoppingCart />
             <div className="flex flex-col min-h-screen justify-between items-center w-full">
-              <div className="flex w-3/4 flex-col items-center justify-between sm:w-[95%]">
+              <div className="flex w-3/4 flex-col items-center justify-between sm:w-[95%] md:w-[90%] lg:w-[95%] xl:w-[90%] bg-red-200">
                 {children}
               </div>
               <Footer />

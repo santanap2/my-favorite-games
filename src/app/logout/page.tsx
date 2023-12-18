@@ -15,7 +15,7 @@ export default function Logout() {
   }, [router, setLogged])
 
   return (
-    <div className="mt-24 sm:mt-20">
+    <div className="mt-24 lg:mt-20">
       <title>{`${pageTitle} - Sair`}</title>
       <div>Saindo...</div>
     </div>

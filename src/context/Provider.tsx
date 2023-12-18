@@ -26,8 +26,8 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [screenSize, setScreenSize] = useState(windowWidth)
 
   const [showMenu, setShowMenu] = useState({
-    filters: !(screenSize <= 600),
-    myAccount: !(screenSize <= 600),
+    filters: !(screenSize <= 1280),
+    myAccount: !(screenSize <= 1280),
   })
 
   const [paymentMethod, setPaymentMethod] = useState({

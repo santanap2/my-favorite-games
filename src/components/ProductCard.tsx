@@ -29,17 +29,17 @@ export default function ProductCard({
   }
 
   return (
-    <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 sm:hover:scale-100">
+    <div className="rounded-md flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 sm:hover:scale-100 xl:w-52 xl:h-96">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
           alt={name}
-          className="rounded-t-md h-72 w-64 absolute top-0 left-0 object-cover sm:h-52"
+          className="rounded-t-md h-72 w-64 absolute top-0 left-0 object-cover sm:h-52 xl:h-52"
         />
       </Link>
 
       <Link href={`/game/${id}`} className="w-full">
-        <div className="absolute top-72 h-40 flex flex-col justify-between items-start px-4 py-2 w-full sm:top-52 sm:px-2 sm:py-1 sm:h-32">
+        <div className="absolute top-72 h-40 flex flex-col justify-between items-start px-4 py-2 w-full sm:top-52 sm:px-2 sm:py-1 sm:h-32 xl:top-52 xl:h-32">
           <div className="flex flex-col gap-1">
             <h1 className="font-semibold text-lg text-zinc-800 w-full max-h-20 sm:text-base sm:max-h-11">
               {name.length > 26 ? `${name.slice(0, 26)}...` : name}
@@ -55,7 +55,7 @@ export default function ProductCard({
         </div>
       </Link>
 
-      <div className="absolute w-56 left-4 right-4 bottom-2 flex gap-[2.5%] sm:w-[90%] sm:left-[5%] sm:right-[5%] sm:bottom-[1.5%]">
+      <div className="absolute w-56 left-4 right-4 bottom-2 flex gap-[2.5%] sm:w-[90%] sm:left-[5%] sm:right-[5%] sm:bottom-[1.5%] xl:w-[90%] xl:left-[5%]">
         <button
           type="button"
           onClick={() => {
@@ -74,14 +74,14 @@ export default function ProductCard({
           className="w-1/4 bg-sky-400 py-1 rounded-md text-sm uppercase flex items-center justify-center relative hover:bg-sky-500 transition-all shadow-md sm:text-xs"
         >
           <ShoppingCartSimple
-            size={screenSize < 600 ? 20 : 24}
+            size={screenSize < 1000 ? 20 : 24}
             weight="bold"
             className="text-white relative"
           />
           <PlusCircle
-            size={screenSize < 600 ? 14 : 20}
+            size={screenSize < 1280 ? 14 : 20}
             weight="fill"
-            className="text-white absolute top-0 right-1 sm:top-1 sm:right-0"
+            className="text-white absolute top-0 right-1 xl:top-1 xl:right-1"
           />
         </button>
       </div>
