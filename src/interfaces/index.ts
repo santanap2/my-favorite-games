@@ -3,10 +3,11 @@ import { FunctionComponent, ReactNode } from 'react'
 export interface ICard {
   image: string
   name: string
-  areaPt?: string
-  area?: string
+  areaPt: string
+  area: string
   price: number
   id: number
+  description: string
 }
 
 export interface IChildren {
@@ -38,12 +39,13 @@ export interface IGameIDParams {
 }
 
 export interface IGame {
+  name: string
   area: string
-  description: string
+  areaPt: string
+  price: number
   id: number
   image: string
-  name: string
-  price: number
+  description: string
 }
 
 export interface ILastOrderDetail {
@@ -64,4 +66,13 @@ export interface IParamSearch {
   params: {
     search: string
   }
+}
+
+export interface IUserOrders {
+  orderNumber: number
+  price: number
+  date: Date
+  payment: string
+  status: string
+  items: IGame[]
 }

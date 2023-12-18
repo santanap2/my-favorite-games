@@ -11,11 +11,11 @@ export default function EvaluationsGame() {
     return ['a']
   }
   return (
-    <div className="flex flex-wrap gap-6 pb-8">
+    <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full">
       {evaluations.map(({ id, client, stars, date, description }) => (
         <div
           key={id}
-          className="w-[360px] h-[360px] bg-white px-9 py-6 rounded-md shadow-md text-base text-zinc-600 flex flex-col gap-6"
+          className="w-full h-fit bg-white p-4 rounded shadow-md text-base text-zinc-600 flex flex-col gap-6 sm:p-5 lg:w-full lg:h-fit"
         >
           <div className="flex flex-col">
             <h1 className="font-bold">{client}</h1>

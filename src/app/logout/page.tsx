@@ -1,6 +1,7 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
+import { pageTitle } from '@/helpers'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
@@ -14,7 +15,8 @@ export default function Logout() {
   }, [router, setLogged])
 
   return (
-    <div className="mt-24">
+    <div className="mt-24 xxl:mt-20">
+      <title>{`${pageTitle} - Sair`}</title>
       <div>Saindo...</div>
     </div>
   )

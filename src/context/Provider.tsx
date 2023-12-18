@@ -1,12 +1,14 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import GamesPlatformContext from './Context'
-import { IChildren } from '@/interfaces'
+import { useEffect, useState } from 'react'
+import { IChildren, IGame, IUserOrders } from '@/interfaces'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
+import GamesPlatformContext from './Context'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
+  const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0
+
   const [headerSearch, setHeaderSearch] = useState({
     headerInput: '',
   })
@@ -17,13 +19,15 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [logged, setLogged] = useState(false)
 
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState<IGame[]>([])
 
   const [showCart, setShowCart] = useState(false)
 
+  const [screenSize, setScreenSize] = useState(windowWidth)
+
   const [showMenu, setShowMenu] = useState({
-    filters: false,
-    myAccount: true,
+    filters: !(screenSize <= 1280),
+    myAccount: !(screenSize <= 1280),
   })
 
   const [paymentMethod, setPaymentMethod] = useState({
@@ -42,64 +46,66 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     },
   })
 
-  const [userOrders, setUserOrders] = useState({
-    orders,
-  })
+  const [userOrders, setUserOrders] = useState<IUserOrders[]>(orders)
 
   const [filteredProducts, setFilteredProducts] = useState(games)
 
-  const context = useMemo(
-    () => ({
-      headerSearch,
-      setHeaderSearch,
+  const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
-      reseted,
-      setReseted,
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => setScreenSize(window.innerWidth))
+      return () => {
+        window.removeEventListener('resize', () =>
+          setScreenSize(window.innerWidth),
+        )
+      }
+    }
+  }, [])
 
-      registerSuccess,
-      setRegisterSuccess,
+  const contextValues = {
+    headerSearch,
+    setHeaderSearch,
 
-      logged,
-      setLogged,
+    reseted,
+    setReseted,
 
-      cart,
-      setCart,
+    registerSuccess,
+    setRegisterSuccess,
 
-      showCart,
-      setShowCart,
+    logged,
+    setLogged,
 
-      showMenu,
-      setShowMenu,
+    cart,
+    setCart,
 
-      paymentMethod,
-      setPaymentMethod,
+    showCart,
+    setShowCart,
 
-      cardData,
-      setCardData,
+    screenSize,
+    setScreenSize,
 
-      userOrders,
-      setUserOrders,
+    showMenu,
+    setShowMenu,
 
-      filteredProducts,
-      setFilteredProducts,
-    }),
-    [
-      headerSearch,
-      reseted,
-      registerSuccess,
-      logged,
-      cart,
-      showCart,
-      showMenu,
-      paymentMethod,
-      cardData,
-      userOrders,
-      filteredProducts,
-    ],
-  )
+    paymentMethod,
+    setPaymentMethod,
+
+    cardData,
+    setCardData,
+
+    userOrders,
+    setUserOrders,
+
+    filteredProducts,
+    setFilteredProducts,
+
+    showSearchInputMobile,
+    setShowSearchInputMobile,
+  }
 
   return (
-    <GamesPlatformContext.Provider value={context}>
+    <GamesPlatformContext.Provider value={contextValues}>
       {children}
     </GamesPlatformContext.Provider>
   )

@@ -2,30 +2,33 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
-import GamesPlatformContext from '@/context/Context'
 import { Heart } from '@phosphor-icons/react'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import UserOrderCard from '@/components/UserOrderCard'
 import { IGame } from '@/interfaces'
 import { games } from '@/data/games'
+import GamesPlatformContext from '@/context/Context'
+import { pageTitle } from '@/helpers'
 
 export default function MeusFavoritos() {
-  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
-
-  useEffect(() => {
-    setShowMenu({ ...showMenu, myAccount: true })
-  }, [])
+  const { screenSize } = useContext(GamesPlatformContext)
 
   return (
-    <div className="mt-24 w-full h-full">
+    <div className="mt-24 xxl:mt-20 w-full h-full">
+      <title>{`${pageTitle} - Meus favoritos`}</title>
+
       <LateralMenu />
-      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800">
+      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
-          <Heart weight="fill" size={56} className="text-sky-500" />
+          <Heart
+            weight="fill"
+            size={screenSize < 600 ? 36 : 56}
+            className="text-sky-500"
+          />
           <h1 className="font-regular text-xl font-semibold">Meus favoritos</h1>
         </div>
 
-        <div className="flex flex-wrap gap-8 w-fit pb-4 items-center">
+        <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
           {games.length > 0 ? (
             games.map(({ image, name, id }: IGame) => (
               <UserOrderCard

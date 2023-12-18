@@ -2,23 +2,29 @@
 
 import CreditCardForm from '@/components/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, priceToBRL } from '@/helpers'
+import { calcSum, pageTitle, priceToBRL } from '@/helpers'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Pagamento() {
-  const { cart, paymentMethod, setPaymentMethod, logged, setShowCart } =
-    useContext(GamesPlatformContext)
+  const {
+    cart,
+    paymentMethod,
+    setPaymentMethod,
+    logged,
+    setShowCart,
+    screenSize,
+  } = useContext(GamesPlatformContext)
 
   const router = useRouter()
 
-  useEffect(() => {
-    if (!logged) {
-      setShowCart(false)
-      router.push('/login')
-    }
-  }, [logged, router, setShowCart])
+  // useEffect(() => {
+  //   if (!logged) {
+  //     setShowCart(false)
+  //     router.push('/login')
+  //   }
+  // }, [logged, router, setShowCart])
 
   const pickPaymentMethod = (payment: string) => {
     switch (payment) {
@@ -83,38 +89,48 @@ export default function Pagamento() {
   }
 
   return (
-    <div className="mt-24 w-4/5 flex flex-col gap-12">
+    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6">
+      <title>{`${pageTitle} - Pagamento`}</title>
+
       <div className="flex gap-1 w-fit items-center justify-center">
-        <Wallet weight="fill" size={56} className="text-sky-500" />
+        <Wallet
+          weight="fill"
+          size={screenSize < 600 ? 36 : 56}
+          className="text-sky-500"
+        />
         <h1 className="font-regular text-xl font-semibold">
           Forma de pagamento
         </h1>
       </div>
 
-      <div className="flex justify-between items-start w-full h-full ">
-        <div className="w-[70%] bg-white rounded-md shadow-md p-6 flex flex-col gap-4">
+      <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center">
+        <div className="w-[70%] bg-white rounded shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
           <div
             onClick={() => pickPaymentMethod('pix')}
             className={` ${
               paymentMethod.pix && 'border-1 border-sky-400 shadow-md'
-            } bg-zinc-50 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-zinc-700 `}
+            } bg-zinc-50 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-700 `}
           >
             <div className="flex gap-4">
               <div>
                 {paymentMethod.pix ? (
                   <CheckCircle
-                    size={28}
+                    size={screenSize < 600 ? 24 : 28}
                     weight="fill"
                     className="text-sky-400"
                   />
                 ) : (
-                  <Circle size={28} weight="regular" className="text-sky-400" />
+                  <Circle
+                    size={screenSize < 600 ? 24 : 28}
+                    weight="regular"
+                    className="text-sky-400"
+                  />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
                   paymentMethod.pix ? 'text-sky-400' : 'text-zinc-700'
-                }`}
+                } sm:text-base`}
               >
                 PIX
               </h1>
@@ -136,24 +152,28 @@ export default function Pagamento() {
             onClick={() => pickPaymentMethod('bankSlip')}
             className={` ${
               paymentMethod.bankSlip && 'border-1 border-sky-400 shadow-md'
-            } bg-zinc-50 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-zinc-700 `}
+            } bg-zinc-50 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-700 `}
           >
             <div className="flex gap-4">
               <div>
                 {paymentMethod.bankSlip ? (
                   <CheckCircle
-                    size={28}
+                    size={screenSize < 600 ? 24 : 28}
                     weight="fill"
                     className="text-sky-400"
                   />
                 ) : (
-                  <Circle size={28} weight="regular" className="text-sky-400" />
+                  <Circle
+                    size={screenSize < 600 ? 24 : 28}
+                    weight="regular"
+                    className="text-sky-400"
+                  />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
                   paymentMethod.bankSlip ? 'text-sky-400' : 'text-zinc-700'
-                }`}
+                } sm:text-base`}
               >
                 Boleto bancário
               </h1>
@@ -176,24 +196,28 @@ export default function Pagamento() {
             onClick={() => pickPaymentMethod('creditCard')}
             className={` ${
               paymentMethod.creditCard && 'border border-sky-400 shadow-md'
-            } bg-zinc-50 px-6 py-4 border  rounded-md flex flex-col gap-6 cursor-pointer text-zinc-700 `}
+            } bg-zinc-50 px-6 py-4 border  rounded flex flex-col gap-6 cursor-pointer text-zinc-700 `}
           >
             <div className="flex gap-4 w-full">
               <div>
                 {paymentMethod.creditCard ? (
                   <CheckCircle
-                    size={28}
+                    size={screenSize < 600 ? 24 : 28}
                     weight="fill"
                     className="text-sky-400"
                   />
                 ) : (
-                  <Circle size={28} weight="regular" className="text-sky-400" />
+                  <Circle
+                    size={screenSize < 600 ? 24 : 28}
+                    weight="regular"
+                    className="text-sky-400"
+                  />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
                   paymentMethod.creditCard ? 'text-sky-400' : 'text-zinc-700'
-                }`}
+                } sm:text-base`}
               >
                 Cartão de crédito
               </h1>
@@ -203,20 +227,20 @@ export default function Pagamento() {
           </div>
         </div>
 
-        <div className="bg-white rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4">
-          <div className="w-full h-30 bg-sky-50 p-4 rounded-md flex flex-col items-center justify-center text-sky-500">
+        <div className="bg-white rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
+          <div className="w-full h-30 bg-sky-50 p-4 rounded flex flex-col items-center justify-center text-sky-500 sm:w-60 sm:p-2">
             <div className="text-sm flex">{whichPaymentMethod()}</div>
-            <span className="text-3xl font-extrabold mt-2">
-              {paymentMethod.creditCard ? (
-                <span className="text-3xl font-extrabold mt-2">{`R$ ${priceToBRL(
-                  calcSum(cart).number,
-                )}`}</span>
-              ) : (
-                <span className="text-3xl font-extrabold mt-2">{`R$ ${priceToBRL(
-                  calcSum(cart).number * 0.9,
-                )}`}</span>
-              )}
-            </span>
+
+            {paymentMethod.creditCard ? (
+              <span className="text-3xl font-extrabold mt-2 sm:text-2xl">
+                {`R$ ${priceToBRL(calcSum(cart).number)}`}
+              </span>
+            ) : (
+              <span className="text-3xl font-extrabold mt-2 sm:text-2xl">
+                {`R$ ${priceToBRL(calcSum(cart).number * 0.9)}`}
+              </span>
+            )}
+
             {(paymentMethod.bankSlip || paymentMethod.pix) && (
               <div className="text-xs font-light">
                 <span>{`Economia de: `}</span>
@@ -228,7 +252,7 @@ export default function Pagamento() {
           </div>
           <button
             type="submit"
-            className="w-full bg-sky-400 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
+            className="w-full bg-sky-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg"
             form="creditCardForm"
             onClick={checkPaymentMethod}
           >

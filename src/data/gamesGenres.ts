@@ -1,4 +1,4 @@
-const gamesGenres = [
+export const gamesGenres = [
   { camelCaseName: 'actionAdventure', name: 'Ação e aventura' },
   { camelCaseName: 'rpgOpenWorld', name: 'RPG de mundo aberto' },
   { camelCaseName: 'rpgTurnBased', name: 'RPG de turnos' },
@@ -9,4 +9,30 @@ const gamesGenres = [
   { camelCaseName: 'actionRhythm', name: 'Ação e ritmo' },
 ]
 
-export default gamesGenres
+export const defineInputName = (name: string) => {
+  switch (name) {
+    case 'rpgOpenWorld':
+      return 'rpgOpenWorld'
+
+    case 'rpgTurnBased':
+      return 'rpgTurnBased'
+
+    case 'actionTerror':
+      return 'actionTerror'
+
+    case 'fps':
+      return 'fps'
+
+    case 'survivalHorror':
+      return 'survivalHorror'
+
+    case 'racing':
+      return 'racing'
+
+    case 'actionRhythm':
+      return 'actionRhythm'
+
+    default:
+      return 'actionAdventure'
+  }
+}

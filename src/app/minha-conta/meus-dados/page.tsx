@@ -3,6 +3,7 @@
 
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
+import { pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'
 import {
   Envelope,
@@ -11,31 +12,29 @@ import {
   Password,
   Phone,
 } from '@phosphor-icons/react'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 export default function MeusDados() {
-  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
+  const { screenSize } = useContext(GamesPlatformContext)
+
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
-  useEffect(() => {
-    setShowMenu({ ...showMenu, myAccount: true })
-  }, [])
-
   return (
-    <div className="mt-24 w-full h-full">
+    <div className="mt-24 xxl:mt-20 w-full h-full">
+      <title>{`${pageTitle} - Meus dados`}</title>
       <LateralMenu />
-      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800">
+      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <IdentificationCard
             weight="fill"
-            size={56}
+            size={screenSize < 600 ? 36 : 56}
             className="text-sky-500"
           />
           <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="w-3/4 h-full bg-zinc-100 p-6 rounded-md shadow-md">
+          <div className="w-3/4 h-full bg-zinc-100 p-6 rounded shadow-md sm:w-full flex flex-col gap-10">
             <form
               id="myDataForm"
               className="w-full flex flex-col gap-3"
@@ -54,7 +53,7 @@ export default function MeusDados() {
                   {...register('userData.name')}
                   type="text"
                   id="name"
-                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded"
                 />
                 {errors.userData?.name && (
                   <span className="text-sm font-light text-red-500">
@@ -72,7 +71,7 @@ export default function MeusDados() {
                   {...register('userData.email')}
                   type="email"
                   id="email"
-                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded"
                 />
                 {errors.userData?.email && (
                   <span className="text-sm font-light text-red-500">
@@ -91,7 +90,7 @@ export default function MeusDados() {
                   type="tel"
                   id="phone"
                   maxLength={15}
-                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                  className="px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded"
                 />
                 {errors.userData?.phone && (
                   <span className="text-sm font-light text-red-500">
@@ -99,12 +98,11 @@ export default function MeusDados() {
                   </span>
                 )}
               </label>
-              <div className="flex w-full gap-20 justify-between"></div>
 
-              <div className="flex w-full justify-between">
+              <div className="flex w-full justify-between xxl:flex-col xxl:gap-3">
                 <label
                   htmlFor="currentPassword"
-                  className="flex flex-col w-fit"
+                  className="flex flex-col w-fit xxl:w-full"
                 >
                   <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
                     <Password
@@ -118,7 +116,7 @@ export default function MeusDados() {
                     {...register('userData.currentPassword')}
                     type="password"
                     id="currentPassword"
-                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded xxl:w-full"
                   />
                   {errors.userData?.currentPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -127,7 +125,10 @@ export default function MeusDados() {
                   )}
                 </label>
 
-                <label htmlFor="newPassword" className="flex flex-col w-fit">
+                <label
+                  htmlFor="newPassword"
+                  className="flex flex-col w-fit xxl:w-full"
+                >
                   <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
                     <Password
                       size={24}
@@ -140,7 +141,7 @@ export default function MeusDados() {
                     {...register('userData.newPassword')}
                     type="password"
                     id="newPassword"
-                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded xxl:w-full"
                   />
                   {errors.userData?.newPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -151,7 +152,7 @@ export default function MeusDados() {
 
                 <label
                   htmlFor="confirmNewPassword"
-                  className="flex flex-col w-fit"
+                  className="flex flex-col w-fit xxl:w-full"
                 >
                   <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
                     <Password
@@ -165,7 +166,7 @@ export default function MeusDados() {
                     {...register('userData.confirmNewPassword')}
                     type="password"
                     id="confirmNewPassword"
-                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded-md"
+                    className="px-4 h-10 w-72 shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-sm font-light rounded xxl:w-full"
                   />
                   {errors.userData?.confirmNewPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -175,16 +176,15 @@ export default function MeusDados() {
                 </label>
               </div>
             </form>
-          </div>
-
-          <div className="w-3/5 flex items-center justify-start">
-            <button
-              type="submit"
-              form="myDataForm"
-              className="bg-sky-400 w-80 px-6 py-3 rounded-md shadow-md hover:shadow-lg font-regular text-sm text-white"
-            >
-              Atualizar dados
-            </button>
+            <div className="w-3/5 flex items-center justify-start sm:justify-center sm:w-full">
+              <button
+                type="submit"
+                form="myDataForm"
+                className="bg-sky-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-regular text-sm text-white sm:w-fit sm:px-16"
+              >
+                Atualizar dados
+              </button>
+            </div>
           </div>
         </div>
       </div>

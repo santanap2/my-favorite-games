@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import React, { useContext, useRef } from 'react'
-import gamesGenres from '@/data/gamesGenres'
+import { defineInputName, gamesGenres } from '@/data/gamesGenres'
 import LateralFilterHooks from '@/hooks/LateralFilterHooks'
 import { IGamesGenres } from '@/interfaces'
 import { CSSTransition } from 'react-transition-group'
@@ -25,7 +24,7 @@ export default function LateralFilters() {
       unmountOnExit
     >
       <aside
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-zinc-100 shadow-md overflow-y-auto"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-zinc-100 shadow-md overflow-y-auto z-20 sm:shadow-2xl sm:shadow-black"
         ref={nodeRef}
       >
         <div className="flex flex-col items-center h-full justify-start w-full">
@@ -48,7 +47,9 @@ export default function LateralFilters() {
                     className="flex justify-start items-center gap-3 w-full hover:underline"
                   >
                     <input
-                      {...register(`lateralFilters.${camelCaseName}`)}
+                      {...register(
+                        `lateralFilters.${defineInputName(camelCaseName)}`,
+                      )}
                       id={camelCaseName}
                       type="checkbox"
                     />
@@ -71,7 +72,7 @@ export default function LateralFilters() {
                       id="min-price"
                       type="text"
                       placeholder="R$ 00,00"
-                      className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
+                      className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
                     />
                   </label>
 
@@ -87,7 +88,7 @@ export default function LateralFilters() {
                       id="max-price"
                       type="text"
                       placeholder="R$ 00,00"
-                      className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 "
+                      className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 "
                     />
                   </label>
                 </div>
@@ -97,7 +98,7 @@ export default function LateralFilters() {
           <button
             type="submit"
             form="lateral-filters"
-            className="w-52 bg-sky-400 rounded-md p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
+            className="w-52 bg-sky-400 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
           >
             Filtrar
           </button>

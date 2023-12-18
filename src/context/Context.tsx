@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { IGame } from '@/interfaces'
-import { HeaderSearch, PaymentMethod, CardData, userOrders } from '@/types'
+import { IGame, IUserOrders } from '@/interfaces'
+import { HeaderSearch, PaymentMethod, CardData } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
 
 const initialValueContext = {
-  headerSearch: {
-    headerInput: '',
-  },
+  headerSearch: { headerInput: '' },
   setHeaderSearch: (state: HeaderSearch) => {},
 
   reseted: false,
@@ -22,7 +20,7 @@ const initialValueContext = {
   logged: false,
   setLogged: (state: boolean) => {},
 
-  cart: [],
+  cart: [] as IGame[],
   setCart: (state: IGame[]) => {},
 
   showCart: false,
@@ -46,10 +44,8 @@ const initialValueContext = {
   },
   setCardData: (state: CardData) => {},
 
-  userOrders: {
-    orders,
-  },
-  setUserOrders: (state: userOrders) => {},
+  userOrders: orders,
+  setUserOrders: (state: IUserOrders[]) => {},
 
   showMenu: {
     filters: false,
@@ -59,6 +55,12 @@ const initialValueContext = {
 
   filteredProducts: games,
   setFilteredProducts: (state: IGame[]) => {},
+
+  showSearchInputMobile: false,
+  setShowSearchInputMobile: (state: boolean) => {},
+
+  screenSize: 0,
+  setScreenSize: (state: number) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

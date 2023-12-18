@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
@@ -7,28 +6,32 @@ import { Bag } from '@phosphor-icons/react'
 import React, { useContext, useEffect, useState } from 'react'
 import orders from '@/data/userOrders'
 import SingleOrder from '@/components/SingleOrder'
+import { IUserOrders } from '@/interfaces'
+import { pageTitle } from '@/helpers'
 
 export default function MeusPedidos() {
-  const { userOrders, setUserOrders, showMenu, setShowMenu } =
+  const { userOrders, setUserOrders, screenSize } =
     useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {
-    setShowMenu({ ...showMenu, myAccount: true })
-  }, [])
-
-  useEffect(() => {
     const filteredOrders = orders.filter(({ status }) => status === filter)
-    setUserOrders({ orders: filteredOrders })
-    if (filter === 'all') setUserOrders({ orders })
-  }, [filter])
+    setUserOrders(filteredOrders)
+    if (filter === 'all') setUserOrders(orders)
+  }, [filter, setUserOrders])
 
   return (
-    <div className="mt-24 w-full h-full">
+    <div className="mt-24 xxl:mt-20 w-full h-full">
+      <title>{`${pageTitle} - Meus pedidos`}</title>
+
       <LateralMenu />
-      <div className="w-full h-full flex flex-col gap-10 text-zinc-800">
+      <div className="w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
-          <Bag weight="fill" size={56} className="text-sky-500" />
+          <Bag
+            weight="fill"
+            size={screenSize < 600 ? 36 : 56}
+            className="text-sky-500"
+          />
           <h1 className="font-regular text-xl font-semibold">Meus pedidos</h1>
         </div>
 
@@ -44,7 +47,7 @@ export default function MeusPedidos() {
               <select
                 name=""
                 id="filters"
-                className="h-10 rounded-md px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
                 onChange={({ target: { value } }) => setFilter(value)}
               >
                 <option value="all">Todos</option>
@@ -57,8 +60,15 @@ export default function MeusPedidos() {
           </form>
 
           <div className="flex flex-col gap-4 w-full">
-            {userOrders.orders.map(
-              ({ orderNumber, price, date, payment, status, items }) => (
+            {userOrders.map(
+              ({
+                orderNumber,
+                price,
+                date,
+                payment,
+                status,
+                items,
+              }: IUserOrders) => (
                 <SingleOrder
                   key={orderNumber}
                   orderNumber={orderNumber}
