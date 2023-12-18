@@ -2,29 +2,15 @@
 
 import CreditCardForm from '@/components/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, pageTitle, priceToBRL } from '@/helpers'
+import { calcSum, getCartLocalStorage, pageTitle, priceToBRL } from '@/helpers'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
-import { useRouter } from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 export default function Pagamento() {
-  const {
-    cart,
-    paymentMethod,
-    setPaymentMethod,
-    logged,
-    setShowCart,
-    screenSize,
-  } = useContext(GamesPlatformContext)
+  const { paymentMethod, setPaymentMethod, screenSize } =
+    useContext(GamesPlatformContext)
 
-  const router = useRouter()
-
-  // useEffect(() => {
-  //   if (!logged) {
-  //     setShowCart(false)
-  //     router.push('/login')
-  //   }
-  // }, [logged, router, setShowCart])
+  const cart = getCartLocalStorage() || []
 
   const pickPaymentMethod = (payment: string) => {
     switch (payment) {

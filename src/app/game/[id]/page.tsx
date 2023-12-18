@@ -35,14 +35,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
   const [isFavorite, setIsFavorite] = useState(false)
 
-  const {
-    cart,
-    setCart,
-    setShowCart,
-    showMenu,
-    setShowMenu,
-    setFilteredProducts,
-  } = useContext(GamesPlatformContext)
+  const { setShowCart, showMenu, setShowMenu, setFilteredProducts } =
+    useContext(GamesPlatformContext)
 
   useEffect(() => setShowMenu({ ...showMenu, filters: false }), [])
   const router = useRouter()

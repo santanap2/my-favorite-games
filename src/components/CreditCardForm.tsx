@@ -1,14 +1,14 @@
 'use client'
 
-import GamesPlatformContext from '@/context/Context'
-import { calcSum, priceToBRL } from '@/helpers'
+import { calcSum, getCartLocalStorage, priceToBRL } from '@/helpers'
 import CredCardFormHooks from '@/hooks/CredCardFormHooks'
-import React, { useContext } from 'react'
+import React from 'react'
 
 export default function CreditCardForm() {
-  const { cart } = useContext(GamesPlatformContext)
   const { handleSubmit, register, errors, handleFormSubmit } =
     CredCardFormHooks()
+
+  const cart = getCartLocalStorage() || []
 
   return (
     <form
