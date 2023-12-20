@@ -64,7 +64,11 @@ export default function MeusDados() {
 
               <label htmlFor="email" className="flex flex-col w-full">
                 <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
-                  <Envelope size={24} weight="light" className="text-indigo-400" />
+                  <Envelope
+                    size={24}
+                    weight="light"
+                    className="text-indigo-400"
+                  />
                   <span>E-mail</span>
                 </h2>
                 <input
@@ -83,7 +87,7 @@ export default function MeusDados() {
               <label htmlFor="phone" className="flex flex-col w-full">
                 <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
                   <Phone size={24} weight="light" className="text-indigo-400" />
-                  <span>Celular</span>
+                  <span>Telefone</span>
                 </h2>
                 <input
                   {...register('userData.phone')}

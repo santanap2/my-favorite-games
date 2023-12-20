@@ -15,7 +15,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [reseted, setReseted] = useState(false)
 
-  const [registerSuccess, setRegisterSuccess] = useState(false)
+  const [registerSuccess, setRegisterSuccess] = useState('')
+
+  const [registerError, setRegisterError] = useState('')
 
   const [logged, setLogged] = useState(false)
 
@@ -50,6 +52,10 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
+  const [loading, setLoading] = useState({
+    registerUser: false,
+  })
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => setScreenSize(window.innerWidth))
@@ -70,6 +76,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     registerSuccess,
     setRegisterSuccess,
+
+    registerError,
+    setRegisterError,
 
     logged,
     setLogged,
@@ -97,6 +106,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     showSearchInputMobile,
     setShowSearchInputMobile,
+
+    loading,
+    setLoading,
   }
 
   return (

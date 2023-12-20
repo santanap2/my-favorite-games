@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { IGame, IUserOrders } from '@/interfaces'
+import { IGame, ILoading, IUserOrders } from '@/interfaces'
 import { HeaderSearch, PaymentMethod, CardData } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
@@ -14,8 +14,11 @@ const initialValueContext = {
   reseted: false,
   setReseted: (state: boolean) => {},
 
-  registerSuccess: false,
-  setRegisterSuccess: (state: boolean) => {},
+  registerSuccess: '',
+  setRegisterSuccess: (state: string) => {},
+
+  registerError: '',
+  setRegisterError: (state: string) => {},
 
   logged: false,
   setLogged: (state: boolean) => {},
@@ -58,6 +61,11 @@ const initialValueContext = {
 
   screenSize: 0,
   setScreenSize: (state: number) => {},
+
+  loading: {
+    registerUser: false,
+  },
+  setLoading: (state: ILoading) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)
