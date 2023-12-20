@@ -49,7 +49,7 @@ export default function RegisterUser() {
 
         <button
           type="submit"
-          className="w-80 h-10 bg-sky-400 font-light text-white rounded text-regular shadow hover:shadow-lg disabled:opacity-40"
+          className="w-80 h-10 bg-indigo-400 font-light text-white rounded text-regular shadow hover:shadow-lg disabled:opacity-40"
         >
           Cadastrar
         </button>

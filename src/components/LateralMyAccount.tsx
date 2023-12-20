@@ -52,12 +52,12 @@ export default function LateralMyAccount() {
           <div className="flex flex-col">
             <Link href={links.myAccount}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-indigo-400 transition-all`}
               >
                 <UserCircle
                   weight={pathname === links.myAccount ? 'fill' : 'duotone'}
                   size={34}
-                  className="text-sky-600"
+                  className="text-indigo-600"
                 />
                 <span className="w-full">Minha conta</span>
               </div>
@@ -65,12 +65,12 @@ export default function LateralMyAccount() {
 
             <Link href={links.myData}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-indigo-400 transition-all`}
               >
                 <IdentificationCard
                   weight={pathname === links.myData ? 'fill' : 'duotone'}
                   size={34}
-                  className="text-sky-600"
+                  className="text-indigo-600"
                 />
                 <span className="w-full">Meus dados</span>
               </div>
@@ -78,12 +78,12 @@ export default function LateralMyAccount() {
 
             <Link href={links.myOrders}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-indigo-400 transition-all`}
               >
                 <Bag
                   weight={pathname === links.myOrders ? 'fill' : 'duotone'}
                   size={34}
-                  className="text-sky-600"
+                  className="text-indigo-600"
                 />
                 <span className="w-full">Meus pedidos</span>
               </div>
@@ -91,12 +91,12 @@ export default function LateralMyAccount() {
 
             <Link href={links.myGames}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-indigo-400 transition-all`}
               >
                 <GameController
                   weight={pathname === links.myGames ? 'fill' : 'duotone'}
                   size={34}
-                  className="text-sky-600"
+                  className="text-indigo-600"
                 />
                 <span className="w-full">Meus games</span>
               </div>
@@ -104,12 +104,12 @@ export default function LateralMyAccount() {
 
             <Link href={links.myFavorites}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-indigo-400 transition-all`}
               >
                 <Heart
                   weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
                   size={34}
-                  className="text-sky-600"
+                  className="text-indigo-600"
                 />
                 <span className="w-full">Meus favoritos</span>
               </div>
@@ -117,12 +117,12 @@ export default function LateralMyAccount() {
 
             <Link href={links.help}>
               <div
-                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-sky-400 transition-all`}
+                className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded hover:text-indigo-400 transition-all`}
               >
                 <Chat
                   weight={pathname === links.help ? 'fill' : 'duotone'}
                   size={34}
-                  className="text-sky-600"
+                  className="text-indigo-600"
                 />
                 <span className="w-full">Ajuda</span>
               </div>

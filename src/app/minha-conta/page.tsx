@@ -42,7 +42,7 @@ export default function MinhaConta() {
             <UserCircle
               weight="fill"
               size={screenSize < 600 ? 36 : 56}
-              className="text-sky-500"
+              className="text-indigo-500"
             />
             <div className="flex flex-col">
               <h1 className="font-regular text-xl lg:text-base">
@@ -56,7 +56,7 @@ export default function MinhaConta() {
                 <EnvelopeSimple
                   size={20}
                   weight="fill"
-                  className="text-sky-500"
+                  className="text-indigo-500"
                 />
                 phsantana99@gmail.com
               </h2>
@@ -85,7 +85,7 @@ export default function MinhaConta() {
               </span>
               <Link
                 href="/minha-conta/meus-games"
-                className="font-semibold text-lg text-sky-400 hover:underline lg:text-base"
+                className="font-semibold text-lg text-indigo-400 hover:underline lg:text-base"
               >
                 Ver todos
               </Link>

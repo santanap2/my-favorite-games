@@ -82,7 +82,7 @@ export default function Pagamento() {
         <Wallet
           weight="fill"
           size={screenSize < 600 ? 36 : 56}
-          className="text-sky-500"
+          className="text-indigo-500"
         />
         <h1 className="font-regular text-xl font-semibold">
           Forma de pagamento
@@ -94,7 +94,7 @@ export default function Pagamento() {
           <div
             onClick={() => pickPaymentMethod('pix')}
             className={` ${
-              paymentMethod.pix && 'border-1 border-sky-400 shadow-md'
+              paymentMethod.pix && 'border-1 border-indigo-400 shadow-md'
             } bg-zinc-50 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-700 `}
           >
             <div className="flex gap-4">
@@ -103,19 +103,19 @@ export default function Pagamento() {
                   <CheckCircle
                     size={screenSize < 600 ? 24 : 28}
                     weight="fill"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                 ) : (
                   <Circle
                     size={screenSize < 600 ? 24 : 28}
                     weight="regular"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
-                  paymentMethod.pix ? 'text-sky-400' : 'text-zinc-700'
+                  paymentMethod.pix ? 'text-indigo-400' : 'text-zinc-700'
                 } sm:text-base`}
               >
                 PIX
@@ -137,7 +137,7 @@ export default function Pagamento() {
           <div
             onClick={() => pickPaymentMethod('bankSlip')}
             className={` ${
-              paymentMethod.bankSlip && 'border-1 border-sky-400 shadow-md'
+              paymentMethod.bankSlip && 'border-1 border-indigo-400 shadow-md'
             } bg-zinc-50 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-700 `}
           >
             <div className="flex gap-4">
@@ -146,19 +146,19 @@ export default function Pagamento() {
                   <CheckCircle
                     size={screenSize < 600 ? 24 : 28}
                     weight="fill"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                 ) : (
                   <Circle
                     size={screenSize < 600 ? 24 : 28}
                     weight="regular"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
-                  paymentMethod.bankSlip ? 'text-sky-400' : 'text-zinc-700'
+                  paymentMethod.bankSlip ? 'text-indigo-400' : 'text-zinc-700'
                 } sm:text-base`}
               >
                 Boleto bancário
@@ -181,7 +181,7 @@ export default function Pagamento() {
           <div
             onClick={() => pickPaymentMethod('creditCard')}
             className={` ${
-              paymentMethod.creditCard && 'border border-sky-400 shadow-md'
+              paymentMethod.creditCard && 'border border-indigo-400 shadow-md'
             } bg-zinc-50 px-6 py-4 border  rounded flex flex-col gap-6 cursor-pointer text-zinc-700 `}
           >
             <div className="flex gap-4 w-full">
@@ -190,19 +190,19 @@ export default function Pagamento() {
                   <CheckCircle
                     size={screenSize < 600 ? 24 : 28}
                     weight="fill"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                 ) : (
                   <Circle
                     size={screenSize < 600 ? 24 : 28}
                     weight="regular"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                 )}
               </div>
               <h1
                 className={`text-lg font-bold ${
-                  paymentMethod.creditCard ? 'text-sky-400' : 'text-zinc-700'
+                  paymentMethod.creditCard ? 'text-indigo-400' : 'text-zinc-700'
                 } sm:text-base`}
               >
                 Cartão de crédito
@@ -214,7 +214,7 @@ export default function Pagamento() {
         </div>
 
         <div className="bg-white rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
-          <div className="w-full h-30 bg-sky-50 p-4 rounded flex flex-col items-center justify-center text-sky-500 sm:w-60 sm:p-2">
+          <div className="w-full h-30 bg-indigo-50 p-4 rounded flex flex-col items-center justify-center text-indigo-500 sm:w-60 sm:p-2">
             <div className="text-sm flex">{whichPaymentMethod()}</div>
 
             {paymentMethod.creditCard ? (
@@ -238,7 +238,7 @@ export default function Pagamento() {
           </div>
           <button
             type="submit"
-            className="w-full bg-sky-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg"
+            className="w-full bg-indigo-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg"
             form="creditCardForm"
             onClick={checkPaymentMethod}
           >

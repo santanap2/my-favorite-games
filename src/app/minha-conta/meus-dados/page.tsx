@@ -28,7 +28,7 @@ export default function MeusDados() {
           <IdentificationCard
             weight="fill"
             size={screenSize < 600 ? 36 : 56}
-            className="text-sky-500"
+            className="text-indigo-500"
           />
           <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
         </div>
@@ -45,7 +45,7 @@ export default function MeusDados() {
                   <IdentificationBadge
                     size={24}
                     weight="light"
-                    className="text-sky-400"
+                    className="text-indigo-400"
                   />
                   <span>Nome completo</span>
                 </h2>
@@ -64,7 +64,7 @@ export default function MeusDados() {
 
               <label htmlFor="email" className="flex flex-col w-full">
                 <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
-                  <Envelope size={24} weight="light" className="text-sky-400" />
+                  <Envelope size={24} weight="light" className="text-indigo-400" />
                   <span>E-mail</span>
                 </h2>
                 <input
@@ -82,7 +82,7 @@ export default function MeusDados() {
 
               <label htmlFor="phone" className="flex flex-col w-full">
                 <h2 className="font-light text-sm tracking-normal flex gap-1 items-center justify center">
-                  <Phone size={24} weight="light" className="text-sky-400" />
+                  <Phone size={24} weight="light" className="text-indigo-400" />
                   <span>Celular</span>
                 </h2>
                 <input
@@ -108,7 +108,7 @@ export default function MeusDados() {
                     <Password
                       size={24}
                       weight="light"
-                      className="text-sky-400"
+                      className="text-indigo-400"
                     />
                     <span>Senha atual</span>
                   </h2>
@@ -133,7 +133,7 @@ export default function MeusDados() {
                     <Password
                       size={24}
                       weight="light"
-                      className="text-sky-400"
+                      className="text-indigo-400"
                     />
                     <span>Nova senha</span>
                   </h2>
@@ -158,7 +158,7 @@ export default function MeusDados() {
                     <Password
                       size={24}
                       weight="light"
-                      className="text-sky-400"
+                      className="text-indigo-400"
                     />
                     <span>Confirmar nova senha</span>
                   </h2>
@@ -180,7 +180,7 @@ export default function MeusDados() {
               <button
                 type="submit"
                 form="myDataForm"
-                className="bg-sky-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-regular text-sm text-white sm:w-fit sm:px-16"
+                className="bg-indigo-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-regular text-sm text-white sm:w-fit sm:px-16"
               >
                 Atualizar dados
               </button>

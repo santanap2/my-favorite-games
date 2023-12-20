@@ -36,7 +36,7 @@ export default function FinalizarCompra() {
         <Wallet
           weight="fill"
           size={screenSize < 600 ? 36 : 56}
-          className="text-sky-500"
+          className="text-indigo-500"
         />
         <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
@@ -72,7 +72,7 @@ export default function FinalizarCompra() {
                 </div>
               </div>
 
-              <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-sky-500 lg:text-sm lg:text-right lg:w-20">
+              <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-indigo-500 lg:text-sm lg:text-right lg:w-20">
                 {`R$ ${priceToBRL(price)}`}
               </h2>
             </div>
@@ -94,7 +94,7 @@ export default function FinalizarCompra() {
             )})`}</h3>
           </div>
 
-          <div className="w-full h-30 bg-sky-50 p-4 rounded flex flex-col items-center justify-center text-sky-500">
+          <div className="w-full h-30 bg-indigo-50 p-4 rounded flex flex-col items-center justify-center text-indigo-500">
             <div className="text-sm">
               <span>Valor à vista no</span>
               <span className="font-semibold">{` PIX`}</span>
@@ -114,7 +114,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/finalizar-compra/pagamento')}
-              className="w-full bg-sky-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
+              className="w-full bg-indigo-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
             >
               Ir para o pagamento
             </button>
@@ -122,7 +122,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/home')}
-              className="w-full bg-white h-10 rounded text-sky-400 border border-sky-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
+              className="w-full bg-white h-10 rounded text-indigo-400 border border-indigo-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
             >
               Continuar comprando
             </button>

@@ -36,7 +36,7 @@ export default function SingleOrder({
       )
     if (status === 'awaitingPayment')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-sky-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-indigo-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Aguardando pagamento
         </td>
       )
@@ -70,7 +70,7 @@ export default function SingleOrder({
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
               {date.toLocaleDateString('pt-BR')}
             </td>
-            <td className="py-3 px-4 w-52 text-sky-400 font-semibold text-sm xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-indigo-400 font-semibold text-sm xxl:p-1 xxl:w-20">
               {payment}
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">{`R$ ${priceToBRL(
@@ -82,7 +82,7 @@ export default function SingleOrder({
 
       <Link
         href={`/minha-conta/meus-pedidos/${orderNumber}`}
-        className=" w-48 text-sky-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
+        className=" w-48 text-indigo-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
       >
         <ListPlus size={20} />
         <span className="xxl:">Detalhes do pedido</span>

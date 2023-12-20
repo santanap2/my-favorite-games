@@ -62,7 +62,7 @@ export default function ShoppingCart() {
               <X
                 size={28}
                 weight="bold"
-                className="text-zinc-800 hover:text-sky-400"
+                className="text-zinc-800 hover:text-indigo-400"
               />
             </button>
           </div>
@@ -95,7 +95,7 @@ export default function ShoppingCart() {
                         </h2>
                         <button
                           type="button"
-                          className="text-xs font-regular tracking-wider uppercase underline hover:text-sky-400"
+                          className="text-xs font-regular tracking-wider uppercase underline hover:text-indigo-400"
                           onClick={() => {
                             router.refresh()
                             removeFromCart(id)
@@ -119,14 +119,14 @@ export default function ShoppingCart() {
                 <button
                   type="button"
                   onClick={finalizePurchase}
-                  className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-white py-2 bg-indigo-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${calcSum(cart).string}`}
                 </button>
 
                 <button
                   type="button"
-                  className="uppercase tracking-wide underline text-xs font-light hover:text-sky-400"
+                  className="uppercase tracking-wide underline text-xs font-light hover:text-indigo-400"
                   onClick={() => {
                     setShowCart(false)
                     router.push('/home')

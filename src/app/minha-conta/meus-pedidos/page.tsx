@@ -30,7 +30,7 @@ export default function MeusPedidos() {
           <Bag
             weight="fill"
             size={screenSize < 600 ? 36 : 56}
-            className="text-sky-500"
+            className="text-indigo-500"
           />
           <h1 className="font-regular text-xl font-semibold">Meus pedidos</h1>
         </div>

@@ -63,7 +63,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-sky-900 text-sky-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8">
+    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-indigo-900 text-indigo-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8">
       <button
         type="button"
         onClick={clickMenu}
@@ -111,7 +111,7 @@ export default function Header() {
                 <X
                   size={20}
                   weight="bold"
-                  className="text-sky-400 absolute top-2 -right-6"
+                  className="text-indigo-400 absolute top-2 -right-6"
                 />
               </button>
             )}
@@ -145,7 +145,7 @@ export default function Header() {
               <MagnifyingGlass
                 size={28}
                 weight={search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-sky-400"
+                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-indigo-400"
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }
@@ -198,7 +198,7 @@ export default function Header() {
             <MagnifyingGlass
               size={28}
               weight={search ? 'duotone' : 'regular'}
-              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-sky-400"
+              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-indigo-400"
             />
           </button>
         )}
