@@ -37,7 +37,7 @@ export default function UnloggedUser() {
             <span className="text-sm font-semibold">Senha</span>
             <Link
               href="/redefinir-senha"
-              className="font-light text-sm text-sky-600 hover:underline"
+              className="font-light text-sm text-indigo-600 hover:underline"
             >
               Esqueci a senha
             </Link>
@@ -70,7 +70,7 @@ export default function UnloggedUser() {
 
         <button
           type="submit"
-          className="w-80 h-10 bg-sky-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
+          className="w-80 h-10 bg-indigo-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
         >
           Entrar
         </button>

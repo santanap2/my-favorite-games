@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { IChildren, IGame, IUserOrders } from '@/interfaces'
+import { IChildren, IUserOrders } from '@/interfaces'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
 import GamesPlatformContext from './Context'
@@ -18,8 +18,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [registerSuccess, setRegisterSuccess] = useState(false)
 
   const [logged, setLogged] = useState(false)
-
-  const [cart, setCart] = useState<IGame[]>([])
 
   const [showCart, setShowCart] = useState(false)
 
@@ -75,9 +73,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     logged,
     setLogged,
-
-    cart,
-    setCart,
 
     showCart,
     setShowCart,

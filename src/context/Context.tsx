@@ -20,9 +20,6 @@ const initialValueContext = {
   logged: false,
   setLogged: (state: boolean) => {},
 
-  cart: [] as IGame[],
-  setCart: (state: IGame[]) => {},
-
   showCart: false,
   setShowCart: (state: boolean) => {},
 

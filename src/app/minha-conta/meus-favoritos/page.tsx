@@ -23,7 +23,7 @@ export default function MeusFavoritos() {
           <Heart
             weight="fill"
             size={screenSize < 600 ? 36 : 56}
-            className="text-sky-500"
+            className="text-indigo-500"
           />
           <h1 className="font-regular text-xl font-semibold">Meus favoritos</h1>
         </div>

@@ -3,29 +3,29 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, priceToBRL } from '@/helpers'
+import {
+  calcSum,
+  emptyCart,
+  getCartLocalStorage,
+  priceToBRL,
+  removeFromCart,
+} from '@/helpers'
+import { IGame } from '@/interfaces'
 import { Trash, X } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 export default function ShoppingCart() {
-  const { showCart, setShowCart, cart, setCart } =
-    useContext(GamesPlatformContext)
-
-  const removeItemCart = (id: number) => {
-    const newCart = cart.filter((item) => item.id !== id)
-    setCart(newCart)
-  }
-
+  const { showCart, setShowCart } = useContext(GamesPlatformContext)
+  const cart: IGame[] = getCartLocalStorage() || []
   const router = useRouter()
+  const nodeRef = useRef(null)
 
   const finalizePurchase = () => {
     setShowCart(false)
     router.push('/finalizar-compra')
   }
-
-  const nodeRef = useRef(null)
 
   return (
     <>
@@ -47,7 +47,10 @@ export default function ShoppingCart() {
               </h1>
               {cart.length > 0 && (
                 <button
-                  onClick={() => setCart([])}
+                  onClick={() => {
+                    router.refresh()
+                    emptyCart()
+                  }}
                   className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center"
                 >
                   <Trash size={20} weight="light" />
@@ -59,7 +62,7 @@ export default function ShoppingCart() {
               <X
                 size={28}
                 weight="bold"
-                className="text-zinc-800 hover:text-sky-400"
+                className="text-zinc-800 hover:text-indigo-400"
               />
             </button>
           </div>
@@ -92,8 +95,11 @@ export default function ShoppingCart() {
                         </h2>
                         <button
                           type="button"
-                          className="text-xs font-regular tracking-wider uppercase underline hover:text-sky-400"
-                          onClick={() => removeItemCart(id)}
+                          className="text-xs font-regular tracking-wider uppercase underline hover:text-indigo-400"
+                          onClick={() => {
+                            router.refresh()
+                            removeFromCart(id)
+                          }}
                         >
                           Remover
                         </button>
@@ -113,14 +119,14 @@ export default function ShoppingCart() {
                 <button
                   type="button"
                   onClick={finalizePurchase}
-                  className="text-sm uppercase font-bold text-white py-2 bg-sky-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-white py-2 bg-indigo-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${calcSum(cart).string}`}
                 </button>
 
                 <button
                   type="button"
-                  className="uppercase tracking-wide underline text-xs font-light hover:text-sky-400"
+                  className="uppercase tracking-wide underline text-xs font-light hover:text-indigo-400"
                   onClick={() => {
                     setShowCart(false)
                     router.push('/home')
