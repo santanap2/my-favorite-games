@@ -85,12 +85,12 @@ export interface IUser {
 }
 
 export interface IUpdateUserData {
-  name: string
+  name?: string
   currentEmail: string
-  newEmail: string
-  phone: string
+  newEmail?: string
+  phone?: string
   currentPassword: string
-  newPassword: string
+  newPassword?: string
 }
 
 export interface ILoading {

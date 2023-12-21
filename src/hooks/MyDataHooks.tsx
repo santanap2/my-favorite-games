@@ -13,30 +13,22 @@ export default function MyDataHooks() {
   const formSchema = z.object({
     userData: z
       .object({
-        name: z.string().min(1, 'Informe um nome válido'),
+        name: z.string(),
         currentEmail: z
           .string()
           .email('Informe um email válido')
           .min(1, 'Informe um email válido'),
-        newEmail: z
-          .string()
-          .email('Informe um novo email válido')
-          .min(1, 'Informe um email válido'),
-        phone: z
-          .string()
-          .min(11, 'Informe um telefone válido')
-          .max(15, 'Informe um telefone válido'),
+        newEmail: z.union([
+          z.literal(''),
+          z.string().email('Informe um email válido'),
+        ]),
+        phone: z.string(),
         currentPassword: z.string().min(8, 'Informe uma senha válida'),
-        newPassword: z.string().min(8, 'Informe uma nova senha válida'),
-        confirmNewPassword: z.string().min(8, 'Informe uma nova senha válida'),
-      })
-      .refine((fields) => fields.currentEmail !== fields.newEmail, {
-        path: ['newEmail'],
-        message: 'O email informado precisa ser diferente do atual',
-      })
-      .refine((fields) => fields.newPassword !== fields.currentPassword, {
-        path: ['newPassword'],
-        message: 'A nova senha precisa ser diferente da atual',
+        newPassword: z.union([
+          z.literal(''),
+          z.string().min(8, 'A senha deve conter no mínimo 8 caracteres'),
+        ]),
+        confirmNewPassword: z.string(),
       })
       .refine((fields) => fields.newPassword === fields.confirmNewPassword, {
         path: ['confirmNewPassword'],
