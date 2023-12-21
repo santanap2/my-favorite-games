@@ -14,12 +14,6 @@ const initialValueContext = {
   reseted: false,
   setReseted: (state: boolean) => {},
 
-  registerSuccess: '',
-  setRegisterSuccess: (state: string) => {},
-
-  registerError: '',
-  setRegisterError: (state: string) => {},
-
   logged: false,
   setLogged: (state: boolean) => {},
 
@@ -64,8 +58,21 @@ const initialValueContext = {
 
   loading: {
     registerUser: false,
+    updateUserData: false,
   },
   setLoading: (state: ILoading) => {},
+
+  registerSuccess: '',
+  setRegisterSuccess: (state: string) => {},
+
+  registerError: '',
+  setRegisterError: (state: string) => {},
+
+  userDataSuccess: '',
+  setUserDataSuccess: (state: string) => {},
+
+  userDataError: '',
+  setUserDataError: (state: string) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

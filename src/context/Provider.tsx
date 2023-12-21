@@ -15,10 +15,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [reseted, setReseted] = useState(false)
 
-  const [registerSuccess, setRegisterSuccess] = useState('')
-
-  const [registerError, setRegisterError] = useState('')
-
   const [logged, setLogged] = useState(false)
 
   const [showCart, setShowCart] = useState(false)
@@ -54,7 +50,16 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [loading, setLoading] = useState({
     registerUser: false,
+    updateUserData: false,
   })
+
+  const [registerSuccess, setRegisterSuccess] = useState('')
+
+  const [registerError, setRegisterError] = useState('')
+
+  const [userDataSuccess, setUserDataSuccess] = useState('')
+
+  const [userDataError, setUserDataError] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -73,12 +78,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     reseted,
     setReseted,
-
-    registerSuccess,
-    setRegisterSuccess,
-
-    registerError,
-    setRegisterError,
 
     logged,
     setLogged,
@@ -109,6 +108,18 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     loading,
     setLoading,
+
+    registerSuccess,
+    setRegisterSuccess,
+
+    registerError,
+    setRegisterError,
+
+    userDataSuccess,
+    setUserDataSuccess,
+
+    userDataError,
+    setUserDataError,
   }
 
   return (

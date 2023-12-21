@@ -99,17 +99,17 @@ export default function Cadastro() {
             {loading.registerUser ? 'Carregando...' : 'Cadastrar'}
           </button>
 
-          {registerError && (
-            <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center rounded">
-              <Warning size={28} weight="light" />
-              <h3>{registerError}</h3>
-            </div>
-          )}
-
           {registerSuccess && (
             <div className="w-full text-sm text-indigo-500 font-semibold flex gap-4 items-center justify-center rounded">
               <CheckFat size={28} weight="light" />
               <h3>{registerSuccess}</h3>
+            </div>
+          )}
+
+          {registerError && (
+            <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center rounded">
+              <Warning size={28} weight="light" />
+              <h3>{registerError}</h3>
             </div>
           )}
         </form>

@@ -30,13 +30,13 @@ export default function SingleOrder({
 
     if (status === 'processing')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-yellow-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-blue-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Processando
         </td>
       )
     if (status === 'awaitingPayment')
       return (
-        <td className="py-3 px-4 w-52 text-sm text-indigo-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
+        <td className="py-3 px-4 w-52 text-sm text-yellow-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
           Aguardando pagamento
         </td>
       )

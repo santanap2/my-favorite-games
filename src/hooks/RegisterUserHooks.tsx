@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function CadastroHooks() {
-  const { setRegisterSuccess, setRegisterError, setLoading } =
+  const { setRegisterSuccess, setRegisterError, loading, setLoading } =
     useContext(GamesPlatformContext)
 
   const formSchema = z.object({
@@ -48,25 +48,26 @@ export default function CadastroHooks() {
   })
 
   const handleFormSubmit = async (formData: FormProps) => {
-    setLoading({ registerUser: true })
+    setLoading({ ...loading, registerUser: true })
+
     const response = await registerUser(formData.registerUser).catch(
       (error) => {
         if (error.response.data.message === 'User already exists in database') {
           setRegisterSuccess('')
           setRegisterError('O email informado já está cadastrado')
-          setLoading({ registerUser: false })
+          setLoading({ ...loading, registerUser: false })
         }
 
         setRegisterSuccess('')
         setRegisterError('Ocorreu um erro inesperado, tente novamente')
-        setLoading({ registerUser: false })
+        setLoading({ ...loading, registerUser: false })
       },
     )
 
     if (response && response.status === 201) {
       setRegisterError('')
       setRegisterSuccess('Cadastro efetuado com sucesso')
-      setLoading({ registerUser: false })
+      setLoading({ ...loading, registerUser: false })
     }
   }
 

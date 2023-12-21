@@ -84,6 +84,16 @@ export interface IUser {
   phone: string
 }
 
+export interface IUpdateUserData {
+  name: string
+  currentEmail: string
+  newEmail: string
+  phone: string
+  currentPassword: string
+  newPassword: string
+}
+
 export interface ILoading {
   registerUser: boolean
+  updateUserData: boolean
 }
