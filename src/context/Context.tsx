@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { IGame, ILoading, IUserOrders } from '@/interfaces'
+import { IGame, ILoading, IResponseState, IUserOrders } from '@/interfaces'
 import { HeaderSearch, PaymentMethod, CardData } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
@@ -59,20 +59,18 @@ const initialValueContext = {
   loading: {
     registerUser: false,
     updateUserData: false,
+    login: false,
   },
   setLoading: (state: ILoading) => {},
 
-  registerSuccess: '',
-  setRegisterSuccess: (state: string) => {},
+  registerResponse: { error: '', success: '' },
+  setRegisterResponse: (state: IResponseState) => {},
 
-  registerError: '',
-  setRegisterError: (state: string) => {},
+  userDataResponse: { error: '', success: '' },
+  setUserDataResponse: (state: IResponseState) => {},
 
-  userDataSuccess: '',
-  setUserDataSuccess: (state: string) => {},
-
-  userDataError: '',
-  setUserDataError: (state: string) => {},
+  loginResponse: { error: '', success: '' },
+  setLoginResponse: (state: IResponseState) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

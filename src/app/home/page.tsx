@@ -36,6 +36,7 @@ export default function Home() {
     <div className="mt-24 xxl:mt-20 w-full">
       <title>{headerSearch ? `${pageTitle} - Busca` : `${pageTitle}`}</title>
       <LateralMenu />
+
       <div className="flex justify-center items-center w-full">
         <div
           className={`${

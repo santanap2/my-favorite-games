@@ -34,7 +34,9 @@ export default function RedefinirSenha() {
               type="email"
               id="email"
               placeholder="email@exemplo.com"
-              className="h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
+              className={`${
+                errors.resetPassword?.email && 'border border-red-300'
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
             />
             {errors.resetPassword?.email && (
               <span className="text-sm font-light text-red-500">

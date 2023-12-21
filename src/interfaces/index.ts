@@ -78,9 +78,12 @@ export interface IUserOrders {
 }
 
 export interface IUser {
-  name: string
   email: string
   password: string
+}
+
+export interface IRegister extends IUser {
+  name: string
   phone: string
 }
 
@@ -96,4 +99,17 @@ export interface IUpdateUserData {
 export interface ILoading {
   registerUser: boolean
   updateUserData: boolean
+  login: boolean
+}
+
+export interface IResponseState {
+  error: string
+  success: string
+}
+
+export interface IPayloadJWT {
+  id: number
+  name: string
+  email: string
+  phone: string
 }

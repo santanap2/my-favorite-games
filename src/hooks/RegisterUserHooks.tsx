@@ -52,15 +52,11 @@ export default function CadastroHooks() {
 
     const response = await registerUser(formData.registerUser).catch(
       (error) => {
-        if (error.response.data.message === 'User already exists in database') {
+        if (error) {
           setRegisterSuccess('')
-          setRegisterError('O email informado já está cadastrado')
+          setRegisterError(error.response.data.message)
           setLoading({ ...loading, registerUser: false })
         }
-
-        setRegisterSuccess('')
-        setRegisterError('Ocorreu um erro inesperado, tente novamente')
-        setLoading({ ...loading, registerUser: false })
       },
     )
 

@@ -51,15 +51,20 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
   const [loading, setLoading] = useState({
     registerUser: false,
     updateUserData: false,
+    login: false,
   })
 
-  const [registerSuccess, setRegisterSuccess] = useState('')
+  const [registerResponse, setRegisterResponse] = useState({
+    error: '',
+    success: '',
+  })
 
-  const [registerError, setRegisterError] = useState('')
+  const [userDataResponse, setUserDataResponse] = useState({
+    error: '',
+    success: '',
+  })
 
-  const [userDataSuccess, setUserDataSuccess] = useState('')
-
-  const [userDataError, setUserDataError] = useState('')
+  const [loginResponse, setLoginResponse] = useState({ error: '', success: '' })
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -109,17 +114,14 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     loading,
     setLoading,
 
-    registerSuccess,
-    setRegisterSuccess,
+    registerResponse,
+    setRegisterResponse,
 
-    registerError,
-    setRegisterError,
+    userDataResponse,
+    setUserDataResponse,
 
-    userDataSuccess,
-    setUserDataSuccess,
-
-    userDataError,
-    setUserDataError,
+    loginResponse,
+    setLoginResponse,
   }
 
   return (

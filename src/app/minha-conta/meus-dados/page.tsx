@@ -17,7 +17,7 @@ import {
 import React, { useContext } from 'react'
 
 export default function MeusDados() {
-  const { screenSize, loading, userDataSuccess, userDataError } =
+  const { screenSize, loading, userDataResponse } =
     useContext(GamesPlatformContext)
 
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
@@ -234,22 +234,22 @@ export default function MeusDados() {
                 type="submit"
                 form="myDataForm"
                 className="bg-indigo-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40"
-                disabled={!!userDataSuccess}
+                disabled={!!userDataResponse.success}
               >
                 {loading.updateUserData ? 'Carregando' : 'Atualizar dados'}
               </button>
 
-              {userDataSuccess && (
-                <div className="w-full text-sm text-indigo-500 font-semibold flex gap-4 items-center justify-start rounded">
+              {userDataResponse.success && (
+                <div className="w-full text-sm text-indigo-500 font-semibold flex gap-4 items-center justify-start">
                   <CheckFat size={28} weight="light" />
-                  <h3>{userDataSuccess}</h3>
+                  <h3>{userDataResponse.success}</h3>
                 </div>
               )}
 
-              {userDataError && (
-                <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-start rounded">
+              {userDataResponse.error && (
+                <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-start">
                   <Warning size={28} weight="light" />
-                  <h3>{userDataError}</h3>
+                  <h3>{userDataResponse.error}</h3>
                 </div>
               )}
             </div>

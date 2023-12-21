@@ -1,5 +1,6 @@
 'use client'
 
+import LoadingSpinner from '@/components/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import CadastroHooks from '@/hooks/RegisterUserHooks'
@@ -8,8 +9,7 @@ import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
 export default function Cadastro() {
-  const { registerSuccess, registerError, loading } =
-    useContext(GamesPlatformContext)
+  const { registerResponse, loading } = useContext(GamesPlatformContext)
   const { errors, handleFormSubmit, handleSubmit, register } = CadastroHooks()
 
   const router = useRouter()
@@ -33,7 +33,9 @@ export default function Cadastro() {
               type="email"
               id="email"
               placeholder="email@exemplo.com"
-              className="h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
+              className={`${
+                errors.registerUser?.email && 'border border-red-300'
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
             />
             {errors.registerUser?.email && (
               <span className="text-sm font-light text-red-500">
@@ -49,7 +51,9 @@ export default function Cadastro() {
               type="text"
               id="name"
               placeholder="Seu nome"
-              className="h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
+              className={`${
+                errors.registerUser?.name && 'border border-red-300'
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
             />
             {errors.registerUser?.name && (
               <span className="text-sm font-light text-red-500">
@@ -66,7 +70,9 @@ export default function Cadastro() {
               id="phone"
               placeholder="(99) 99999-9999"
               maxLength={15}
-              className="h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow"
+              className={`${
+                errors.registerUser?.phone && 'border border-red-300'
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
             />
             {errors.registerUser?.phone && (
               <span className="text-sm font-light text-red-500">
@@ -83,7 +89,9 @@ export default function Cadastro() {
               type="password"
               id="password"
               placeholder="**********"
-              className="h-10 w-80 rounded px-3 focus:outline-none text-zinc-700 focus:shadow-xl hover:shadow-lg shadow"
+              className={`${
+                errors.registerUser?.password && 'border border-red-300'
+              } h-10 w-80 rounded px-3 focus:outline-none text-zinc-700 focus:shadow-xl hover:shadow-lg shadow`}
             />
             {errors.registerUser?.password && (
               <span className="text-sm font-light text-red-500">
@@ -95,21 +103,29 @@ export default function Cadastro() {
           <button
             type="submit"
             className="w-80 h-10 bg-indigo-400 font-light text-white rounded text-regular shadow hover:shadow-lg disabled:opacity-40 mt-6"
+            disabled={!!registerResponse.success}
           >
-            {loading.registerUser ? 'Carregando...' : 'Cadastrar'}
+            {loading.registerUser ? (
+              <span className="flex items-center justify-center w-full gap-4">
+                <LoadingSpinner />
+                <span>Carregando...</span>
+              </span>
+            ) : (
+              'Cadastrar'
+            )}
           </button>
 
-          {registerSuccess && (
-            <div className="w-full text-sm text-indigo-500 font-semibold flex gap-4 items-center justify-center rounded">
+          {registerResponse.success && (
+            <div className="w-full text-sm text-indigo-500 font-semibold flex gap-4 items-center justify-center">
               <CheckFat size={28} weight="light" />
-              <h3>{registerSuccess}</h3>
+              <h3>{registerResponse.success}</h3>
             </div>
           )}
 
-          {registerError && (
-            <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center rounded">
+          {registerResponse.error && (
+            <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
               <Warning size={28} weight="light" />
-              <h3>{registerError}</h3>
+              <h3>{registerResponse.error}</h3>
             </div>
           )}
         </form>
