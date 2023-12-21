@@ -7,7 +7,7 @@ import { pageTitle } from '@/helpers'
 import { useRouter } from 'next/navigation'
 
 export default function RedefinirSenha() {
-  const { reseted, setRegisterSuccess } = useContext(GamesPlatformContext)
+  const { reseted, setRegisterResponse } = useContext(GamesPlatformContext)
 
   const { handleFormSubmit, handleSubmit, errors, register } =
     RedefinirSenhaHooks()
@@ -74,7 +74,7 @@ export default function RedefinirSenha() {
           type="button"
           className="w-48 h-10 bg-orange-400 text-zinc-800 rounded text-sm font-light shadow hover:shadow-lg"
           onClick={() => {
-            setRegisterSuccess('')
+            setRegisterResponse({ success: '', error: '' })
             router.push('/login')
           }}
         >
