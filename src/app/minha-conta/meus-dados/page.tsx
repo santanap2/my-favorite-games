@@ -2,9 +2,12 @@
 'use client'
 
 import LateralMenu from '@/components/LateralMenu'
+import LoadingSpinner from '@/components/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
-import { pageTitle } from '@/helpers'
+import { getUserLocalStorage, pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'
+import { IPayloadJWT } from '@/interfaces'
+import { getUser } from '@/services/requests'
 import {
   CheckFat,
   Envelope,
@@ -14,13 +17,27 @@ import {
   Phone,
   Warning,
 } from '@phosphor-icons/react'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 export default function MeusDados() {
-  const { screenSize, loading, userDataResponse } =
+  const [userData, setUserData] = useState<IPayloadJWT>()
+  const { screenSize, loading, userDataResponse, setUserDataResponse } =
     useContext(GamesPlatformContext)
 
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
+
+  const { id }: IPayloadJWT = getUserLocalStorage()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const {
+        data: { data },
+      } = await getUser(id)
+      if (data) setUserData(data)
+    }
+    setUserDataResponse({ error: '', success: '' })
+    fetchData()
+  }, [])
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
@@ -59,6 +76,7 @@ export default function MeusDados() {
                   className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                     errors.userData?.name && 'border border-red-300'
                   }`}
+                  placeholder={userData?.name}
                 />
                 {errors.userData?.name && (
                   <span className="text-sm font-light text-red-500">
@@ -75,7 +93,9 @@ export default function MeusDados() {
                       weight="light"
                       className="text-indigo-400"
                     />
-                    <span>E-mail</span>
+                    <span>
+                      E-mail <span className="text-red-500 text-base">*</span>
+                    </span>
                   </h2>
                   <input
                     {...register('userData.currentEmail')}
@@ -84,6 +104,7 @@ export default function MeusDados() {
                     className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                       errors.userData?.currentEmail && 'border border-red-300'
                     }`}
+                    value={userData?.email}
                   />
                   {errors.userData?.currentEmail && (
                     <span className="text-sm font-light text-red-500">
@@ -108,6 +129,7 @@ export default function MeusDados() {
                     className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                       errors.userData?.newEmail && 'border border-red-300'
                     }`}
+                    placeholder="Digite seu novo email"
                   />
                   {errors.userData?.newEmail && (
                     <span className="text-sm font-light text-red-500">
@@ -135,6 +157,7 @@ export default function MeusDados() {
                     className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                       errors.userData?.phone && 'border border-red-300'
                     }`}
+                    placeholder={userData?.phone}
                   />
                   {errors.userData?.phone && (
                     <span className="text-sm font-light text-red-500">
@@ -153,7 +176,10 @@ export default function MeusDados() {
                       weight="light"
                       className="text-indigo-400"
                     />
-                    <span>Senha atual</span>
+                    <span>
+                      Senha atual{' '}
+                      <span className="text-red-500 text-base">*</span>
+                    </span>
                   </h2>
                   <input
                     {...register('userData.currentPassword')}
@@ -163,6 +189,7 @@ export default function MeusDados() {
                       errors.userData?.currentPassword &&
                       'border border-red-300'
                     }`}
+                    placeholder="Digite sua senha"
                   />
                   {errors.userData?.currentPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -192,6 +219,7 @@ export default function MeusDados() {
                     className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded xxl:w-full ${
                       errors.userData?.newPassword && 'border border-red-300'
                     }`}
+                    placeholder="Digite sua nova senha"
                   />
                   {errors.userData?.newPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -220,6 +248,7 @@ export default function MeusDados() {
                       errors.userData?.confirmNewPassword &&
                       'border border-red-300'
                     }`}
+                    placeholder="Confirme sua nova senha"
                   />
                   {errors.userData?.confirmNewPassword && (
                     <span className="text-sm font-light text-red-500">
@@ -228,15 +257,22 @@ export default function MeusDados() {
                   )}
                 </label>
               </div>
+              <span className="text-red-500 text-sm font-light">
+                * Campos obrigatórios
+              </span>
             </form>
             <div className="w-full flex flex-col gap-4 justify-start sm:justify-center sm:w-full">
               <button
                 type="submit"
                 form="myDataForm"
-                className="bg-indigo-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40"
+                className="flex items-center justify-center bg-indigo-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
                 disabled={!!userDataResponse.success}
               >
-                {loading.updateUserData ? 'Carregando' : 'Atualizar dados'}
+                {loading.updateUserData ? (
+                  <LoadingSpinner />
+                ) : (
+                  'Atualizar dados'
+                )}
               </button>
 
               {userDataResponse.success && (

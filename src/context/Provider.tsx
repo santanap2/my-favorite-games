@@ -15,8 +15,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [reseted, setReseted] = useState(false)
 
-  const [logged, setLogged] = useState(false)
-
   const [showCart, setShowCart] = useState(false)
 
   const [screenSize, setScreenSize] = useState(windowWidth)
@@ -83,9 +81,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     reseted,
     setReseted,
-
-    logged,
-    setLogged,
 
     showCart,
     setShowCart,

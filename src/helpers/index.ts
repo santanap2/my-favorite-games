@@ -1,4 +1,4 @@
-import { IGame } from '@/interfaces'
+import { IGame, IPayloadJWT } from '@/interfaces'
 
 export const pageTitle = 'My Favorite Games'
 
@@ -96,5 +96,24 @@ export const removeFromCart = (id: number) => {
 export const emptyCart = () => {
   if (typeof window !== 'undefined') {
     localStorage.setItem('cart', '[]')
+  }
+}
+
+export const addUserLocalStorage = (user: IPayloadJWT) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('userData', JSON.stringify(user))
+  }
+}
+
+export const getUserLocalStorage = () => {
+  if (typeof window !== 'undefined') {
+    const user = JSON.parse(localStorage.getItem('userData') || 'null')
+    return user
+  }
+}
+
+export const removerUserLocalStorage = () => {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('userData')
   }
 }

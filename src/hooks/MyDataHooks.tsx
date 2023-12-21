@@ -1,5 +1,5 @@
 import GamesPlatformContext from '@/context/Context'
-import { phoneNumberMask } from '@/helpers'
+import { addUserLocalStorage, phoneNumberMask } from '@/helpers'
 import { updateUser } from '@/services/requests'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useEffect } from 'react'
@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function MyDataHooks() {
-  const { setLoading, setUserDataSuccess, setUserDataError, loading } =
+  const { setLoading, setUserDataResponse, loading } =
     useContext(GamesPlatformContext)
 
   const formSchema = z.object({
@@ -73,7 +73,7 @@ export default function MyDataHooks() {
       newPassword,
     } = userData
 
-    const updatedUser = await updateUser({
+    const response = await updateUser({
       name,
       currentEmail,
       newEmail,
@@ -83,21 +83,19 @@ export default function MyDataHooks() {
     }).catch((error) => {
       if (error) {
         setLoading({ ...loading, updateUserData: false })
-        setUserDataSuccess('')
-        setUserDataError(error.response.data.message)
-      }
-
-      if (!error) {
-        setLoading({ ...loading, updateUserData: false })
-        setUserDataError('')
-        setUserDataSuccess('Dados atualizados com sucesso')
+        setUserDataResponse({ error: error.response.data.message, success: '' })
+      } else {
+        setUserDataResponse({
+          error: 'Um erro inesperado ocorreu, tente novamente mais tarde',
+          success: '',
+        })
       }
     })
 
-    if (updatedUser && updatedUser.status === 200) {
+    if (response && response.status === 200) {
       setLoading({ ...loading, updateUserData: false })
-      setUserDataError('')
-      setUserDataSuccess(updatedUser.data.message)
+      setUserDataResponse({ error: '', success: response.data.message })
+      addUserLocalStorage(response.data.data)
     }
   }
 

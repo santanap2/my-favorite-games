@@ -12,8 +12,14 @@ import { pageTitle } from '@/helpers'
 import { ArrowUUpLeft } from '@phosphor-icons/react'
 
 export default function Home() {
-  const { filteredProducts, setFilteredProducts, setShowSearchInputMobile } =
-    useContext(GamesPlatformContext)
+  const {
+    filteredProducts,
+    setFilteredProducts,
+    setShowSearchInputMobile,
+    setRegisterResponse,
+    setUserDataResponse,
+    setLoginResponse,
+  } = useContext(GamesPlatformContext)
 
   const searchParams = useSearchParams()
   const headerSearch = searchParams.get('busca')
@@ -30,6 +36,9 @@ export default function Home() {
 
   useEffect(() => {
     setShowSearchInputMobile(false)
+    setRegisterResponse({ error: '', success: '' })
+    setUserDataResponse({ error: '', success: '' })
+    setLoginResponse({ error: '', success: '' })
   }, [])
 
   return (

@@ -16,8 +16,13 @@ export const updateUser = async (data: IUpdateUserData) => {
   return result
 }
 
-export const getUser = async (email: string) => {
-  const result = await api.get(`/get-user/${email}`)
+export const getUser = async (id: number) => {
+  const result = await api.get(`/get-user/${id}`)
+  return result
+}
+
+export const getUserByEmail = async (email: string) => {
+  const result = await api.get(`/get-user-by-email/${email}`)
   return result
 }
 

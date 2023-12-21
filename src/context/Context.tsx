@@ -14,9 +14,6 @@ const initialValueContext = {
   reseted: false,
   setReseted: (state: boolean) => {},
 
-  logged: false,
-  setLogged: (state: boolean) => {},
-
   showCart: false,
   setShowCart: (state: boolean) => {},
 

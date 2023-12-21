@@ -1,22 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import React, { useContext, useEffect } from 'react'
 import GamesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
-import { pageTitle } from '@/helpers'
+import { getUserLocalStorage, pageTitle } from '@/helpers'
 import Link from 'next/link'
 import LoginHooks from '@/hooks/LoginHooks'
 import { CheckFat, Warning } from '@phosphor-icons/react'
 
 export default function Login() {
-  const { logged, loginResponse } = useContext(GamesPlatformContext)
+  const { loginResponse, setRegisterResponse, setLoginResponse } =
+    useContext(GamesPlatformContext)
   const router = useRouter()
 
   const { handleSubmit, register, errors, handleFormSubmit } = LoginHooks()
+  const userLogged = getUserLocalStorage()
 
   useEffect(() => {
-    if (logged) router.push('/minha-conta')
-  }, [logged, router])
+    if (userLogged) router.push('/minha-conta')
+    setRegisterResponse({ error: '', success: '' })
+    setLoginResponse({ error: '', success: '' })
+  }, [])
 
   return (
     <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6">

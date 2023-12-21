@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function CadastroHooks() {
-  const { setRegisterSuccess, setRegisterError, loading, setLoading } =
+  const { setRegisterResponse, loading, setLoading } =
     useContext(GamesPlatformContext)
 
   const formSchema = z.object({
@@ -53,16 +53,17 @@ export default function CadastroHooks() {
     const response = await registerUser(formData.registerUser).catch(
       (error) => {
         if (error) {
-          setRegisterSuccess('')
-          setRegisterError(error.response.data.message)
+          setRegisterResponse({
+            error: error.response.data.message,
+            success: '',
+          })
           setLoading({ ...loading, registerUser: false })
         }
       },
     )
 
     if (response && response.status === 201) {
-      setRegisterError('')
-      setRegisterSuccess('Cadastro efetuado com sucesso')
+      setRegisterResponse({ error: '', success: response.data.message })
       setLoading({ ...loading, registerUser: false })
     }
   }

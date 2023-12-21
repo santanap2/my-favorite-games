@@ -1,18 +1,19 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { pageTitle } from '@/helpers'
+import { pageTitle, removerUserLocalStorage } from '@/helpers'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Logout() {
   const router = useRouter()
-  const { setLogged } = useContext(GamesPlatformContext)
+  const { setLoginResponse } = useContext(GamesPlatformContext)
 
   useEffect(() => {
-    setLogged(false)
+    removerUserLocalStorage()
+    setLoginResponse({ error: '', success: '' })
     router.push('/home')
-  }, [router, setLogged])
+  }, [router, setLoginResponse])
 
   return (
     <div className="mt-24 xxl:mt-20">

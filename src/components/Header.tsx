@@ -13,7 +13,7 @@ import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
 import { games } from '@/data/games'
 import { CSSTransition } from 'react-transition-group'
-import { getCartLocalStorage } from '@/helpers'
+import { getCartLocalStorage, getUserLocalStorage } from '@/helpers'
 
 export default function Header() {
   const {
@@ -37,6 +37,7 @@ export default function Header() {
   const pathname = usePathname()
   const router = useRouter()
   const nodeRef = useRef(null)
+  const userLogged = getUserLocalStorage()
 
   const {
     handleSubmit,
@@ -50,6 +51,7 @@ export default function Header() {
   const { search, user, cart, menu } = hoverBtn
 
   const cartLocalStorage = getCartLocalStorage() || []
+  const userLocalStorage = getUserLocalStorage()
 
   const clickMenu = () => {
     if (pathname.includes('/minha-conta'))
@@ -157,7 +159,7 @@ export default function Header() {
           </form>
 
           <Link
-            href="/login"
+            href={userLogged ? '/minha-conta' : '/login'}
             className="flex items-center justify-center hover:underline xl:hidden"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, user: true }))
@@ -166,7 +168,11 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, user: false }))
             }
           >
-            <span className="uppercase font-semibold text-xs">Entrar</span>
+            <span className="uppercase font-semibold text-xs">
+              {userLocalStorage
+                ? userLocalStorage.name.split(' ')[0]
+                : 'Entrar'}
+            </span>
             <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
           </Link>
         </div>
@@ -207,7 +213,7 @@ export default function Header() {
           className="flex items-center justify-center hover:underline"
         >
           <span className="uppercase font-semibold text-xs sm:hidden">
-            entrar
+            {userLocalStorage ? userLocalStorage.name.split(' ')[0] : 'Entrar'}
           </span>
           <UserCircle size={30} weight={user ? 'duotone' : 'regular'} />
         </Link>

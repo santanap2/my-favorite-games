@@ -6,11 +6,11 @@ import SingleOrder from '@/components/SingleOrder'
 import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
-import { pageTitle } from '@/helpers'
-import { IGame } from '@/interfaces'
+import { getUserLocalStorage, pageTitle } from '@/helpers'
+import { IGame, IPayloadJWT } from '@/interfaces'
 import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react'
 import Link from 'next/link'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 export default function MinhaConta() {
   const { screenSize } = useContext(GamesPlatformContext)
@@ -24,12 +24,7 @@ export default function MinhaConta() {
     order.items.forEach((game) => allGames.push(game)),
   )
 
-  useEffect(() => {
-    // if (!logged) {
-    //   setLogged(false)
-    //   router.push('/login')
-    // }
-  }, [])
+  const userLocalStorage: IPayloadJWT = getUserLocalStorage()
 
   return (
     <div className="w-full">
@@ -48,9 +43,9 @@ export default function MinhaConta() {
               <h1 className="font-regular text-xl lg:text-base">
                 Olá{' '}
                 <strong className="font-bold text-2xl lg:text-xl">
-                  Pedro Santana
+                  {userLocalStorage.name}
                 </strong>
-                , bem vindo de volta!
+                , bem vindo(a) de volta!
               </h1>
               <h2 className="text-sm font-light flex lg:text-xs">
                 <EnvelopeSimple
@@ -58,7 +53,7 @@ export default function MinhaConta() {
                   weight="fill"
                   className="text-indigo-500"
                 />
-                phsantana99@gmail.com
+                {userLocalStorage.email}
               </h2>
             </div>
           </div>

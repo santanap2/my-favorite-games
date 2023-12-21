@@ -1,4 +1,5 @@
 import GamesPlatformContext from '@/context/Context'
+import { addUserLocalStorage } from '@/helpers'
 import { IPayloadJWT } from '@/interfaces'
 import {
   decodeToken,
@@ -6,12 +7,14 @@ import {
   setTokenToHeaders,
 } from '@/services/requests'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LoginHooks() {
-  const { setLogged, setLoginResponse } = useContext(GamesPlatformContext)
+  const { setLoginResponse } = useContext(GamesPlatformContext)
+  const router = useRouter()
 
   const formSchema = z.object({
     login: z.object({
@@ -55,15 +58,10 @@ export default function LoginHooks() {
         response.data.token,
       ) as IPayloadJWT
 
-      localStorage.setItem(
-        'userData',
-        JSON.stringify({ id, name, email, phone }),
-      )
-
+      addUserLocalStorage({ id, name, email, phone })
       setTokenToHeaders(response.data.token)
       setLoginResponse({ error: '', success: response.data.message })
-
-      setLogged(true)
+      router.push('/minha-conta')
     }
   }
 
