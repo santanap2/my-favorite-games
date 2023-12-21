@@ -76,7 +76,11 @@ export default function Ajuda() {
               href="mailto:suporte@myfavgames.com"
               className="flex gap-2 items-start justify-start hover:text-indigo-400 text-sm font-light"
             >
-              <Envelope size={28} weight="duotone" className="text-indigo-400" />
+              <Envelope
+                size={28}
+                weight="duotone"
+                className="text-indigo-400"
+              />
               <h3 className="flex flex-col">
                 <span>suporte@myfavgames.com</span>
                 <span className="font-semibold">Suporte My Fav Games</span>
