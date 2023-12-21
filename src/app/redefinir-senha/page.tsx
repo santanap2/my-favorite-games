@@ -2,15 +2,17 @@
 
 import GamesPlatformContext from '@/context/Context'
 import React, { useContext } from 'react'
-import ReturnLogin from '@/components/ReturnLogin'
 import RedefinirSenhaHooks from '@/hooks/ResetPasswordHooks'
 import { pageTitle } from '@/helpers'
+import { useRouter } from 'next/navigation'
 
 export default function RedefinirSenha() {
-  const { reseted } = useContext(GamesPlatformContext)
+  const { reseted, setRegisterSuccess } = useContext(GamesPlatformContext)
 
   const { handleFormSubmit, handleSubmit, errors, register } =
     RedefinirSenhaHooks()
+
+  const router = useRouter()
 
   return (
     <div className="flex flex-col gap-10 mt-24 xxl:mt-20">
@@ -58,7 +60,25 @@ export default function RedefinirSenha() {
         )}
       </div>
 
-      <ReturnLogin />
+      <div className="flex flex-col gap-2 justify-center items-center sm:w-full">
+        <div className="flex items-center justify-center gap-3 w-full">
+          <div className="w-40 border-t " />
+          <span className="font-light text-sm text-center sm:w-40">
+            Retornar para o Login
+          </span>
+          <div className="w-40 border-t " />
+        </div>
+        <button
+          type="button"
+          className="w-48 h-10 bg-orange-400 text-zinc-800 rounded text-sm font-light shadow hover:shadow-lg"
+          onClick={() => {
+            setRegisterSuccess('')
+            router.push('/login')
+          }}
+        >
+          Voltar
+        </button>
+      </div>
     </div>
   )
 }
