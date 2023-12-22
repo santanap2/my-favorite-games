@@ -3,8 +3,8 @@ import { FunctionComponent, ReactNode } from 'react'
 export interface ICard {
   image: string
   name: string
-  areaPt: string
-  area: string
+  genrePt: string
+  genre: string
   price: number
   id: number
   description: string
@@ -40,8 +40,8 @@ export interface IGameIDParams {
 
 export interface IGame {
   name: string
-  area: string
-  areaPt: string
+  genre: string
+  genrePt: string
   price: number
   id: number
   image: string

@@ -106,3 +106,22 @@ input[type=number] {
 }
 @keyframes s3 {to{transform: rotate(1turn)}}
 
+.loading-skeleton {
+  background-color: rgb(228 228 231);
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, .5) 50%,
+    rgba(255, 255, 255, 0) 60%
+  ) rgb(228 228 231);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1.5s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+

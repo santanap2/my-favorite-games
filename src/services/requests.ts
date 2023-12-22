@@ -41,3 +41,8 @@ export const decodeToken = (token: string) => {
   const result = jwt.decode(token)
   return result
 }
+
+export const getAllGames = async () => {
+  const result = await api.get(`/get-games`)
+  return result
+}

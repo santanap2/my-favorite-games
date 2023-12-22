@@ -10,8 +10,8 @@ import { ShoppingCartSimple, PlusCircle } from '@phosphor-icons/react'
 
 export default function ProductCard({
   name,
-  area,
-  areaPt,
+  genre,
+  genrePt,
   price,
   image,
   id,
@@ -21,7 +21,7 @@ export default function ProductCard({
   const router = useRouter()
 
   return (
-    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100">
+    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100 animation-opacity">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
@@ -31,13 +31,17 @@ export default function ProductCard({
       </Link>
 
       <Link href={`/game/${id}`} className="w-full">
-        <div className="absolute top-72 h-40 flex flex-col justify-between items-start px-4 py-2 w-full sm:top-52 sm:px-2 sm:py-1 sm:h-32 xxl:top-52 xxl:h-32">
+        <div className="absolute top-72 w-full h-40 flex flex-col justify-between items-start px-[5%] py-2 sm:top-52 sm:px-2 sm:py-1 sm:h-32 xxl:top-52 xxl:h-32">
           <div className="flex flex-col gap-1">
             <h1 className="font-semibold text-lg text-zinc-800 w-full max-h-20 sm:text-base sm:max-h-11">
-              {name.length > 26 ? `${name.slice(0, 26)}...` : name}
+              {screenSize < 600
+                ? name.length > 26
+                  ? `${name.slice(0, 26)}...`
+                  : name
+                : name}
             </h1>
             <h2 className="font-light text-sm w-full sm:text-xs sm:h-8">
-              {areaPt}
+              {genrePt}
             </h2>
           </div>
 
@@ -53,8 +57,8 @@ export default function ProductCard({
           onClick={() => {
             addOnlyOneToCart({
               name,
-              area,
-              areaPt,
+              genre,
+              genrePt,
               price,
               image,
               id,
@@ -62,7 +66,7 @@ export default function ProductCard({
             })
             router.push('/finalizar-compra')
           }}
-          className="w-[72.5%] bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs"
+          className="w-[72.5%] h-9 bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs xxl:hover:bg-indigo-400"
         >
           Comprar
         </button>
@@ -70,9 +74,9 @@ export default function ProductCard({
           type="button"
           onClick={() => {
             setShowCart(true)
-            addToCart({ name, area, areaPt, price, image, id, description })
+            addToCart({ name, genre, genrePt, price, image, id, description })
           }}
-          className="w-1/4 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs"
+          className="w-1/4 h-9 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs xxl:hover:bg-indigo-400"
         >
           <ShoppingCartSimple
             size={screenSize < 1000 ? 20 : 24}
