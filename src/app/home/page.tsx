@@ -10,6 +10,7 @@ import { IGame, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
 import { getGamesFiltered } from '@/services/requests'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton'
+import NotFoundProducts from '@/components/NotFoundProducts'
 
 export default function Home({ searchParams }: ISearchParams) {
   const {
@@ -22,15 +23,22 @@ export default function Home({ searchParams }: ISearchParams) {
   } = useContext(GamesPlatformContext)
 
   const [gamesAPI, setGamesAPI] = useState<IGame[]>([])
+  const [notFoundGames, setNotFoundGames] = useState<boolean>(false)
 
   const headerSearch = useSearchParams().get('busca')
   const queryParams = new URLSearchParams(searchParams).toString()
 
   const fetchData = async () => {
-    const {
-      data: { data },
-    } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
-    setGamesAPI(data)
+    const response = await getGamesFiltered(
+      new URLSearchParams(queryParams).toString(),
+    ).catch((error) => {
+      if (error.response.status === 404) {
+        setNotFoundGames(true)
+      }
+      setGamesAPI(error.response.data.data)
+    })
+
+    if (response?.data.data) setGamesAPI(response.data.data)
   }
 
   useEffect(() => {
@@ -49,38 +57,43 @@ export default function Home({ searchParams }: ISearchParams) {
 
       <div className="flex justify-center items-center w-full">
         <div
-          // className={`${
-          //   gamesAPI.length === 0
-          //     ? 'flex items-center justify-center'
-          //     : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
-          // }`}
-          className="grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6"
+          className={`${
+            notFoundGames
+              ? 'flex items-center justify-center'
+              : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
+          }`}
         >
-          {gamesAPI.length > 0 ? (
-            gamesAPI.map((game: IGame) => (
-              <ProductCard
-                key={game.id}
-                name={game.name}
-                id={game.id}
-                genre={game.genre}
-                genrePt={game.genrePt}
-                price={game.price}
-                image={game.image}
-                description={game.description}
-              />
-            ))
+          {notFoundGames ? (
+            <NotFoundProducts />
           ) : (
             <>
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
-              <ProductCardSkeleton />
+              {gamesAPI.length > 0 ? (
+                gamesAPI.map((game: IGame) => (
+                  <ProductCard
+                    key={game.id}
+                    name={game.name}
+                    id={game.id}
+                    genre={game.genre}
+                    genrePt={game.genrePt}
+                    price={game.price}
+                    image={game.image}
+                    description={game.description}
+                  />
+                ))
+              ) : (
+                <>
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                </>
+              )}
             </>
           )}
         </div>
