@@ -66,6 +66,7 @@ export const getCartLocalStorage = () => {
     const cart = JSON.parse(localStorage.getItem('cart') || 'null')
     return cart
   }
+  return ''
 }
 
 export const addToCart = (item: IGame) => {
@@ -110,6 +111,7 @@ export const getUserLocalStorage = () => {
     const user = JSON.parse(localStorage.getItem('userData') || 'null')
     return user
   }
+  return ''
 }
 
 export const removerUserLocalStorage = () => {

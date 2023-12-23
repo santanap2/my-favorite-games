@@ -68,7 +68,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       </div>
     )
 
-  const { name, area, areaPt, price, image, description } = game
+  const { name, genre, genrePt, price, image, description } = game
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
@@ -86,12 +86,12 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
             onClick={() =>
-              setFilteredProducts(games.filter((item) => item.area === area))
+              setFilteredProducts(games.filter((item) => item.genre === genre))
             }
             href={`/home`}
             className="text-zinc-500 hover:text-indigo-400"
           >
-            {areaPt}
+            {genrePt}
           </Link>
         </div>
         <h1 className="mt-4 font-bold text-2xl text-zinc-800 sm:text-xl sm:mt-2">

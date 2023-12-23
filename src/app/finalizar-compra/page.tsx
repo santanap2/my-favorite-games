@@ -43,7 +43,7 @@ export default function FinalizarCompra() {
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
         <div className="w-[70%] bg-white rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
-          {cart.map(({ areaPt, id, image, name, price }: IGame) => (
+          {cart.map(({ genrePt, id, image, name, price }: IGame) => (
             <div
               key={id}
               className="flex items-center w-full gap-3 border-b p-4 lg:p-2"
@@ -60,7 +60,7 @@ export default function FinalizarCompra() {
                     {calcNameSlice(name)}
                   </h1>
                   <h3 className="font-semibold text-sm lg:font-light lg:w-full">
-                    {areaPt}
+                    {genrePt}
                   </h3>
                 </div>
                 <div className="flex flex-col text-zinc-500 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-black">

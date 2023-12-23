@@ -1,8 +1,8 @@
 export const games = [
   {
     name: 'Red Dead Redemption 2',
-    area: 'actionAdventure',
-    areaPt: 'Ação e aventura de mundo aberto',
+    genre: 'actionAdventure',
+    genrePt: 'Ação e aventura de mundo aberto',
     price: 249.9,
     id: 0,
     image:
@@ -12,8 +12,8 @@ export const games = [
   },
   {
     name: 'Cyberpunk 2077 Complete Edition',
-    area: 'rpgOpenWorld',
-    areaPt: 'RPG de mundo aberto',
+    genre: 'rpgOpenWorld',
+    genrePt: 'RPG de mundo aberto',
     price: 299.99,
     id: 1,
     image:
@@ -23,8 +23,8 @@ export const games = [
   },
   {
     name: `Baldur's Gate 3`,
-    area: 'rpgTurnBased',
-    areaPt: 'RPG de turnos',
+    genre: 'rpgTurnBased',
+    genrePt: 'RPG de turnos',
     price: 199.9,
     id: 2,
     image:
@@ -34,8 +34,8 @@ export const games = [
   },
   {
     name: 'Dead Space Remake',
-    area: 'actionTerror',
-    areaPt: 'Ação e terror',
+    genre: 'actionTerror',
+    genrePt: 'Ação e terror',
     price: 249.9,
     id: 3,
     image: 'https://pbs.twimg.com/media/FeK7GBvVUAA_OSE.jpg:large',
@@ -44,8 +44,8 @@ export const games = [
   },
   {
     name: 'Battlefield 2042',
-    area: 'fps',
-    areaPt: 'Tiro em primeira pessoa',
+    genre: 'fps',
+    genrePt: 'Tiro em primeira pessoa',
     price: 199.9,
     id: 4,
     image: 'https://pbs.twimg.com/media/E3cByv9VoAs1IYB.jpg:large',
@@ -54,8 +54,8 @@ export const games = [
   },
   {
     name: 'Starfield',
-    area: 'rpgOpenWorld',
-    areaPt: 'RPG de mundo aberto',
+    genre: 'rpgOpenWorld',
+    genrePt: 'RPG de mundo aberto',
     price: 279.9,
     id: 5,
     image:
@@ -65,8 +65,8 @@ export const games = [
   },
   {
     name: 'Grand Theft Auto VI',
-    area: 'actionAdventure',
-    areaPt: 'Ação e aventura de mundo aberto',
+    genre: 'actionAdventure',
+    genrePt: 'Ação e aventura de mundo aberto',
     price: 349.9,
     id: 6,
     image:
@@ -76,8 +76,8 @@ export const games = [
   },
   {
     name: 'Call Of Duty: MODERN WARFARE III',
-    area: 'fps',
-    areaPt: 'Tiro em primeira pessoa',
+    genre: 'fps',
+    genrePt: 'Tiro em primeira pessoa',
     price: 349.9,
     id: 7,
     image: 'https://gameranx.com/wp-content/uploads/2023/10/mw3-featured2.jpg',
@@ -86,8 +86,8 @@ export const games = [
   },
   {
     name: 'Alan Wake II',
-    area: 'survivalHorror',
-    areaPt: 'Survival Horror',
+    genre: 'survivalHorror',
+    genrePt: 'Survival Horror',
     price: 249.9,
     id: 8,
     image:
@@ -97,8 +97,8 @@ export const games = [
   },
   {
     name: 'The Witcher 3',
-    area: 'rpgOpenWorld',
-    areaPt: 'RPG de mundo aberto',
+    genre: 'rpgOpenWorld',
+    genrePt: 'RPG de mundo aberto',
     price: 249.9,
     id: 9,
     image:
@@ -108,8 +108,8 @@ export const games = [
   },
   {
     name: 'Resident Evil 4 Remake',
-    area: 'survivalHorror',
-    areaPt: 'Survival Horror',
+    genre: 'survivalHorror',
+    genrePt: 'Survival Horror',
     price: 199.9,
     id: 10,
     image:
@@ -119,8 +119,8 @@ export const games = [
   },
   {
     name: 'Forza Motorsport',
-    area: 'racing',
-    areaPt: 'Corrida',
+    genre: 'racing',
+    genrePt: 'Corrida',
     price: 299.9,
     id: 11,
     image: 'https://pbs.twimg.com/media/Fw67HSUWcAQHnCP.jpg',
@@ -129,8 +129,8 @@ export const games = [
   },
   {
     name: 'God of War Ragnarok',
-    area: 'actionAdventure',
-    areaPt: 'Ação e aventura',
+    genre: 'actionAdventure',
+    genrePt: 'Ação e aventura',
     price: 349.9,
     id: 12,
     image:
@@ -140,8 +140,8 @@ export const games = [
   },
   {
     name: 'Hi-Fi Rush',
-    area: 'actionRhythm',
-    areaPt: 'Ação e ritmo',
+    genre: 'actionRhythm',
+    genrePt: 'Ação e ritmo',
     price: 89.9,
     id: 13,
     image:
@@ -151,8 +151,8 @@ export const games = [
   },
   {
     name: 'Forza Horizon 5',
-    area: 'racing',
-    areaPt: 'Corrida',
+    genre: 'racing',
+    genrePt: 'Corrida',
     price: 249.9,
     id: 14,
     image:
@@ -162,8 +162,8 @@ export const games = [
   },
   {
     name: 'Horizon Forbidden West',
-    area: 'rpgOpenWorld',
-    areaPt: 'RPG de mundo aberto',
+    genre: 'rpgOpenWorld',
+    genrePt: 'RPG de mundo aberto',
     price: 299.9,
     id: 15,
     image:

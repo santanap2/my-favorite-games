@@ -70,7 +70,7 @@ export default function ShoppingCart() {
           <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
             {cart.length > 0 ? (
               <div className="w-full h-fit flex flex-col gap-10 pr-4 sm:pr-2 sm:gap-4">
-                {cart.map(({ areaPt, id, image, name, price }) => (
+                {cart.map(({ genrePt, id, image, name, price }) => (
                   <div
                     key={id}
                     className="flex w-full gap-3 border-b pb-6 sm:pb-2"
@@ -86,7 +86,7 @@ export default function ShoppingCart() {
                           {name}
                         </h1>
                         <h3 className="text-sm font-light sm:text-xs sm:font-light">
-                          {areaPt}
+                          {genrePt}
                         </h3>
                       </div>
                       <div className="flex justify-between items-center w-full">
