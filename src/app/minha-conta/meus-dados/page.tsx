@@ -76,7 +76,7 @@ export default function MeusDados() {
                   className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                     errors.userData?.name && 'border border-red-300'
                   }`}
-                  placeholder={userData?.name || ''}
+                  placeholder={userData?.name}
                 />
                 {errors.userData?.name && (
                   <span className="text-sm font-light text-red-500">

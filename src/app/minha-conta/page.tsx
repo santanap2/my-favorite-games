@@ -43,7 +43,7 @@ export default function MinhaConta() {
               <h1 className="font-regular text-xl lg:text-base">
                 Olá{' '}
                 <strong className="font-bold text-2xl lg:text-xl">
-                  {userLocalStorage.name || ''}
+                  {userLocalStorage.name}
                 </strong>
                 , bem vindo(a) de volta!
               </h1>
@@ -53,7 +53,7 @@ export default function MinhaConta() {
                   weight="fill"
                   className="text-indigo-500"
                 />
-                {userLocalStorage.email || ''}
+                {userLocalStorage.email}
               </h2>
             </div>
           </div>
