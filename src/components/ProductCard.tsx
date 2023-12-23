@@ -21,7 +21,7 @@ export default function ProductCard({
   const router = useRouter()
 
   return (
-    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100 animation-opacity">
+    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
@@ -66,7 +66,7 @@ export default function ProductCard({
             })
             router.push('/finalizar-compra')
           }}
-          className="w-[72.5%] h-9 bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs xxl:hover:bg-indigo-400"
+          className="w-[72.5%] h-9 bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs"
         >
           Comprar
         </button>
@@ -76,7 +76,7 @@ export default function ProductCard({
             setShowCart(true)
             addToCart({ name, genre, genrePt, price, image, id, description })
           }}
-          className="w-1/4 h-9 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs xxl:hover:bg-indigo-400"
+          className="w-1/4 h-9 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs "
         >
           <ShoppingCartSimple
             size={screenSize < 1000 ? 20 : 24}
@@ -84,9 +84,9 @@ export default function ProductCard({
             className="text-white relative"
           />
           <PlusCircle
-            size={screenSize < 1280 ? 14 : 20}
+            size={screenSize < 1280 ? 14 : 16}
             weight="fill"
-            className="text-white absolute top-0 right-1 xxl:top-1 xxl:right-1"
+            className="text-white absolute top-0 right-2 xxl:top-1 xxl:right-1"
           />
         </button>
       </div>

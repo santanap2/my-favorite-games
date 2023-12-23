@@ -113,3 +113,9 @@ export interface IPayloadJWT {
   email: string
   phone: string
 }
+
+export interface ISearchParams {
+  searchParams: {
+    size: string
+  }
+}

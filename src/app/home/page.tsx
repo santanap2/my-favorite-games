@@ -5,54 +5,42 @@ import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '@/components/ProductCard'
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { IGame } from '@/interfaces'
+import { useSearchParams } from 'next/navigation'
+import { IGame, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
-import { ArrowUUpLeft } from '@phosphor-icons/react'
-import { getAllGames } from '@/services/requests'
-import NotFoundProducts from '@/components/NotFoundProducts'
+import { getGamesFiltered } from '@/services/requests'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton'
 
-export default function Home() {
+export default function Home({ searchParams }: ISearchParams) {
   const {
-    filteredProducts,
-    setFilteredProducts,
     setShowSearchInputMobile,
     setRegisterResponse,
     setUserDataResponse,
     setLoginResponse,
+    screenSize,
+    setShowMenu,
   } = useContext(GamesPlatformContext)
 
   const [gamesAPI, setGamesAPI] = useState<IGame[]>([])
 
-  const searchParams = useSearchParams()
-  const headerSearch = searchParams.get('busca')
-  const router = useRouter()
+  const headerSearch = useSearchParams().get('busca')
+  const queryParams = new URLSearchParams(searchParams).toString()
+
+  const fetchData = async () => {
+    const {
+      data: { data },
+    } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
+    setGamesAPI(data)
+  }
 
   useEffect(() => {
-    if (headerSearch) {
-      const filteredBySearch = gamesAPI.filter((item: IGame) =>
-        item.name.toLowerCase().includes(headerSearch.toLowerCase()),
-      )
-      setFilteredProducts(filteredBySearch)
-    }
-  }, [headerSearch])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const {
-        data: { data },
-      } = await getAllGames()
-
-      setGamesAPI(data)
-    }
-
     fetchData()
+    if (screenSize < 1280) setShowMenu({ myAccount: false, filters: false })
     setShowSearchInputMobile(false)
     setRegisterResponse({ error: '', success: '' })
     setUserDataResponse({ error: '', success: '' })
     setLoginResponse({ error: '', success: '' })
-  }, [])
+  }, [queryParams])
 
   return (
     <div className="mt-24 xxl:mt-20 w-full">

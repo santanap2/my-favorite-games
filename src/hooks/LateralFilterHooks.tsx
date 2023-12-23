@@ -1,17 +1,12 @@
-import GamesPlatformContext from '@/context/Context'
-import { games } from '@/data/games'
-
 import { currencyMask } from '@/helpers'
-import { IGame, IGamesGenres } from '@/interfaces'
+import { IGamesGenres } from '@/interfaces'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LateralFilterHooks() {
-  const { setFilteredProducts } = useContext(GamesPlatformContext)
-
   const formSchema = z.object({
     lateralFilters: z.object({
       actionAdventure: z.boolean(),
@@ -46,50 +41,19 @@ export default function LateralFilterHooks() {
     },
   })
 
-  const changedFilters = ({ lateralFilters }: FormProps) => {
-    const keys = Object.keys(lateralFilters)
-    const values = Object.values(lateralFilters)
-    const result = keys.filter((_key, index) => values[index] === true)
-    return result
-  }
-
   const router = useRouter()
 
-  function filterGames(
-    games: IGame[],
-    genres: string[],
-    minPrice: number | string,
-    maxPrice: number | string,
-  ) {
-    const minPriceNumber = minPrice === '' ? null : Number(minPrice)
-    const maxPriceNumber = maxPrice === '' ? null : Number(maxPrice)
+  const handleFormSubmit = async (data: FormProps) => {
+    const filters: Record<string, string | boolean> = data.lateralFilters
 
-    const gamesFiltrados = games.filter((game: IGame) => {
-      const areaCondition = genres.length === 0 || genres.includes(game.area)
-      const minPriceCondition =
-        minPriceNumber === null || game.price >= minPriceNumber
-      const maxPriceCondition =
-        maxPriceNumber === null || game.price <= maxPriceNumber
-
-      return areaCondition && minPriceCondition && maxPriceCondition
+    const stringFilters: Record<string, string> = {}
+    Object.keys(filters).forEach((key) => {
+      stringFilters[key] = filters[key].toString()
     })
 
-    return gamesFiltrados
-  }
+    const queryParams = new URLSearchParams(stringFilters).toString()
 
-  const handleFormSubmit = (data: FormProps) => {
-    const filters = changedFilters(data)
-
-    const filteredGames = filterGames(
-      games,
-      filters,
-      data.lateralFilters.minPrice,
-      data.lateralFilters.maxPrice,
-    )
-
-    setFilteredProducts(filteredGames)
-
-    router.push('/home')
+    router.push(`/home?${queryParams}`)
   }
 
   const minPrice = watch('lateralFilters.minPrice')

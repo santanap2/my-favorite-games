@@ -42,7 +42,7 @@ export const decodeToken = (token: string) => {
   return result
 }
 
-export const getAllGames = async () => {
-  const result = await api.get(`/get-games`)
+export const getGamesFiltered = async (queryParams: string) => {
+  const result = await api.get(`/get-games?${queryParams}`)
   return result
 }

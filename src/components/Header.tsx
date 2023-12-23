@@ -11,7 +11,6 @@ import Link from 'next/link'
 import { List, SlidersHorizontal, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
-import { games } from '@/data/games'
 import { CSSTransition } from 'react-transition-group'
 import { getCartLocalStorage, getUserLocalStorage } from '@/helpers'
 
@@ -21,7 +20,6 @@ export default function Header() {
     showCart,
     setShowMenu,
     showMenu,
-    setFilteredProducts,
     showSearchInputMobile,
     setShowSearchInputMobile,
     screenSize,
@@ -119,12 +117,7 @@ export default function Header() {
             )}
           </form>
         </CSSTransition>
-        <button
-          onClick={() => {
-            setFilteredProducts(games)
-            router.push('/')
-          }}
-        >
+        <button onClick={() => router.push('/')}>
           <img
             src="/logo.png"
             alt="My Favorite Games Logo"
