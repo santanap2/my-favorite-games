@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 
 import { IGame, ILoading, IResponseState, IUserOrders } from '@/interfaces'
-import { HeaderSearch, PaymentMethod, CardData } from '@/types'
+import { HeaderSearch, PaymentMethod } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
@@ -23,17 +23,6 @@ const initialValueContext = {
     bankSlip: false,
   },
   setPaymentMethod: (state: PaymentMethod) => {},
-
-  cardData: {
-    cardData: {
-      cardNumber: '',
-      cardName: '',
-      cardDate: '',
-      cardCvv: '',
-      cardPortions: '1',
-    },
-  },
-  setCardData: (state: CardData) => {},
 
   userOrders: orders,
   setUserOrders: (state: IUserOrders[]) => {},

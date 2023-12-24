@@ -5,7 +5,6 @@
 import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
-import { games } from '@/data/games'
 import {
   addOnlyOneToCart,
   addToCart,
@@ -13,7 +12,8 @@ import {
   portionPrice,
   priceToBRL,
 } from '@/helpers'
-import { IGameIDParams } from '@/interfaces'
+import { IGame, IGameIDParams } from '@/interfaces'
+import { getGamesFiltered } from '@/services/requests'
 import {
   ArrowUUpLeft,
   CaretDown,
@@ -34,11 +34,26 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   })
 
   const [isFavorite, setIsFavorite] = useState(false)
+  const [games, setGames] = useState<IGame[]>([])
 
   const { setShowCart, showMenu, setShowMenu, setFilteredProducts } =
     useContext(GamesPlatformContext)
 
-  useEffect(() => setShowMenu({ ...showMenu, filters: false }), [])
+  const fetchData = async () => {
+    const response = await getGamesFiltered().catch((error) => {
+      if (error.response.status === 404) {
+        console.log(error.response.message)
+      }
+      console.log(error.response.data.data)
+    })
+
+    if (response?.data.data) setGames(response.data.data)
+  }
+
+  useEffect(() => {
+    setShowMenu({ ...showMenu, filters: false })
+    fetchData()
+  }, [])
   const router = useRouter()
 
   const clickExpandMenu = (menu: string) => {

@@ -7,13 +7,3 @@ export type PaymentMethod = {
   creditCard: boolean
   bankSlip: boolean
 }
-
-export type CardData = {
-  cardData: {
-    cardNumber: string
-    cardName: string
-    cardDate: string
-    cardCvv: string
-    cardPortions: string
-  }
-}

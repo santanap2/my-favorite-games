@@ -30,16 +30,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     bankSlip: false,
   })
 
-  const [cardData, setCardData] = useState({
-    cardData: {
-      cardNumber: '',
-      cardName: '',
-      cardDate: '',
-      cardCvv: '',
-      cardPortions: '1',
-    },
-  })
-
   const [userOrders, setUserOrders] = useState<IUserOrders[]>(orders)
 
   const [filteredProducts, setFilteredProducts] = useState(games)
@@ -93,9 +83,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     paymentMethod,
     setPaymentMethod,
-
-    cardData,
-    setCardData,
 
     userOrders,
     setUserOrders,
