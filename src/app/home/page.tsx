@@ -8,7 +8,7 @@ import GamesPlatformContext from '@/context/Context'
 import { useSearchParams } from 'next/navigation'
 import { IGame, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
-import { getGamesFiltered } from '@/services/requests'
+import { getGamesFiltered } from '@/services'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton'
 import NotFoundProducts from '@/components/NotFoundProducts'
 

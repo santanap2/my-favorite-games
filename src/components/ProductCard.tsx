@@ -3,22 +3,25 @@
 import React, { useContext } from 'react'
 import { ICard } from '@/interfaces'
 import Link from 'next/link'
-import { priceToBRL, addToCart, addOnlyOneToCart } from '@/helpers'
+import { priceToBRL, getUserLocalStorage } from '@/helpers'
 import GamesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
 import { ShoppingCartSimple, PlusCircle } from '@phosphor-icons/react'
+import { addItemToCart } from '@/services'
+import { buyOneItem } from '@/services/cart.requests'
 
 export default function ProductCard({
   name,
-  genre,
   genrePt,
   price,
   image,
   id,
-  description,
 }: ICard) {
-  const { setShowCart, screenSize } = useContext(GamesPlatformContext)
+  const { setShowCart, screenSize, loading, setLoading } =
+    useContext(GamesPlatformContext)
   const router = useRouter()
+
+  const userLocalStorage = getUserLocalStorage()
 
   return (
     <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity">
@@ -54,16 +57,9 @@ export default function ProductCard({
       <div className="absolute w-56 left-4 right-4 bottom-2 flex gap-[2.5%] sm:w-[90%] sm:left-[5%] sm:right-[5%] sm:bottom-[1.5%] xxl:w-[90%] xxl:left-[5%]">
         <button
           type="button"
-          onClick={() => {
-            addOnlyOneToCart({
-              name,
-              genre,
-              genrePt,
-              price,
-              image,
-              id,
-              description,
-            })
+          onClick={async () => {
+            setLoading({ ...loading, cart: !loading.cart })
+            await buyOneItem(userLocalStorage.token, id.toString())
             router.push('/finalizar-compra')
           }}
           className="w-[72.5%] h-9 bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs"
@@ -72,9 +68,10 @@ export default function ProductCard({
         </button>
         <button
           type="button"
-          onClick={() => {
+          onClick={async () => {
+            setLoading({ ...loading, cart: !loading.cart })
+            await addItemToCart(userLocalStorage.token, id.toString())
             setShowCart(true)
-            addToCart({ name, genre, genrePt, price, image, id, description })
           }}
           className="w-1/4 h-9 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs "
         >

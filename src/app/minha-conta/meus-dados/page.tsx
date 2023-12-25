@@ -7,7 +7,7 @@ import GamesPlatformContext from '@/context/Context'
 import { getUserLocalStorage, pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'
 import { IPayloadJWT } from '@/interfaces'
-import { getUser } from '@/services/requests'
+import { getUser } from '@/services'
 import {
   CheckFat,
   Envelope,

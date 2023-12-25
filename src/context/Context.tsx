@@ -46,6 +46,7 @@ const initialValueContext = {
     registerUser: false,
     updateUserData: false,
     login: false,
+    cart: false,
   },
   setLoading: (state: ILoading) => {},
 

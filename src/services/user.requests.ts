@@ -1,10 +1,5 @@
-import { IUpdateUserData, IRegister, IUser } from '@/interfaces'
-import axios from 'axios'
-import * as jwt from 'jsonwebtoken'
-
-export const api = axios.create({
-  baseURL: 'http://localhost:3003',
-})
+import { IRegister, IUpdateUserData, IUser } from '@/interfaces'
+import { api } from './api'
 
 export const registerUser = async (data: IRegister) => {
   const result = await api.post('/register', data)
@@ -28,21 +23,5 @@ export const getUserByEmail = async (email: string) => {
 
 export const requestLogin = async ({ email, password }: IUser) => {
   const result = await api.post('/login', { email, password })
-  return result
-}
-
-export const setTokenToHeaders = (token: string) =>
-  (api.defaults.headers.common.Authorization = token)
-
-export const removeTokenFromHeaders = () =>
-  delete api.defaults.headers.common.Authorization
-
-export const decodeToken = (token: string) => {
-  const result = jwt.decode(token)
-  return result
-}
-
-export const getGamesFiltered = async (queryParams?: string) => {
-  const result = await api.get(`/get-games?${queryParams}`)
   return result
 }

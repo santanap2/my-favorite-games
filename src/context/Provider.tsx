@@ -40,6 +40,7 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     registerUser: false,
     updateUserData: false,
     login: false,
+    cart: false,
   })
 
   const [registerResponse, setRegisterResponse] = useState({

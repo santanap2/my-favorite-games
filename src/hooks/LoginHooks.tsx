@@ -1,11 +1,7 @@
 import GamesPlatformContext from '@/context/Context'
 import { addUserLocalStorage } from '@/helpers'
 import { IPayloadJWT } from '@/interfaces'
-import {
-  decodeToken,
-  requestLogin,
-  setTokenToHeaders,
-} from '@/services/requests'
+import { decodeToken, requestLogin, setTokenToHeaders } from '@/services/'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { useContext } from 'react'
@@ -58,7 +54,14 @@ export default function LoginHooks() {
         response.data.token,
       ) as IPayloadJWT
 
-      addUserLocalStorage({ id, name, email, phone })
+      addUserLocalStorage({
+        id,
+        name,
+        email,
+        phone,
+        token: response.data.token,
+      })
+
       setTokenToHeaders(response.data.token)
       setLoginResponse({ error: '', success: response.data.message })
       router.push('/minha-conta')

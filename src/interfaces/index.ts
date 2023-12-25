@@ -100,6 +100,7 @@ export interface ILoading {
   registerUser: boolean
   updateUserData: boolean
   login: boolean
+  cart: boolean
 }
 
 export interface IResponseState {
@@ -112,6 +113,7 @@ export interface IPayloadJWT {
   name: string
   email: string
   phone: string
+  token: string
 }
 
 export interface ISearchParams {

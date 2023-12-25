@@ -6,14 +6,14 @@ import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
 import {
-  addOnlyOneToCart,
-  addToCart,
+  getUserLocalStorage,
   pageTitle,
   portionPrice,
   priceToBRL,
 } from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
-import { getGamesFiltered } from '@/services/requests'
+import { addItemToCart, getGamesFiltered } from '@/services'
+import { buyOneItem } from '@/services/cart.requests'
 import {
   ArrowUUpLeft,
   CaretDown,
@@ -28,6 +28,15 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 
 export default function GameId({ params: { id } }: IGameIDParams) {
+  const {
+    setShowCart,
+    showMenu,
+    setShowMenu,
+    setFilteredProducts,
+    loading,
+    setLoading,
+  } = useContext(GamesPlatformContext)
+
   const [expandMenus, setExpandMenus] = useState({
     description: true,
     evaluation: true,
@@ -36,8 +45,9 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   const [isFavorite, setIsFavorite] = useState(false)
   const [games, setGames] = useState<IGame[]>([])
 
-  const { setShowCart, showMenu, setShowMenu, setFilteredProducts } =
-    useContext(GamesPlatformContext)
+  const router = useRouter()
+  const userLocalStorage = getUserLocalStorage()
+  const game = games.find((one) => one.id === Number(id))
 
   const fetchData = async () => {
     const response = await getGamesFiltered().catch((error) => {
@@ -50,12 +60,6 @@ export default function GameId({ params: { id } }: IGameIDParams) {
     if (response?.data.data) setGames(response.data.data)
   }
 
-  useEffect(() => {
-    setShowMenu({ ...showMenu, filters: false })
-    fetchData()
-  }, [])
-  const router = useRouter()
-
   const clickExpandMenu = (menu: string) => {
     if (menu === 'description')
       setExpandMenus({ ...expandMenus, description: !expandMenus.description })
@@ -63,7 +67,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       setExpandMenus({ ...expandMenus, evaluation: !expandMenus.evaluation })
   }
 
-  const game = games.find((one) => one.id === Number(id))
+  useEffect(() => {
+    setShowMenu({ ...showMenu, filters: false })
+    fetchData()
+  }, [])
+
   if (!game)
     return (
       <div className="mt-24 xxl:mt-20 w-full h-full flex flex-col items-center justify-center gap-10">
@@ -136,8 +144,9 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             </div>
             <div className="flex gap-4 mt-20 sm:mt-6 sm:w-full sm:justify-center sm:items-center sm:gap-1">
               <button
-                onClick={() => {
-                  addOnlyOneToCart(game)
+                onClick={async () => {
+                  setLoading({ ...loading, cart: !loading.cart })
+                  await buyOneItem(userLocalStorage.token, id.toString())
                   router.push('/finalizar-compra')
                 }}
                 className="w-64 h-14 bg-indigo-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
@@ -146,8 +155,9 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               </button>
               <button
                 type="button"
-                onClick={() => {
-                  addToCart(game)
+                onClick={async () => {
+                  setLoading({ ...loading, cart: !loading.cart })
+                  await addItemToCart(userLocalStorage.token, id.toString())
                   setShowCart(true)
                 }}
                 className="w-14 h-14 bg-indigo-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"

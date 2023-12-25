@@ -1,23 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
 import {
   calcSum,
-  getCartLocalStorage,
+  getUserLocalStorage,
   pageTitle,
   portionPrice,
   priceToBRL,
 } from '@/helpers'
 import { IGame } from '@/interfaces'
+import { getUserCart } from '@/services'
 import { Wallet } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 export default function FinalizarCompra() {
-  const { screenSize } = useContext(GamesPlatformContext)
+  const [userCart, setUserCart] = useState<IGame[]>([])
+  const { screenSize, loading, setLoading } = useContext(GamesPlatformContext)
   const router = useRouter()
-  const cart = getCartLocalStorage() || []
+  const userLocalStorage = getUserLocalStorage()
 
   const calcNameSlice = (name: string) => {
     const small = name.length > 25 ? `${name.slice(0, 25)}...` : name
@@ -27,6 +30,16 @@ export default function FinalizarCompra() {
     if (screenSize < 380) return small
     return name
   }
+
+  const fetchData = async () => {
+    const userCart = await getUserCart(userLocalStorage.token)
+    setUserCart(userCart.data.data.products)
+    setLoading({ ...loading, cart: !loading.cart })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [loading.cart])
 
   return (
     <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6">
@@ -43,7 +56,7 @@ export default function FinalizarCompra() {
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
         <div className="w-[70%] bg-white rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
-          {cart.map(({ genrePt, id, image, name, price }: IGame) => (
+          {userCart.map(({ genrePt, id, image, name, price }: IGame) => (
             <div
               key={id}
               className="flex items-center w-full gap-3 border-b p-4 lg:p-2"
@@ -87,10 +100,10 @@ export default function FinalizarCompra() {
           <div className="text-zinc-700 lg:text-sm">
             <span>Valor total: </span>
             <span className="font-semibold">{`R$ ${
-              calcSum(cart).string
+              calcSum(userCart).string
             }`}</span>
             <h3 className="w-full text-end text-zinc-500 text-sm font-light">{`(Em até 3x de R$${priceToBRL(
-              calcSum(cart).number / 3,
+              calcSum(userCart).number / 3,
             )})`}</h3>
           </div>
 
@@ -100,12 +113,12 @@ export default function FinalizarCompra() {
               <span className="font-semibold">{` PIX`}</span>
             </div>
             <span className="text-3xl font-extrabold mt-2">
-              {`R$ ${priceToBRL(calcSum(cart).number * 0.9)}`}
+              {`R$ ${priceToBRL(calcSum(userCart).number * 0.9)}`}
             </span>
             <div className="text-xs font-light">
               <span>{`Economia de: `}</span>
               <span className="font-bold">{`R$ ${priceToBRL(
-                calcSum(cart).number * 0.1,
+                calcSum(userCart).number * 0.1,
               )}`}</span>
             </div>
           </div>

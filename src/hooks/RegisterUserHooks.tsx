@@ -1,6 +1,6 @@
 import GamesPlatformContext from '@/context/Context'
 import { phoneNumberMask } from '@/helpers'
-import { registerUser } from '@/services/requests'
+import { registerUser } from '@/services'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'

@@ -24,7 +24,7 @@ export default function LateralFilters() {
       unmountOnExit
     >
       <aside
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-zinc-100 shadow-md overflow-y-auto z-20 sm:shadow-2xl sm:shadow-black"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-zinc-100 overflow-y-auto z-20 shadow-2xl xl:shadow-black"
         ref={nodeRef}
       >
         <div className="flex flex-col items-center h-full justify-start w-full">

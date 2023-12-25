@@ -1,6 +1,6 @@
 import GamesPlatformContext from '@/context/Context'
 import { addUserLocalStorage, phoneNumberMask } from '@/helpers'
-import { updateUser } from '@/services/requests'
+import { updateUser } from '@/services'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
