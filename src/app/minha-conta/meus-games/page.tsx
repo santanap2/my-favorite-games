@@ -1,6 +1,6 @@
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
+import LateralMyAccount from '@/components/LateralMyAccount'
 import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
@@ -22,7 +22,7 @@ export default function MeusGames() {
     <div className="mt-24 xxl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus games`}</title>
 
-      <LateralMenu />
+      <LateralMyAccount />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <GameController

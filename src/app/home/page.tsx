@@ -3,7 +3,6 @@
 
 import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '@/components/ProductCard'
-import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
 import { useSearchParams } from 'next/navigation'
 import { IGame, ISearchParams } from '@/interfaces'
@@ -11,6 +10,7 @@ import { pageTitle } from '@/helpers'
 import { getGamesFiltered } from '@/services'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton'
 import NotFoundProducts from '@/components/NotFoundProducts'
+import LateralFilters from '@/components/LateralFilters'
 
 export default function Home({ searchParams }: ISearchParams) {
   const {
@@ -53,7 +53,7 @@ export default function Home({ searchParams }: ISearchParams) {
   return (
     <div className="mt-24 xxl:mt-20 w-full">
       <title>{headerSearch ? `${pageTitle} - Busca` : `${pageTitle}`}</title>
-      <LateralMenu />
+      <LateralFilters />
 
       <div className="flex justify-center items-center w-full">
         <div

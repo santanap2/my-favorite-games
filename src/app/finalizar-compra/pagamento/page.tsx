@@ -7,7 +7,6 @@ import { calcSum, getUserLocalStorage, pageTitle, priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { getUserCart } from '@/services'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
-import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 
 export default function Pagamento() {
@@ -16,7 +15,6 @@ export default function Pagamento() {
 
   const [userCart, setUserCart] = useState<IGame[]>([])
   const userLocalStorage = getUserLocalStorage()
-  const router = useRouter()
 
   const fetchData = async () => {
     const userCart = await getUserCart(userLocalStorage.token)
@@ -26,7 +24,6 @@ export default function Pagamento() {
 
   useEffect(() => {
     fetchData()
-    router.refresh()
   }, [loading.cart])
 
   const pickPaymentMethod = (payment: string) => {

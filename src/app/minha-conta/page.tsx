@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
+import LateralMyAccount from '@/components/LateralMyAccount'
 import SingleOrder from '@/components/SingleOrder'
 import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
@@ -30,7 +30,7 @@ export default function MinhaConta() {
     <div className="w-full">
       <title>{`${pageTitle} - Minha conta`}</title>
 
-      <LateralMenu />
+      <LateralMyAccount />
       <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start">
         <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
           <div className="flex gap-1 items-start w-fit">

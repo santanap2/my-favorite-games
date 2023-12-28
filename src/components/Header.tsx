@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React, { useContext, useEffect, useRef, useState } from 'react'
 
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import {
   MagnifyingGlass,
   ShoppingCartSimple,
 } from '@phosphor-icons/react/dist/ssr'
 import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
-import { List, SlidersHorizontal, UserCircle, X } from '@phosphor-icons/react'
+import { List, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
 import { CSSTransition } from 'react-transition-group'
@@ -41,7 +41,7 @@ export default function Header() {
   const pathname = usePathname()
   const router = useRouter()
   const nodeRef = useRef(null)
-  const userLocalStorage = getUserLocalStorage()
+  const userLocalStorage = getUserLocalStorage() || ''
 
   const {
     handleSubmit,
@@ -53,8 +53,12 @@ export default function Header() {
   } = HeaderHooks()
 
   const fetchData = async () => {
-    const userCart = await getUserCart(userLocalStorage.token)
-    setUserCart(userCart.data.data.products)
+    const userCartResponse = await getUserCart(userLocalStorage.token)
+
+    if (userCartResponse && userCartResponse.data) {
+      const userCart = userCartResponse.data.data?.products || []
+      setUserCart(userCart)
+    }
     setLoading({ ...loading, cart: false })
   }
 
@@ -82,16 +86,7 @@ export default function Header() {
         onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
         onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
       >
-        {pathname.includes('minha-conta') ? (
-          <List size={28} weight={hoverBtn.menu ? 'duotone' : 'regular'} />
-        ) : (
-          <SlidersHorizontal
-            size={28}
-            weight={
-              showMenu.filters ? 'fill' : hoverBtn.menu ? 'duotone' : 'regular'
-            }
-          />
-        )}
+        <List size={28} weight={hoverBtn.menu ? 'duotone' : 'regular'} />
       </button>
       <div className="w-3/4 flex justify-between items-center xl:w-fit">
         <CSSTransition

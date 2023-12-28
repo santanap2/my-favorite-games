@@ -1,12 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function Game() {
   const router = useRouter()
-
-  useEffect(() => {
-    router.push('/home')
-  }, [router])
+  router.push('/home')
 }

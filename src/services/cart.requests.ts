@@ -14,8 +14,15 @@ export const buyOneItem = async (token: string, gameId: string) => {
   return result
 }
 
-export const getUserCart = async (token: string) => {
-  const { id } = decodeToken(token) as IPayloadJWT
+export const getUserCart = async (token?: string) => {
+  if (!token) return
+
+  const decodedToken = decodeToken(token) as IPayloadJWT
+
+  if (!decodeToken || !decodedToken.id) return
+
+  const { id } = decodedToken
+
   const result = await api.get(`/get-user-cart/${id}`)
   return result
 }

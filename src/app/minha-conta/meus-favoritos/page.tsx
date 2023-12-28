@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
 import { Heart } from '@phosphor-icons/react'
 import React, { useContext } from 'react'
 import UserOrderCard from '@/components/UserOrderCard'
@@ -9,6 +8,7 @@ import { IGame } from '@/interfaces'
 import { games } from '@/data/games'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
+import LateralMyAccount from '@/components/LateralMyAccount'
 
 export default function MeusFavoritos() {
   const { screenSize } = useContext(GamesPlatformContext)
@@ -17,7 +17,7 @@ export default function MeusFavoritos() {
     <div className="mt-24 xxl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus favoritos`}</title>
 
-      <LateralMenu />
+      <LateralMyAccount />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Heart

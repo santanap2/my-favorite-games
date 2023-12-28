@@ -17,7 +17,7 @@ export default function ShoppingCart() {
 
   const nodeRef = useRef(null)
   const router = useRouter()
-  const userLocalStorage = getUserLocalStorage()
+  const userLocalStorage = getUserLocalStorage() || ''
 
   const finalizePurchase = () => {
     setShowCart(false)
@@ -25,9 +25,13 @@ export default function ShoppingCart() {
   }
 
   const fetchData = async () => {
-    const userCart = await getUserCart(userLocalStorage.token)
-    setUserCart(userCart.data.data.products)
-    setLoading({ ...loading, cart: !loading.cart })
+    const userCartResponse = await getUserCart(userLocalStorage.token)
+
+    if (userCartResponse && userCartResponse.data) {
+      const userCart = userCartResponse.data.data?.products || []
+      setUserCart(userCart)
+    }
+    setLoading({ ...loading, cart: false })
   }
 
   return (

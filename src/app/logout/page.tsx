@@ -5,18 +5,16 @@ import GamesPlatformContext from '@/context/Context'
 import { pageTitle, removeUserLocalStorage } from '@/helpers'
 import { removeTokenFromHeaders } from '@/services'
 import { useRouter } from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 export default function Logout() {
   const router = useRouter()
   const { setLoginResponse } = useContext(GamesPlatformContext)
 
-  useEffect(() => {
-    removeUserLocalStorage()
-    removeTokenFromHeaders()
-    setLoginResponse({ error: '', success: '' })
-    router.push('/home')
-  }, [router, setLoginResponse])
+  removeUserLocalStorage()
+  removeTokenFromHeaders()
+  setLoginResponse({ error: '', success: '' })
+  router.push('/home')
 
   return (
     <div className="mt-24 xxl:mt-20">

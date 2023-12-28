@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
+import LateralMyAccount from '@/components/LateralMyAccount'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
 import { getUserLocalStorage, pageTitle } from '@/helpers'
@@ -42,7 +42,7 @@ export default function MeusDados() {
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus dados`}</title>
-      <LateralMenu />
+      <LateralMyAccount />
       <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center">
         <div className="flex gap-1 w-full items-center justify-start">
           <IdentificationCard

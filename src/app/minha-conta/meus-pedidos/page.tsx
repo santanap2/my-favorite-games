@@ -1,6 +1,5 @@
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
 import GamesPlatformContext from '@/context/Context'
 import { Bag } from '@phosphor-icons/react'
 import React, { useContext, useEffect, useState } from 'react'
@@ -8,6 +7,7 @@ import orders from '@/data/userOrders'
 import SingleOrder from '@/components/SingleOrder'
 import { IUserOrders } from '@/interfaces'
 import { pageTitle } from '@/helpers'
+import LateralMyAccount from '@/components/LateralMyAccount'
 
 export default function MeusPedidos() {
   const { userOrders, setUserOrders, screenSize } =
@@ -24,7 +24,7 @@ export default function MeusPedidos() {
     <div className="mt-24 xxl:mt-20 w-full h-full">
       <title>{`${pageTitle} - Meus pedidos`}</title>
 
-      <LateralMenu />
+      <LateralMyAccount />
       <div className="w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Bag

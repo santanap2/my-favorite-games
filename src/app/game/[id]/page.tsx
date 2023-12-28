@@ -3,7 +3,7 @@
 'use client'
 
 import EvaluationsGame from '@/components/EvaluationsGame'
-import LateralMenu from '@/components/LateralMenu'
+import LateralFilters from '@/components/LateralFilters'
 import GamesPlatformContext from '@/context/Context'
 import {
   getUserLocalStorage,
@@ -77,7 +77,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       <div className="mt-24 xxl:mt-20 w-full h-full flex flex-col items-center justify-center gap-10">
         <title>{`${pageTitle} - Produto não encontrado`}</title>
 
-        <LateralMenu />
+        <LateralFilters />
         <h1 className="text-sm font-regular">
           Produto não encontrado, tente novamente.
         </h1>
@@ -96,7 +96,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
       <title>{`${pageTitle} - ${name}`}</title>
-      <LateralMenu />
+      <LateralFilters />
       <div className="w-full h-full">
         <div className="flex items-center gap-1 w-fit sm:w-full sm:text-xs">
           <Link
@@ -146,8 +146,13 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               <button
                 onClick={async () => {
                   setLoading({ ...loading, cart: !loading.cart })
-                  await buyOneItem(userLocalStorage.token, id.toString())
-                  router.push('/finalizar-compra')
+
+                  if (userLocalStorage) {
+                    await buyOneItem(userLocalStorage.token, id.toString())
+                    router.push('/finalizar-compra')
+                  } else {
+                    router.push('/login')
+                  }
                 }}
                 className="w-64 h-14 bg-indigo-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
               >
@@ -157,8 +162,12 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 type="button"
                 onClick={async () => {
                   setLoading({ ...loading, cart: !loading.cart })
-                  await addItemToCart(userLocalStorage.token, id.toString())
-                  setShowCart(true)
+                  if (userLocalStorage) {
+                    await addItemToCart(userLocalStorage.token, id.toString())
+                    setShowCart(true)
+                  } else {
+                    router.push('/login')
+                  }
                 }}
                 className="w-14 h-14 bg-indigo-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
