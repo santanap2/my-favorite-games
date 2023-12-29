@@ -190,7 +190,9 @@ export default function Header() {
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
         <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
-          {data?.data.data.products.length}
+          {data?.data.data.products.length
+            ? data?.data.data.products.length
+            : '0'}
         </span>
       </button>
 
@@ -238,7 +240,9 @@ export default function Header() {
             }
           />
           <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
-            {data?.data.data.products.length}
+            {data?.data.data.products.length
+              ? data?.data.data.products.length
+              : '0'}
           </span>
         </button>
       </div>

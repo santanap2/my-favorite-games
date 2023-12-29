@@ -44,6 +44,24 @@ export default function Cadastro() {
             )}
           </label>
 
+          <label htmlFor="email" className="flex flex-col gap-1">
+            <span className="text-sm font-semibold">Confirmar email</span>
+            <input
+              {...register('registerUser.confirmEmail')}
+              type="email"
+              id="email"
+              placeholder="email@exemplo.com"
+              className={`${
+                errors.registerUser?.email && 'border border-red-300'
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
+            />
+            {errors.registerUser?.confirmEmail && (
+              <span className="text-sm font-light text-red-500">
+                {errors.registerUser.confirmEmail.message}
+              </span>
+            )}
+          </label>
+
           <label htmlFor="name" className="flex flex-col gap-1">
             <span className="text-sm font-semibold">Nome completo</span>
             <input
@@ -96,6 +114,25 @@ export default function Cadastro() {
             {errors.registerUser?.password && (
               <span className="text-sm font-light text-red-500">
                 {errors.registerUser.password.message}
+              </span>
+            )}
+          </label>
+
+          <label htmlFor="password" className="flex flex-col gap-1">
+            <span className="text-sm font-semibold">Confirmar senha</span>
+
+            <input
+              {...register('registerUser.confirmPassword')}
+              type="password"
+              id="password"
+              placeholder="**********"
+              className={`${
+                errors.registerUser?.confirmPassword && 'border border-red-300'
+              } h-10 w-80 rounded px-3 focus:outline-none text-zinc-700 focus:shadow-xl hover:shadow-lg shadow`}
+            />
+            {errors.registerUser?.confirmPassword && (
+              <span className="text-sm font-light text-red-500">
+                {errors.registerUser.confirmPassword.message}
               </span>
             )}
           </label>

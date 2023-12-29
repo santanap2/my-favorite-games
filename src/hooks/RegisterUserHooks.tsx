@@ -11,18 +11,32 @@ export default function CadastroHooks() {
     useContext(GamesPlatformContext)
 
   const formSchema = z.object({
-    registerUser: z.object({
-      email: z
-        .string()
-        .email('Informe um email válido')
-        .min(1, 'Informe seu email'),
-      name: z.string().min(1, 'Informe um nome válido'),
-      password: z.string().min(8, 'Informe uma senha válida'),
-      phone: z
-        .string()
-        .min(11, 'Informe um telefone válido')
-        .max(15, 'Informe um telefone válido'),
-    }),
+    registerUser: z
+      .object({
+        email: z
+          .string()
+          .email('Informe um email válido')
+          .min(1, 'Informe seu email'),
+        confirmEmail: z
+          .string()
+          .email('Informe um email válido')
+          .min(1, 'Informe seu email'),
+        name: z.string().min(1, 'Informe um nome válido'),
+        phone: z
+          .string()
+          .min(11, 'Informe um telefone válido')
+          .max(15, 'Informe um telefone válido'),
+        password: z.string().min(8, 'Informe uma senha válida'),
+        confirmPassword: z.string().min(8, 'Informe uma senha válida'),
+      })
+      .refine((fields) => fields.email === fields.confirmEmail, {
+        path: ['confirmEmail'],
+        message: 'Os emails devem ser idênticos',
+      })
+      .refine((fields) => fields.password === fields.confirmPassword, {
+        path: ['confirmPassword'],
+        message: 'As senhas devem ser idênticas',
+      }),
   })
 
   type FormProps = z.infer<typeof formSchema>

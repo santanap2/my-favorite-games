@@ -2,7 +2,7 @@ import { api } from './api'
 import * as jwt from 'jsonwebtoken'
 
 export const setTokenToHeaders = (token: string) =>
-  (api.defaults.headers.common.Authorization = token)
+  (api.defaults.headers.common.Authorization = `Bearer ${token}`)
 
 export const removeTokenFromHeaders = () =>
   delete api.defaults.headers.common.Authorization
