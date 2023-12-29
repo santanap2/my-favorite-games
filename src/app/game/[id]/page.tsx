@@ -5,15 +5,17 @@
 import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralFilters from '@/components/LateralFilters'
 import GamesPlatformContext from '@/context/Context'
+import { games } from '@/data/games'
 import {
   getUserLocalStorage,
   pageTitle,
   portionPrice,
   priceToBRL,
 } from '@/helpers'
-import { IGame, IGameIDParams } from '@/interfaces'
-import { addItemToCart, getGamesFiltered } from '@/services'
+import { IGameIDParams } from '@/interfaces'
+import { addItemToCart } from '@/services'
 import { buyOneItem } from '@/services/cart.requests'
+import { getGame } from '@/services/games.requests'
 import {
   ArrowUUpLeft,
   CaretDown,
@@ -23,6 +25,7 @@ import {
   PlusCircle,
   ShoppingCartSimple,
 } from '@phosphor-icons/react'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
@@ -43,22 +46,16 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   })
 
   const [isFavorite, setIsFavorite] = useState(false)
-  const [games, setGames] = useState<IGame[]>([])
 
   const router = useRouter()
   const userLocalStorage = getUserLocalStorage()
-  const game = games.find((one) => one.id === Number(id))
 
-  const fetchData = async () => {
-    const response = await getGamesFiltered().catch((error) => {
-      if (error.response.status === 404) {
-        console.log(error.response.message)
-      }
-      console.log(error.response.data.data)
-    })
+  const { data, refetch } = useQuery({
+    queryKey: ['product'],
+    queryFn: async () => await getGame(id),
+  })
 
-    if (response?.data.data) setGames(response.data.data)
-  }
+  const game = data?.data.data
 
   const clickExpandMenu = (menu: string) => {
     if (menu === 'description')
@@ -69,7 +66,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
   useEffect(() => {
     setShowMenu({ ...showMenu, filters: false })
-    fetchData()
+    refetch()
   }, [])
 
   if (!game)
@@ -95,7 +92,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
-      <title>{`${pageTitle} - ${name}`}</title>
+      <title>{`${name} - ${pageTitle}`}</title>
       <LateralFilters />
       <div className="w-full h-full">
         <div className="flex items-center gap-1 w-fit sm:w-full sm:text-xs">
@@ -111,7 +108,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             onClick={() =>
               setFilteredProducts(games.filter((item) => item.genre === genre))
             }
-            href={`/home`}
+            href={`/home?${genre}=true`}
             className="text-zinc-500 hover:text-indigo-400"
           >
             {genrePt}

@@ -15,6 +15,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { CSSTransition } from 'react-transition-group'
 import { getUserLocalStorage } from '@/helpers'
 import { getUserCart } from '@/services'
+import { useQuery } from '@tanstack/react-query'
 
 export default function Header() {
   const {
@@ -26,7 +27,6 @@ export default function Header() {
     setShowSearchInputMobile,
     screenSize,
     loading,
-    setLoading,
   } = useContext(GamesPlatformContext)
 
   const [hoverBtn, setHoverBtn] = useState({
@@ -35,8 +35,6 @@ export default function Header() {
     cart: false,
     menu: false,
   })
-
-  const [userCart, setUserCart] = useState([])
 
   const pathname = usePathname()
   const router = useRouter()
@@ -52,18 +50,13 @@ export default function Header() {
     handleFormMobileSubmit,
   } = HeaderHooks()
 
-  const fetchData = async () => {
-    const userCartResponse = await getUserCart(userLocalStorage.token)
-
-    if (userCartResponse && userCartResponse.data) {
-      const userCart = userCartResponse.data.data?.products || []
-      setUserCart(userCart)
-    }
-    setLoading({ ...loading, cart: false })
-  }
+  const { data, refetch } = useQuery({
+    queryKey: ['cart'],
+    queryFn: async () => await getUserCart(userLocalStorage.token),
+  })
 
   useEffect(() => {
-    fetchData()
+    refetch()
   }, [loading.cart])
 
   const clickMenu = () => {
@@ -197,7 +190,7 @@ export default function Header() {
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
         <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
-          {userCart.length}
+          {data?.data.data.products.length}
         </span>
       </button>
 
@@ -245,7 +238,7 @@ export default function Header() {
             }
           />
           <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
-            {userCart.length}
+            {data?.data.data.products.length}
           </span>
         </button>
       </div>

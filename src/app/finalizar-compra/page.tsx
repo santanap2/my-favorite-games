@@ -13,12 +13,12 @@ import {
 import { IGame } from '@/interfaces'
 import { getUserCart } from '@/services'
 import { Wallet } from '@phosphor-icons/react'
+import { useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 export default function FinalizarCompra() {
-  const [userCart, setUserCart] = useState<IGame[]>([])
-  const { screenSize, loading, setLoading } = useContext(GamesPlatformContext)
+  const { screenSize } = useContext(GamesPlatformContext)
   const router = useRouter()
   const userLocalStorage = getUserLocalStorage()
 
@@ -31,15 +31,14 @@ export default function FinalizarCompra() {
     return name
   }
 
-  const fetchData = async () => {
-    const userCart = await getUserCart(userLocalStorage.token)
-    setUserCart(userCart.data.data.products)
-    setLoading({ ...loading, cart: !loading.cart })
-  }
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ['cart'],
+    queryFn: async () => await getUserCart(userLocalStorage.token),
+  })
 
   useEffect(() => {
-    fetchData()
-  }, [loading.cart])
+    refetch()
+  }, [isLoading])
 
   return (
     <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6">
@@ -56,40 +55,42 @@ export default function FinalizarCompra() {
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
         <div className="w-[70%] bg-white rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
-          {userCart.map(({ genrePt, id, image, name, price }: IGame) => (
-            <div
-              key={id}
-              className="flex items-center w-full gap-3 border-b p-4 lg:p-2"
-            >
-              <img
-                src={image}
-                alt={name}
-                className="w-32 h-48 object-cover rounded lg:w-28 lg:h-44"
-              />
+          {data?.data.data.products.map(
+            ({ genrePt, id, image, name, price }: IGame) => (
+              <div
+                key={id}
+                className="flex items-center w-full gap-3 border-b p-4 lg:p-2"
+              >
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-32 h-48 object-cover rounded lg:w-28 lg:h-44"
+                />
 
-              <div className="flex flex-col justify-between items-start w-full h-48 lg:h-44">
-                <div className="flex flex-col gap-0 items-start justify-center w-full">
-                  <h1 className="font-bold text-lg tracking-tight lg:text-base lg:font-semibold lg:w-full">
-                    {calcNameSlice(name)}
-                  </h1>
-                  <h3 className="font-semibold text-sm lg:font-light lg:w-full">
-                    {genrePt}
-                  </h3>
+                <div className="flex flex-col justify-between items-start w-full h-48 lg:h-44">
+                  <div className="flex flex-col gap-0 items-start justify-center w-full">
+                    <h1 className="font-bold text-lg tracking-tight lg:text-base lg:font-semibold lg:w-full">
+                      {calcNameSlice(name)}
+                    </h1>
+                    <h3 className="font-semibold text-sm lg:font-light lg:w-full">
+                      {genrePt}
+                    </h3>
+                  </div>
+                  <div className="flex flex-col text-zinc-500 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-black">
+                    <span>No PIX com 10% de desconto</span>
+                    <span>{`Ou em até 3x de R$${portionPrice(
+                      price,
+                      3,
+                    )} sem juros no cartão de crédito`}</span>
+                  </div>
                 </div>
-                <div className="flex flex-col text-zinc-500 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-black">
-                  <span>No PIX com 10% de desconto</span>
-                  <span>{`Ou em até 3x de R$${portionPrice(
-                    price,
-                    3,
-                  )} sem juros no cartão de crédito`}</span>
-                </div>
+
+                <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-indigo-500 lg:text-sm lg:text-right lg:w-20">
+                  {`R$ ${priceToBRL(price)}`}
+                </h2>
               </div>
-
-              <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-indigo-500 lg:text-sm lg:text-right lg:w-20">
-                {`R$ ${priceToBRL(price)}`}
-              </h2>
-            </div>
-          ))}
+            ),
+          )}
         </div>
 
         <div className="bg-white rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
@@ -100,10 +101,10 @@ export default function FinalizarCompra() {
           <div className="text-zinc-700 lg:text-sm">
             <span>Valor total: </span>
             <span className="font-semibold">{`R$ ${
-              calcSum(userCart).string
+              calcSum(data?.data.data.products || []).string
             }`}</span>
             <h3 className="w-full text-end text-zinc-500 text-sm font-light">{`(Em até 3x de R$${priceToBRL(
-              calcSum(userCart).number / 3,
+              calcSum(data?.data.data.products || []).number / 3,
             )})`}</h3>
           </div>
 
@@ -113,12 +114,14 @@ export default function FinalizarCompra() {
               <span className="font-semibold">{` PIX`}</span>
             </div>
             <span className="text-3xl font-extrabold mt-2">
-              {`R$ ${priceToBRL(calcSum(userCart).number * 0.9)}`}
+              {`R$ ${priceToBRL(
+                calcSum(data?.data.data.products || []).number * 0.9,
+              )}`}
             </span>
             <div className="text-xs font-light">
               <span>{`Economia de: `}</span>
               <span className="font-bold">{`R$ ${priceToBRL(
-                calcSum(userCart).number * 0.1,
+                calcSum(data?.data.data.products || []).number * 0.1,
               )}`}</span>
             </div>
           </div>

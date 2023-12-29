@@ -17,26 +17,24 @@ import {
   Phone,
   Warning,
 } from '@phosphor-icons/react'
-import React, { useContext, useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import React, { useContext, useEffect } from 'react'
 
 export default function MeusDados() {
-  const [userData, setUserData] = useState<IPayloadJWT>()
-  const { screenSize, loading, userDataResponse, setUserDataResponse } =
+  const { screenSize, loading, userDataResponse } =
     useContext(GamesPlatformContext)
 
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
   const { id }: IPayloadJWT = getUserLocalStorage()
 
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ['userData'],
+    queryFn: () => getUser(id),
+  })
+
   useEffect(() => {
-    const fetchData = async () => {
-      const {
-        data: { data },
-      } = await getUser(id)
-      if (data) setUserData(data)
-    }
-    setUserDataResponse({ error: '', success: '' })
-    fetchData()
+    refetch()
   }, [])
 
   return (
@@ -76,7 +74,9 @@ export default function MeusDados() {
                   className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                     errors.userData?.name && 'border border-red-300'
                   }`}
-                  placeholder={userData?.name}
+                  placeholder={
+                    isLoading ? 'Carregando...' : data?.data.data.name
+                  }
                 />
                 {errors.userData?.name && (
                   <span className="text-sm font-light text-red-500">
@@ -104,7 +104,7 @@ export default function MeusDados() {
                     className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                       errors.userData?.currentEmail && 'border border-red-300'
                     }`}
-                    value={userData?.email}
+                    value={isLoading ? 'Carregando...' : data?.data.data.email}
                   />
                   {errors.userData?.currentEmail && (
                     <span className="text-sm font-light text-red-500">
@@ -157,7 +157,9 @@ export default function MeusDados() {
                     className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
                       errors.userData?.phone && 'border border-red-300'
                     }`}
-                    placeholder={userData?.phone}
+                    placeholder={
+                      isLoading ? 'Carregando...' : data?.data.data.phone
+                    }
                   />
                   {errors.userData?.phone && (
                     <span className="text-sm font-light text-red-500">

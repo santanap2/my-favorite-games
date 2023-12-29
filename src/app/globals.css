@@ -116,7 +116,7 @@ input[type=number] {
   ) rgb(228 228 231);
   background-size: 200% 100%;
   background-position-x: 180%;
-  animation: 0.4s loading ease-in-out infinite;
+  animation: 0.8s loading ease-in-out infinite;
 }
 
 @keyframes loading {

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ProductCard from '@/components/ProductCard'
 import GamesPlatformContext from '@/context/Context'
 import { useSearchParams } from 'next/navigation'
@@ -11,6 +11,7 @@ import { getGamesFiltered } from '@/services'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton'
 import NotFoundProducts from '@/components/NotFoundProducts'
 import LateralFilters from '@/components/LateralFilters'
+import { useQuery } from '@tanstack/react-query'
 
 export default function Home({ searchParams }: ISearchParams) {
   const {
@@ -22,27 +23,18 @@ export default function Home({ searchParams }: ISearchParams) {
     setShowMenu,
   } = useContext(GamesPlatformContext)
 
-  const [gamesAPI, setGamesAPI] = useState<IGame[]>([])
-  const [notFoundGames, setNotFoundGames] = useState<boolean>(false)
-
   const headerSearch = useSearchParams().get('busca')
   const queryParams = new URLSearchParams(searchParams).toString()
 
-  const fetchData = async () => {
-    const response = await getGamesFiltered(
-      new URLSearchParams(queryParams).toString(),
-    ).catch((error) => {
-      if (error.response.status === 404) {
-        setNotFoundGames(true)
-      }
-      setGamesAPI(error.response.data.data)
-    })
-
-    if (response?.data.data) setGamesAPI(response.data.data)
-  }
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () =>
+      await getGamesFiltered(new URLSearchParams(queryParams).toString()),
+  })
 
   useEffect(() => {
-    fetchData()
+    refetch()
+    setShowMenu({ myAccount: false, filters: true })
     if (screenSize < 1280) setShowMenu({ myAccount: false, filters: false })
     setShowSearchInputMobile(false)
     setRegisterResponse({ error: '', success: '' })
@@ -58,29 +50,16 @@ export default function Home({ searchParams }: ISearchParams) {
       <div className="flex justify-center items-center w-full">
         <div
           className={`${
-            notFoundGames
+            data?.data.data.length === 0
               ? 'flex items-center justify-center'
               : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
           }`}
         >
-          {notFoundGames ? (
+          {data?.data.data.length === 0 ? (
             <NotFoundProducts />
           ) : (
             <>
-              {gamesAPI.length > 0 ? (
-                gamesAPI.map((game: IGame) => (
-                  <ProductCard
-                    key={game.id}
-                    name={game.name}
-                    id={game.id}
-                    genre={game.genre}
-                    genrePt={game.genrePt}
-                    price={game.price}
-                    image={game.image}
-                    description={game.description}
-                  />
-                ))
-              ) : (
+              {isLoading ? (
                 <>
                   <ProductCardSkeleton />
                   <ProductCardSkeleton />
@@ -93,6 +72,19 @@ export default function Home({ searchParams }: ISearchParams) {
                   <ProductCardSkeleton />
                   <ProductCardSkeleton />
                 </>
+              ) : (
+                data?.data.data.map((game: IGame) => (
+                  <ProductCard
+                    key={game.id}
+                    name={game.name}
+                    id={game.id}
+                    genre={game.genre}
+                    genrePt={game.genrePt}
+                    price={game.price}
+                    image={game.image}
+                    description={game.description}
+                  />
+                ))
               )}
             </>
           )}
