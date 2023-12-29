@@ -4,27 +4,25 @@
 import CreditCardForm from '@/components/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
 import { calcSum, getUserLocalStorage, pageTitle, priceToBRL } from '@/helpers'
-import { IGame } from '@/interfaces'
 import { getUserCart } from '@/services'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
-import React, { useContext, useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import React, { useContext, useEffect } from 'react'
 
 export default function Pagamento() {
-  const { paymentMethod, setPaymentMethod, screenSize, loading, setLoading } =
+  const { paymentMethod, setPaymentMethod, screenSize } =
     useContext(GamesPlatformContext)
 
-  const [userCart, setUserCart] = useState<IGame[]>([])
   const userLocalStorage = getUserLocalStorage()
 
-  const fetchData = async () => {
-    const userCart = await getUserCart(userLocalStorage.token)
-    setUserCart(userCart.data.data.products)
-    setLoading({ ...loading, cart: !loading.cart })
-  }
+  const { data, refetch, isLoading } = useQuery({
+    queryKey: ['cart'],
+    queryFn: async () => await getUserCart(userLocalStorage.token),
+  })
 
   useEffect(() => {
-    fetchData()
-  }, [loading.cart])
+    refetch()
+  }, [isLoading])
 
   const pickPaymentMethod = (payment: string) => {
     switch (payment) {
@@ -233,11 +231,15 @@ export default function Pagamento() {
 
             {paymentMethod.creditCard ? (
               <span className="text-3xl font-extrabold mt-2 sm:text-2xl">
-                {`R$ ${priceToBRL(calcSum(userCart).number)}`}
+                {`R$ ${priceToBRL(
+                  calcSum(data?.data.data.products || []).number,
+                )}`}
               </span>
             ) : (
               <span className="text-3xl font-extrabold mt-2 sm:text-2xl">
-                {`R$ ${priceToBRL(calcSum(userCart).number * 0.9)}`}
+                {`R$ ${priceToBRL(
+                  calcSum(data?.data.data.products || []).number * 0.9,
+                )}`}
               </span>
             )}
 
@@ -245,7 +247,7 @@ export default function Pagamento() {
               <div className="text-xs font-light">
                 <span>{`Economia de: `}</span>
                 <span className="font-bold">{`R$ ${priceToBRL(
-                  calcSum(userCart).number * 0.1,
+                  calcSum(data?.data.data.products || []).number * 0.1,
                 )}`}</span>
               </div>
             )}

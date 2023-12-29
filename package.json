@@ -11,6 +11,9 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@phosphor-icons/react": "^2.0.14",
+    "@tanstack/react-query": "^5.15.0",
+    "@tanstack/react-query-devtools": "^5.15.0",
+    "@tanstack/react-query-next-experimental": "^5.15.0",
     "axios": "^1.6.2",
     "jsonwebtoken": "^9.0.2",
     "next": "14.0.2",

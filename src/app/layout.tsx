@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ContextGamesPlatform } from '@/context/Provider'
 import ShoppingCart from '@/components/ShoppingCart'
+import QueryProvider from '@/context/QueryProvider'
 
 const quicksand = Quicksand({ subsets: ['latin'] })
 
@@ -20,13 +21,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <html lang="en">
         <body className={`${quicksand.className} bg-zinc-50 overflow-x-hidden`}>
           <div className="flex w-full items-center justify-start flex-col">
-            <Header />
-            <ShoppingCart />
             <div className="flex flex-col min-h-screen justify-between items-center w-full">
               <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
-                {children}
+                <QueryProvider>
+                  <Header />
+                  <ShoppingCart />
+                  {children}
+                  <Footer />
+                </QueryProvider>
               </div>
-              <Footer />
             </div>
           </div>
         </body>
