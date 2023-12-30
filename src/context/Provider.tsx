@@ -5,6 +5,7 @@ import { IChildren, IUserOrders } from '@/interfaces'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
 import GamesPlatformContext from './Context'
+import { getUserByToken } from '@/services/user.requests'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0
@@ -55,6 +56,8 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [loginResponse, setLoginResponse] = useState({ error: '', success: '' })
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => setScreenSize(window.innerWidth))
@@ -64,6 +67,17 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
         )
       }
     }
+  }, [])
+
+  useEffect(() => {
+    const checkUserAuthentication = async () => {
+      const response = await getUserByToken().catch((error) => {
+        if (error) setIsAuthenticated(false)
+      })
+      if (response && response.status === 200) setIsAuthenticated(true)
+    }
+
+    checkUserAuthentication()
   }, [])
 
   const contextValues = {
@@ -105,6 +119,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     loginResponse,
     setLoginResponse,
+
+    isAuthenticated,
+    setIsAuthenticated,
   }
 
   return (

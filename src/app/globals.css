@@ -95,6 +95,7 @@ input[type=number] {
   aspect-ratio: 1;
   border-radius: 50%;
   background: white;
+  /* background: rgb(99 102 241); */
   --_m: 
     conic-gradient(#0000 10%,#000),
     linear-gradient(#000 0 0) content-box;

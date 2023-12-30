@@ -6,6 +6,7 @@ import { HeaderSearch, PaymentMethod } from '@/types'
 import { createContext } from 'react'
 import orders from '@/data/userOrders'
 import { games } from '@/data/games'
+import { getUserByToken } from '@/services/user.requests'
 
 const initialValueContext = {
   headerSearch: { headerInput: '' },
@@ -58,6 +59,9 @@ const initialValueContext = {
 
   loginResponse: { error: '', success: '' },
   setLoginResponse: (state: IResponseState) => {},
+
+  isAuthenticated: false,
+  setIsAuthenticated: (state: boolean) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

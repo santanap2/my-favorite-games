@@ -16,6 +16,7 @@ import { CSSTransition } from 'react-transition-group'
 import { getUserLocalStorage } from '@/helpers'
 import { getUserCart } from '@/services'
 import { useQuery } from '@tanstack/react-query'
+import { getUserByToken } from '@/services/user.requests'
 
 export default function Header() {
   const {
@@ -27,6 +28,7 @@ export default function Header() {
     setShowSearchInputMobile,
     screenSize,
     loading,
+    isAuthenticated,
   } = useContext(GamesPlatformContext)
 
   const [hoverBtn, setHoverBtn] = useState({
@@ -50,13 +52,23 @@ export default function Header() {
     handleFormMobileSubmit,
   } = HeaderHooks()
 
-  const { data, refetch } = useQuery({
+  const { data: cartData, refetch: cartRefetch } = useQuery({
     queryKey: ['cart'],
     queryFn: async () => await getUserCart(userLocalStorage.token),
   })
 
+  const {
+    data: userData,
+    isLoading: userIsLoading,
+    refetch: userRefetch,
+  } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+  })
+
   useEffect(() => {
-    refetch()
+    userRefetch()
+    cartRefetch()
   }, [loading.cart])
 
   const clickMenu = () => {
@@ -157,7 +169,7 @@ export default function Header() {
           </form>
 
           <Link
-            href={userLocalStorage ? '/minha-conta' : '/login'}
+            href={isAuthenticated ? '/minha-conta' : '/login'}
             className="flex items-center justify-center hover:underline xl:hidden"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, user: true }))
@@ -167,8 +179,10 @@ export default function Header() {
             }
           >
             <span className="uppercase font-semibold text-xs">
-              {userLocalStorage
-                ? userLocalStorage.name.split(' ')[0]
+              {isAuthenticated
+                ? userIsLoading
+                  ? 'Carregando...'
+                  : userData?.data.data.name.split(' ')[0]
                 : 'Entrar'}
             </span>
             <UserCircle
@@ -190,8 +204,8 @@ export default function Header() {
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
         <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
-          {data?.data.data.products.length
-            ? data?.data.data.products.length
+          {cartData?.data.data.products.length
+            ? cartData?.data.data.products.length
             : '0'}
         </span>
       </button>
@@ -212,11 +226,15 @@ export default function Header() {
           </button>
         )}
         <Link
-          href="/login"
+          href={isAuthenticated ? '/minha-conta' : '/login'}
           className="flex items-center justify-center hover:underline"
         >
           <span className="uppercase font-semibold text-xs sm:hidden">
-            {userLocalStorage ? userLocalStorage.name.split(' ')[0] : 'Entrar'}
+            {isAuthenticated
+              ? userIsLoading
+                ? 'Carregando...'
+                : userData?.data.data.name.split(' ')[0]
+              : 'Entrar'}
           </span>
           <UserCircle
             size={30}
@@ -240,8 +258,8 @@ export default function Header() {
             }
           />
           <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
-            {data?.data.data.products.length
-              ? data?.data.data.products.length
+            {cartData?.data.data.products.length
+              ? cartData?.data.data.products.length
               : '0'}
           </span>
         </button>

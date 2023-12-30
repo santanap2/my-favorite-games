@@ -1,30 +1,33 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import LoadingSpinner from '@/components/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
-import { pageTitle, removeUserLocalStorage } from '@/helpers'
-import { logoutAuthCookie } from '@/helpers/cookies'
-import { removeTokenFromHeaders } from '@/services'
+import { pageTitle } from '@/helpers'
+import { requestLogout } from '@/services/user.requests'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Logout() {
   const router = useRouter()
-  const { setLoginResponse } = useContext(GamesPlatformContext)
+  const { setLoginResponse, setIsAuthenticated } =
+    useContext(GamesPlatformContext)
 
   useEffect(() => {
-    removeUserLocalStorage()
-    removeTokenFromHeaders()
-    logoutAuthCookie()
+    requestLogout()
+    setIsAuthenticated(false)
     setLoginResponse({ error: '', success: '' })
-    router.push('/home')
-  }, [router, setLoginResponse])
+
+    setTimeout(() => {
+      router.push('/home')
+    }, 500)
+  }, [])
 
   return (
-    <div className="mt-24 xxl:mt-20">
+    <div className="mt-24 xxl:mt-20 w-full flex flex-col items-center justify-center gap-4 h-[400px]">
       <title>{`${pageTitle} - Sair`}</title>
-      <div>Saindo...</div>
       <LoadingSpinner />
+      <span className="text-lg font-semibold">Fazendo logout...</span>
     </div>
   )
 }

@@ -6,11 +6,13 @@ import SingleOrder from '@/components/SingleOrder'
 import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
-import { getUserLocalStorage, pageTitle } from '@/helpers'
-import { IGame, IPayloadJWT } from '@/interfaces'
+import { pageTitle } from '@/helpers'
+import { IGame } from '@/interfaces'
+import { getUserByToken } from '@/services/user.requests'
 import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 export default function MinhaConta() {
   const { screenSize } = useContext(GamesPlatformContext)
@@ -24,11 +26,20 @@ export default function MinhaConta() {
     order.items.forEach((game) => allGames.push(game)),
   )
 
-  const userLocalStorage: IPayloadJWT = getUserLocalStorage()
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+  })
+
+  useEffect(() => {
+    refetch()
+  }, [])
 
   return (
     <div className="w-full">
-      <title>{`${pageTitle} - Minha conta`}</title>
+      <title>{`${
+        isLoading ? 'Minha conta' : data?.data.data.name
+      } - ${pageTitle}`}</title>
 
       <LateralMyAccount />
       <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start">
@@ -43,7 +54,7 @@ export default function MinhaConta() {
               <h1 className="font-regular text-xl lg:text-base">
                 Olá{' '}
                 <strong className="font-bold text-2xl lg:text-xl">
-                  {userLocalStorage.name}
+                  {isLoading ? 'Carregando...' : data?.data.data.name}
                 </strong>
                 , bem vindo(a) de volta!
               </h1>
@@ -53,7 +64,7 @@ export default function MinhaConta() {
                   weight="fill"
                   className="text-indigo-500"
                 />
-                {userLocalStorage.email}
+                {isLoading ? 'Carregando...' : data?.data.data.email}
               </h2>
             </div>
           </div>

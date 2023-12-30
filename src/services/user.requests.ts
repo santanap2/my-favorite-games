@@ -21,7 +21,17 @@ export const getUserByEmail = async (email: string) => {
   return result
 }
 
+export const getUserByToken = async () => {
+  const result = await api.get('/get-user-by-token')
+  return result
+}
+
 export const requestLogin = async ({ email, password }: IUser) => {
   const result = await api.post('/login', { email, password })
+  return result
+}
+
+export const requestLogout = async () => {
+  const result = await api.post('/logout')
   return result
 }

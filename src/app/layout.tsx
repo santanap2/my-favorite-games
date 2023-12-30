@@ -27,9 +27,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <Header />
                   <ShoppingCart />
                   {children}
-                  <Footer />
                 </QueryProvider>
               </div>
+              <Footer />
             </div>
           </div>
         </body>
