@@ -53,6 +53,7 @@ export default function Header() {
   const { data: cartData, refetch: cartRefetch } = useQuery({
     queryKey: ['cart'],
     queryFn: async () => await getUserCart(),
+    retry: false,
   })
 
   const {
@@ -62,6 +63,7 @@ export default function Header() {
   } = useQuery({
     queryKey: ['userData'],
     queryFn: async () => await getUserByToken(),
+    retry: false,
   })
 
   useEffect(() => {

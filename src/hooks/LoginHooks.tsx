@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LoginHooks() {
-  const { setLoginResponse, setIsAuthenticated } =
+  const { setLoginResponse, setIsAuthenticated, loading, setLoading } =
     useContext(GamesPlatformContext)
   const router = useRouter()
 
@@ -42,15 +42,19 @@ export default function LoginHooks() {
   })
 
   const handleFormSubmit = async (data: FormProps) => {
+    setLoading({ ...loading, login: true })
+
     const response = await requestLogin(data.login).catch((error) => {
       if (error) {
         setLoginResponse({ error: error.response.data.message, success: '' })
+        setLoading({ ...loading, login: false })
       }
     })
 
     if (response && response.status === 200) {
       setLoginResponse({ error: '', success: response.data.message })
       setIsAuthenticated(true)
+      setLoading({ ...loading, login: false })
 
       router.push('/minha-conta')
     }

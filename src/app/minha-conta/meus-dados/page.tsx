@@ -28,6 +28,8 @@ export default function MeusDados() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['userData'],
     queryFn: () => getUserByToken(),
+    retry: false,
+    staleTime: 1000 * 60 * 3, // 3 minutes
   })
 
   useEffect(() => {

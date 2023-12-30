@@ -23,6 +23,7 @@ export default function ShoppingCart() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['cart'],
     queryFn: async () => await getUserCart(),
+    retry: false,
   })
 
   return (

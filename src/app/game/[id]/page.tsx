@@ -47,6 +47,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   const { data, refetch } = useQuery({
     queryKey: ['product'],
     queryFn: async () => await getGame(id),
+    retry: false,
+    staleTime: 1000 * 60 * 3, // 3 minutes
   })
 
   const game = data?.data.data

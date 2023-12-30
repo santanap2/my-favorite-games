@@ -26,21 +26,26 @@ export default function Home({ searchParams }: ISearchParams) {
   const headerSearch = useSearchParams().get('busca')
   const queryParams = new URLSearchParams(searchParams).toString()
 
-  const { data, isLoading, refetch } = useQuery({
+  const { data, isLoading, refetch, error } = useQuery({
     queryKey: ['products'],
     queryFn: async () =>
       await getGamesFiltered(new URLSearchParams(queryParams).toString()),
+    retry: false,
+    staleTime: 1000 * 60 * 3, // 3 minutes
   })
 
   useEffect(() => {
     refetch()
+  }, [queryParams])
+
+  useEffect(() => {
     setShowMenu({ myAccount: false, filters: true })
     if (screenSize < 1280) setShowMenu({ myAccount: false, filters: false })
     setShowSearchInputMobile(false)
     setRegisterResponse({ error: '', success: '' })
     setUserDataResponse({ error: '', success: '' })
     setLoginResponse({ error: '', success: '' })
-  }, [queryParams])
+  }, [])
 
   return (
     <div className="mt-24 xxl:mt-20 w-full">
@@ -50,12 +55,12 @@ export default function Home({ searchParams }: ISearchParams) {
       <div className="flex justify-center items-center w-full">
         <div
           className={`${
-            data?.data.data.length === 0
+            error?.message === 'Request failed with status code 404'
               ? 'flex items-center justify-center'
               : 'grid grid-cols-5 gap-x-9 gap-y-6 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
           }`}
         >
-          {data?.data.data.length === 0 ? (
+          {error?.message === 'Request failed with status code 404' ? (
             <NotFoundProducts />
           ) : (
             <>

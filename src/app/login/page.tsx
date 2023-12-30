@@ -8,6 +8,7 @@ import { pageTitle } from '@/helpers'
 import Link from 'next/link'
 import LoginHooks from '@/hooks/LoginHooks'
 import { CheckFat, Warning } from '@phosphor-icons/react'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 export default function Login() {
   const {
@@ -15,10 +16,10 @@ export default function Login() {
     setRegisterResponse,
     setLoginResponse,
     isAuthenticated,
+    loading,
   } = useContext(GamesPlatformContext)
   const router = useRouter()
 
-  console.log(isAuthenticated)
   const { handleSubmit, register, errors, handleFormSubmit } = LoginHooks()
 
   useEffect(() => {
@@ -97,9 +98,9 @@ export default function Login() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-teal-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
+            className="w-80 h-10 flex items-center justify-center bg-teal-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
           >
-            Entrar
+            {loading.login ? <LoadingSpinner /> : 'Entrar'}
           </button>
           {loginResponse.success && (
             <div className="w-full text-sm text-teal-500 font-semibold flex gap-4 items-center justify-center">
