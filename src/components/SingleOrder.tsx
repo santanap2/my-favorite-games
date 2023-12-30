@@ -14,7 +14,33 @@ export default function SingleOrder({
 }: ILastOrderDetail) {
   const { screenSize } = useContext(GamesPlatformContext)
 
-  const setStatusColor = (status: string) => {
+  const convertPaymentMethod = (method: string) => {
+    switch (method) {
+      case 'bankSlip':
+        return 'Boleto bancário'
+
+      case 'creditCard':
+        return 'Cartão de crédito'
+
+      case 'PIX':
+        return 'PIX'
+
+      default:
+        return 'PIX'
+    }
+  }
+
+  const convertDate = (date: Date) => {
+    const newDate = new Date(date)
+    const day = String(newDate.getDate()).padStart(2, '0')
+    const month = String(newDate.getMonth() + 1).padStart(2, '0')
+    const year = String(newDate.getFullYear())
+    const formattedDate = `${day}/${month}/${year}`
+
+    return formattedDate
+  }
+
+  const setStatusColor = (status?: string | null) => {
     if (status === 'concluded')
       return (
         <td className="py-3 px-4 w-52 text-sm text-green-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
@@ -68,14 +94,14 @@ export default function SingleOrder({
 
             {setStatusColor(status)}
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
-              {date.toLocaleDateString('pt-BR')}
+              {convertDate(date)}
             </td>
             <td className="py-3 px-4 w-52 text-teal-400 font-semibold text-sm xxl:p-1 xxl:w-20">
-              {payment}
+              {convertPaymentMethod(payment)}
             </td>
-            <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">{`R$ ${priceToBRL(
-              price,
-            )}`}</td>
+            <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
+              {`R$ ${priceToBRL(price)}`}
+            </td>
           </tr>
         </tbody>
       </table>

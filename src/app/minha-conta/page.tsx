@@ -2,12 +2,14 @@
 'use client'
 
 import LateralMyAccount from '@/components/LateralMyAccount'
+import LoadingSpinner from '@/components/LoadingSpinner'
 import SingleOrder from '@/components/SingleOrder'
 import UserOrderCard from '@/components/UserOrderCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
 import { pageTitle } from '@/helpers'
 import { IGame } from '@/interfaces'
+import { getUserOrders } from '@/services/orders.requests'
 import { getUserByToken } from '@/services/user.requests'
 import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
@@ -17,28 +19,52 @@ import React, { useContext, useEffect } from 'react'
 export default function MinhaConta() {
   const { screenSize } = useContext(GamesPlatformContext)
 
-  const { orderNumber, price, status, date, payment, items } =
-    orders[orders.length - 1]
-
   const allGames: IGame[] = []
   const concludedOrders = orders.filter((item) => item.status === 'concluded')
   concludedOrders.forEach((order) =>
     order.items.forEach((game) => allGames.push(game)),
   )
 
-  const { data, isLoading, refetch } = useQuery({
+  const {
+    data: userData,
+    isLoading: userIsLoading,
+    refetch: userRefetch,
+  } = useQuery({
     queryKey: ['userData'],
     queryFn: async () => await getUserByToken(),
+    retry: false,
   })
 
+  const {
+    data: ordersData,
+    isLoading: ordersIsLoading,
+    refetch: ordersRefetch,
+  } = useQuery({
+    queryKey: ['userOrders'],
+    queryFn: async () => await getUserOrders(),
+    retry: false,
+  })
+
+  console.log(ordersData?.data.data[ordersData?.data.data.length - 1])
+
+  // const {
+  //   id,
+  //   payment_method: paymentMethod,
+  //   created_at: createdAt,
+  //   products,
+  //   status,
+  //   value,
+  // } = ordersData?.data.data[ordersData?.data.data.length - 1].
+
   useEffect(() => {
-    refetch()
+    userRefetch()
+    ordersRefetch()
   }, [])
 
   return (
     <div className="w-full">
       <title>{`${
-        isLoading ? 'Minha conta' : data?.data.data.name
+        userIsLoading ? 'Minha conta' : userData?.data.data.name
       } - ${pageTitle}`}</title>
 
       <LateralMyAccount />
@@ -54,7 +80,7 @@ export default function MinhaConta() {
               <h1 className="font-regular text-xl lg:text-base">
                 Olá{' '}
                 <strong className="font-bold text-2xl lg:text-xl">
-                  {isLoading ? 'Carregando...' : data?.data.data.name}
+                  {userIsLoading ? 'Carregando...' : userData?.data.data.name}
                 </strong>
                 , bem vindo(a) de volta!
               </h1>
@@ -64,7 +90,7 @@ export default function MinhaConta() {
                   weight="fill"
                   className="text-teal-500"
                 />
-                {isLoading ? 'Carregando...' : data?.data.data.email}
+                {userIsLoading ? 'Carregando...' : userData?.data.data.email}
               </h2>
             </div>
           </div>
@@ -73,15 +99,35 @@ export default function MinhaConta() {
             <span className="font-semibold text-xl lg:text-base">
               Detalhes do seu último pedido
             </span>
-            <SingleOrder
-              key={orderNumber}
-              orderNumber={orderNumber}
-              price={price}
-              date={date}
-              payment={payment}
-              status={status}
-              items={items}
-            />
+            {ordersIsLoading ? (
+              <LoadingSpinner />
+            ) : (
+              <>
+                {ordersData && (
+                  <SingleOrder
+                    orderNumber={
+                      ordersData?.data.data[ordersData?.data.data.length - 1].id
+                    }
+                    price={
+                      ordersData?.data.data[ordersData?.data.data.length - 1]
+                        .value
+                    }
+                    date={
+                      ordersData?.data.data[ordersData?.data.data.length - 1]
+                        .created_at
+                    }
+                    payment={
+                      ordersData?.data.data[ordersData?.data.data.length - 1]
+                        .payment_method
+                    }
+                    status={
+                      ordersData?.data.data[ordersData?.data.data.length - 1]
+                        .status
+                    }
+                  />
+                )}
+              </>
+            )}
           </div>
 
           <div className="w-full flex flex-col gap-4">
