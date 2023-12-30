@@ -46,7 +46,7 @@ export default function ProductCard({
             </h2>
           </div>
 
-          <span className="text-xl font-bold text-indigo-400 sm:text-lg">
+          <span className="text-xl font-bold text-teal-400 sm:text-lg">
             {`R$ ${priceToBRL(price)}`}
           </span>
         </div>
@@ -60,7 +60,7 @@ export default function ProductCard({
             await buyOneItem(id.toString())
             router.push('/finalizar-compra')
           }}
-          className="w-[72.5%] h-9 bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs"
+          className="w-[72.5%] h-9 bg-teal-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-teal-500 transition-all shadow-md  sm:text-xs"
         >
           Comprar
         </button>
@@ -71,7 +71,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="w-1/4 h-9 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs "
+          className="w-1/4 h-9 bg-teal-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-teal-500 transition-all shadow-md sm:text-xs "
         >
           <ShoppingCartSimple
             size={screenSize < 1000 ? 20 : 24}

@@ -105,7 +105,13 @@ input[type=number] {
           mask-composite: subtract;
   animation: s3 1.5s infinite ease-in-out;
 }
+
+.colored {
+  background: rgb(20 184 166);
+}
+
 @keyframes s3 {to{transform: rotate(1turn)}}
+
 
 .loading-skeleton {
   background-color: rgb(228 228 231);

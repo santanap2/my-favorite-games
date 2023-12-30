@@ -26,7 +26,7 @@ export default function Logout() {
   return (
     <div className="mt-24 xxl:mt-20 w-full flex flex-col items-center justify-center gap-4 h-[400px]">
       <title>{`${pageTitle} - Sair`}</title>
-      <LoadingSpinner />
+      <LoadingSpinner colored />
       <span className="text-lg font-semibold">Fazendo logout...</span>
     </div>
   )

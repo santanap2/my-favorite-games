@@ -62,7 +62,7 @@ export default function Login() {
               <span className="text-sm font-semibold">Senha</span>
               <Link
                 href="/redefinir-senha"
-                className="font-light text-sm text-indigo-600 hover:underline"
+                className="font-light text-sm text-teal-600 hover:underline"
               >
                 Esqueci a senha
               </Link>
@@ -97,12 +97,12 @@ export default function Login() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-indigo-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
+            className="w-80 h-10 bg-teal-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
           >
             Entrar
           </button>
           {loginResponse.success && (
-            <div className="w-full text-sm text-indigo-500 font-semibold flex gap-4 items-center justify-center">
+            <div className="w-full text-sm text-teal-500 font-semibold flex gap-4 items-center justify-center">
               <CheckFat size={28} weight="light" />
               <h3>{loginResponse.success}</h3>
             </div>

@@ -47,7 +47,7 @@ export default function RedefinirSenha() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-indigo-400 text-zinc-800 rounded text-md font-regular shadow hover:shadow-lg disabled:opacity-40"
+            className="w-80 h-10 bg-teal-400 text-zinc-800 rounded text-md font-regular shadow hover:shadow-lg disabled:opacity-40"
           >
             Enviar
           </button>

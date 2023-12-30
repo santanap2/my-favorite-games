@@ -44,7 +44,7 @@ export default function UserOrderCard({
             <Heart
               size={28}
               weight={favorited ? 'fill' : 'bold'}
-              className="text-indigo-400"
+              className="text-teal-400"
             />
           </button>
         )}

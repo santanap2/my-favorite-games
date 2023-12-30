@@ -3,7 +3,6 @@ import { api } from './api'
 
 export const getUserByToken = async () => {
   const result = await api.get('/get-user-by-token')
-  console.log(result)
   return result
 }
 
