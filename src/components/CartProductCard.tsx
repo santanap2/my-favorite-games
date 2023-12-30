@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { getUserLocalStorage, priceToBRL } from '@/helpers'
+import { priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { getUserCart, removeItemFromCart } from '@/services'
 import { useQuery } from '@tanstack/react-query'
@@ -12,11 +12,9 @@ export default function CartProductCard({
   genrePt,
   price,
 }: IGame) {
-  const userLocalStorage = getUserLocalStorage() || ''
-
   const { refetch } = useQuery({
     queryKey: ['cart'],
-    queryFn: async () => await getUserCart(userLocalStorage.token),
+    queryFn: async () => await getUserCart(),
   })
 
   return (
@@ -43,7 +41,7 @@ export default function CartProductCard({
             type="button"
             className="text-xs font-regular tracking-wider uppercase underline hover:text-indigo-400"
             onClick={async () => {
-              await removeItemFromCart(userLocalStorage.token, id.toString())
+              await removeItemFromCart(id.toString())
               refetch()
             }}
           >

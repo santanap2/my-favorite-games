@@ -13,7 +13,6 @@ import { List, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname, useRouter } from 'next/navigation'
 import { CSSTransition } from 'react-transition-group'
-import { getUserLocalStorage } from '@/helpers'
 import { getUserCart } from '@/services'
 import { useQuery } from '@tanstack/react-query'
 import { getUserByToken } from '@/services/user.requests'
@@ -41,7 +40,6 @@ export default function Header() {
   const pathname = usePathname()
   const router = useRouter()
   const nodeRef = useRef(null)
-  const userLocalStorage = getUserLocalStorage() || ''
 
   const {
     handleSubmit,
@@ -54,7 +52,7 @@ export default function Header() {
 
   const { data: cartData, refetch: cartRefetch } = useQuery({
     queryKey: ['cart'],
-    queryFn: async () => await getUserCart(userLocalStorage.token),
+    queryFn: async () => await getUserCart(),
   })
 
   const {

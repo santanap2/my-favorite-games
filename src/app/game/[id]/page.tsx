@@ -6,12 +6,7 @@ import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralFilters from '@/components/LateralFilters'
 import GamesPlatformContext from '@/context/Context'
 import { games } from '@/data/games'
-import {
-  getUserLocalStorage,
-  pageTitle,
-  portionPrice,
-  priceToBRL,
-} from '@/helpers'
+import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { addItemToCart } from '@/services'
 import { buyOneItem } from '@/services/cart.requests'
@@ -48,7 +43,6 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   const [isFavorite, setIsFavorite] = useState(false)
 
   const router = useRouter()
-  const userLocalStorage = getUserLocalStorage()
 
   const { data, refetch } = useQuery({
     queryKey: ['product'],
@@ -143,13 +137,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               <button
                 onClick={async () => {
                   setLoading({ ...loading, cart: !loading.cart })
-
-                  if (userLocalStorage) {
-                    await buyOneItem(userLocalStorage.token, id.toString())
-                    router.push('/finalizar-compra')
-                  } else {
-                    router.push('/login')
-                  }
+                  await buyOneItem(id.toString())
+                  router.push('/finalizar-compra')
                 }}
                 className="w-64 h-14 bg-indigo-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
               >
@@ -159,12 +148,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 type="button"
                 onClick={async () => {
                   setLoading({ ...loading, cart: !loading.cart })
-                  if (userLocalStorage) {
-                    await addItemToCart(userLocalStorage.token, id.toString())
-                    setShowCart(true)
-                  } else {
-                    router.push('/login')
-                  }
+                  await addItemToCart(id.toString())
+                  setShowCart(true)
                 }}
                 className="w-14 h-14 bg-indigo-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >

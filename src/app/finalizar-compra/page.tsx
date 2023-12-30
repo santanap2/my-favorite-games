@@ -3,13 +3,7 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import {
-  calcSum,
-  getUserLocalStorage,
-  pageTitle,
-  portionPrice,
-  priceToBRL,
-} from '@/helpers'
+import { calcSum, pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { getUserCart } from '@/services'
 import { Wallet } from '@phosphor-icons/react'
@@ -20,7 +14,6 @@ import React, { useContext, useEffect } from 'react'
 export default function FinalizarCompra() {
   const { screenSize } = useContext(GamesPlatformContext)
   const router = useRouter()
-  const userLocalStorage = getUserLocalStorage()
 
   const calcNameSlice = (name: string) => {
     const small = name.length > 25 ? `${name.slice(0, 25)}...` : name
@@ -33,7 +26,7 @@ export default function FinalizarCompra() {
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['cart'],
-    queryFn: async () => await getUserCart(userLocalStorage.token),
+    queryFn: async () => await getUserCart(),
   })
 
   useEffect(() => {

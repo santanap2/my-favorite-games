@@ -2,7 +2,7 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, getUserLocalStorage } from '@/helpers'
+import { calcSum } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { emptyCart, getUserCart } from '@/services'
 import { Trash, X } from '@phosphor-icons/react'
@@ -14,21 +14,15 @@ import CartProductCard from './CartProductCard'
 import CartProductSkeleton from './CartProductSkeleton'
 
 export default function ShoppingCart() {
-  const { showCart, setShowCart, loading, setLoading } =
+  const { showCart, setShowCart, loading, setLoading, isAuthenticated } =
     useContext(GamesPlatformContext)
 
   const nodeRef = useRef(null)
   const router = useRouter()
-  const userLocalStorage = getUserLocalStorage() || ''
-
-  const finalizePurchase = () => {
-    setShowCart(false)
-    router.push('/finalizar-compra')
-  }
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['cart'],
-    queryFn: async () => await getUserCart(userLocalStorage.token),
+    queryFn: async () => await getUserCart(),
   })
 
   return (
@@ -54,7 +48,7 @@ export default function ShoppingCart() {
                 <button
                   onClick={async () => {
                     setLoading({ ...loading, cart: !loading.cart })
-                    await emptyCart(userLocalStorage.token)
+                    await emptyCart()
                     refetch()
                   }}
                   className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center"
@@ -74,40 +68,47 @@ export default function ShoppingCart() {
           </div>
 
           <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
-            {isLoading ? (
-              <>
-                <CartProductSkeleton />
-                <CartProductSkeleton />
-                <CartProductSkeleton />
-                <CartProductSkeleton />
-              </>
-            ) : data?.data.data.products.length > 0 ? (
-              <div className="w-full h-fit flex flex-col gap-4 pr-4 sm:pr-2 sm:gap-4">
-                {data?.data.data.products.map(
-                  ({
-                    id,
-                    description,
-                    genre,
-                    genrePt,
-                    image,
-                    name,
-                    price,
-                  }: IGame) => (
-                    <>
-                      <CartProductCard
-                        key={id}
-                        id={id}
-                        description={description}
-                        genre={genre}
-                        genrePt={genrePt}
-                        name={name}
-                        image={image}
-                        price={price}
-                      />
-                    </>
-                  ),
-                )}
-              </div>
+            {isAuthenticated ? (
+              isLoading ? (
+                <>
+                  <CartProductSkeleton />
+                  <CartProductSkeleton />
+                  <CartProductSkeleton />
+                </>
+              ) : (
+                <div className="w-full h-fit flex flex-col gap-4 pr-4 sm:pr-2 sm:gap-4">
+                  {data?.data.data.products.length > 0 ? (
+                    data?.data.data.products.map(
+                      ({
+                        id,
+                        description,
+                        genre,
+                        genrePt,
+                        image,
+                        name,
+                        price,
+                      }: IGame) => (
+                        <>
+                          <CartProductCard
+                            key={id}
+                            id={id}
+                            description={description}
+                            genre={genre}
+                            genrePt={genrePt}
+                            name={name}
+                            image={image}
+                            price={price}
+                          />
+                        </>
+                      ),
+                    )
+                  ) : (
+                    <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
+                      <span className="mt-16">Seu carrinho está vazio.</span>
+                    </div>
+                  )}
+                </div>
+              )
             ) : (
               <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
                 <span className="mt-16">Seu carrinho está vazio.</span>
@@ -118,7 +119,10 @@ export default function ShoppingCart() {
               <div className="w-full flex flex-col items-center justify-center gap-3 mb-16">
                 <button
                   type="button"
-                  onClick={finalizePurchase}
+                  onClick={() => {
+                    setShowCart(false)
+                    router.push('/finalizar-compra')
+                  }}
                   className="text-sm uppercase font-bold text-white py-2 bg-indigo-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${

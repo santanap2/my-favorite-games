@@ -3,7 +3,7 @@
 import React, { useContext } from 'react'
 import { ICard } from '@/interfaces'
 import Link from 'next/link'
-import { priceToBRL, getUserLocalStorage } from '@/helpers'
+import { priceToBRL } from '@/helpers'
 import GamesPlatformContext from '@/context/Context'
 import { useRouter } from 'next/navigation'
 import { ShoppingCartSimple, PlusCircle } from '@phosphor-icons/react'
@@ -20,8 +20,6 @@ export default function ProductCard({
   const { setShowCart, screenSize, loading, setLoading } =
     useContext(GamesPlatformContext)
   const router = useRouter()
-
-  const userLocalStorage = getUserLocalStorage()
 
   return (
     <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity">
@@ -59,7 +57,7 @@ export default function ProductCard({
           type="button"
           onClick={async () => {
             setLoading({ ...loading, cart: !loading.cart })
-            await buyOneItem(userLocalStorage.token, id.toString())
+            await buyOneItem(id.toString())
             router.push('/finalizar-compra')
           }}
           className="w-[72.5%] h-9 bg-indigo-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-indigo-500 transition-all shadow-md  sm:text-xs"
@@ -70,7 +68,7 @@ export default function ProductCard({
           type="button"
           onClick={async () => {
             setLoading({ ...loading, cart: !loading.cart })
-            await addItemToCart(userLocalStorage.token, id.toString())
+            await addItemToCart(id.toString())
             setShowCart(true)
           }}
           className="w-1/4 h-9 bg-indigo-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-indigo-500 transition-all shadow-md sm:text-xs "

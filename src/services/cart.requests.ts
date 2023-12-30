@@ -1,40 +1,26 @@
 import { api } from './api'
-import { IPayloadJWT } from '@/interfaces'
-import { decodeToken } from '.'
 
-export const addItemToCart = async (token: string, gameId: string) => {
-  const { id } = decodeToken(token) as IPayloadJWT
-  const result = await api.post(`/add-to-cart/${id}`, { gameId })
+export const addItemToCart = async (gameId: string) => {
+  const result = await api.post('/add-to-cart', { gameId })
   return result
 }
 
-export const buyOneItem = async (token: string, gameId: string) => {
-  const { id } = decodeToken(token) as IPayloadJWT
-  const result = await api.put(`/buy-one-item/${id}`, { gameId })
+export const buyOneItem = async (gameId: string) => {
+  const result = await api.put('/buy-one-item', { gameId })
   return result
 }
 
-export const getUserCart = async (token?: string) => {
-  if (!token) return
-
-  const decodedToken = decodeToken(token) as IPayloadJWT
-
-  if (!decodeToken || !decodedToken.id) return
-
-  const { id } = decodedToken
-
-  const result = await api.get(`/get-user-cart/${id}`)
+export const getUserCart = async () => {
+  const result = await api.get('/get-user-cart')
   return result
 }
 
-export const removeItemFromCart = async (token: string, gameId: string) => {
-  const { id } = decodeToken(token) as IPayloadJWT
-  const result = await api.put(`/remove-from-cart/${id}`, { gameId })
+export const removeItemFromCart = async (gameId: string) => {
+  const result = await api.put('/remove-from-cart', { gameId })
   return result
 }
 
-export const emptyCart = async (token: string) => {
-  const { id } = decodeToken(token) as IPayloadJWT
-  const result = await api.put(`/empty-cart/${id}`)
+export const emptyCart = async () => {
+  const result = await api.put('/empty-cart')
   return result
 }

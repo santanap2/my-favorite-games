@@ -3,7 +3,7 @@
 
 import CreditCardForm from '@/components/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
-import { calcSum, getUserLocalStorage, pageTitle, priceToBRL } from '@/helpers'
+import { calcSum, pageTitle, priceToBRL } from '@/helpers'
 import { getUserCart } from '@/services'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
@@ -13,11 +13,9 @@ export default function Pagamento() {
   const { paymentMethod, setPaymentMethod, screenSize } =
     useContext(GamesPlatformContext)
 
-  const userLocalStorage = getUserLocalStorage()
-
   const { data, refetch, isLoading } = useQuery({
     queryKey: ['cart'],
-    queryFn: async () => await getUserCart(userLocalStorage.token),
+    queryFn: async () => await getUserCart(),
   })
 
   useEffect(() => {
