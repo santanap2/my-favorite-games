@@ -1,18 +1,9 @@
 import { IRegister, IUpdateUserData, IUser } from '@/interfaces'
 import { api } from './api'
 
-export const registerUser = async (data: IRegister) => {
-  const result = await api.post('/register', data)
-  return result
-}
-
-export const updateUser = async (data: IUpdateUserData) => {
-  const result = await api.put('/update-user', data)
-  return result
-}
-
-export const getUser = async (id: number) => {
-  const result = await api.get(`/get-user/${id}`)
+export const getUserByToken = async () => {
+  const result = await api.get('/get-user-by-token')
+  console.log(result)
   return result
 }
 
@@ -21,8 +12,13 @@ export const getUserByEmail = async (email: string) => {
   return result
 }
 
-export const getUserByToken = async () => {
-  const result = await api.get('/get-user-by-token')
+export const registerUser = async (data: IRegister) => {
+  const result = await api.post('/register', data)
+  return result
+}
+
+export const updateUser = async (data: IUpdateUserData) => {
+  const result = await api.put('/update-user', data)
   return result
 }
 

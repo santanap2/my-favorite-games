@@ -4,10 +4,9 @@
 import LateralMyAccount from '@/components/LateralMyAccount'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
-import { getUserLocalStorage, pageTitle } from '@/helpers'
+import { pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'
-import { IPayloadJWT } from '@/interfaces'
-import { getUser } from '@/services'
+import { getUserByToken } from '@/services'
 import {
   CheckFat,
   Envelope,
@@ -26,11 +25,9 @@ export default function MeusDados() {
 
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
-  const { id }: IPayloadJWT = getUserLocalStorage()
-
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['userData'],
-    queryFn: () => getUser(id),
+    queryFn: () => getUserByToken(),
   })
 
   useEffect(() => {

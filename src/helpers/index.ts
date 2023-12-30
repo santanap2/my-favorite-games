@@ -6,16 +6,18 @@ import {
   phoneNumberMask,
   currencyMask,
 } from './masks'
-import {
-  // getCartLocalStorage,
-  // addToCart,
-  // addOnlyOneToCart,
-  // removeFromCart,
-  // emptyCart,
-  addUserLocalStorage,
-  getUserLocalStorage,
-  removeUserLocalStorage,
-} from './localStorage'
+
+// import {
+//   getCartLocalStorage,
+//   addToCart,
+//   addOnlyOneToCart,
+//   removeFromCart,
+//   emptyCart,
+//   addUserLocalStorage,
+//   getUserLocalStorage,
+//   removeUserLocalStorage,
+// }
+// './localStorage'
 
 const pageTitle = 'My Favorite Games'
 
@@ -34,7 +36,7 @@ export {
   // addOnlyOneToCart,
   // removeFromCart,
   // emptyCart,
-  addUserLocalStorage,
-  getUserLocalStorage,
-  removeUserLocalStorage,
+  // addUserLocalStorage,
+  // getUserLocalStorage,
+  // removeUserLocalStorage,
 }

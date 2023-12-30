@@ -1,5 +1,5 @@
 import GamesPlatformContext from '@/context/Context'
-import { addUserLocalStorage, phoneNumberMask } from '@/helpers'
+import { phoneNumberMask } from '@/helpers'
 import { updateUser } from '@/services'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useEffect } from 'react'
@@ -95,7 +95,6 @@ export default function MyDataHooks() {
     if (response && response.status === 200) {
       setLoading({ ...loading, updateUserData: false })
       setUserDataResponse({ error: '', success: response.data.message })
-      addUserLocalStorage(response.data.data)
     }
   }
 
