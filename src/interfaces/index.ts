@@ -23,7 +23,7 @@ export interface IMenuItem {
   especialClass?: string
 }
 
-export interface IUserOrderCard {
+export interface IUserProductCard {
   image: string
   name: string
   isGame?: boolean
@@ -54,7 +54,6 @@ export interface ILastOrderDetail {
   date: Date
   status: string
   payment: string
-  items: IGame[]
 }
 
 export interface IGamesGenres {
@@ -120,4 +119,14 @@ export interface ISearchParams {
   searchParams: {
     size: string
   }
+}
+
+export interface IOrderData {
+  id: number
+  created_at: Date
+  payment_method: string
+  products: IGame[]
+  status: string
+  userId: number
+  value: number
 }

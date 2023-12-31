@@ -1,7 +1,7 @@
 'use client'
 
 import LateralMyAccount from '@/components/LateralMyAccount'
-import UserOrderCard from '@/components/UserOrderCard'
+import UserProductCard from '@/components/UserProductCard'
 import GamesPlatformContext from '@/context/Context'
 import orders from '@/data/userOrders'
 import { pageTitle } from '@/helpers'
@@ -36,7 +36,7 @@ export default function MeusGames() {
         <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
           {allGames.length > 0 ? (
             allGames.map(({ name, id, image }: IGame) => (
-              <UserOrderCard
+              <UserProductCard
                 key={id}
                 name={name}
                 image={image}

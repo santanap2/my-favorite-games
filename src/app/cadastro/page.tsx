@@ -44,12 +44,12 @@ export default function Cadastro() {
             )}
           </label>
 
-          <label htmlFor="email" className="flex flex-col gap-1">
+          <label htmlFor="confirmEmail" className="flex flex-col gap-1">
             <span className="text-sm font-semibold">Confirmar email</span>
             <input
               {...register('registerUser.confirmEmail')}
               type="email"
-              id="email"
+              id="confirmEmail"
               placeholder="email@exemplo.com"
               className={`${
                 errors.registerUser?.email && 'border border-red-300'
@@ -118,13 +118,13 @@ export default function Cadastro() {
             )}
           </label>
 
-          <label htmlFor="password" className="flex flex-col gap-1">
+          <label htmlFor="confirmPassword" className="flex flex-col gap-1">
             <span className="text-sm font-semibold">Confirmar senha</span>
 
             <input
               {...register('registerUser.confirmPassword')}
               type="password"
-              id="password"
+              id="confirmPassword"
               placeholder="**********"
               className={`${
                 errors.registerUser?.confirmPassword && 'border border-red-300'

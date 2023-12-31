@@ -26,7 +26,7 @@ export default function SingleOrder({
         return 'PIX'
 
       default:
-        return 'PIX'
+        return 'Desconhecido'
     }
   }
 
@@ -71,7 +71,7 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full bg-white py-3 px-4 rounded shadow-sm flex justify-between items-end xxl:px-0 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1"
+      className="w-full h-32 bg-white py-3 px-4 rounded shadow-sm flex justify-between items-end xxl:px-0 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">

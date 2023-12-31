@@ -3,7 +3,7 @@
 
 import { Heart } from '@phosphor-icons/react'
 import React, { useContext } from 'react'
-import UserOrderCard from '@/components/UserOrderCard'
+import UserProductCard from '@/components/UserProductCard'
 import { IGame } from '@/interfaces'
 import { games } from '@/data/games'
 import GamesPlatformContext from '@/context/Context'
@@ -31,7 +31,7 @@ export default function MeusFavoritos() {
         <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
           {games.length > 0 ? (
             games.map(({ image, name, id }: IGame) => (
-              <UserOrderCard
+              <UserProductCard
                 key={id}
                 image={image}
                 name={name}

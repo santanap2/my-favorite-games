@@ -1,17 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import { IUserOrderCard } from '@/interfaces'
+import { IUserProductCard } from '@/interfaces'
 import { Heart } from '@phosphor-icons/react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-export default function UserOrderCard({
+export default function UserProductCard({
   image,
   name,
   isGame,
   gameId,
   isFavorite,
   productId,
-}: IUserOrderCard) {
+}: IUserProductCard) {
   const [favorited, setFavorited] = useState(true)
 
   const whichLink = () => {
