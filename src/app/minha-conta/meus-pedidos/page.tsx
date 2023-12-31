@@ -61,14 +61,7 @@ export default function MeusPedidos() {
 
           <div className="flex flex-col gap-4 w-full">
             {userOrders.map(
-              ({
-                orderNumber,
-                price,
-                date,
-                payment,
-                status,
-                items,
-              }: IUserOrders) => (
+              ({ orderNumber, price, date, payment, status }: IUserOrders) => (
                 <SingleOrder
                   key={orderNumber}
                   orderNumber={orderNumber}
@@ -76,7 +69,6 @@ export default function MeusPedidos() {
                   date={date}
                   payment={payment}
                   status={status}
-                  items={items}
                 />
               ),
             )}
