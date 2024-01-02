@@ -1,24 +1,38 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { Bag } from '@phosphor-icons/react'
-import React, { useContext, useEffect, useState } from 'react'
-import orders from '@/data/userOrders'
+import { Bag, SmileySad } from '@phosphor-icons/react'
+import React, { useContext, useEffect } from 'react'
 import SingleOrder from '@/components/SingleOrder'
-import { IUserOrders } from '@/interfaces'
+import { IOrderData, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
 import LateralMyAccount from '@/components/LateralMyAccount'
+import { getUserOrders } from '@/services/orders.requests'
+import { useQuery } from '@tanstack/react-query'
+import SingleOrderSkeleton from '@/components/SingleOrderSkeleton'
+import { useRouter } from 'next/navigation'
 
-export default function MeusPedidos() {
-  const { userOrders, setUserOrders, screenSize } =
-    useContext(GamesPlatformContext)
-  const [filter, setFilter] = useState('all')
+export default function MeusPedidos({ searchParams }: ISearchParams) {
+  const { screenSize } = useContext(GamesPlatformContext)
+
+  const router = useRouter()
+  const queryParams = new URLSearchParams(searchParams).toString()
+
+  const {
+    data: ordersData,
+    isLoading: ordersIsLoading,
+    refetch: ordersRefetch,
+  } = useQuery({
+    queryKey: ['userOrders'],
+    queryFn: async () =>
+      await getUserOrders(new URLSearchParams(queryParams).toString()),
+    retry: false,
+  })
 
   useEffect(() => {
-    const filteredOrders = orders.filter(({ status }) => status === filter)
-    setUserOrders(filteredOrders)
-    if (filter === 'all') setUserOrders(orders)
-  }, [filter, setUserOrders])
+    ordersRefetch()
+  }, [queryParams])
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
@@ -48,7 +62,9 @@ export default function MeusPedidos() {
                 name=""
                 id="filters"
                 className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
-                onChange={({ target: { value } }) => setFilter(value)}
+                onChange={({ target: { value } }) =>
+                  router.push(`/minha-conta/meus-pedidos?status=${value}`)
+                }
               >
                 <option value="all">Todos</option>
                 <option value="concluded">Concluído</option>
@@ -60,17 +76,41 @@ export default function MeusPedidos() {
           </form>
 
           <div className="flex flex-col gap-4 w-full">
-            {userOrders.map(
-              ({ orderNumber, price, date, payment, status }: IUserOrders) => (
-                <SingleOrder
-                  key={orderNumber}
-                  orderNumber={orderNumber}
-                  price={price}
-                  date={date}
-                  payment={payment}
-                  status={status}
-                />
-              ),
+            {ordersIsLoading ? (
+              <>
+                <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
+              </>
+            ) : (
+              <>
+                {ordersData?.data.data.length > 0 ? (
+                  <>
+                    {ordersData?.data.data.map((order: IOrderData) => (
+                      <SingleOrder
+                        key={order.id}
+                        orderNumber={order.id}
+                        price={order.value}
+                        date={order.created_at}
+                        payment={order.payment_method}
+                        status={order.status}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <div className="flex flex-col gap-1 items-center justify-center mt-10 bg-white p-4 rounded shadow-md">
+                    <SmileySad
+                      size={48}
+                      weight="regular"
+                      className="text-teal-500"
+                    />
+                    <span className="text-base font-light">
+                      Você não possui nenhum pedido feito.
+                    </span>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

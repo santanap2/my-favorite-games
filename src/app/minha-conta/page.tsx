@@ -6,7 +6,6 @@ import SingleOrder from '@/components/SingleOrder'
 import SingleOrderSkeleton from '@/components/SingleOrderSkeleton'
 import UserProductCard from '@/components/UserProductCard'
 import UserProductCardSkeleton from '@/components/UserProductCardSkeleton'
-import orders from '@/data/userOrders'
 import { pageTitle } from '@/helpers'
 import { IGame, IOrderData } from '@/interfaces'
 import { getUserOrders } from '@/services/orders.requests'
@@ -17,12 +16,6 @@ import Link from 'next/link'
 import React, { useEffect } from 'react'
 
 export default function MinhaConta() {
-  const allGames: IGame[] = []
-  const concludedOrders = orders.filter((item) => item.status === 'concluded')
-  concludedOrders.forEach((order) =>
-    order.items.forEach((game) => allGames.push(game)),
-  )
-
   const {
     data: userData,
     isLoading: userIsLoading,
@@ -214,7 +207,7 @@ export default function MinhaConta() {
               </span>
               <Link
                 href="/minha-conta/meus-games"
-                className="font-semibold text-lg text-teal-400 hover:underline lg:text-base"
+                className="font-semibold text-lg min-w-fit text-teal-400 hover:underline lg:text-base"
               >
                 Ver todos
               </Link>

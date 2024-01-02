@@ -40,32 +40,34 @@ export default function SingleOrder({
     return formattedDate
   }
 
-  const setStatusColor = (status?: string | null) => {
-    if (status === 'concluded')
-      return (
-        <td className="py-3 px-4 w-52 text-sm text-green-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
-          Concluído
-        </td>
-      )
-    if (status === 'canceled')
-      return (
-        <td className="py-3 px-4 w-52 text-sm text-red-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
-          Cancelado
-        </td>
-      )
+  const convertStatusToPortuguese = (status: string | null) => {
+    switch (status) {
+      case 'concluded':
+        return 'Concluído'
+      case 'canceled':
+        return 'Cancelado'
+      case 'processing':
+        return 'Processando'
+      case 'awaitingPayment':
+        return 'Aguardando pagamento'
+      default:
+        return ''
+    }
+  }
 
-    if (status === 'processing')
-      return (
-        <td className="py-3 px-4 w-52 text-sm text-teal-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
-          Processando
-        </td>
-      )
-    if (status === 'awaitingPayment')
-      return (
-        <td className="py-3 px-4 w-52 text-sm text-yellow-500 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
-          Aguardando pagamento
-        </td>
-      )
+  const setStatusColor = (status?: string | null) => {
+    switch (status) {
+      case 'awaitingPayment':
+        return 'text-amber-500'
+      case 'concluded':
+        return 'text-green-500'
+      case 'canceled':
+        return 'text-red-500'
+      case 'processing':
+        return 'text-blue-500'
+      default:
+        return ''
+    }
   }
 
   return (
@@ -92,11 +94,17 @@ export default function SingleOrder({
               {orderNumber}
             </td>
 
-            {setStatusColor(status)}
+            <td
+              className={`${setStatusColor(
+                status,
+              )} py-3 px-4 w-52 text-sm font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold`}
+            >
+              {convertStatusToPortuguese(status)}
+            </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
               {convertDate(date)}
             </td>
-            <td className="py-3 px-4 w-52 text-teal-400 font-semibold text-sm xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-teal-400 font-bold text-sm xxl:p-1 xxl:w-20">
               {convertPaymentMethod(payment)}
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">

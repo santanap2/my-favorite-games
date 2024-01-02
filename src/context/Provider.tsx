@@ -1,18 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { IChildren, IUserOrders } from '@/interfaces'
-import orders from '@/data/userOrders'
-import { games } from '@/data/games'
+import { IChildren } from '@/interfaces'
 import GamesPlatformContext from './Context'
 import { getUserByToken } from '@/services/user.requests'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0
-
-  const [headerSearch, setHeaderSearch] = useState({
-    headerInput: '',
-  })
 
   const [reseted, setReseted] = useState(false)
 
@@ -30,10 +24,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     creditCard: false,
     bankSlip: false,
   })
-
-  const [userOrders, setUserOrders] = useState<IUserOrders[]>(orders)
-
-  const [filteredProducts, setFilteredProducts] = useState(games)
 
   const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
@@ -81,9 +71,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
   }, [])
 
   const contextValues = {
-    headerSearch,
-    setHeaderSearch,
-
     reseted,
     setReseted,
 
@@ -98,12 +85,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     paymentMethod,
     setPaymentMethod,
-
-    userOrders,
-    setUserOrders,
-
-    filteredProducts,
-    setFilteredProducts,
 
     showSearchInputMobile,
     setShowSearchInputMobile,

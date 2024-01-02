@@ -67,6 +67,12 @@ export interface IParamSearch {
   }
 }
 
+export interface PaymentMethod {
+  pix: boolean
+  creditCard: boolean
+  bankSlip: boolean
+}
+
 export interface IUserOrders {
   orderNumber: number
   price: number

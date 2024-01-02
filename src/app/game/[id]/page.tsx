@@ -5,7 +5,6 @@
 import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralFilters from '@/components/LateralFilters'
 import GamesPlatformContext from '@/context/Context'
-import { games } from '@/data/games'
 import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { addItemToCart } from '@/services'
@@ -26,14 +25,8 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 
 export default function GameId({ params: { id } }: IGameIDParams) {
-  const {
-    setShowCart,
-    showMenu,
-    setShowMenu,
-    setFilteredProducts,
-    loading,
-    setLoading,
-  } = useContext(GamesPlatformContext)
+  const { setShowCart, showMenu, setShowMenu, loading, setLoading } =
+    useContext(GamesPlatformContext)
 
   const [expandMenus, setExpandMenus] = useState({
     description: true,
@@ -92,18 +85,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       <LateralFilters />
       <div className="w-full h-full">
         <div className="flex items-center gap-1 w-fit sm:w-full sm:text-xs">
-          <Link
-            href="/"
-            className="text-zinc-500 hover:text-teal-400"
-            onClick={() => setFilteredProducts(games)}
-          >
+          <Link href="/" className="text-zinc-500 hover:text-teal-400">
             Início
           </Link>
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
-            onClick={() =>
-              setFilteredProducts(games.filter((item) => item.genre === genre))
-            }
             href={`/home?${genre}=true`}
             className="text-zinc-500 hover:text-teal-400"
           >

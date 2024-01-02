@@ -1,17 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { IGame, ILoading, IResponseState, IUserOrders } from '@/interfaces'
-import { HeaderSearch, PaymentMethod } from '@/types'
+import { ILoading, IResponseState, PaymentMethod } from '@/interfaces'
 import { createContext } from 'react'
-import orders from '@/data/userOrders'
-import { games } from '@/data/games'
-import { getUserByToken } from '@/services/user.requests'
 
 const initialValueContext = {
-  headerSearch: { headerInput: '' },
-  setHeaderSearch: (state: HeaderSearch) => {},
-
   reseted: false,
   setReseted: (state: boolean) => {},
 
@@ -25,17 +18,11 @@ const initialValueContext = {
   },
   setPaymentMethod: (state: PaymentMethod) => {},
 
-  userOrders: orders,
-  setUserOrders: (state: IUserOrders[]) => {},
-
   showMenu: {
     filters: false,
     myAccount: true,
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
-
-  filteredProducts: games,
-  setFilteredProducts: (state: IGame[]) => {},
 
   showSearchInputMobile: false,
   setShowSearchInputMobile: (state: boolean) => {},

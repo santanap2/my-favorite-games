@@ -1,22 +1,13 @@
 'use client'
 
 import LateralMyAccount from '@/components/LateralMyAccount'
-import UserProductCard from '@/components/UserProductCard'
 import GamesPlatformContext from '@/context/Context'
-import orders from '@/data/userOrders'
 import { pageTitle } from '@/helpers'
-import { IGame } from '@/interfaces'
 import { GameController } from '@phosphor-icons/react'
 import React, { useContext } from 'react'
 
 export default function MeusGames() {
   const { screenSize } = useContext(GamesPlatformContext)
-
-  const allGames: IGame[] = []
-  const concludedOrders = orders.filter((item) => item.status === 'concluded')
-  concludedOrders.forEach((order) =>
-    order.items.forEach((game) => allGames.push(game)),
-  )
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
@@ -34,7 +25,7 @@ export default function MeusGames() {
         </div>
 
         <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
-          {allGames.length > 0 ? (
+          {/* {allGames.length > 0 ? (
             allGames.map(({ name, id, image }: IGame) => (
               <UserProductCard
                 key={id}
@@ -47,7 +38,7 @@ export default function MeusGames() {
             ))
           ) : (
             <span>Você não possui nenhum game comprado.</span>
-          )}
+          )} */}
         </div>
       </div>
     </div>
