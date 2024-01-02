@@ -2,7 +2,7 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { Bag, SmileySad } from '@phosphor-icons/react'
+import { ArrowUUpLeft, Bag, SmileySad } from '@phosphor-icons/react'
 import React, { useContext, useEffect } from 'react'
 import SingleOrder from '@/components/SingleOrder'
 import { IOrderData, ISearchParams } from '@/interfaces'
@@ -12,6 +12,7 @@ import { getUserOrders } from '@/services/orders.requests'
 import { useQuery } from '@tanstack/react-query'
 import SingleOrderSkeleton from '@/components/SingleOrderSkeleton'
 import { useRouter } from 'next/navigation'
+import { sortOrdersByDate } from '@/helpers/orders'
 
 export default function MeusPedidos({ searchParams }: ISearchParams) {
   const { screenSize } = useContext(GamesPlatformContext)
@@ -23,6 +24,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
     data: ordersData,
     isLoading: ordersIsLoading,
     refetch: ordersRefetch,
+    error: ordersError,
   } = useQuery({
     queryKey: ['userOrders'],
     queryFn: async () =>
@@ -82,33 +84,60 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                 <SingleOrderSkeleton />
                 <SingleOrderSkeleton />
                 <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
+                <SingleOrderSkeleton />
               </>
             ) : (
               <>
-                {ordersData?.data.data.length > 0 ? (
-                  <>
-                    {ordersData?.data.data.map((order: IOrderData) => (
-                      <SingleOrder
-                        key={order.id}
-                        orderNumber={order.id}
-                        price={order.value}
-                        date={order.created_at}
-                        payment={order.payment_method}
-                        status={order.status}
-                      />
-                    ))}
-                  </>
-                ) : (
-                  <div className="flex flex-col gap-1 items-center justify-center mt-10 bg-white p-4 rounded shadow-md">
-                    <SmileySad
-                      size={48}
-                      weight="regular"
-                      className="text-teal-500"
-                    />
-                    <span className="text-base font-light">
-                      Você não possui nenhum pedido feito.
+                {ordersError?.message ===
+                'Request failed with status code 404' ? (
+                  <div className="w-fit flex flex-col gap-4 justify-center items-start mt-10">
+                    <span className="w-full text-sm text-start">
+                      Nenhum pedido de acordo com os filtros.
                     </span>
+
+                    <button
+                      type="button"
+                      onClick={() => router.push('/minha-conta/meus-pedidos')}
+                      className="flex gap-3 items-center justify-center px-8 py-2 bg-teal-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                    >
+                      <ArrowUUpLeft size={28} />
+
+                      <span>Voltar</span>
+                    </button>
                   </div>
+                ) : (
+                  <>
+                    {ordersData?.data.data.length > 0 ? (
+                      <>
+                        {sortOrdersByDate(ordersData?.data.data).map(
+                          (order: IOrderData) => (
+                            <SingleOrder
+                              key={order.id}
+                              orderNumber={order.id}
+                              price={order.value}
+                              date={order.created_at}
+                              payment={order.payment_method}
+                              status={order.status}
+                            />
+                          ),
+                        )}
+                      </>
+                    ) : (
+                      <div className="flex flex-col gap-1 items-center justify-center mt-10 bg-white p-4 rounded shadow-md">
+                        <SmileySad
+                          size={48}
+                          weight="regular"
+                          className="text-teal-500"
+                        />
+                        <span className="text-base font-light">
+                          Você não possui nenhum pedido feito.
+                        </span>
+                      </div>
+                    )}
+                  </>
                 )}
               </>
             )}

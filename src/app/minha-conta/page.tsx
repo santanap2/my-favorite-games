@@ -7,6 +7,7 @@ import SingleOrderSkeleton from '@/components/SingleOrderSkeleton'
 import UserProductCard from '@/components/UserProductCard'
 import UserProductCardSkeleton from '@/components/UserProductCardSkeleton'
 import { pageTitle } from '@/helpers'
+import { sortOrdersByDate } from '@/helpers/orders'
 import { IGame, IOrderData } from '@/interfaces'
 import { getUserOrders } from '@/services/orders.requests'
 import { getUserByToken } from '@/services/user.requests'
@@ -38,11 +39,15 @@ export default function MinhaConta() {
 
   const allBoughtGames: IGame[] = []
   if (ordersData?.data.data) {
-    ordersData?.data.data.forEach((order: IOrderData) => {
+    sortOrdersByDate(
+      ordersData?.data.data.filter(
+        (order: IOrderData) => order.status === 'concluded',
+      ),
+    ).forEach((order: IOrderData) => {
       order.products.forEach((product: IGame) => allBoughtGames.push(product))
     })
   }
-  const lastBoughtGames = allBoughtGames.slice(-8)
+  const lastBoughtGames = allBoughtGames.slice(0, 8)
 
   useEffect(() => {
     userRefetch()
@@ -155,9 +160,17 @@ export default function MinhaConta() {
           </div>
 
           <div className="w-full flex flex-col gap-2">
-            <span className="font-semibold text-xl lg:text-base w-full flex items-start justify-start">
-              Detalhes do seu último pedido
-            </span>
+            <div className="w-full flex justify-between items-center">
+              <span className="font-semibold text-xl lg:text-base w-full flex items-start justify-start">
+                Seu último pedido
+              </span>
+              <Link
+                href="/minha-conta/meus-pedidos"
+                className="font-semibold text-lg min-w-fit text-teal-400 hover:underline lg:text-base"
+              >
+                Ver todos
+              </Link>
+            </div>
             {ordersIsLoading ? (
               <SingleOrderSkeleton />
             ) : (

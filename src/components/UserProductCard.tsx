@@ -30,8 +30,12 @@ export default function UserProductCard({
         />
       </Link>
       <div className="absolute top-40 px-3 py-3 w-full h-20 rounded-b sm:p-2 sm:h-fit">
-        <Link href={whichLink()} className="">
-          <div className="w-64 text-md font-semibold mb-4 text-zinc-700 h-14 lg:text-sm lg:max-h-14 lg:mb-0 lg:w-full">
+        <Link href={whichLink()}>
+          <div
+            className={`${
+              isFavorite ? 'w-64' : 'w-full'
+            } text-md font-semibold mb-4 text-zinc-700 h-14 lg:text-sm lg:max-h-14 lg:mb-0 lg:w-full`}
+          >
             {name.length > 55 ? `${name.slice(0, 55)}...` : name}
           </div>
         </Link>

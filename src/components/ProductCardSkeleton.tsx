@@ -9,15 +9,18 @@ export default function ProductCardSkeleton() {
         <div className="absolute top-72 w-full h-40 flex flex-col justify-between items-start px-[5%] py-2 sm:top-52 sm:px-2 sm:py-1 sm:h-32 xxl:top-52 xxl:h-32">
           <div className="flex flex-col gap-1 w-full text-transparent">
             <h1 className="rounded text-lg bg-zinc-100 w-full max-h-20 sm:text-base sm:max-h-11 loading-skeleton">
-              Title Title Title Title Title Title Title
+              Title Title Title Title
             </h1>
-            <h2 className="rounded text-sm w-full bg-zinc-100 sm:text-xs sm:h-8 loading-skeleton">
-              Genre
+            <h1 className="rounded text-lg bg-zinc-100 w-fit max-h-20 sm:text-base sm:max-h-11 loading-skeleton">
+              Title Title Title
+            </h1>
+            <h2 className="rounded text-sm w-fit bg-zinc-100 sm:text-xs sm:h-4 loading-skeleton">
+              Genre Genre
             </h2>
           </div>
 
-          <span className="text-xl rounded bg-zinc-100 text-transparent sm:text-lg loading-skeleton">
-            Price Price
+          <span className="text-xl rounded bg-zinc-100 sm:text-lg loading-skeleton">
+            R$ 9999.99
           </span>
         </div>
       </div>

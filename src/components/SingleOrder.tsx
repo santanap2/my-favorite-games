@@ -30,16 +30,6 @@ export default function SingleOrder({
     }
   }
 
-  const convertDate = (date: Date) => {
-    const newDate = new Date(date)
-    const day = String(newDate.getDate()).padStart(2, '0')
-    const month = String(newDate.getMonth() + 1).padStart(2, '0')
-    const year = String(newDate.getFullYear())
-    const formattedDate = `${day}/${month}/${year}`
-
-    return formattedDate
-  }
-
   const convertStatusToPortuguese = (status: string | null) => {
     switch (status) {
       case 'concluded':
@@ -51,7 +41,7 @@ export default function SingleOrder({
       case 'awaitingPayment':
         return 'Aguardando pagamento'
       default:
-        return ''
+        return 'Desconhecido'
     }
   }
 
@@ -70,10 +60,20 @@ export default function SingleOrder({
     }
   }
 
+  const convertDate = (date: Date) => {
+    const newDate = new Date(date)
+    const day = String(newDate.getDate()).padStart(2, '0')
+    const month = String(newDate.getMonth() + 1).padStart(2, '0')
+    const year = String(newDate.getFullYear())
+    const formattedDate = `${day}/${month}/${year}`
+
+    return formattedDate
+  }
+
   return (
     <div
       key={orderNumber}
-      className="w-full h-32 bg-white py-3 px-4 rounded shadow-sm flex justify-between items-end xxl:px-0 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1"
+      className="w-full h-32 bg-white py-3 px-4 rounded shadow-sm flex justify-between items-end xxl:px-0 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 transition-all"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
