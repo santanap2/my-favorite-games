@@ -104,7 +104,7 @@ export default function SingleOrder({
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
               {convertDate(date)}
             </td>
-            <td className="py-3 px-4 w-52 text-teal-400 font-bold text-sm xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-violet-400 font-bold text-sm xxl:p-1 xxl:w-20">
               {convertPaymentMethod(payment)}
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
@@ -116,7 +116,7 @@ export default function SingleOrder({
 
       <Link
         href={`/minha-conta/meus-pedidos/${orderNumber}`}
-        className=" w-48 text-teal-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
+        className=" w-48 text-violet-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
       >
         <ListPlus size={20} />
         <span className="xxl:">Detalhes do pedido</span>

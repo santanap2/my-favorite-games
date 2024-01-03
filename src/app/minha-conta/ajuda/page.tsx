@@ -26,7 +26,7 @@ export default function Ajuda() {
               <Chat
                 weight="fill"
                 size={screenSize < 600 ? 36 : 56}
-                className="text-teal-500"
+                className="text-violet-500"
               />
               <h1 className="font-regular text-xl font-semibold">Ajuda</h1>
             </div>
@@ -38,7 +38,7 @@ export default function Ajuda() {
                 </h1>
 
                 <div className="flex gap-2 items-center justify-start">
-                  <Clock size={28} weight="bold" className="text-teal-400" />
+                  <Clock size={28} weight="bold" className="text-violet-400" />
                   <h3 className="text-sm">10:00h às 20:00h</h3>
                 </div>
               </div>
@@ -50,7 +50,7 @@ export default function Ajuda() {
 
                 <Link
                   href="https://api.whatsapp.com/send?phone=5531998695219"
-                  className="flex gap-2 items-start justify-start hover:text-teal-400 text-sm font-light"
+                  className="flex gap-2 items-start justify-start hover:text-violet-400 text-sm font-light"
                 >
                   <WhatsappLogo
                     size={28}
@@ -65,7 +65,7 @@ export default function Ajuda() {
 
                 <Link
                   href="https://api.whatsapp.com/send?phone=553799042144"
-                  className="flex gap-2 items-start justify-start hover:text-teal-400 text-sm font-light"
+                  className="flex gap-2 items-start justify-start hover:text-violet-400 text-sm font-light"
                 >
                   <WhatsappLogo
                     size={28}
@@ -86,12 +86,12 @@ export default function Ajuda() {
 
                 <Link
                   href="mailto:suporte@myfavgames.com"
-                  className="flex gap-2 items-start justify-start hover:text-teal-400 text-sm font-light"
+                  className="flex gap-2 items-start justify-start hover:text-violet-400 text-sm font-light"
                 >
                   <Envelope
                     size={28}
                     weight="duotone"
-                    className="text-teal-400"
+                    className="text-violet-400"
                   />
                   <h3 className="flex flex-col">
                     <span>suporte@myfavgames.com</span>

@@ -136,3 +136,16 @@ export interface IOrderData {
   userId: number
   value: number
 }
+
+export interface ICardData {
+  cardNumber: string
+  cardName: string
+  cardDate: string
+  cardCvv: string
+  cardPortions: string
+}
+
+export interface IPaymentData {
+  paymentMethod: string
+  cardData?: ICardData
+}

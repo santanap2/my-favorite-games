@@ -1,7 +1,7 @@
 import GamesPlatformContext from '@/context/Context'
 import { requestLogin } from '@/services/'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -9,6 +9,7 @@ import { z } from 'zod'
 export default function LoginHooks() {
   const { setLoginResponse, setIsAuthenticated, loading, setLoading } =
     useContext(GamesPlatformContext)
+  const router = useRouter()
 
   const formSchema = z.object({
     login: z.object({
@@ -53,8 +54,9 @@ export default function LoginHooks() {
     if (response && response.status === 200) {
       setLoginResponse({ error: '', success: response.data.message })
       setIsAuthenticated(true)
-      setLoading({ ...loading, login: false })
-      redirect('/minha-conta')
+      setLoading({ ...loading, login: false, cart: !loading.cart })
+
+      router.push('/minha-conta')
     }
   }
 

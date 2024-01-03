@@ -39,7 +39,7 @@ export default function CartProductCard({
           </h2>
           <button
             type="button"
-            className="text-xs font-regular tracking-wider uppercase underline hover:text-teal-400"
+            className="text-xs font-regular tracking-wider uppercase underline hover:text-violet-400"
             onClick={async () => {
               await removeItemFromCart(id.toString())
               refetch()

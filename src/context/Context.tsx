@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { ILoading, IResponseState, PaymentMethod } from '@/interfaces'
+import {
+  ICardData,
+  ILoading,
+  IResponseState,
+  PaymentMethod,
+} from '@/interfaces'
 import { createContext } from 'react'
 
 const initialValueContext = {

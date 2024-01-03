@@ -139,7 +139,7 @@ export default function Cadastro() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-teal-400 font-light text-white rounded text-regular shadow hover:shadow-lg disabled:opacity-40 mt-6"
+            className="w-80 h-10 bg-violet-400 font-light text-white rounded text-regular shadow hover:shadow-lg disabled:opacity-40 mt-6"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (
@@ -153,7 +153,7 @@ export default function Cadastro() {
           </button>
 
           {registerResponse.success && (
-            <div className="w-full text-sm text-teal-500 font-semibold flex gap-4 items-center justify-center">
+            <div className="w-full text-sm text-violet-500 font-semibold flex gap-4 items-center justify-center">
               <CheckFat size={28} weight="light" />
               <h3>{registerResponse.success}</h3>
             </div>

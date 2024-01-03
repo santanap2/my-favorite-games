@@ -1,4 +1,5 @@
 import { creditCardMask, credCardDateMask, cvvMask } from '@/helpers'
+import { createOrder } from '@/services/orders.requests'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -49,8 +50,8 @@ export default function CredCardFormHooks() {
     },
   })
 
-  const handleFormSubmit = (data: FormProps) => {
-    console.log(data)
+  const handleFormSubmit = async ({ cardData }: FormProps) => {
+    await createOrder({ paymentMethod: 'creditCard', cardData })
   }
 
   const cardNumberValue = watch('cardData.cardNumber')

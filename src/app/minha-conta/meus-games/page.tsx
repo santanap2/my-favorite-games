@@ -56,7 +56,7 @@ export default function MeusGames() {
               <GameController
                 weight="fill"
                 size={screenSize < 600 ? 36 : 56}
-                className="text-teal-500"
+                className="text-violet-500"
               />
               <h1 className="font-regular text-xl font-semibold">Meus Games</h1>
             </div>

@@ -9,8 +9,13 @@ import { redirect } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Logout() {
-  const { setLoginResponse, setIsAuthenticated, isAuthenticated } =
-    useContext(GamesPlatformContext)
+  const {
+    setLoginResponse,
+    setIsAuthenticated,
+    isAuthenticated,
+    setLoading,
+    loading,
+  } = useContext(GamesPlatformContext)
 
   if (!isAuthenticated) redirect('/home')
 
@@ -18,6 +23,7 @@ export default function Logout() {
     requestLogout()
     setIsAuthenticated(false)
     setLoginResponse({ error: '', success: '' })
+    setLoading({ ...loading, cart: !loading.cart })
 
     setTimeout(() => {
       redirect('/home')
