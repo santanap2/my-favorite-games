@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function FinalizarCompra() {
-  const { screenSize } = useContext(GamesPlatformContext)
+  const { screenSize, isAuthenticated } = useContext(GamesPlatformContext)
   const router = useRouter()
 
   const calcNameSlice = (name: string) => {
@@ -122,7 +122,13 @@ export default function FinalizarCompra() {
           <div className="w-full flex flex-col gap-6 lg:gap-4">
             <button
               type="button"
-              onClick={() => router.push('/finalizar-compra/pagamento')}
+              onClick={() => {
+                if (!isAuthenticated) {
+                  router.replace('/login')
+                  return
+                }
+                router.push('/finalizar-compra/pagamento')
+              }}
               className="w-full bg-teal-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
             >
               Ir para o pagamento
