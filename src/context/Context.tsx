@@ -49,6 +49,9 @@ const initialValueContext = {
 
   isAuthenticated: false,
   setIsAuthenticated: (state: boolean) => {},
+
+  showPopUpMenu: false,
+  setShowPopUpMenu: (state: boolean) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

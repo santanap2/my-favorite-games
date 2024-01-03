@@ -2,13 +2,18 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import PopUpFavorite from '@/components/PopUpFavorite'
 import EvaluationsGame from '@/components/EvaluationsGame'
 import LateralFilters from '@/components/LateralFilters'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
-import { IGameIDParams } from '@/interfaces'
+import { IGame, IGameIDParams } from '@/interfaces'
 import { addItemToCart } from '@/services'
 import { buyOneItem } from '@/services/cart.requests'
+import {
+  addItemToFavorites,
+  getAllFavorites,
+} from '@/services/favorites.requests'
 import { getGame } from '@/services/games.requests'
 import {
   ArrowUUpLeft,
@@ -32,19 +37,32 @@ export default function GameId({ params: { id } }: IGameIDParams) {
     description: true,
     evaluation: true,
   })
-
   const [isFavorite, setIsFavorite] = useState(false)
+  const [showPopupFavorite, setShowPopupFavorite] = useState(false)
 
   const router = useRouter()
 
-  const { data, refetch } = useQuery({
+  const { data: productData, refetch: productRefetch } = useQuery({
     queryKey: ['product'],
     queryFn: async () => await getGame(id),
     retry: false,
-    staleTime: 1000 * 60 * 3, // 3 minutes
   })
 
-  const game = data?.data.data
+  const {
+    data: favoritesData,
+    refetch: favoritesRefetch,
+    isFetched: favoritesIsFetched,
+  } = useQuery({
+    queryKey: ['favorites'],
+    queryFn: async () => await getAllFavorites(),
+    retry: false,
+  })
+
+  const alreadyFavorited = favoritesData?.data.data.products.some(
+    (product: IGame) => product.id === Number(id),
+  )
+
+  const game = productData?.data.data
 
   const clickExpandMenu = (menu: string) => {
     if (menu === 'description')
@@ -55,8 +73,20 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
   useEffect(() => {
     setShowMenu({ ...showMenu, filters: false })
-    refetch()
+    productRefetch()
+    favoritesRefetch()
   }, [])
+
+  useEffect(() => {
+    setIsFavorite(alreadyFavorited)
+    favoritesRefetch()
+  }, [favoritesIsFetched])
+
+  useEffect(() => {
+    if (showPopupFavorite === true) {
+      setTimeout(() => setShowPopupFavorite(false), 2000)
+    }
+  }, [isFavorite])
 
   if (!game)
     return (
@@ -84,7 +114,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       <title>{`${name} - ${pageTitle}`}</title>
       <LateralFilters />
       <div className="w-full h-full">
-        <div className="flex items-center gap-1 w-fit sm:w-full sm:text-xs">
+        <div className="flex items-center gap-1 w-fit text-sm sm:w-full sm:text-xs">
           <Link href="/" className="text-zinc-500 hover:text-teal-400">
             Início
           </Link>
@@ -153,14 +183,21 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 />
               </button>
               <button
-                onClick={() => setIsFavorite(!isFavorite)}
-                className="w-14 h-14 bg-teal-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                onClick={async () => {
+                  await addItemToFavorites(id.toString())
+                  setIsFavorite(!isFavorite)
+                  setShowPopupFavorite(true)
+                }}
+                className="w-14 h-14 bg-teal-400 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <Heart
                   size={28}
                   weight={isFavorite ? 'fill' : 'bold'}
                   className="text-white relative"
                 />
+                {showPopupFavorite && (
+                  <PopUpFavorite removeFavorite={!isFavorite} />
+                )}
               </button>
             </div>
           </div>

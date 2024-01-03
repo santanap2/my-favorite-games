@@ -48,6 +48,8 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
+  const [showPopUpMenu, setShowPopUpMenu] = useState(false)
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => setScreenSize(window.innerWidth))
@@ -103,6 +105,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     isAuthenticated,
     setIsAuthenticated,
+
+    showPopUpMenu,
+    setShowPopUpMenu,
   }
 
   return (

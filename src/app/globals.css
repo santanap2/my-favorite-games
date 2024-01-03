@@ -59,6 +59,25 @@ input[type=number] {
   animation: appearFromTop 0.3s ease-out;
 }
 
+.slide-popup-enter {
+  transform: translateY(100%);
+  opacity: 0%;
+}
+.slide-popup-enter-active {
+  transform: translateY(0);
+  opacity: 100%;
+  transition: transform 400ms ease-out;
+}
+.slide-popup-exit {
+  transform: translateY(0);
+  opacity: 100%;
+}
+.slide-popup-exit-active {
+  transform: translateY(100%);
+  opacity: 0%;
+  transition: transform 200ms ease-out;
+}
+
 .slide-cart-enter {
   transform: translateX(100%);
 }

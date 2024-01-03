@@ -16,6 +16,7 @@ import { CSSTransition } from 'react-transition-group'
 import { getUserCart } from '@/services'
 import { useQuery } from '@tanstack/react-query'
 import { getUserByToken } from '@/services/user.requests'
+import MyAccountPopUp from './MyAccountPopUp'
 
 export default function Header() {
   const {
@@ -36,6 +37,8 @@ export default function Header() {
     cart: false,
     menu: false,
   })
+
+  const [showPopup, setShowPopup] = useState(false)
 
   const pathname = usePathname()
   const router = useRouter()
@@ -83,7 +86,12 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-teal-900 text-teal-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8">
+    <header
+      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-teal-900 text-teal-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
+      onMouseLeave={() => {
+        setShowPopup(false)
+      }}
+    >
       <button
         type="button"
         onClick={clickMenu}
@@ -142,7 +150,7 @@ export default function Header() {
           />
         </button>
 
-        <div className="flex gap-3 items-center justify-center">
+        <div className="flex gap-3 items-center justify-center relative">
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
             className="flex items-center justify-center xl:hidden"
@@ -170,13 +178,14 @@ export default function Header() {
 
           <Link
             href={isAuthenticated ? '/minha-conta' : '/login'}
-            className="flex items-center justify-center hover:underline xl:hidden"
-            onMouseEnter={() =>
+            className="flex items-center justify-center hover:underline xl:hidden relative"
+            onMouseEnter={() => {
               setHoverBtn((prev) => ({ ...prev, user: true }))
-            }
-            onMouseLeave={() =>
+              setShowPopup(true)
+            }}
+            onMouseLeave={() => {
               setHoverBtn((prev) => ({ ...prev, user: false }))
-            }
+            }}
           >
             <span className="uppercase font-semibold text-xs">
               {isAuthenticated
@@ -190,6 +199,7 @@ export default function Header() {
               weight={hoverBtn.user ? 'duotone' : 'regular'}
             />
           </Link>
+          {isAuthenticated && showPopup && <MyAccountPopUp />}
         </div>
       </div>
       <button
@@ -227,7 +237,7 @@ export default function Header() {
         )}
         <Link
           href={isAuthenticated ? '/minha-conta' : '/login'}
-          className="flex items-center justify-center hover:underline"
+          className="flex items-center justify-center hover:underline relative"
         >
           <span className="uppercase font-semibold text-xs sm:hidden">
             {isAuthenticated

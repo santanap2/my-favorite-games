@@ -91,31 +91,31 @@ export default function MeusGames() {
             ) : (
               <>
                 {allBoughtGames.length > 0 ? (
-                  <>
-                    {filter === 'alphabetical'
-                      ? sortProductsByName(allBoughtGames).map(
-                          ({ name, id, image }: IGame) => (
-                            <UserProductCard
-                              key={id}
-                              name={name}
-                              image={image}
-                              gameId={id}
-                              productId={id}
-                              isGame
-                            />
-                          ),
-                        )
-                      : allBoughtGames.map(({ name, id, image }: IGame) => (
-                          <UserProductCard
-                            key={id}
-                            name={name}
-                            image={image}
-                            gameId={id}
-                            productId={id}
-                            isGame
-                          />
-                        ))}
-                  </>
+                  filter === 'alphabetical' ? (
+                    sortProductsByName(allBoughtGames).map(
+                      ({ name, id, image }: IGame) => (
+                        <UserProductCard
+                          key={id}
+                          name={name}
+                          image={image}
+                          gameId={id}
+                          productId={id}
+                          isGame
+                        />
+                      ),
+                    )
+                  ) : (
+                    allBoughtGames.map(({ name, id, image }: IGame) => (
+                      <UserProductCard
+                        key={id}
+                        name={name}
+                        image={image}
+                        gameId={id}
+                        productId={id}
+                        isGame
+                      />
+                    ))
+                  )
                 ) : (
                   <span>Você não possui nenhum game comprado.</span>
                 )}

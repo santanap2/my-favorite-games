@@ -18,7 +18,8 @@ export const sortOrdersByDate = (orders: IOrderData[]) => {
 }
 
 export const sortProductsByName = (products: IGame[]) => {
-  const result = products.sort((a, b) => {
+  const copy = [...products]
+  const result = copy.sort((a, b) => {
     const nomeA = a.name.toLowerCase()
     const nomeB = b.name.toLowerCase()
 

@@ -1,5 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+
+'use client'
+
 import { IUserProductCard } from '@/interfaces'
+import { addItemToFavorites } from '@/services/favorites.requests'
 import { Heart } from '@phosphor-icons/react'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -39,10 +44,14 @@ export default function UserProductCard({
             {name.length > 55 ? `${name.slice(0, 55)}...` : name}
           </div>
         </Link>
+
         {isFavorite && (
           <button
             type="button"
-            onClick={() => setFavorited(!favorited)}
+            onClick={async () => {
+              await addItemToFavorites(gameId.toString())
+              setFavorited(!favorited)
+            }}
             className="absolute -top-4 right-1 p-2 bg-white rounded-full lg:-top-9 lg:right-0 lg:rounded-tl lg:rounded-tr-none lg:rounded-b-none lg:pt-2 lg:px-1"
           >
             <Heart
