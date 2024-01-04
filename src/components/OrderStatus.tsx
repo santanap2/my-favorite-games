@@ -1,6 +1,5 @@
 'use client'
 
-import GamesPlatformContext from '@/context/Context'
 import { IOrderData } from '@/interfaces'
 import {
   Storefront,
@@ -11,11 +10,9 @@ import {
   HourglassMedium,
   Package,
 } from '@phosphor-icons/react'
-import React, { useContext } from 'react'
+import React from 'react'
 
 export default function OrderStatus({ order }: { order: IOrderData }) {
-  const { screenSize } = useContext(GamesPlatformContext)
-  console.log(screenSize)
   const checkOrderStatus = () => {
     if (!order) return 'w-1/6'
     if (order.status === 'awaitingPayment') return 'w-1/6 bg-emerald-500'
@@ -26,8 +23,8 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
   }
 
   return (
-    <div className="flex w-[400px] sm:w-full h-40 gap-16 items-center justify-center text-slate-400 relative">
-      <div className="bg-slate-400 h-2 w-full absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px]">
+    <div className="flex w-[463px] sm:max-w-full h-40 gap-16 items-center justify-center text-slate-400 relative">
+      <div className="bg-slate-400 h-2 w-[400px] absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px]">
         <div className={`${checkOrderStatus()} relative h-2 z-10`} />
       </div>
 
