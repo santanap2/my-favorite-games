@@ -114,14 +114,17 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       <title>{`${name} - ${pageTitle}`}</title>
       <LateralFilters />
       <div className="w-full h-full">
-        <div className="flex items-center gap-1 w-fit text-sm sm:w-full sm:text-xs">
-          <Link href="/" className="text-zinc-500 hover:text-violet-400">
+        <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
+          <Link
+            href="/"
+            className="text-zinc-500 hover:text-violet-400 min-w-fit"
+          >
             Todos os jogos
           </Link>
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
             href={`/home?${genre}=true`}
-            className="text-zinc-500 hover:text-violet-400"
+            className="text-zinc-500 hover:text-violet-400 min-w-fit"
           >
             {genrePt}
           </Link>
@@ -130,7 +133,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
           <Link
             href={`/game/${id}`}
-            className="text-zinc-500 hover:text-violet-400"
+            className="text-zinc-500 hover:text-violet-400 min-w-fit"
           >
             {name}
           </Link>

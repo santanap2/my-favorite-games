@@ -74,6 +74,12 @@ export default function Header() {
     cartRefetch()
   }, [loading.cart])
 
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [showSearchInputMobile])
+
   const clickMenu = () => {
     if (pathname.includes('/minha-conta'))
       setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
@@ -123,6 +129,7 @@ export default function Header() {
               type="text"
               className="h-9 rounded px-3 focus:outline-none text-zinc-700 sm:w-64 xl:w-96"
               placeholder="Qual jogo procura?"
+              ref={inputRef}
             />
             <button type="submit" className="absolute top-1 right-2">
               <MagnifyingGlass size={28} weight="regular" />

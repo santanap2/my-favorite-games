@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import CartProductCard from './CartProductCard'
-import CartProductSkeleton from './CartProductSkeleton'
+import CartProductSkeleton from './Skeletons/CartProductSkeleton'
 
 export default function ShoppingCart() {
   const { showCart, setShowCart, loading, setLoading, isAuthenticated } =

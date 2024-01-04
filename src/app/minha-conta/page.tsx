@@ -3,9 +3,9 @@
 
 import LateralMyAccount from '@/components/LateralMyAccount'
 import SingleOrder from '@/components/SingleOrder'
-import SingleOrderSkeleton from '@/components/SingleOrderSkeleton'
+import SingleOrderSkeleton from '@/components/Skeletons/SingleOrderSkeleton'
 import UserProductCard from '@/components/UserProductCard'
-import UserProductCardSkeleton from '@/components/UserProductCardSkeleton'
+import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate } from '@/helpers/orders'

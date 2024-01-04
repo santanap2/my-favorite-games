@@ -3,9 +3,9 @@
 'use client'
 
 import LateralMyAccount from '@/components/LateralMyAccount'
-import OrderInfoSkeleton from '@/components/OrderInfoSkeleton'
+import OrderInfoSkeleton from '@/components/Skeletons/OrderInfoSkeleton'
 import OrderStatus from '@/components/OrderStatus'
-import OrderStatusSkeleton from '@/components/OrderStatusSkeleton'
+import OrderStatusSkeleton from '@/components/Skeletons/OrderStatusSkeleton'
 import { priceToBRL } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { getOneUserOrder } from '@/services/orders.requests'
