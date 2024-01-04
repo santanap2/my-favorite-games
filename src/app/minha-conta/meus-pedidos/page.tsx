@@ -10,7 +10,7 @@ import { pageTitle } from '@/helpers'
 import LateralMyAccount from '@/components/LateralMyAccount'
 import { getUserOrders } from '@/services/orders.requests'
 import { useQuery } from '@tanstack/react-query'
-import SingleOrderSkeleton from '@/components/SingleOrderSkeleton'
+import SingleOrderSkeleton from '@/components/Skeletons/SingleOrderSkeleton'
 import { redirect, useRouter } from 'next/navigation'
 import { sortOrdersByDate } from '@/helpers/orders'
 

@@ -10,7 +10,7 @@ import { pageTitle } from '@/helpers'
 import LateralMyAccount from '@/components/LateralMyAccount'
 import { getAllFavorites } from '@/services/favorites.requests'
 import { useQuery } from '@tanstack/react-query'
-import UserProductCardSkeleton from '@/components/UserProductCardSkeleton'
+import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
 import { sortProductsByName } from '@/helpers/orders'
 import { redirect } from 'next/navigation'
 

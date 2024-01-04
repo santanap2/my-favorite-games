@@ -3,7 +3,7 @@
 
 import LateralMyAccount from '@/components/LateralMyAccount'
 import UserProductCard from '@/components/UserProductCard'
-import UserProductCardSkeleton from '@/components/UserProductCardSkeleton'
+import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate, sortProductsByName } from '@/helpers/orders'
