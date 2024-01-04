@@ -8,7 +8,7 @@ import { getUserCart } from '@/services'
 import { createOrder } from '@/services/orders.requests'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Pagamento() {
@@ -22,6 +22,7 @@ export default function Pagamento() {
   } = useContext(GamesPlatformContext)
 
   if (!isAuthenticated) redirect('/login')
+  const router = useRouter()
 
   const { data, refetch, isLoading } = useQuery({
     queryKey: ['cart'],
@@ -89,8 +90,15 @@ export default function Pagamento() {
   }
 
   const checkPaymentMethod = async () => {
-    if (paymentMethod.bankSlip) await createOrder({ paymentMethod: 'bankSlip' })
-    if (paymentMethod.pix) await createOrder({ paymentMethod: 'PIX' })
+    const result = await createOrder({
+      paymentMethod: paymentMethod.pix
+        ? 'PIX'
+        : paymentMethod.bankSlip
+          ? 'bankSlip'
+          : '',
+    })
+    if (result.status === 201)
+      router.push(`/pedido-realizado/${result.data.data.id}`)
 
     setLoading({ ...loading, cart: !loading.cart })
   }

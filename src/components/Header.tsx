@@ -83,6 +83,9 @@ export default function Header() {
 
     if (pathname.includes('/game'))
       setShowMenu({ ...showMenu, filters: !showMenu.filters })
+
+    if (pathname.includes('/pedido'))
+      setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
   }
 
   return (

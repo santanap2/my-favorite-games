@@ -37,19 +37,19 @@ export default function MyAccountPopUp() {
       </Link>
 
       <Link
-        href={links.myData}
-        className="text-sm font-semibold hover:underline transition-all flex gap-2"
-      >
-        <span>Meus dados</span>
-        <IdentificationCard weight="duotone" size={20} />
-      </Link>
-
-      <Link
         href={links.myOrders}
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus pedidos</span>
         <Bag weight="duotone" size={20} />
+      </Link>
+
+      <Link
+        href={links.myData}
+        className="text-sm font-semibold hover:underline transition-all flex gap-2"
+      >
+        <span>Meus dados</span>
+        <IdentificationCard weight="duotone" size={20} />
       </Link>
 
       <Link

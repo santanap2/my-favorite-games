@@ -77,7 +77,7 @@ export default function SingleOrder({
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
-          <tr className="font-semibold text-sm uppercase text-zinc-700 flex justify-between gap-2 xxl:text-xs">
+          <tr className="font-bold text-sm uppercase text-zinc-700 flex justify-between gap-2 xxl:text-xs">
             <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40">
               {screenSize < 800 ? 'Pedido' : 'Número do pedido'}
             </td>

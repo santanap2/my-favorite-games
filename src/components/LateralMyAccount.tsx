@@ -51,7 +51,7 @@ export default function LateralMyAccount() {
         <div className="flex flex-col">
           <Link href={links.myAccount}>
             <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
             >
               <UserCircle
                 weight={pathname === links.myAccount ? 'fill' : 'duotone'}
@@ -70,30 +70,9 @@ export default function LateralMyAccount() {
             </div>
           </Link>
 
-          <Link href={links.myData}>
-            <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
-            >
-              <IdentificationCard
-                weight={pathname === links.myData ? 'fill' : 'duotone'}
-                size={34}
-                className="text-violet-600"
-              />
-              <span
-                className={`${
-                  pathname === links.myData
-                    ? 'text-violet-500 font-semibold'
-                    : 'text-zinc-500'
-                } w-full`}
-              >
-                Meus dados
-              </span>
-            </div>
-          </Link>
-
           <Link href={links.myOrders}>
             <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
             >
               <Bag
                 weight={pathname === links.myOrders ? 'fill' : 'duotone'}
@@ -112,9 +91,30 @@ export default function LateralMyAccount() {
             </div>
           </Link>
 
+          <Link href={links.myData}>
+            <div
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
+            >
+              <IdentificationCard
+                weight={pathname === links.myData ? 'fill' : 'duotone'}
+                size={34}
+                className="text-violet-600"
+              />
+              <span
+                className={`${
+                  pathname === links.myData
+                    ? 'text-violet-500 font-semibold'
+                    : 'text-zinc-500'
+                } w-full`}
+              >
+                Meus dados
+              </span>
+            </div>
+          </Link>
+
           <Link href={links.myGames}>
             <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
             >
               <GameController
                 weight={pathname === links.myGames ? 'fill' : 'duotone'}
@@ -135,7 +135,7 @@ export default function LateralMyAccount() {
 
           <Link href={links.myFavorites}>
             <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
             >
               <Heart
                 weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
@@ -156,7 +156,7 @@ export default function LateralMyAccount() {
 
           <Link href={links.help}>
             <div
-              className={`flex gap-3 px-4 items-center w-64  text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-violet-400 transition-all`}
             >
               <Chat
                 weight={pathname === links.help ? 'fill' : 'duotone'}
@@ -178,7 +178,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.logout}>
           <div
-            className={`flex gap-3 px-4 items-center w-64  text-sm font-light text-zinc-500 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
+            className={`flex gap-3 px-4 items-center w-full text-sm font-light text-zinc-500 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
           >
             <SignOut
               weight={pathname === links.help ? 'fill' : 'duotone'}
