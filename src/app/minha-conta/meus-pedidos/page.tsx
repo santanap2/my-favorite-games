@@ -76,12 +76,13 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     }
                   >
                     <option value="all">Todos</option>
-                    <option value="concluded">Concluído</option>
-                    <option value="canceled">Cancelado</option>
-                    <option value="processing">Processando</option>
                     <option value="awaitingPayment">
                       Aguardando pagamento
                     </option>
+                    <option value="canceled">Cancelado</option>
+                    <option value="concluded">Concluído</option>
+                    <option value="approvedPayment">Pagamento aprovado</option>
+                    <option value="processing">Processando</option>
                   </select>
                 </label>
               </form>

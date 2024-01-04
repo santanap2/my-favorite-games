@@ -38,6 +38,8 @@ export default function SingleOrder({
         return 'Cancelado'
       case 'processing':
         return 'Processando'
+      case 'approvedPayment':
+        return 'Pagamento aprovado'
       case 'awaitingPayment':
         return 'Aguardando pagamento'
       default:
@@ -49,12 +51,14 @@ export default function SingleOrder({
     switch (status) {
       case 'awaitingPayment':
         return 'text-amber-500'
+      case 'approvedPayment':
+        return 'text-blue-500'
+      case 'processing':
+        return 'text-lime-500'
       case 'concluded':
         return 'text-green-500'
       case 'canceled':
         return 'text-red-500'
-      case 'processing':
-        return 'text-blue-500'
       default:
         return ''
     }
