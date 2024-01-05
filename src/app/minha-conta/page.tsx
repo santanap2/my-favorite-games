@@ -6,7 +6,6 @@ import SingleOrder from '@/components/SingleOrder'
 import SingleOrderSkeleton from '@/components/Skeletons/SingleOrderSkeleton'
 import UserProductCard from '@/components/UserProductCard'
 import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate } from '@/helpers/orders'
 import { IGame, IOrderData } from '@/interfaces'
@@ -16,22 +15,27 @@ import { UserCircle, EnvelopeSimple, SmileySad } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 export default function MinhaConta() {
-  const { isAuthenticated } = useContext(GamesPlatformContext)
-
-  if (!isAuthenticated) redirect('/login')
-
   const {
     data: userData,
     isLoading: userIsLoading,
     refetch: userRefetch,
+    isFetched: userIsFetched,
+    error: userError,
   } = useQuery({
     queryKey: ['userData'],
     queryFn: async () => await getUserByToken(),
     retry: false,
   })
+
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
 
   const {
     data: ordersData,
@@ -62,8 +66,8 @@ export default function MinhaConta() {
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {userError && null}
+      {!userError && (
         <div className="w-full">
           <title>{`${
             userIsLoading ? 'Minha conta' : userData?.data.data.name
@@ -217,7 +221,7 @@ export default function MinhaConta() {
                         }
                       />
                     ) : (
-                      <div className="flex flex-col gap-1 items-center justify-center mt-10 bg-white p-4 rounded shadow-md">
+                      <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                         <SmileySad
                           size={48}
                           weight="regular"
@@ -274,14 +278,14 @@ export default function MinhaConta() {
                           />
                         ))
                       ) : (
-                        <div className="flex flex-col gap-1 items-center justify-center mt-10 bg-white p-4 rounded shadow-md w-full">
+                        <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                           <SmileySad
                             size={48}
                             weight="regular"
                             className="text-violet-500"
                           />
                           <span className="text-base font-light">
-                            Você não possui nenhum game comprado no momento.
+                            Você não possui nenhum game comprado.
                           </span>
                         </div>
                       )}

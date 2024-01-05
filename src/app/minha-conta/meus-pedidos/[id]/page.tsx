@@ -19,7 +19,6 @@ import React, { useContext, useEffect } from 'react'
 export default function PedidoId({ params: { id } }: IGameIDParams) {
   const { screenSize, isAuthenticated, setIsAuthenticated } =
     useContext(GamesPlatformContext)
-  console.log(isAuthenticated)
 
   const { data: userData } = useQuery({
     queryKey: ['userAuthenticated'],

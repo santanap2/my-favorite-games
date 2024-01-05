@@ -13,20 +13,37 @@ import { useQuery } from '@tanstack/react-query'
 import SingleOrderSkeleton from '@/components/Skeletons/SingleOrderSkeleton'
 import { redirect, useRouter } from 'next/navigation'
 import { sortOrdersByDate } from '@/helpers/orders'
+import { getUserByToken } from '@/services'
 
 export default function MeusPedidos({ searchParams }: ISearchParams) {
-  const { screenSize, isAuthenticated } = useContext(GamesPlatformContext)
+  const { screenSize } = useContext(GamesPlatformContext)
 
   const router = useRouter()
-  const queryParams = new URLSearchParams(searchParams).toString()
+  const {
+    refetch: userRefetch,
+    isFetched: userIsFetched,
+    error: userError,
+  } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
 
-  if (!isAuthenticated) redirect('/login')
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
+
+  const queryParams = new URLSearchParams(searchParams).toString()
 
   const {
     data: ordersData,
     isLoading: ordersIsLoading,
     refetch: ordersRefetch,
     error: ordersError,
+    isFetched: orderIsFetched,
   } = useQuery({
     queryKey: ['userOrders'],
     queryFn: async () =>
@@ -34,14 +51,24 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
     retry: false,
   })
 
+  const checkStatusValue = () => {
+    if (queryParams.includes('approvedPayment')) return 'approvedPayment'
+    if (queryParams.includes('awaitingPayment')) return 'awaitingPayment'
+    if (queryParams.includes('canceled')) return 'canceled'
+    if (queryParams.includes('concluded')) return 'concluded'
+    if (queryParams.includes('processing')) return 'processing'
+    return 'all'
+  }
+
   useEffect(() => {
     ordersRefetch()
+    userRefetch()
   }, [queryParams])
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {!userError && null}
+      {!userError && (
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus pedidos`}</title>
 
@@ -74,6 +101,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     onChange={({ target: { value } }) =>
                       router.push(`/minha-conta/meus-pedidos?status=${value}`)
                     }
+                    value={checkStatusValue()}
                   >
                     <option value="all">Todos</option>
                     <option value="awaitingPayment">
@@ -93,65 +121,47 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     <SingleOrderSkeleton />
                     <SingleOrderSkeleton />
                     <SingleOrderSkeleton />
-                    <SingleOrderSkeleton />
-                    <SingleOrderSkeleton />
-                    <SingleOrderSkeleton />
-                    <SingleOrderSkeleton />
-                    <SingleOrderSkeleton />
                   </>
+                ) : ordersError ? (
+                  <div className="w-fit sm:w-full flex flex-col gap-4 justify-center items-start sm:items-center mt-10">
+                    <span className="text-sm">
+                      Nenhum pedido de acordo com os filtros.
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => router.push('/minha-conta/meus-pedidos')}
+                      className="flex gap-3 items-center justify-center px-8 py-2 bg-violet-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                    >
+                      <ArrowUUpLeft size={28} />
+
+                      <span>Voltar</span>
+                    </button>
+                  </div>
+                ) : orderIsFetched && ordersData?.data.data.length > 0 ? (
+                  sortOrdersByDate(ordersData?.data.data).map(
+                    (order: IOrderData) => (
+                      <SingleOrder
+                        key={order.id}
+                        orderNumber={order.id}
+                        price={order.value}
+                        date={order.created_at}
+                        payment={order.payment_method}
+                        status={order.status}
+                      />
+                    ),
+                  )
                 ) : (
-                  <>
-                    {ordersError?.message ===
-                    'Request failed with status code 404' ? (
-                      <div className="w-fit flex flex-col gap-4 justify-center items-start mt-10">
-                        <span className="w-full text-sm text-start">
-                          Nenhum pedido de acordo com os filtros.
-                        </span>
-
-                        <button
-                          type="button"
-                          onClick={() =>
-                            router.push('/minha-conta/meus-pedidos')
-                          }
-                          className="flex gap-3 items-center justify-center px-8 py-2 bg-violet-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
-                        >
-                          <ArrowUUpLeft size={28} />
-
-                          <span>Voltar</span>
-                        </button>
-                      </div>
-                    ) : (
-                      <>
-                        {ordersData?.data.data.length > 0 ? (
-                          <>
-                            {sortOrdersByDate(ordersData?.data.data).map(
-                              (order: IOrderData) => (
-                                <SingleOrder
-                                  key={order.id}
-                                  orderNumber={order.id}
-                                  price={order.value}
-                                  date={order.created_at}
-                                  payment={order.payment_method}
-                                  status={order.status}
-                                />
-                              ),
-                            )}
-                          </>
-                        ) : (
-                          <div className="flex flex-col gap-1 items-center justify-center mt-10 bg-white p-4 rounded shadow-md">
-                            <SmileySad
-                              size={48}
-                              weight="regular"
-                              className="text-violet-500"
-                            />
-                            <span className="text-base font-light">
-                              Você não possui nenhum pedido feito.
-                            </span>
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </>
+                  <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4">
+                    <SmileySad
+                      size={48}
+                      weight="light"
+                      className="text-violet-500"
+                    />
+                    <span className="text-base font-light">
+                      Você não possui nenhum pedido feito.
+                    </span>
+                  </div>
                 )}
               </div>
             </div>

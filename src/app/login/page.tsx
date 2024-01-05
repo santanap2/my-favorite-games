@@ -3,7 +3,7 @@
 
 import React, { useContext, useEffect } from 'react'
 import GamesPlatformContext from '@/context/Context'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { pageTitle } from '@/helpers'
 import Link from 'next/link'
 import LoginHooks from '@/hooks/LoginHooks'
@@ -20,7 +20,7 @@ export default function Login() {
   } = useContext(GamesPlatformContext)
 
   const router = useRouter()
-  if (isAuthenticated) router.push('/minha-conta')
+  if (isAuthenticated) redirect('/minha-conta')
 
   const { handleSubmit, register, errors, handleFormSubmit } = LoginHooks()
 
