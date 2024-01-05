@@ -4,7 +4,7 @@
 import CreditCardForm from '@/components/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
 import { calcSum, pageTitle, priceToBRL } from '@/helpers'
-import { getUserCart } from '@/services'
+import { getUserByToken, getUserCart } from '@/services'
 import { createOrder } from '@/services/orders.requests'
 import { CheckCircle, Circle, Wallet } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
@@ -16,13 +16,21 @@ export default function Pagamento() {
     paymentMethod,
     setPaymentMethod,
     screenSize,
-    isAuthenticated,
+    setIsAuthenticated,
     loading,
     setLoading,
+    isAuthenticated,
   } = useContext(GamesPlatformContext)
 
-  if (!isAuthenticated) redirect('/login')
+  const { data: userData } = useQuery({
+    queryKey: ['userAuthenticated'],
+    queryFn: async () => await getUserByToken(),
+    retry: true,
+  })
+
   const router = useRouter()
+  if (userData && userData.status === 200) setIsAuthenticated(true)
+  if (userData && userData.status !== 200) redirect('/login')
 
   const { data, refetch, isLoading } = useQuery({
     queryKey: ['cart'],

@@ -18,7 +18,7 @@ export default function CartProductCard({
   })
 
   return (
-    <div key={id} className="flex w-full gap-3 border-b pb-4 sm:pb-2">
+    <div className="flex w-full gap-3 border-b pb-4 sm:pb-2">
       <img
         src={image}
         alt={name}
@@ -37,6 +37,7 @@ export default function CartProductCard({
           <h2 className="font-extrabold tracking-wider text-lg sm:text-sm sm:font-bold">
             {`R$ ${priceToBRL(price)}`}
           </h2>
+
           <button
             type="button"
             className="text-xs font-regular tracking-wider uppercase underline hover:text-cyan-400"
