@@ -1,12 +1,17 @@
+'use client'
+
+import GamesPlatformContext from '@/context/Context'
 import { currencyMask } from '@/helpers'
 import { IGamesGenres } from '@/interfaces'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LateralFilterHooks() {
+  const { screenSize, setShowMenu } = useContext(GamesPlatformContext)
+
   const formSchema = z.object({
     lateralFilters: z.object({
       actionAdventure: z.boolean(),
@@ -53,6 +58,7 @@ export default function LateralFilterHooks() {
 
     const queryParams = new URLSearchParams(stringFilters).toString()
 
+    if (screenSize < 1280) setShowMenu({ filters: false, myAccount: false })
     router.push(`/home?${queryParams}`)
   }
 

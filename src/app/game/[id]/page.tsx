@@ -99,7 +99,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
         </h1>
         <button
           onClick={() => router.push('/home')}
-          className="flex gap-3 items-center justify-center px-8 py-2 bg-violet-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+          className="flex gap-3 items-center justify-center px-8 py-2 bg-slate-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
         >
           <ArrowUUpLeft size={28} />
           <span>Retornar ao início</span>
@@ -117,14 +117,14 @@ export default function GameId({ params: { id } }: IGameIDParams) {
         <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
           <Link
             href="/"
-            className="text-zinc-500 hover:text-violet-400 min-w-fit"
+            className="text-zinc-500 hover:text-slate-400 min-w-fit"
           >
             Todos os jogos
           </Link>
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
             href={`/home?${genre}=true`}
-            className="text-zinc-500 hover:text-violet-400 min-w-fit"
+            className="text-zinc-500 hover:text-slate-400 min-w-fit"
           >
             {genrePt}
           </Link>
@@ -133,7 +133,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
           <Link
             href={`/game/${id}`}
-            className="text-zinc-500 hover:text-violet-400 min-w-fit"
+            className="text-zinc-500 hover:text-slate-400 min-w-fit"
           >
             {name}
           </Link>
@@ -152,7 +152,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             <span className="font-light sm:text-sm">
               Vendido por: My Fav Games™
             </span>
-            <div className="text-violet-500 text-4xl font-black sm:text-3xl">
+            <div className="text-slate-500 text-4xl font-black sm:text-3xl">
               <span>{'R$ '}</span>
               <span>{priceToBRL(price * 0.9)}</span>
             </div>
@@ -170,7 +170,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   await buyOneItem(id.toString())
                   router.push('/finalizar-compra')
                 }}
-                className="w-64 h-14 bg-violet-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                className="w-64 h-14 bg-slate-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
               >
                 Comprar agora
               </button>
@@ -181,7 +181,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   await addItemToCart(id.toString())
                   setShowCart(true)
                 }}
-                className="w-14 h-14 bg-violet-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                className="w-14 h-14 bg-slate-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <ShoppingCartSimple
                   size={28}
@@ -200,7 +200,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   setIsFavorite(!isFavorite)
                   setShowPopupFavorite(true)
                 }}
-                className="w-14 h-14 bg-violet-400 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                className="w-14 h-14 bg-slate-400 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <Heart
                   size={28}

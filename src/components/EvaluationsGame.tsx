@@ -25,7 +25,7 @@ export default function EvaluationsGame() {
                   key={index}
                   size={20}
                   weight="duotone"
-                  className="text-violet-400"
+                  className="text-slate-400"
                 />
               ))}
             </div>

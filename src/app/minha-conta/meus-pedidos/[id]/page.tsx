@@ -61,7 +61,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
               <ListPlus
                 weight="fill"
                 size={screenSize < 600 ? 36 : 56}
-                className="text-violet-500"
+                className="text-slate-500"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Detalhes do pedido

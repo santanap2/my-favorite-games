@@ -63,7 +63,7 @@ export default function ShoppingCart() {
               <X
                 size={28}
                 weight="bold"
-                className="text-zinc-800 hover:text-violet-400"
+                className="text-zinc-800 hover:text-slate-400"
               />
             </button>
           </div>
@@ -124,7 +124,7 @@ export default function ShoppingCart() {
                     setShowCart(false)
                     router.push('/finalizar-compra')
                   }}
-                  className="text-sm uppercase font-bold text-white py-2 bg-violet-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-white py-2 bg-slate-400 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${
                     calcSum(data?.data.data.products || []).string
@@ -133,7 +133,7 @@ export default function ShoppingCart() {
 
                 <button
                   type="button"
-                  className="uppercase tracking-wide underline text-xs font-light hover:text-violet-400"
+                  className="uppercase tracking-wide underline text-xs font-light hover:text-slate-400"
                   onClick={() => {
                     setShowCart(false)
                     router.push('/home')

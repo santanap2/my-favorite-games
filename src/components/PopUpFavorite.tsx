@@ -7,7 +7,7 @@ export default function PopUpFavorite({
   removeFavorite: boolean
 }) {
   return (
-    <div className="bg-white px-4 py-3 text-violet-600 text-sm absolute shadow-md w-64 -bottom-16 right-0 rounded font-extrabold appear-animation opacity-animation flex items-center justify-center gap-2 z-50">
+    <div className="bg-white px-4 py-3 text-slate-600 text-sm absolute shadow-md w-64 -bottom-16 right-0 rounded font-extrabold appear-animation opacity-animation flex items-center justify-center gap-2 z-50">
       <ArrowFatUp
         weight="fill"
         size={30}

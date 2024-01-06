@@ -62,7 +62,7 @@ export default function MeusDados() {
               <IdentificationCard
                 weight="fill"
                 size={screenSize < 600 ? 36 : 56}
-                className="text-violet-500"
+                className="text-slate-500"
               />
               <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
             </div>
@@ -79,7 +79,7 @@ export default function MeusDados() {
                       <IdentificationBadge
                         size={24}
                         weight="light"
-                        className="text-violet-400"
+                        className="text-slate-400"
                       />
                       <span>Nome completo</span>
                     </h2>
@@ -107,7 +107,7 @@ export default function MeusDados() {
                         <Envelope
                           size={24}
                           weight="light"
-                          className="text-violet-400"
+                          className="text-slate-400"
                         />
                         <span>
                           E-mail{' '}
@@ -138,7 +138,7 @@ export default function MeusDados() {
                         <Envelope
                           size={24}
                           weight="light"
-                          className="text-violet-400"
+                          className="text-slate-400"
                         />
                         <span>Novo E-mail</span>
                       </h2>
@@ -165,7 +165,7 @@ export default function MeusDados() {
                         <Phone
                           size={24}
                           weight="light"
-                          className="text-violet-400"
+                          className="text-slate-400"
                         />
                         <span>Telefone</span>
                       </h2>
@@ -196,7 +196,7 @@ export default function MeusDados() {
                         <Password
                           size={24}
                           weight="light"
-                          className="text-violet-400"
+                          className="text-slate-400"
                         />
                         <span>
                           Senha atual{' '}
@@ -230,7 +230,7 @@ export default function MeusDados() {
                         <Password
                           size={24}
                           weight="light"
-                          className="text-violet-400"
+                          className="text-slate-400"
                         />
                         <span>Nova senha</span>
                       </h2>
@@ -259,7 +259,7 @@ export default function MeusDados() {
                         <Password
                           size={24}
                           weight="light"
-                          className="text-violet-400"
+                          className="text-slate-400"
                         />
                         <span>Confirmar nova senha</span>
                       </h2>
@@ -288,7 +288,7 @@ export default function MeusDados() {
                   <button
                     type="submit"
                     form="myDataForm"
-                    className="flex items-center justify-center bg-violet-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
+                    className="flex items-center justify-center bg-slate-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
                     disabled={!!userDataResponse.success}
                   >
                     {loading.updateUserData ? (
@@ -299,7 +299,7 @@ export default function MeusDados() {
                   </button>
 
                   {userDataResponse.success && (
-                    <div className="w-full text-sm text-violet-500 font-semibold flex gap-4 items-center justify-start">
+                    <div className="w-full text-sm text-slate-500 font-semibold flex gap-4 items-center justify-start">
                       <CheckFat size={28} weight="light" />
                       <h3>{userDataResponse.success}</h3>
                     </div>

@@ -39,8 +39,8 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
 
   return (
     <>
-      {!userError && null}
-      {userError && (
+      {userError && null}
+      {!userError && (
         <div className="w-full">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
@@ -51,7 +51,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                 <ShoppingBagOpen
                   weight="fill"
                   size={56}
-                  className="text-violet-500 relative"
+                  className="text-slate-500 relative"
                 />
 
                 <h1 className="font-regular text-xl font-semibold relative">
@@ -76,7 +76,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                   <OrderStatus order={orderData?.data.data} />
                   <OrderDetails order={orderData?.data.data} />
                   <button
-                    className="mt-6 bg-violet-500 text-white sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-violet-600 hover:shadow-lg flex gap-4 items-center justify-center"
+                    className="mt-6 bg-slate-500 text-white sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-slate-600 hover:shadow-lg flex gap-4 items-center justify-center"
                     onClick={() => {
                       router.push(`/minha-conta/meus-pedidos/${id}`)
                     }}

@@ -22,7 +22,7 @@ export default function MyAccountPopUp() {
   }
 
   return (
-    <div className="w-fit bg-white pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-violet-600 appear-animation animation-opacity">
+    <div className="w-fit bg-white pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-slate-600 appear-animation animation-opacity">
       <ArrowFatUp
         size={28}
         weight="fill"

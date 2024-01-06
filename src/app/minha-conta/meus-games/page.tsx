@@ -69,7 +69,7 @@ export default function MeusGames() {
               <GameController
                 weight="fill"
                 size={screenSize < 600 ? 36 : 56}
-                className="text-violet-500"
+                className="text-slate-500"
               />
               <h1 className="font-regular text-xl font-semibold">Meus Games</h1>
             </div>
@@ -146,7 +146,7 @@ export default function MeusGames() {
                         <SmileySad
                           size={48}
                           weight="light"
-                          className="text-violet-500"
+                          className="text-slate-500"
                         />
                         <span className="text-base font-light">
                           Você não possui nenhum game comprado no momento.

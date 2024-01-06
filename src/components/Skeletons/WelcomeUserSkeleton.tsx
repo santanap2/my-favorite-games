@@ -17,7 +17,7 @@ export default function WelcomeUserSkeleton() {
         <EnvelopeSimple
           size={24}
           weight="fill"
-          className="h-8 md:h-6 text-violet-500"
+          className="h-8 md:h-6 text-slate-500"
         />
 
         <span className="h-8 md:h-6 text-transparent bg-zinc-200 rounded loading-skeleton flex items-center justify-center">
