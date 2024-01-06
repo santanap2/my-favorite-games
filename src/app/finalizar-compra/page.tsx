@@ -27,6 +27,7 @@ export default function FinalizarCompra() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['cart'],
     queryFn: async () => await getUserCart(),
+    retry: false,
   })
 
   useEffect(() => {
@@ -129,7 +130,9 @@ export default function FinalizarCompra() {
                 }
                 router.push('/finalizar-compra/pagamento')
               }}
-              className="w-full bg-violet-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4"
+              className={`w-full bg-violet-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4 ${
+                !isAuthenticated && 'sm:text-sm'
+              }`}
             >
               {isAuthenticated
                 ? 'Ir para o pagamento'

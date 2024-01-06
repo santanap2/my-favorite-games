@@ -16,21 +16,25 @@ export default function Pagamento() {
     paymentMethod,
     setPaymentMethod,
     screenSize,
-    setIsAuthenticated,
     loading,
     setLoading,
     isAuthenticated,
   } = useContext(GamesPlatformContext)
 
-  const { data: userData } = useQuery({
-    queryKey: ['userAuthenticated'],
+  const router = useRouter()
+
+  const { isFetched: userIsFetched, error: userError } = useQuery({
+    queryKey: ['userData'],
     queryFn: async () => await getUserByToken(),
-    retry: true,
+    retry: false,
   })
 
-  const router = useRouter()
-  if (userData && userData.status === 200) setIsAuthenticated(true)
-  if (userData && userData.status !== 200) redirect('/login')
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
 
   const { data, refetch, isLoading } = useQuery({
     queryKey: ['cart'],

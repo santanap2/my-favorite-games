@@ -10,26 +10,37 @@ import { IGameIDParams } from '@/interfaces'
 import { getOneUserOrder } from '@/services/orders.requests'
 import { CheckCircle, ListPlus, ShoppingBagOpen } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
-import React, { useContext } from 'react'
-import GamesPlatformContext from '@/context/Context'
+import { redirect, useRouter } from 'next/navigation'
+import React from 'react'
 import OrderDetails from '@/components/OrderDetails'
+import { getUserByToken } from '@/services'
 
 export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
-  const { isAuthenticated } = useContext(GamesPlatformContext)
-
   const { data: orderData, isLoading: orderIsLoading } = useQuery({
     queryKey: ['userOrder'],
     queryFn: async () => await getOneUserOrder(id),
     retry: false,
   })
 
+  const { isFetched: userIsFetched, error: userError } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
+
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
+
   const router = useRouter()
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {!userError && null}
+      {userError && (
         <div className="w-full">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 

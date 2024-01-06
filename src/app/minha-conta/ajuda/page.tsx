@@ -4,20 +4,33 @@
 import LateralMyAccount from '@/components/LateralMyAccount'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
+import { getUserByToken } from '@/services'
 import { Chat, Clock, Envelope, WhatsappLogo } from '@phosphor-icons/react'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React, { useContext } from 'react'
 
 export default function Ajuda() {
-  const { screenSize, isAuthenticated } = useContext(GamesPlatformContext)
+  const { screenSize } = useContext(GamesPlatformContext)
 
-  if (!isAuthenticated) redirect('/login')
+  const { isFetched: userIsFetched, error: userError } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
+
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {userError && null}
+      {!userError && (
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Ajuda`}</title>
           <LateralMyAccount />

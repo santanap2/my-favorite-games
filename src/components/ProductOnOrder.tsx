@@ -4,7 +4,7 @@ import { priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
 import React from 'react'
 
-export default function ProductsOnOrder({
+export default function ProductOnOrder({
   image,
   name,
   genrePt,

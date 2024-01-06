@@ -21,10 +21,21 @@ import { redirect } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function MeusDados() {
-  const { screenSize, loading, userDataResponse, isAuthenticated } =
+  const { screenSize, loading, userDataResponse } =
     useContext(GamesPlatformContext)
 
-  if (!isAuthenticated) redirect('/login')
+  const { isFetched: userIsFetched, error: userError } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
+
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
 
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 
@@ -41,8 +52,8 @@ export default function MeusDados() {
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {userError && null}
+      {!userError && (
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus dados`}</title>
           <LateralMyAccount />

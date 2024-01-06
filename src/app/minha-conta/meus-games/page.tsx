@@ -9,20 +9,33 @@ import { pageTitle } from '@/helpers'
 import { sortOrdersByDate, sortProductsByName } from '@/helpers/orders'
 import { IGame, IOrderData } from '@/interfaces'
 import { getUserOrders } from '@/services/orders.requests'
-import { GameController } from '@phosphor-icons/react'
+import { GameController, SmileySad } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
+import { getUserByToken } from '@/services'
 
 export default function MeusGames() {
-  const { screenSize, isAuthenticated } = useContext(GamesPlatformContext)
+  const { screenSize } = useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('alphabetical')
 
-  if (!isAuthenticated) redirect('/login')
+  const { isFetched: userIsFetched, error: userError } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
+
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
 
   const {
     data: ordersData,
     isLoading: ordersIsLoading,
+    isFetched: ordersIsFetched,
     refetch: ordersRefetch,
   } = useQuery({
     queryKey: ['userOrders'],
@@ -45,8 +58,8 @@ export default function MeusGames() {
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {userError && null}
+      {!userError && (
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus games`}</title>
 
@@ -82,7 +95,13 @@ export default function MeusGames() {
                 </label>
               </form>
 
-              <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
+              <div
+                className={`w-full ${
+                  ordersIsFetched && allBoughtGames.length === 0
+                    ? 'flex items-center justify-start'
+                    : 'grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
+                }`}
+              >
                 {ordersIsLoading ? (
                   <>
                     <UserProductCardSkeleton />
@@ -123,7 +142,16 @@ export default function MeusGames() {
                         ))
                       )
                     ) : (
-                      <span>Você não possui nenhum game comprado.</span>
+                      <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
+                        <SmileySad
+                          size={48}
+                          weight="light"
+                          className="text-violet-500"
+                        />
+                        <span className="text-base font-light">
+                          Você não possui nenhum game comprado no momento.
+                        </span>
+                      </div>
                     )}
                   </>
                 )}
