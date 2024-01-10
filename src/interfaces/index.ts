@@ -56,9 +56,9 @@ export interface ILastOrderDetail {
   payment: string
 }
 
-export interface IGamesGenres {
-  camelCaseName: string
+export interface ICategory {
   name: string
+  namePt: string
 }
 
 export interface IParamSearch {
@@ -155,4 +155,8 @@ export interface ICardData {
 export interface IPaymentData {
   paymentMethod: string
   cardData?: ICardData
+}
+
+export interface IFiltersData {
+  [key: string]: boolean
 }
