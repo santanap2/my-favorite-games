@@ -107,7 +107,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
       </div>
     )
 
-  const { name, genre, genrePt, price, image, description } = game
+  const { name, category, price, image, description } = game
+  console.log(game)
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
@@ -123,10 +124,10 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           </Link>
           <CaretRight size={16} weight="light" className="text-zinc-500" />
           <Link
-            href={`/home?${genre}=true`}
+            href={`/home?${category.name}=true`}
             className="text-zinc-500 hover:text-slate-400 min-w-fit"
           >
-            {genrePt}
+            {category.namePt}
           </Link>
 
           <CaretRight size={16} weight="light" className="text-zinc-500" />

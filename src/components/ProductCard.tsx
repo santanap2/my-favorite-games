@@ -12,7 +12,7 @@ import { buyOneItem } from '@/services/cart.requests'
 
 export default function ProductCard({
   name,
-  genrePt,
+  category,
   price,
   image,
   id,
@@ -42,7 +42,7 @@ export default function ProductCard({
                 : name}
             </h1>
             <h2 className="font-light text-sm w-full sm:text-xs sm:h-8">
-              {genrePt}
+              {category}
             </h2>
           </div>
 

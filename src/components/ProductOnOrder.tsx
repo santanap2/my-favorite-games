@@ -7,7 +7,7 @@ import React from 'react'
 export default function ProductOnOrder({
   image,
   name,
-  genrePt,
+  category,
   price,
   description,
 }: IGame) {
@@ -26,7 +26,7 @@ export default function ProductOnOrder({
 
         <div className="w-full h-full flex items-start justify-between">
           <div className="flex flex-col justify-between items-start text-sm font-light sm:text-sm sm:font-light w-full h-full">
-            <h3>{genrePt}</h3>
+            <h3>{category.namePt}</h3>
             <h4 className="text-xs max-h-16 sm:hidden">{`${
               description.length > 160 ? description.slice(0, 160) : description
             }...`}</h4>

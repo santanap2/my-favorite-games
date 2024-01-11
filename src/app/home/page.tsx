@@ -83,8 +83,7 @@ export default function Home({ searchParams }: ISearchParams) {
                     key={game.id}
                     name={game.name}
                     id={game.id}
-                    genre={game.genre}
-                    genrePt={game.genrePt}
+                    category={game.category.namePt}
                     price={game.price}
                     image={game.image}
                     description={game.description}

@@ -9,7 +9,7 @@ export default function CartProductCard({
   id,
   image,
   name,
-  genrePt,
+  category,
   price,
 }: IGame) {
   const { refetch } = useQuery({
@@ -30,7 +30,7 @@ export default function CartProductCard({
             {name}
           </h1>
           <h3 className="text-sm font-light sm:text-xs sm:font-light">
-            {genrePt}
+            {category.namePt}
           </h3>
         </div>
         <div className="flex justify-between items-center w-full">

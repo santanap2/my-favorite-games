@@ -94,8 +94,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
                     <ProductOnOrder
                       key={product.id}
                       description={product.description}
-                      genre={product.genre}
-                      genrePt={product.genrePt}
+                      category={product.category}
                       id={product.id}
                       image={product.image}
                       name={product.name}

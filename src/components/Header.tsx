@@ -74,11 +74,6 @@ export default function Header() {
     cartRefetch()
   }, [loading.cart])
 
-  // const inputRef = useRef<HTMLInputElement | null>(null)
-  // useEffect(() => {
-  //   inputRef.current?.focus()
-  // }, [showSearchInputMobile])
-
   const clickMenu = () => {
     if (pathname.includes('/minha-conta'))
       setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })

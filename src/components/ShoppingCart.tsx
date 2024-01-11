@@ -83,8 +83,7 @@ export default function ShoppingCart() {
                       ({
                         id,
                         description,
-                        genre,
-                        genrePt,
+                        category,
                         image,
                         name,
                         price,
@@ -94,8 +93,7 @@ export default function ShoppingCart() {
                             key={id}
                             id={id}
                             description={description}
-                            genre={genre}
-                            genrePt={genrePt}
+                            category={category}
                             name={name}
                             image={image}
                             price={price}
