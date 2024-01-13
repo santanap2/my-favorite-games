@@ -16,6 +16,8 @@ import { useQuery } from '@tanstack/react-query'
 import { getCategories } from '@/services/categories.requests'
 import { currencyMask } from '@/helpers'
 import { useRouter } from 'next/navigation'
+import LateralFiltersSkeleton from './Skeletons/LateralFiltersSkeleton'
+import { sortCategoriesByName } from '@/helpers/categories'
 
 export default function LateralFilters() {
   const { showMenu } = useContext(GamesPlatformContext)
@@ -35,6 +37,8 @@ export default function LateralFilters() {
     queryKey: ['categories'],
     queryFn: async () => await getCategories(),
   })
+
+  const orderedCategories = sortCategoriesByName(categoriesData?.data.data)
 
   const categoriesHandler = (value: string) => {
     if (formFilters.includes(value)) {
@@ -103,42 +107,41 @@ export default function LateralFilters() {
         className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-zinc-100 overflow-y-auto z-20 shadow-2xl xl:shadow-black"
         ref={nodeRef}
       >
-        <div className="flex flex-col items-center h-full justify-start w-full">
-          <div className="w-full text-md font-bold flex gap-3 items-center justify-center px-6">
-            <span>Filtre sua busca</span>
-          </div>
+        {categoriesIsLoading ? (
+          <LateralFiltersSkeleton />
+        ) : (
+          <div className="flex flex-col items-center h-full justify-start w-full">
+            <div className="w-full text-md font-bold flex gap-3 items-center justify-center px-6">
+              <span>Filtre sua busca</span>
+            </div>
 
-          <div className="w-full px-6 mt-8 flex flex-col gap-12">
-            <div>
-              <h1 className="text-sm font-semibold">Tópico</h1>
-              {categoriesIsLoading ? (
-                <p>Carregando...</p>
-              ) : (
+            <div className="w-full px-6 mt-8 flex flex-col gap-12">
+              <div>
+                <h1 className="text-sm font-semibold">Tópico</h1>
+
                 <form
                   onSubmit={formSubmit}
                   id="lateral-filters"
                   className="flex flex-col gap-3 mt-3"
                 >
-                  {categoriesData?.data.data.map(
-                    ({ name, namePt }: ICategory) => (
-                      <label
-                        htmlFor={name}
-                        key={name}
-                        className="flex justify-start items-center gap-3 w-full hover:underline"
-                      >
-                        <input
-                          id={name}
-                          type="checkbox"
-                          name={name}
-                          onChange={() => categoriesHandler(name)}
-                          value={name}
-                        />
-                        <span className="text-zinc-600 tracking-wider text-sm font-light">
-                          {namePt}
-                        </span>
-                      </label>
-                    ),
-                  )}
+                  {orderedCategories.map(({ name, namePt }: ICategory) => (
+                    <label
+                      htmlFor={name}
+                      key={name}
+                      className="flex justify-start items-center gap-3 w-full hover:underline"
+                    >
+                      <input
+                        id={name}
+                        type="checkbox"
+                        name={name}
+                        onChange={() => categoriesHandler(name)}
+                        value={name}
+                      />
+                      <span className="text-zinc-600 tracking-wider text-sm font-light">
+                        {namePt}
+                      </span>
+                    </label>
+                  ))}
                   <div className="flex flex-col gap-3 mt-5">
                     <h1 className="text-sm font-semibold">Preço</h1>
                     <label
@@ -178,17 +181,17 @@ export default function LateralFilters() {
                     </label>
                   </div>
                 </form>
-              )}
+              </div>
             </div>
+            <button
+              type="submit"
+              form="lateral-filters"
+              className="w-52 bg-slate-400 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
+            >
+              Filtrar
+            </button>
           </div>
-          <button
-            type="submit"
-            form="lateral-filters"
-            className="w-52 bg-slate-400 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
-          >
-            Filtrar
-          </button>
-        </div>
+        )}
       </aside>
     </CSSTransition>
   )
