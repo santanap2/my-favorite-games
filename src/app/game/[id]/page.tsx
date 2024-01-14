@@ -108,7 +108,6 @@ export default function GameId({ params: { id } }: IGameIDParams) {
     )
 
   const { name, category, price, image, description } = game
-  console.log(game)
 
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full">
@@ -252,7 +251,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 <CaretDown size={28} />
               )}
             </button>
-            {expandMenus.evaluation && <EvaluationsGame />}
+            {expandMenus.evaluation && <EvaluationsGame gameId={id} />}
           </div>
         </div>
       </div>

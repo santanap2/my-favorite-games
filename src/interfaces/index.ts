@@ -162,3 +162,11 @@ export interface IPaymentData {
 export interface IFiltersData {
   [key: string]: boolean
 }
+
+export interface IEvaluation {
+  id: number
+  created_at: Date
+  stars: number
+  description: string
+  user: { name: string }
+}
