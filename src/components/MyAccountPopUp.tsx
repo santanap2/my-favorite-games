@@ -1,26 +1,19 @@
+import { links } from '@/helpers/myAccount'
 import {
   ArrowFatUp,
   Bag,
+  Chat,
   GameController,
   Heart,
   IdentificationCard,
   SignOut,
+  ThumbsUp,
   UserCircle,
 } from '@phosphor-icons/react'
 import Link from 'next/link'
 import React from 'react'
 
 export default function MyAccountPopUp() {
-  const links = {
-    myAccount: '/minha-conta',
-    myData: '/minha-conta/meus-dados',
-    myOrders: '/minha-conta/meus-pedidos',
-    myGames: '/minha-conta/meus-games',
-    myFavorites: '/minha-conta/meus-favoritos',
-    help: '/minha-conta/ajuda',
-    logout: '/logout',
-  }
-
   return (
     <div className="w-fit bg-white pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-slate-600 appear-animation animation-opacity">
       <ArrowFatUp
@@ -66,6 +59,14 @@ export default function MyAccountPopUp() {
       >
         <span>Meus favoritos</span>
         <Heart weight="duotone" size={20} />
+      </Link>
+
+      <Link
+        href={links.myEvaluations}
+        className="text-sm font-semibold hover:underline transition-all flex gap-2"
+      >
+        <span>Minhas avaliações</span>
+        <ThumbsUp weight="duotone" size={20} />
       </Link>
 
       <Link

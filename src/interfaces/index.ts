@@ -25,7 +25,6 @@ export interface IMenuItem {
 export interface IUserProductCard {
   image: string
   name: string
-  isGame?: boolean
   gameId: number
   isFavorite?: boolean
   productId: number
@@ -171,4 +170,11 @@ export interface IEvaluation {
   user: { name: string }
   productId: number
   product: IGame
+}
+
+export interface IGameWithOrderInfo extends IGame {
+  orderInfo: {
+    id: number
+    date: Date
+  }
 }

@@ -125,7 +125,6 @@ export default function MeusGames() {
                               image={image}
                               gameId={id}
                               productId={id}
-                              isGame
                             />
                           ),
                         )
@@ -137,7 +136,6 @@ export default function MeusGames() {
                             image={image}
                             gameId={id}
                             productId={id}
-                            isGame
                           />
                         ))
                       )

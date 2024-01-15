@@ -10,26 +10,19 @@ import {
   IdentificationCard,
   SignOut,
   UserCircle,
+  ThumbsUp,
 } from '@phosphor-icons/react'
 import GamesPlatformContext from '@/context/Context'
 import { CSSTransition } from 'react-transition-group'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { links } from '@/helpers/myAccount'
 
 export default function LateralMyAccount() {
   const { showMenu, setShowMenu, screenSize } = useContext(GamesPlatformContext)
   const nodeRef = useRef(null)
 
   const pathname = usePathname()
-  const links = {
-    myAccount: '/minha-conta',
-    myData: '/minha-conta/meus-dados',
-    myOrders: '/minha-conta/meus-pedidos',
-    myGames: '/minha-conta/meus-games',
-    myFavorites: '/minha-conta/meus-favoritos',
-    help: '/minha-conta/ajuda',
-    logout: '/logout',
-  }
 
   useEffect(() => {
     setShowMenu({ ...showMenu, myAccount: true })
@@ -154,23 +147,23 @@ export default function LateralMyAccount() {
             </div>
           </Link>
 
-          <Link href={links.help}>
+          <Link href={links.myEvaluations}>
             <div
               className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-slate-400 transition-all`}
             >
-              <Chat
-                weight={pathname === links.help ? 'fill' : 'duotone'}
+              <ThumbsUp
+                weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
                 size={34}
                 className="text-slate-600"
               />
               <span
                 className={`${
-                  pathname === links.help
+                  pathname === links.myEvaluations
                     ? 'text-slate-500 font-semibold'
                     : 'text-zinc-500'
                 } w-full`}
               >
-                Ajuda
+                Minhas avaliações
               </span>
             </div>
           </Link>

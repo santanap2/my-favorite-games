@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { getUserByToken } from '@/services'
@@ -11,7 +10,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React, { useContext } from 'react'
 
-export default function Ajuda() {
+export default function Contato() {
   const { screenSize } = useContext(GamesPlatformContext)
 
   const { isFetched: userIsFetched, error: userError } = useQuery({
@@ -32,8 +31,7 @@ export default function Ajuda() {
       {userError && null}
       {!userError && (
         <div className="mt-24 xxl:mt-20 w-full h-full">
-          <title>{`${pageTitle} - Ajuda`}</title>
-          <LateralMyAccount />
+          <title>{`Contato - ${pageTitle}`}</title>
           <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
             <div className="flex gap-1 w-fit items-center justify-center">
               <Chat
