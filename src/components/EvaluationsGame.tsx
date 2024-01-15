@@ -29,7 +29,7 @@ export default function EvaluationsGame({ gameId }: { gameId: string }) {
               <div className="flex flex-col">
                 <h1 className="font-bold">{name}</h1>
                 <div className="flex">
-                  {new Array(stars).fill('').map((item, index) => (
+                  {new Array(stars).fill('').map((_item, index) => (
                     <Star
                       key={index}
                       size={20}

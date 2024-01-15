@@ -169,4 +169,6 @@ export interface IEvaluation {
   stars: number
   description: string
   user: { name: string }
+  productId: number
+  product: IGame
 }
