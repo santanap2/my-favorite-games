@@ -1,22 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import EvaluationCard from '@/components/EvaluationCard'
 import LateralMyAccount from '@/components/LateralMyAccount'
+import EvaluationCardSkeleton from '@/components/Skeletons/EvaluationCardSkeleton'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
-import { convertDate } from '@/helpers/date'
+import { sortBoughtProductsByName } from '@/helpers/orders'
 import { IEvaluation, IGameWithOrderInfo } from '@/interfaces'
 import { getUserByToken } from '@/services'
 import { getUserEvaluations } from '@/services/evaluations'
 import { getBoughtProducts } from '@/services/orders.requests'
-import { ThumbsUp } from '@phosphor-icons/react'
+import { SmileySad, ThumbsUp } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 export default function MinhasAvaliacoes() {
   const { screenSize } = useContext(GamesPlatformContext)
-  const [, setFilter] = useState('alphabetical')
+  const [filter, setFilter] = useState('date')
 
   const { isFetched: userIsFetched, error: userError } = useQuery({
     queryKey: ['userData'],
@@ -31,25 +33,27 @@ export default function MinhasAvaliacoes() {
   )
     redirect('/login')
 
-  const {
-    data: userEvaluationsData,
-    // refetch: userEvaluationsRefetch,
-    // isLoading: userEvaluationsIsLoading,
-    // isFetched: userEvaluationsIsFetched,
-  } = useQuery({
-    queryKey: ['userEvaluations'],
-    queryFn: async () => await getUserEvaluations(),
-  })
+  const { data: userEvaluationsData, refetch: userEvaluationsRefetch } =
+    useQuery({
+      queryKey: ['userEvaluations'],
+      queryFn: async () => await getUserEvaluations(),
+      retry: false,
+    })
 
   const {
     data: boughtProductsData,
-    // refetch: boughtProductsRefetch,
-    // isLoading: boughtProductsIsLoading,
-    // isFetched: boughtProductsIsFetched,
+    isLoading: boughtProductsIsLoading,
+    refetch: boughtProductsRefetch,
   } = useQuery({
     queryKey: ['boughtProducts'],
     queryFn: async () => await getBoughtProducts(),
+    retry: false,
   })
+
+  useEffect(() => {
+    boughtProductsRefetch()
+    userEvaluationsRefetch()
+  }, [boughtProductsRefetch, userEvaluationsRefetch])
 
   return (
     <>
@@ -86,54 +90,107 @@ export default function MinhasAvaliacoes() {
                     className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
                     onChange={({ target: { value } }) => setFilter(value)}
                   >
-                    <option value="alphabetical">Ordem alfabética</option>
                     <option value="date">Comprados recentemente</option>
+                    <option value="alphabetical">Ordem alfabética</option>
                   </select>
                 </label>
               </form>
 
               <div className="w-full flex flex-col gap-4">
-                {boughtProductsData?.data.data.map(
-                  ({ id, image, name, orderInfo }: IGameWithOrderInfo) => {
-                    const alreadyEvaluated =
-                      userEvaluationsData?.data.data.some(
-                        (item: IEvaluation) => item.productId === id,
-                      )
+                {boughtProductsIsLoading ? (
+                  <>
+                    <EvaluationCardSkeleton />
+                    <EvaluationCardSkeleton />
+                    <EvaluationCardSkeleton />
+                  </>
+                ) : boughtProductsData?.data.data.length > 0 ? (
+                  filter === 'alphabetical' ? (
+                    sortBoughtProductsByName(boughtProductsData?.data.data).map(
+                      ({ id, image, name, orderInfo }: IGameWithOrderInfo) => {
+                        const alreadyEvaluated =
+                          userEvaluationsData?.data.data.some(
+                            (item: IEvaluation) => item.productId === id,
+                          )
 
-                    return (
-                      <div
-                        key={id}
-                        className="flex items-center justify-between gap-2 w-full h-40 bg-white px-2 rounded shadow-md"
-                      >
-                        <img
-                          src={image}
-                          alt={name}
-                          className="w-24 h-36 rounded shadow-md object-cover"
-                        />
-                        <div className="flex flex-col w-full h-36 items-start justify-between">
-                          <div className="flex flex-col gap-1">
-                            <span className="text-lg font-semibold">
-                              {name}
-                            </span>
-                            <span className="sm:text-sm">
-                              <span className="font-semibold">{`Pedido: `}</span>
-                              <span className="text-light">{`#${orderInfo.id}`}</span>
-                            </span>
-                            <span className="sm:text-sm">
-                              <span className="font-semibold">{`Data: `}</span>
-                              <span>{convertDate(orderInfo.date)}</span>
-                            </span>
-                          </div>
+                        let stars = 0
+                        let description = ''
+                        const productEvaluation: IEvaluation | undefined =
+                          userEvaluationsData?.data.data.find(
+                            (one: IEvaluation) => one.productId === id,
+                          )
+                        if (productEvaluation !== undefined) {
+                          stars = productEvaluation.stars
+                          description = productEvaluation.description
+                        }
 
-                          <button className="sm:w-full bg-slate-500 rounded px-2 py-2 text-white font-light text-base">
-                            {alreadyEvaluated
-                              ? 'Ver avaliação'
-                              : 'Avaliar produto'}
-                          </button>
-                        </div>
-                      </div>
+                        return (
+                          <EvaluationCard
+                            key={id}
+                            id={id}
+                            alreadyEvaluated={alreadyEvaluated}
+                            description={description}
+                            image={image}
+                            name={name}
+                            orderInfo={orderInfo}
+                            productEvaluation={productEvaluation}
+                            stars={stars}
+                          />
+                        )
+                      },
                     )
-                  },
+                  ) : (
+                    boughtProductsData?.data.data
+                      .map(
+                        ({
+                          id,
+                          image,
+                          name,
+                          orderInfo,
+                        }: IGameWithOrderInfo) => {
+                          const alreadyEvaluated =
+                            userEvaluationsData?.data.data.some(
+                              (item: IEvaluation) => item.productId === id,
+                            )
+
+                          let stars = 0
+                          let description = ''
+                          const productEvaluation: IEvaluation | undefined =
+                            userEvaluationsData?.data.data.find(
+                              (one: IEvaluation) => one.productId === id,
+                            )
+                          if (productEvaluation !== undefined) {
+                            stars = productEvaluation.stars
+                            description = productEvaluation.description
+                          }
+
+                          return (
+                            <EvaluationCard
+                              key={id}
+                              id={id}
+                              alreadyEvaluated={alreadyEvaluated}
+                              description={description}
+                              image={image}
+                              name={name}
+                              orderInfo={orderInfo}
+                              productEvaluation={productEvaluation}
+                              stars={stars}
+                            />
+                          )
+                        },
+                      )
+                      .reverse()
+                  )
+                ) : (
+                  <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
+                    <SmileySad
+                      size={48}
+                      weight="light"
+                      className="text-slate-500"
+                    />
+                    <span className="text-base font-light">
+                      Você não possui nenhum game comprado no momento.
+                    </span>
+                  </div>
                 )}
               </div>
             </div>

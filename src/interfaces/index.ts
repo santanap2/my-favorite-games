@@ -178,3 +178,17 @@ export interface IGameWithOrderInfo extends IGame {
     date: Date
   }
 }
+
+export interface IEvaluationCard {
+  id: number
+  alreadyEvaluated: boolean
+  description: string
+  image: string
+  name: string
+  orderInfo: {
+    id: number
+    date: Date
+  }
+  productEvaluation?: IEvaluation
+  stars: number
+}
