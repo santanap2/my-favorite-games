@@ -107,7 +107,7 @@ export default function EvaluationCard({
                 ? router.push(
                     `/minha-conta/minhas-avaliacoes/${productEvaluation?.id}`,
                   )
-                : router.push(`/minha-conta/avaliar-produto/${id}`)
+                : router.push(`/avaliar-produto/${id}`)
             }}
           >
             {alreadyEvaluated ? 'Ver avaliação' : 'Avaliar produto'}
