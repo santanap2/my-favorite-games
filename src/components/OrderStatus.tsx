@@ -30,15 +30,13 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-0 z-10">
         <Storefront
-          size={64}
           weight="fill"
-          className="rounded-3xl bg-zinc-50 p-2 border-2 border-emerald-500 text-emerald-500 sm:p-1"
+          className="rounded-3xl bg-zinc-50 p-2 border-2 border-emerald-500 text-emerald-500 sm:p-1 text-6xl"
         />
         <div className="flex flex-col items-center justify-center h-full">
           <CheckCircle
-            size={40}
             weight="fill"
-            className="text-emerald-500 rounded-3xl bg-zinc-50"
+            className="text-emerald-500 rounded-3xl bg-zinc-50 text-4xl"
           />
           <span className="text-zinc-700 text-sm text-center">
             Pedido realizado
@@ -48,7 +46,6 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-32 z-10 sm:left-24 xs:left-20">
         <CurrencyCircleDollar
-          size={64}
           weight={
             order.status === 'approvedPayment' ||
             order.status === 'processing' ||
@@ -65,30 +62,24 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : order.status === 'canceled'
                 ? 'text-rose-500 border-rose-500'
                 : 'border-slate-400'
-          } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1`}
+          } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1 text-6xl`}
         />
 
         <div className="flex flex-col items-center justify-center">
           {order.status === 'canceled' ? (
             <XCircle
-              size={40}
               weight="fill"
-              className=" rounded-3xl bg-zinc-50 text-rose-500"
+              className=" rounded-3xl bg-zinc-50 text-rose-500 text-4xl"
             />
           ) : order.status === 'approvedPayment' ||
             order.status === 'processing' ||
             order.status === 'concluded' ? (
             <CheckCircle
-              size={40}
               weight="fill"
-              className="rounded-3xl bg-zinc-50 text-emerald-500"
+              className="rounded-3xl bg-zinc-50 text-emerald-500 text-4xl"
             />
           ) : (
-            <Circle
-              size={40}
-              weight="fill"
-              className="rounded-3xl bg-zinc-50"
-            />
+            <Circle weight="fill" className="rounded-3xl bg-zinc-50 text-4xl" />
           )}
           <span className="text-zinc-700 text-sm text-center">
             Pagamento confirmado
@@ -98,7 +89,6 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-64 z-10 sm:left-48 xs:left-40">
         <HourglassMedium
-          size={64}
           weight={
             order.status === 'processing' ||
             order.status === 'concluded' ||
@@ -112,27 +102,21 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : order.status === 'canceled'
                 ? 'text-rose-500 border-rose-500'
                 : 'border-slate-400'
-          } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1`}
+          } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1 text-6xl`}
         />
         <div className="flex flex-col items-center justify-center">
           {order.status === 'canceled' ? (
             <XCircle
-              size={40}
               weight="fill"
-              className=" rounded-3xl bg-zinc-50 text-rose-500"
+              className=" rounded-3xl bg-zinc-50 text-rose-500 text-4xl"
             />
           ) : order.status === 'processing' || order.status === 'concluded' ? (
             <CheckCircle
-              size={40}
               weight="fill"
-              className="rounded-3xl bg-zinc-50 text-emerald-500"
+              className="rounded-3xl bg-zinc-50 text-emerald-500 text-4xl"
             />
           ) : (
-            <Circle
-              size={40}
-              weight="fill"
-              className="rounded-3xl bg-zinc-50"
-            />
+            <Circle weight="fill" className="rounded-3xl bg-zinc-50 text-4xl" />
           )}
           <span className="text-zinc-700 text-sm text-center">
             Processando pedido
@@ -142,7 +126,6 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-96 z-10 sm:left-72 xs:left-60">
         <Package
-          size={64}
           weight={
             order.status === 'concluded' || order.status === 'canceled'
               ? 'fill'
@@ -154,27 +137,21 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : order.status === 'canceled'
                 ? 'text-rose-500 border-rose-500'
                 : 'border-slate-400'
-          } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1`}
+          } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1 text-6xl`}
         />
         <div className="flex flex-col items-center justify-center">
           {order.status === 'canceled' ? (
             <XCircle
-              size={40}
               weight="fill"
-              className=" rounded-3xl bg-zinc-50 text-rose-500"
+              className=" rounded-3xl bg-zinc-50 text-rose-500 text-4xl"
             />
           ) : order.status === 'concluded' ? (
             <CheckCircle
-              size={40}
               weight="fill"
-              className="rounded-3xl bg-zinc-50 text-emerald-500"
+              className="rounded-3xl bg-zinc-50 text-emerald-500 text-4xl"
             />
           ) : (
-            <Circle
-              size={40}
-              weight="fill"
-              className="rounded-3xl bg-zinc-50"
-            />
+            <Circle weight="fill" className="rounded-3xl bg-zinc-50 text-4xl" />
           )}
           <span className="text-zinc-700 text-sm text-center">
             {order.status === 'canceled'

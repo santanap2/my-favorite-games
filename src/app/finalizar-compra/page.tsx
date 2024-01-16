@@ -39,11 +39,7 @@ export default function FinalizarCompra() {
       <title>{`${pageTitle} - Finalizar compra`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">
-        <Wallet
-          weight="fill"
-          size={screenSize < 600 ? 36 : 56}
-          className="text-slate-500"
-        />
+        <Wallet weight="fill" className="text-slate-500 sm:text-3xl text-5xl" />
         <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
 

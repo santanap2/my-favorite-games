@@ -102,7 +102,10 @@ export default function Header() {
         onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
         onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
       >
-        <List size={28} weight={hoverBtn.menu ? 'duotone' : 'regular'} />
+        <List
+          className="text-3xl"
+          weight={hoverBtn.menu ? 'duotone' : 'regular'}
+        />
       </button>
       <div className="w-3/4 flex justify-between items-center xl:w-fit">
         <CSSTransition
@@ -125,7 +128,7 @@ export default function Header() {
               placeholder="Qual jogo procura?"
             />
             <button type="submit" className="absolute top-1 right-2">
-              <MagnifyingGlass size={28} weight="regular" />
+              <MagnifyingGlass className="text-3xl" weight="regular" />
             </button>
             {screenSize > 376 && (
               <button
@@ -133,9 +136,8 @@ export default function Header() {
                 onClick={() => setShowSearchInputMobile(false)}
               >
                 <X
-                  size={20}
                   weight="bold"
-                  className="text-slate-400 absolute top-2 -right-6"
+                  className="text-slate-400 absolute top-2 -right-6 text-xl"
                 />
               </button>
             )}
@@ -166,9 +168,8 @@ export default function Header() {
             />
             <button type="submit">
               <MagnifyingGlass
-                size={28}
                 weight={hoverBtn.search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-slate-400"
+                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-slate-400 text-3xl"
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }
@@ -198,7 +199,7 @@ export default function Header() {
                 : 'Entrar'}
             </span>
             <UserCircle
-              size={30}
+              className="text-3xl"
               weight={hoverBtn.user ? 'duotone' : 'regular'}
             />
           </Link>
@@ -210,9 +211,8 @@ export default function Header() {
         onClick={() => setShowCart(!showCart)}
       >
         <ShoppingCartSimple
-          size={28}
           weight={hoverBtn.cart ? 'duotone' : 'regular'}
-          className="text-orange-400 xl:hidden"
+          className="text-orange-400 xl:hidden text-3xl"
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
@@ -232,9 +232,8 @@ export default function Header() {
             }}
           >
             <MagnifyingGlass
-              size={28}
               weight={hoverBtn.search ? 'duotone' : 'regular'}
-              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-slate-400"
+              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-slate-400 text-3xl"
             />
           </button>
         )}
@@ -250,7 +249,7 @@ export default function Header() {
               : 'Entrar'}
           </span>
           <UserCircle
-            size={30}
+            className="text-3xl"
             weight={hoverBtn.user ? 'duotone' : 'regular'}
           />
         </Link>
@@ -260,9 +259,8 @@ export default function Header() {
           onClick={() => setShowCart(!showCart)}
         >
           <ShoppingCartSimple
-            size={28}
             weight={hoverBtn.cart ? 'duotone' : 'regular'}
-            className="text-orange-400"
+            className="text-orange-400 text-3xl"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, cart: true }))
             }

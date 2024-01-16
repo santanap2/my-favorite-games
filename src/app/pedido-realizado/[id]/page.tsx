@@ -50,16 +50,14 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
               <div className="flex gap-2 w-full items-center justify-center relative">
                 <ShoppingBagOpen
                   weight="fill"
-                  size={56}
-                  className="text-slate-500 relative"
+                  className="text-slate-500 relative text-6xl"
                 />
 
                 <h1 className="font-regular text-xl font-semibold relative">
                   Pedido realizado com sucesso!
                   <CheckCircle
-                    size={28}
                     weight="fill"
-                    className="absolute text-green-500 -bottom-4 -left-8 bg-zinc-50 rounded-full"
+                    className="absolute text-green-500 -bottom-4 -left-8 bg-zinc-50 rounded-full text-3xl"
                   />
                 </h1>
               </div>
@@ -81,7 +79,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                       router.push(`/minha-conta/meus-pedidos/${id}`)
                     }}
                   >
-                    <ListPlus size={20} weight="bold" />
+                    <ListPlus className="text-xl" weight="bold" />
                     <span>Ver mais detalhes</span>
                   </button>
                 </>

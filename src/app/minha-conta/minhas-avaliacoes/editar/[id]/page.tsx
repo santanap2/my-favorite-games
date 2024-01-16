@@ -94,8 +94,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  size={screenSize < 600 ? 36 : 56}
-                  className="text-slate-500"
+                  className="text-slate-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Avaliar produto
@@ -127,11 +126,10 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                       {new Array(5).fill('').map((_, index) => (
                         <Star
                           key={index}
-                          size={36}
                           weight={index < stars ? 'fill' : 'duotone'}
                           className={`${
                             index < stars ? 'text-yellow-400' : 'text-zinc-200'
-                          }`}
+                          } text-4xl`}
                           onClick={() => setStars(index + 1)}
                         />
                       ))}

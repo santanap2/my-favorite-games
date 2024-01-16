@@ -107,7 +107,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             >
               Todos os jogos
             </Link>
-            <CaretRight size={16} weight="light" className="text-zinc-500" />
+            <CaretRight weight="light" className="text-zinc-500 text-base" />
             <Link
               href={`/home?${productData?.data.data.category.name}=true`}
               className="text-zinc-500 hover:text-slate-400 min-w-fit"
@@ -115,7 +115,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               {productData?.data.data.category.namePt}
             </Link>
 
-            <CaretRight size={16} weight="light" className="text-zinc-500" />
+            <CaretRight weight="light" className="text-zinc-500 text-base" />
 
             <Link
               href={`/game/${id}`}
@@ -170,14 +170,12 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   className="w-14 h-14 bg-slate-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
                 >
                   <ShoppingCartSimple
-                    size={28}
                     weight="bold"
-                    className="text-white relative"
+                    className="text-white relative text-3xl"
                   />
                   <PlusCircle
-                    size={20}
                     weight="fill"
-                    className="absolute top-2 right-1 sm:top-1 sm:right-0"
+                    className="absolute top-2 right-1 sm:top-1 sm:right-0 text-xl"
                   />
                 </button>
                 <button
@@ -189,9 +187,8 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   className="w-14 h-14 bg-slate-400 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
                 >
                   <Heart
-                    size={28}
                     weight={isFavorite ? 'fill' : 'bold'}
-                    className="text-white relative"
+                    className="text-white relative text-3xl"
                   />
                   {showPopupFavorite && (
                     <PopUpFavorite removeFavorite={!isFavorite} />
@@ -210,9 +207,9 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   Descrição
                 </span>
                 {expandMenus.description ? (
-                  <CaretUp size={28} />
+                  <CaretUp className="text-3xl" />
                 ) : (
-                  <CaretDown size={28} />
+                  <CaretDown className="text-3xl" />
                 )}
               </button>
               {expandMenus.description && (
@@ -236,9 +233,9 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                   Avaliações
                 </span>
                 {expandMenus.evaluation ? (
-                  <CaretUp size={28} />
+                  <CaretUp className="text-3xl" />
                 ) : (
-                  <CaretDown size={28} />
+                  <CaretDown className="text-3xl" />
                 )}
               </button>
               {expandMenus.evaluation && <EvaluationsGame gameId={id} />}

@@ -32,9 +32,8 @@ export default function EvaluationsGame({ gameId }: { gameId: string }) {
                   {new Array(stars).fill('').map((_item, index) => (
                     <Star
                       key={index}
-                      size={20}
                       weight="duotone"
-                      className="text-slate-400"
+                      className="text-slate-400 text-xl"
                     />
                   ))}
                 </div>

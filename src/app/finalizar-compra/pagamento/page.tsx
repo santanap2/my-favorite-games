@@ -125,8 +125,7 @@ export default function Pagamento() {
           <div className="flex gap-1 w-fit items-center justify-center">
             <Wallet
               weight="fill"
-              size={screenSize < 600 ? 36 : 56}
-              className="text-slate-500"
+              className="text-slate-500 sm:text-3xl text-5xl"
             />
             <h1 className="font-regular text-xl font-semibold">
               Forma de pagamento
@@ -145,15 +144,13 @@ export default function Pagamento() {
                   <div>
                     {paymentMethod.pix ? (
                       <CheckCircle
-                        size={screenSize < 600 ? 24 : 28}
                         weight="fill"
-                        className="text-slate-400"
+                        className="text-slate-400 sm:text-[24px] text-xl"
                       />
                     ) : (
                       <Circle
-                        size={screenSize < 600 ? 24 : 28}
                         weight="regular"
-                        className="text-slate-400"
+                        className="text-slate-400 sm:text-[24px] text-xl"
                       />
                     )}
                   </div>
@@ -195,15 +192,13 @@ export default function Pagamento() {
                   <div>
                     {paymentMethod.bankSlip ? (
                       <CheckCircle
-                        size={screenSize < 600 ? 24 : 28}
                         weight="fill"
-                        className="text-slate-400"
+                        className="text-slate-400 sm:text-[24px] text-xl"
                       />
                     ) : (
                       <Circle
-                        size={screenSize < 600 ? 24 : 28}
                         weight="regular"
-                        className="text-slate-400"
+                        className="text-slate-400 sm:text-[24px] text-xl"
                       />
                     )}
                   </div>
@@ -248,15 +243,13 @@ export default function Pagamento() {
                   <div>
                     {paymentMethod.creditCard ? (
                       <CheckCircle
-                        size={screenSize < 600 ? 24 : 28}
                         weight="fill"
-                        className="text-slate-400"
+                        className="text-slate-400 sm:text-[24px] text-xl"
                       />
                     ) : (
                       <Circle
-                        size={screenSize < 600 ? 24 : 28}
                         weight="regular"
-                        className="text-slate-400"
+                        className="text-slate-400 sm:text-[24px] text-xl"
                       />
                     )}
                   </div>

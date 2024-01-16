@@ -5,7 +5,6 @@ import React, { useContext, useEffect, useRef } from 'react'
 import {
   Bag,
   GameController,
-  Chat,
   Heart,
   IdentificationCard,
   SignOut,
@@ -48,8 +47,7 @@ export default function LateralMyAccount() {
             >
               <UserCircle
                 weight={pathname === links.myAccount ? 'fill' : 'duotone'}
-                size={34}
-                className="text-slate-600"
+                className="text-slate-600 text-4xl"
               />
               <span
                 className={`${
@@ -69,8 +67,7 @@ export default function LateralMyAccount() {
             >
               <Bag
                 weight={pathname === links.myOrders ? 'fill' : 'duotone'}
-                size={34}
-                className="text-slate-600"
+                className="text-slate-600 text-4xl"
               />
               <span
                 className={`${
@@ -90,8 +87,7 @@ export default function LateralMyAccount() {
             >
               <IdentificationCard
                 weight={pathname === links.myData ? 'fill' : 'duotone'}
-                size={34}
-                className="text-slate-600"
+                className="text-slate-600 text-4xl"
               />
               <span
                 className={`${
@@ -111,8 +107,7 @@ export default function LateralMyAccount() {
             >
               <GameController
                 weight={pathname === links.myGames ? 'fill' : 'duotone'}
-                size={34}
-                className="text-slate-600"
+                className="text-slate-600 text-4xl"
               />
               <span
                 className={`${
@@ -132,8 +127,7 @@ export default function LateralMyAccount() {
             >
               <Heart
                 weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
-                size={34}
-                className="text-slate-600"
+                className="text-slate-600 text-4xl"
               />
               <span
                 className={`${
@@ -153,8 +147,7 @@ export default function LateralMyAccount() {
             >
               <ThumbsUp
                 weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
-                size={34}
-                className="text-slate-600"
+                className="text-slate-600 text-4xl"
               />
               <span
                 className={`${
@@ -175,8 +168,7 @@ export default function LateralMyAccount() {
           >
             <SignOut
               weight={pathname === links.help ? 'fill' : 'duotone'}
-              size={34}
-              className="text-orange-600"
+              className="text-orange-600 text-4xl"
             />
             <span className="w-full">Sair</span>
           </div>

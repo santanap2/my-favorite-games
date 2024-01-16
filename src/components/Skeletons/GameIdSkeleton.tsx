@@ -16,12 +16,12 @@ export default function GameIdSkeleton() {
         <span className="min-w-fit text-transparent bg-zinc-100 loading-skeleton rounded shadow-md cursor-default text-select">
           Todos os jogos
         </span>
-        <CaretRight size={16} weight="light" className="text-zinc-300" />
+        <CaretRight weight="light" className="text-zinc-300 text-base" />
         <span className="min-w-fit text-transparent bg-zinc-100 loading-skeleton rounded shadow-md cursor-default">
           Nome da categoria
         </span>
 
-        <CaretRight size={16} weight="light" className="text-zinc-300" />
+        <CaretRight weight="light" className="text-zinc-300 text-base" />
 
         <span className="min-w-fit text-transparent bg-zinc-100 loading-skeleton rounded shadow-md cursor-default">
           Nome completo do jogo
@@ -57,19 +57,14 @@ export default function GameIdSkeleton() {
               Comprar agora
             </div>
             <div className="w-14 h-14 text-lg font-bold uppercase tracking-wider flex items-center justify-center relative shadow-md sm:h-12 sm:w-12 text-transparent bg-zinc-100 loading-skeleton rounded">
-              <ShoppingCartSimple
-                size={28}
-                weight="bold"
-                className="relative"
-              />
+              <ShoppingCartSimple weight="bold" className="relative text-3xl" />
               <PlusCircle
-                size={20}
                 weight="fill"
-                className="absolute top-2 right-1 sm:top-1 sm:right-0"
+                className="absolute top-2 right-1 sm:top-1 sm:right-0 text-xl"
               />
             </div>
             <div className="w-14 h-14  text-lg font-bold tracking-wider flex items-center justify-center relative hover:shadow-lg sm:h-12 sm:w-12 text-transparent bg-zinc-100 loading-skeleton rounded shadow-md">
-              <Heart size={28} className=" relative" />
+              <Heart className=" relative text-3xl" />
             </div>
           </div>
         </div>
@@ -80,7 +75,7 @@ export default function GameIdSkeleton() {
             Descrição
           </span>
 
-          <CaretUp size={28} className="text-zinc-300" />
+          <CaretUp className="text-zinc-300 text-3xl" />
         </div>
 
         <div className="tracking-wide pb-8 flex flex-col gap-1 border-b">
@@ -100,7 +95,7 @@ export default function GameIdSkeleton() {
           <span className="text-xl font-semibold sm:text-base text-transparent bg-zinc-100 loading-skeleton rounded w-fit shadow-md cursor-default">
             Avaliações
           </span>
-          <CaretUp size={28} className="text-zinc-300" />
+          <CaretUp className="text-zinc-300 text-3xl" />
         </div>
 
         <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full">

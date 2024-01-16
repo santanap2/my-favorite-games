@@ -60,8 +60,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  size={screenSize < 600 ? 36 : 56}
-                  className="text-slate-500"
+                  className="text-slate-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Avaliação de produto
@@ -103,12 +102,11 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                             ? 'fill'
                             : 'duotone'
                         }
-                        size={28}
                         className={`${
                           index < userEvaluationsData?.data.data.stars
                             ? 'text-yellow-400'
                             : 'text-zinc-200'
-                        }`}
+                        } text-3xl`}
                       />
                     ))}
                     <span className="ml-2 tracking-wide font-light text-zinc-400">

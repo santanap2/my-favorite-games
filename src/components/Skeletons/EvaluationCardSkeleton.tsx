@@ -31,9 +31,8 @@ export default function EvaluationCardSkeleton() {
                   {new Array(5).fill('').map((_item, index) => (
                     <Star
                       key={index}
-                      size={20}
                       weight="fill"
-                      className="text-zinc-200"
+                      className="text-zinc-200 text-xl"
                     />
                   ))}
                 </div>

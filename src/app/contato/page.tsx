@@ -36,8 +36,7 @@ export default function Contato() {
             <div className="flex gap-1 w-fit items-center justify-center">
               <Chat
                 weight="fill"
-                size={screenSize < 600 ? 36 : 56}
-                className="text-slate-500"
+                className="text-slate-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Ajuda</h1>
             </div>
@@ -49,7 +48,7 @@ export default function Contato() {
                 </h1>
 
                 <div className="flex gap-2 items-center justify-start">
-                  <Clock size={28} weight="bold" className="text-slate-400" />
+                  <Clock weight="bold" className="text-slate-400 text-3xl" />
                   <h3 className="text-sm">10:00h às 20:00h</h3>
                 </div>
               </div>
@@ -64,9 +63,8 @@ export default function Contato() {
                   className="flex gap-2 items-start justify-start hover:text-slate-400 text-sm font-light"
                 >
                   <WhatsappLogo
-                    size={28}
                     weight="duotone"
-                    className="text-green-400"
+                    className="text-green-400 text-3xl"
                   />
                   <h3 className="flex flex-col">
                     <span>(31) 99869-5219</span>
@@ -79,9 +77,8 @@ export default function Contato() {
                   className="flex gap-2 items-start justify-start hover:text-slate-400 text-sm font-light"
                 >
                   <WhatsappLogo
-                    size={28}
                     weight="duotone"
-                    className="text-green-400"
+                    className="text-green-400 text-3xl"
                   />
                   <h3 className="flex flex-col">
                     <span>(37) 9904-2144</span>
@@ -100,9 +97,8 @@ export default function Contato() {
                   className="flex gap-2 items-start justify-start hover:text-slate-400 text-sm font-light"
                 >
                   <Envelope
-                    size={28}
                     weight="duotone"
-                    className="text-slate-400"
+                    className="text-slate-400 text-3xl"
                   />
                   <h3 className="flex flex-col">
                     <span>suporte@myfavgames.com</span>

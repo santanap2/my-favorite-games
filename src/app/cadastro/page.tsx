@@ -154,14 +154,14 @@ export default function Cadastro() {
 
           {registerResponse.success && (
             <div className="w-full text-sm text-slate-500 font-semibold flex gap-4 items-center justify-center">
-              <CheckFat size={28} weight="light" />
+              <CheckFat weight="light" className="text-3xl" />
               <h3>{registerResponse.success}</h3>
             </div>
           )}
 
           {registerResponse.error && (
             <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
-              <Warning size={28} weight="light" />
+              <Warning weight="light" className="text-3xl" />
               <h3>{registerResponse.error}</h3>
             </div>
           )}

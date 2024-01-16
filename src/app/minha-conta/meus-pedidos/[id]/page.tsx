@@ -60,8 +60,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
             <div className="flex gap-1 w-full items-center justify-start">
               <ListPlus
                 weight="fill"
-                size={screenSize < 600 ? 36 : 56}
-                className="text-slate-500"
+                className="text-slate-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Detalhes do pedido

@@ -17,8 +17,7 @@ export default function EvaluationIdSkeleton() {
         <div className="flex gap-1 w-full items-center justify-start relative">
           <ThumbsUp
             weight="fill"
-            size={screenSize < 600 ? 36 : 56}
-            className="text-slate-500"
+            className="text-slate-500 sm:text-3xl text-5xl"
           />
           <h1 className="font-regular text-xl font-semibold">
             Avaliação de produto
@@ -59,8 +58,7 @@ export default function EvaluationIdSkeleton() {
                 <Star
                   key={index}
                   weight="fill"
-                  size={28}
-                  className="text-zinc-200"
+                  className="text-zinc-200 text-3xl"
                 />
               ))}
             </div>

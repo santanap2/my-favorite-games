@@ -81,8 +81,7 @@ export default function MinhaConta() {
                 <div className="flex gap-1 items-start justify-center w-full">
                   <UserCircle
                     weight="fill"
-                    size={56}
-                    className="text-slate-500"
+                    className="text-slate-500 text-6xl"
                   />
                   <div className="flex flex-col w-full">
                     <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
@@ -108,9 +107,8 @@ export default function MinhaConta() {
                             </span>
                             <h2 className="flex md:hidden text-sm font-light absolute -bottom-7 left-0">
                               <EnvelopeSimple
-                                size={24}
                                 weight="fill"
-                                className="h-8 md:h-6 text-slate-500"
+                                className="h-8 md:h-6 text-slate-500 text-2xl"
                               />
 
                               {userIsLoading ? (
@@ -131,9 +129,8 @@ export default function MinhaConta() {
                 </div>
                 <h2 className="hidden md:flex text-sm font-light">
                   <EnvelopeSimple
-                    size={24}
                     weight="fill"
-                    className="h-8 md:h-6 text-slate-500"
+                    className="h-8 md:h-6 text-slate-500 text-2xl"
                   />
 
                   {userIsLoading ? (
@@ -195,9 +192,8 @@ export default function MinhaConta() {
                     ) : (
                       <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                         <SmileySad
-                          size={48}
                           weight="regular"
-                          className="text-slate-500"
+                          className="text-slate-500 text-5xl"
                         />
                         <span className="text-base font-light">
                           Você não possui nenhum pedido feito.
@@ -251,9 +247,8 @@ export default function MinhaConta() {
                       ) : (
                         <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                           <SmileySad
-                            size={48}
                             weight="regular"
-                            className="text-slate-500"
+                            className="text-slate-500 text-5xl"
                           />
                           <span className="text-base font-light">
                             Você não possui nenhum game comprado.

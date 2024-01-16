@@ -48,9 +48,8 @@ export default function UserProductCard({
             className="absolute -top-4 right-1 p-2 bg-white rounded-full lg:-top-9 lg:right-0 lg:rounded-tl lg:rounded-tr-none lg:rounded-b-none lg:pt-2 lg:px-1"
           >
             <Heart
-              size={28}
               weight={favorited ? 'fill' : 'bold'}
-              className="text-slate-400"
+              className="text-slate-400 text-3xl"
             />
           </button>
         )}

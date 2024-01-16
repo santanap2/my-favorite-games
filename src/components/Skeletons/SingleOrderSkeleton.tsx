@@ -50,7 +50,7 @@ export default function SingleOrderSkeleton() {
       </table>
 
       <span className=" w-48 h-8 md:h-6 text-transparent font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs bg-zinc-100 rounded loading-skeleton">
-        <ListPlus size={20} />
+        <ListPlus className="text-xl" />
         <span className="xxl:">I Detalhes do pedido</span>
       </span>
     </div>

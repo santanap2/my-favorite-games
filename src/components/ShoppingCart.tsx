@@ -54,16 +54,15 @@ export default function ShoppingCart() {
                   }}
                   className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center"
                 >
-                  <Trash size={20} weight="light" />
+                  <Trash className="text-xl" weight="light" />
                   <span>Esvaziar</span>
                 </button>
               )}
             </div>
             <button type="button" onClick={() => setShowCart(!showCart)}>
               <X
-                size={28}
                 weight="bold"
-                className="text-zinc-800 hover:text-slate-400"
+                className="text-zinc-800 hover:text-slate-400 text-3xl"
               />
             </button>
           </div>

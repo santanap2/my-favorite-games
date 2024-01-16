@@ -74,14 +74,12 @@ export default function ProductCard({
           className="w-1/4 h-9 bg-slate-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-slate-500 transition-all shadow-md sm:text-xs "
         >
           <ShoppingCartSimple
-            size={screenSize < 1000 ? 20 : 24}
             weight="bold"
-            className="text-white relative"
+            className="text-white relative lg:text-xl text-2xl"
           />
           <PlusCircle
-            size={screenSize < 1280 ? 14 : 16}
             weight="fill"
-            className="text-white absolute top-0 right-2 xxl:top-1 xxl:right-1"
+            className="text-white absolute top-0 right-2 xxl:top-1 xxl:right-1 xl:text-sm text-xl"
           />
         </button>
       </div>

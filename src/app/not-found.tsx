@@ -28,7 +28,7 @@ export default function NotFoundPage() {
       <div className="absolute bg-transparent w-full h-full" />
       <div className="mt-24 xxl:mt-20 sm:w-[95%] flex flex-col gap-10 items-center justify-start z-50">
         <div className="flex gap-1 w-full items-center justify-center">
-          <SmileySad size={56} weight="duotone" className="text-slate-600" />
+          <SmileySad weight="duotone" className="text-slate-600 text-5xl" />
           <h1 className="font-regular text-xl font-semibold">
             Página não encontrada.
           </h1>

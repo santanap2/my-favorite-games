@@ -67,8 +67,7 @@ export default function MinhasAvaliacoes() {
             <div className="flex gap-1 w-full items-center justify-start">
               <ThumbsUp
                 weight="fill"
-                size={screenSize < 600 ? 36 : 56}
-                className="text-slate-500"
+                className="text-slate-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Minhas avaliações
@@ -183,9 +182,8 @@ export default function MinhasAvaliacoes() {
                 ) : (
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
                     <SmileySad
-                      size={48}
                       weight="light"
-                      className="text-slate-500"
+                      className="text-slate-500 text-5xl"
                     />
                     <span className="text-base font-light">
                       Você não possui nenhum game comprado no momento.

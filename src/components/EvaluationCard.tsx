@@ -53,8 +53,7 @@ export default function EvaluationCard({
       {alreadyEvaluated && (
         <CheckSquare
           weight="fill"
-          size={24}
-          className="text-green-500 absolute right-0 top-1"
+          className="text-green-500 absolute right-0 top-1 text-2xl"
         />
       )}
       <img
@@ -86,9 +85,8 @@ export default function EvaluationCard({
                   {new Array(stars).fill('').map((_item, index) => (
                     <Star
                       key={index}
-                      size={20}
                       weight="fill"
-                      className="text-yellow-400"
+                      className="text-yellow-400 text-xl"
                     />
                   ))}
                 </div>

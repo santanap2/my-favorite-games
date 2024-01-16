@@ -119,8 +119,8 @@ export default function SingleOrder({
           href={`/minha-conta/meus-pedidos/${orderNumber}`}
           className=" w-48 text-slate-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
         >
-          <ListPlus size={20} />
-          <span className="xxl:">Detalhes do pedido</span>
+          <ListPlus className="text-xl" />
+          <span>Detalhes do pedido</span>
         </Link>
       </div>
     </div>

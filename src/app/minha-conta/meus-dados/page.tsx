@@ -61,8 +61,7 @@ export default function MeusDados() {
             <div className="flex gap-1 w-full items-center justify-start">
               <IdentificationCard
                 weight="fill"
-                size={screenSize < 600 ? 36 : 56}
-                className="text-slate-500"
+                className="text-slate-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
             </div>
@@ -77,9 +76,8 @@ export default function MeusDados() {
                   <label htmlFor="name" className="flex flex-col w-full">
                     <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                       <IdentificationBadge
-                        size={24}
                         weight="light"
-                        className="text-slate-400"
+                        className="text-slate-400 text-2xl"
                       />
                       <span>Nome completo</span>
                     </h2>
@@ -105,9 +103,8 @@ export default function MeusDados() {
                     <label htmlFor="email" className="flex flex-col w-full">
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
-                          size={24}
                           weight="light"
-                          className="text-slate-400"
+                          className="text-slate-400 text-2xl"
                         />
                         <span>
                           E-mail{' '}
@@ -136,9 +133,8 @@ export default function MeusDados() {
                     <label htmlFor="newEmail" className="flex flex-col w-full">
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
-                          size={24}
                           weight="light"
-                          className="text-slate-400"
+                          className="text-slate-400 text-2xl"
                         />
                         <span>Novo E-mail</span>
                       </h2>
@@ -163,9 +159,8 @@ export default function MeusDados() {
                     <label htmlFor="phone" className="flex flex-col w-full">
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Phone
-                          size={24}
                           weight="light"
-                          className="text-slate-400"
+                          className="text-slate-400 text-2xl"
                         />
                         <span>Telefone</span>
                       </h2>
@@ -194,9 +189,8 @@ export default function MeusDados() {
                     >
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
-                          size={24}
                           weight="light"
-                          className="text-slate-400"
+                          className="text-slate-400 text-2xl"
                         />
                         <span>
                           Senha atual{' '}
@@ -228,9 +222,8 @@ export default function MeusDados() {
                     >
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
-                          size={24}
                           weight="light"
-                          className="text-slate-400"
+                          className="text-slate-400 text-2xl"
                         />
                         <span>Nova senha</span>
                       </h2>
@@ -257,9 +250,8 @@ export default function MeusDados() {
                     >
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
-                          size={24}
                           weight="light"
-                          className="text-slate-400"
+                          className="text-slate-400 text-2xl"
                         />
                         <span>Confirmar nova senha</span>
                       </h2>
@@ -300,14 +292,14 @@ export default function MeusDados() {
 
                   {userDataResponse.success && (
                     <div className="w-full text-sm text-slate-500 font-semibold flex gap-4 items-center justify-start">
-                      <CheckFat size={28} weight="light" />
+                      <CheckFat weight="light" className="text-3xl" />
                       <h3>{userDataResponse.success}</h3>
                     </div>
                   )}
 
                   {userDataResponse.error && (
                     <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-start">
-                      <Warning size={28} weight="light" />
+                      <Warning className="text-3xl" weight="light" />
                       <h3>{userDataResponse.error}</h3>
                     </div>
                   )}

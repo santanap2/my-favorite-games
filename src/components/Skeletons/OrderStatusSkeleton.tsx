@@ -14,15 +14,13 @@ export default function OrderStatusSkeleton() {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-0 z-10">
         <Storefront
-          size={64}
           weight="fill"
-          className="rounded-3xl bg-zinc-200 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton"
+          className="rounded-3xl bg-zinc-200 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton text-6xl"
         />
         <div className="flex flex-col items-center justify-center h-full">
           <Circle
-            size={40}
             weight="fill"
-            className="text-zinc-200 rounded-3xl bg-zinc-50"
+            className="text-zinc-200 rounded-3xl bg-zinc-50 text-4xl"
           />
           <span className="text-zinc-700 text-sm text-center">
             Pedido realizado
@@ -32,16 +30,14 @@ export default function OrderStatusSkeleton() {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-32 z-10 sm:left-24 xs:left-20">
         <CurrencyCircleDollar
-          size={64}
           weight="fill"
-          className="rounded-3xl bg-slate-400 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton"
+          className="rounded-3xl bg-slate-400 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton text-6xl"
         />
 
         <div className="flex flex-col items-center justify-center">
           <Circle
-            size={40}
             weight="fill"
-            className="text-zinc-200 rounded-3xl bg-zinc-50"
+            className="text-zinc-200 rounded-3xl bg-zinc-50 text-4xl"
           />
           <span className="text-zinc-700 text-sm text-center">
             Pagamento confirmado
@@ -51,15 +47,13 @@ export default function OrderStatusSkeleton() {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-64 z-10 sm:left-48 xs:left-40">
         <HourglassMedium
-          size={64}
           weight="fill"
-          className="rounded-3xl bg-slate-400 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton"
+          className="rounded-3xl bg-slate-400 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton text-6xl"
         />
         <div className="flex flex-col items-center justify-center">
           <Circle
-            size={40}
             weight="fill"
-            className="text-zinc-200 rounded-3xl bg-zinc-50"
+            className="text-zinc-200 rounded-3xl bg-zinc-50 text-4xl"
           />
           <span className="text-zinc-700 text-sm text-center">
             Processando pedido
@@ -69,17 +63,14 @@ export default function OrderStatusSkeleton() {
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-96 z-10 sm:left-72 xs:left-60">
         <Package
-          size={64}
           weight="fill"
-          className="rounded-3xl bg-slate-400 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton"
+          className="rounded-3xl bg-slate-400 p-2 border-2 border-zinc-200 text-zinc-300 loading-skeleton text-6xl"
         />
         <div className="flex flex-col items-center justify-center">
           <Circle
-            size={40}
             weight="fill"
-            className="text-zinc-200 rounded-3xl bg-zinc-50"
+            className="text-zinc-200 rounded-3xl bg-zinc-50 text-4xl"
           />
-          {/* <div className="w-[37px] h-[37px] border-[4px] border-zinc-50 rounded-3xl bg-zinc-300 loading-skeleton" /> */}
           <span className="text-zinc-700 text-sm text-center">
             Pedido concluído
           </span>

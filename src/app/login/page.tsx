@@ -108,13 +108,13 @@ export default function Login() {
               </button>
               {loginResponse.success && (
                 <div className="w-full text-sm text-slate-500 font-semibold flex gap-4 items-center justify-center">
-                  <CheckFat size={28} weight="light" />
+                  <CheckFat className="text-3xl" weight="light" />
                   <h3>{loginResponse.success}</h3>
                 </div>
               )}
               {loginResponse.error && (
                 <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
-                  <Warning size={28} weight="light" />
+                  <Warning className="text-3xl" weight="light" />
                   <h3>{loginResponse.error}</h3>
                 </div>
               )}

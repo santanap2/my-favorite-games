@@ -10,12 +10,7 @@ export default function EvaluationsGameSkeleton() {
         </h1>
         <div className="flex">
           {new Array(5).fill('').map((item, index) => (
-            <Star
-              key={index}
-              size={20}
-              weight="fill"
-              className="text-zinc-200"
-            />
+            <Star key={index} weight="fill" className="text-zinc-200 text-xl" />
           ))}
         </div>
         <span className="font-light text-xs text-transparent bg-zinc-100 loading-skeleton rounded w-fit shadow-md cursor-default">

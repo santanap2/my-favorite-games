@@ -17,16 +17,15 @@ export default function MyAccountPopUp() {
   return (
     <div className="w-fit bg-white pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-slate-600 appear-animation animation-opacity">
       <ArrowFatUp
-        size={28}
         weight="fill"
-        className="text-white absolute -top-2 right-0"
+        className="text-white absolute -top-2 right-0 text-3xl"
       />
       <Link
         href={links.myAccount}
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Minha conta</span>
-        <UserCircle weight="duotone" size={20} />
+        <UserCircle weight="duotone" className="text-xl" />
       </Link>
 
       <Link
@@ -34,7 +33,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus pedidos</span>
-        <Bag weight="duotone" size={20} />
+        <Bag weight="duotone" className="text-xl" />
       </Link>
 
       <Link
@@ -42,7 +41,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus dados</span>
-        <IdentificationCard weight="duotone" size={20} />
+        <IdentificationCard weight="duotone" className="text-xl" />
       </Link>
 
       <Link
@@ -50,7 +49,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus games</span>
-        <GameController weight="duotone" size={20} />
+        <GameController weight="duotone" className="text-xl" />
       </Link>
 
       <Link
@@ -58,7 +57,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus favoritos</span>
-        <Heart weight="duotone" size={20} />
+        <Heart weight="duotone" className="text-xl" />
       </Link>
 
       <Link
@@ -66,7 +65,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Minhas avaliações</span>
-        <ThumbsUp weight="duotone" size={20} />
+        <ThumbsUp weight="duotone" className="text-xl" />
       </Link>
 
       <Link
@@ -74,7 +73,7 @@ export default function MyAccountPopUp() {
         className="text-sm text-orange-600 font-semibold hover:underline transition-all mt-2 flex gap-2"
       >
         <span>Sair</span>
-        <SignOut weight="duotone" size={20} />
+        <SignOut weight="duotone" className="text-xl" />
       </Link>
     </div>
   )
