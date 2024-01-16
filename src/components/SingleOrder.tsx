@@ -1,10 +1,9 @@
-import GamesPlatformContext from '@/context/Context'
 import { priceToBRL } from '@/helpers'
 import { convertDate } from '@/helpers/date'
 import { ILastOrderDetail } from '@/interfaces'
 import { ListPlus } from '@phosphor-icons/react'
 import Link from 'next/link'
-import React, { useContext } from 'react'
+import React from 'react'
 
 export default function SingleOrder({
   orderNumber,
@@ -13,8 +12,6 @@ export default function SingleOrder({
   payment,
   price,
 }: ILastOrderDetail) {
-  const { screenSize } = useContext(GamesPlatformContext)
-
   const convertPaymentMethod = (method: string) => {
     switch (method) {
       case 'bankSlip':
@@ -68,13 +65,13 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full h-32 bg-white py-1 px-4 rounded shadow-sm flex justify-between items-end xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 transition-all relative"
+      className="w-full h-28 sm:h-32 bg-white py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 transition-all relative"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
           <tr className="font-bold text-sm uppercase text-zinc-700 flex justify-between gap-2 xxl:text-xs">
             <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40 sm:hidden">
-              {screenSize < 800 ? 'Pedido' : 'Número do pedido'}
+              Número do pedido
             </td>
             <td className="py-3 px-4 w-52 xxl:p-1 xxl:w-20">Status</td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">Data</td>
