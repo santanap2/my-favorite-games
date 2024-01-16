@@ -246,7 +246,6 @@ export default function MinhaConta() {
                             image={image}
                             gameId={id}
                             productId={id}
-                            isGame
                           />
                         ))
                       ) : (
