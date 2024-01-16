@@ -7,3 +7,16 @@ export const convertDate = (date: Date) => {
 
   return formattedDate
 }
+
+export const convertFullDate = (date: Date) => {
+  return new Date(date).toLocaleDateString('pt-BR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    timeZone: 'America/Sao_Paulo',
+  })
+}

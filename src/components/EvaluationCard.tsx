@@ -2,7 +2,7 @@
 import GamesPlatformContext from '@/context/Context'
 import { convertDate } from '@/helpers/date'
 import { IEvaluationCard } from '@/interfaces'
-import { Star } from '@phosphor-icons/react'
+import { CheckSquare, Star } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
@@ -33,13 +33,13 @@ export default function EvaluationCard({
       description.length > 100 ? `${description.slice(0, 100)}...` : description
 
     const large =
-      description.length > 185 ? `${description.slice(0, 185)}...` : description
+      description.length > 160 ? `${description.slice(0, 160)}...` : description
 
     const extraLarge =
-      description.length > 280 ? `${description.slice(0, 280)}...` : description
+      description.length > 220 ? `${description.slice(0, 220)}...` : description
 
     const defaultSize =
-      description.length > 330 ? `${description.slice(0, 330)}...` : description
+      description.length > 280 ? `${description.slice(0, 280)}...` : description
 
     if (screenSize < 800) return mid
     if (screenSize < 1000) return large
@@ -49,7 +49,14 @@ export default function EvaluationCard({
   }
 
   return (
-    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md">
+    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md relative">
+      {alreadyEvaluated && (
+        <CheckSquare
+          weight="fill"
+          size={24}
+          className="text-green-500 absolute right-0 top-1"
+        />
+      )}
       <img
         src={image}
         alt={name}
@@ -97,8 +104,10 @@ export default function EvaluationCard({
             className="w-64 sm:w-full bg-slate-500 rounded px-2 py-2 text-white font-light text-base sm:text-sm shadow-md hover:bg-slate-600 transition-all"
             onClick={() => {
               alreadyEvaluated
-                ? router.push(`/minhas-avaliações/${productEvaluation?.id}`)
-                : router.push(`/avaliar-produto/${id}`)
+                ? router.push(
+                    `/minha-conta/minhas-avaliacoes/${productEvaluation?.id}`,
+                  )
+                : router.push(`/minha-conta/avaliar-produto/${id}`)
             }}
           >
             {alreadyEvaluated ? 'Ver avaliação' : 'Avaliar produto'}

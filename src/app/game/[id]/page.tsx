@@ -16,7 +16,6 @@ import {
 } from '@/services/favorites.requests'
 import { getGame } from '@/services/games.requests'
 import {
-  ArrowUUpLeft,
   CaretDown,
   CaretRight,
   CaretUp,

@@ -1,4 +1,5 @@
 import { priceToBRL } from '@/helpers'
+import { convertFullDate } from '@/helpers/date'
 import { IOrderData } from '@/interfaces'
 import React from 'react'
 
@@ -25,18 +26,7 @@ export default function OrderDetails({ order }: { order: IOrderData }) {
 
       <p>
         <span className="font-bold text-slate-500">Data: </span>
-        <span>
-          {new Date(order.created_at).toLocaleDateString('pt-BR', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-            timeZone: 'America/Sao_Paulo',
-          })}
-        </span>
+        <span>{convertFullDate(order.created_at)}</span>
       </p>
 
       <p>
