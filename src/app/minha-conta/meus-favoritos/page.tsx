@@ -1,50 +1,155 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
-import { Heart } from '@phosphor-icons/react'
-import React, { useContext } from 'react'
-import UserOrderCard from '@/components/UserOrderCard'
+import { Heart, SmileySad } from '@phosphor-icons/react'
+import React, { useContext, useEffect, useState } from 'react'
+import UserProductCard from '@/components/UserProductCard'
 import { IGame } from '@/interfaces'
-import { games } from '@/data/games'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
+import LateralMyAccount from '@/components/LateralMyAccount'
+import { getAllFavorites } from '@/services/favorites.requests'
+import { useQuery } from '@tanstack/react-query'
+import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
+import { sortProductsByName } from '@/helpers/orders'
+import { redirect } from 'next/navigation'
+import { getUserByToken } from '@/services'
 
 export default function MeusFavoritos() {
   const { screenSize } = useContext(GamesPlatformContext)
+  const [filter, setFilter] = useState('alphabetical')
+
+  const { isFetched: userIsFetched, error: userError } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
+
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
+  )
+    redirect('/login')
+
+  const {
+    data: favoritesData,
+    isLoading: favoritesIsLoading,
+    refetch: favoritesRefetch,
+    isFetched: favoritesIsFetched,
+  } = useQuery({
+    queryKey: ['userFavorites'],
+    queryFn: async () => await getAllFavorites(),
+    retry: false,
+  })
+
+  useEffect(() => {
+    favoritesRefetch()
+  }, [])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full">
-      <title>{`${pageTitle} - Meus favoritos`}</title>
+    <>
+      {userError && null}
+      {!userError && (
+        <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
+          <title>{`${pageTitle} - Meus favoritos`}</title>
 
-      <LateralMenu />
-      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
-        <div className="flex gap-1 w-fit items-center justify-center">
-          <Heart
-            weight="fill"
-            size={screenSize < 600 ? 36 : 56}
-            className="text-indigo-500"
-          />
-          <h1 className="font-regular text-xl font-semibold">Meus favoritos</h1>
-        </div>
-
-        <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
-          {games.length > 0 ? (
-            games.map(({ image, name, id }: IGame) => (
-              <UserOrderCard
-                key={id}
-                image={image}
-                name={name}
-                isFavorite
-                productId={id}
-                gameId={id}
+          <LateralMyAccount />
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 animation-opacity transition-all">
+            <div className="flex gap-1 w-fit items-center justify-center">
+              <Heart
+                weight="fill"
+                className="text-slate-500 sm:text-3xl text-5xl"
               />
-            ))
-          ) : (
-            <span>Você não possui nenhum favorito no momento.</span>
-          )}
+              <h1 className="font-regular text-xl font-semibold">
+                Meus favoritos
+              </h1>
+            </div>
+
+            <div className="flex flex-col gap-6 w-full">
+              <form className="w-fit">
+                <label
+                  htmlFor="sortBy"
+                  className="flex gap-3 items-center justify-center"
+                >
+                  <span className="text-sm tracking-wide font-semibold">
+                    Organizar por:
+                  </span>
+                  <select
+                    name=""
+                    id="sortBy"
+                    className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                    onChange={({ target: { value } }) => setFilter(value)}
+                  >
+                    <option value="alphabetical">Ordem alfabética</option>
+                    <option value="date">Adicionados recentemente</option>
+                  </select>
+                </label>
+              </form>
+
+              <div
+                className={`w-full ${
+                  favoritesIsFetched &&
+                  favoritesData?.data.data.products.length === 0
+                    ? 'flex items-center justify-start'
+                    : 'grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
+                }`}
+              >
+                {favoritesIsLoading ? (
+                  <>
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
+                  </>
+                ) : favoritesData?.data.data.products.length > 0 ? (
+                  filter === 'alphabetical' ? (
+                    sortProductsByName(favoritesData?.data.data.products).map(
+                      ({ image, name, id }: IGame) => (
+                        <UserProductCard
+                          key={id}
+                          image={image}
+                          name={name}
+                          isFavorite
+                          productId={id}
+                          gameId={id}
+                        />
+                      ),
+                    )
+                  ) : (
+                    favoritesData?.data.data.products
+                      .map(({ image, name, id }: IGame) => (
+                        <UserProductCard
+                          key={id}
+                          image={image}
+                          name={name}
+                          isFavorite
+                          productId={id}
+                          gameId={id}
+                        />
+                      ))
+                      .reverse()
+                  )
+                ) : (
+                  <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
+                    <SmileySad
+                      weight="light"
+                      className="text-slate-500 text-5xl"
+                    />
+                    <span className="text-base font-light">
+                      Você não possui nenhum game comprado no momento.
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }

@@ -1,13 +1,11 @@
-import GamesPlatformContext from '@/context/Context'
 import { creditCardMask, credCardDateMask, cvvMask } from '@/helpers'
+import { createOrder } from '@/services/orders.requests'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function CredCardFormHooks() {
-  const { cardData, setCardData } = useContext(GamesPlatformContext)
-
   const formSchema = z.object({
     cardData: z.object({
       cardNumber: z
@@ -52,9 +50,8 @@ export default function CredCardFormHooks() {
     },
   })
 
-  const handleFormSubmit = (data: FormProps) => {
-    setCardData(data)
-    console.log(cardData)
+  const handleFormSubmit = async ({ cardData }: FormProps) => {
+    await createOrder({ paymentMethod: 'creditCard', cardData })
   }
 
   const cardNumberValue = watch('cardData.cardNumber')

@@ -1,3 +1,5 @@
+'use client'
+
 import GamesPlatformContext from '@/context/Context'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
@@ -56,13 +58,8 @@ export default function HeaderHooks() {
   }
 
   const handleFormMobileSubmit = (data: FormMobileProps) => {
-    if (data.headerMobileSearch.headerMobileInput.length === 0) {
-      router.push('/home')
-      setShowSearchInputMobile(false)
-    } else {
-      router.push(`/home?busca=${data.headerMobileSearch.headerMobileInput}`)
-      setShowSearchInputMobile(false)
-    }
+    router.push(`/home?busca=${data.headerMobileSearch.headerMobileInput}`)
+    setShowSearchInputMobile(false)
   }
 
   return {

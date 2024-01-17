@@ -1,24 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import { IGame, IUserOrders } from '@/interfaces'
-import { HeaderSearch, PaymentMethod, CardData } from '@/types'
+import {
+  ICardData,
+  ILoading,
+  IResponseState,
+  PaymentMethod,
+} from '@/interfaces'
 import { createContext } from 'react'
-import orders from '@/data/userOrders'
-import { games } from '@/data/games'
 
 const initialValueContext = {
-  headerSearch: { headerInput: '' },
-  setHeaderSearch: (state: HeaderSearch) => {},
-
   reseted: false,
   setReseted: (state: boolean) => {},
-
-  registerSuccess: false,
-  setRegisterSuccess: (state: boolean) => {},
-
-  logged: false,
-  setLogged: (state: boolean) => {},
 
   showCart: false,
   setShowCart: (state: boolean) => {},
@@ -30,34 +23,40 @@ const initialValueContext = {
   },
   setPaymentMethod: (state: PaymentMethod) => {},
 
-  cardData: {
-    cardData: {
-      cardNumber: '',
-      cardName: '',
-      cardDate: '',
-      cardCvv: '',
-      cardPortions: '1',
-    },
-  },
-  setCardData: (state: CardData) => {},
-
-  userOrders: orders,
-  setUserOrders: (state: IUserOrders[]) => {},
-
   showMenu: {
     filters: false,
     myAccount: true,
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
 
-  filteredProducts: games,
-  setFilteredProducts: (state: IGame[]) => {},
-
   showSearchInputMobile: false,
   setShowSearchInputMobile: (state: boolean) => {},
 
   screenSize: 0,
   setScreenSize: (state: number) => {},
+
+  loading: {
+    registerUser: false,
+    updateUserData: false,
+    login: false,
+    cart: false,
+  },
+  setLoading: (state: ILoading) => {},
+
+  registerResponse: { error: '', success: '' },
+  setRegisterResponse: (state: IResponseState) => {},
+
+  userDataResponse: { error: '', success: '' },
+  setUserDataResponse: (state: IResponseState) => {},
+
+  loginResponse: { error: '', success: '' },
+  setLoginResponse: (state: IResponseState) => {},
+
+  isAuthenticated: false,
+  setIsAuthenticated: (state: boolean) => {},
+
+  showPopUpMenu: false,
+  setShowPopUpMenu: (state: boolean) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

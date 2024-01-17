@@ -20,6 +20,7 @@ const config: Config = {
       lg: { max: '1000px' },
       md: { max: '800px' },
       sm: { max: '600px' },
+      xs: { max: '360px' },
     },
     fontSize: {
       xxs: '0.7rem',

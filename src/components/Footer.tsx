@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="flex w-screen border-t border-zinc-300 bg-indigo-900 text-white justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start">
+    <footer className="flex w-screen border-t border-zinc-300 bg-slate-900 text-white justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start z-10 animation-opacity transition-all">
       <div className="w-3/5 flex justify-between items-center xxl:w-[95%] flex-col gap-2">
         <img
           src="logo.png"
@@ -33,7 +33,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/Contato" className="hover:underline">
+              <Link href="/contato" className="hover:underline">
                 Contato
               </Link>
             </li>

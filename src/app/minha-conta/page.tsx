@@ -1,114 +1,268 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMenu from '@/components/LateralMenu'
+import LateralMyAccount from '@/components/LateralMyAccount'
 import SingleOrder from '@/components/SingleOrder'
-import UserOrderCard from '@/components/UserOrderCard'
-import GamesPlatformContext from '@/context/Context'
-import orders from '@/data/userOrders'
+import SingleOrderSkeleton from '@/components/Skeletons/SingleOrderSkeleton'
+import UserProductCard from '@/components/UserProductCard'
+import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
 import { pageTitle } from '@/helpers'
-import { IGame } from '@/interfaces'
-import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react'
+import { sortOrdersByDate } from '@/helpers/orders'
+import { IGame, IOrderData } from '@/interfaces'
+import { getUserOrders } from '@/services/orders.requests'
+import { getUserByToken } from '@/services/user.requests'
+import { UserCircle, EnvelopeSimple, SmileySad } from '@phosphor-icons/react'
+import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
-import React, { useContext, useEffect } from 'react'
+import { redirect } from 'next/navigation'
+import React, { useEffect } from 'react'
+import WelcomeUserSkeleton from '@/components/Skeletons/WelcomeUserSkeleton'
 
 export default function MinhaConta() {
-  const { screenSize } = useContext(GamesPlatformContext)
+  const {
+    data: userData,
+    isLoading: userIsLoading,
+    refetch: userRefetch,
+    isFetched: userIsFetched,
+    error: userError,
+  } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => await getUserByToken(),
+    retry: false,
+  })
 
-  const { orderNumber, price, status, date, payment, items } =
-    orders[orders.length - 1]
-
-  const allGames: IGame[] = []
-  const concludedOrders = orders.filter((item) => item.status === 'concluded')
-  concludedOrders.forEach((order) =>
-    order.items.forEach((game) => allGames.push(game)),
+  if (
+    userIsFetched &&
+    userError &&
+    userError.message === 'Request failed with status code 401'
   )
+    redirect('/login')
+
+  const {
+    data: ordersData,
+    isLoading: ordersIsLoading,
+    refetch: ordersRefetch,
+  } = useQuery({
+    queryKey: ['userOrders'],
+    queryFn: async () => await getUserOrders(),
+    retry: false,
+  })
+
+  const allBoughtGames: IGame[] = []
+  if (ordersData?.data.data) {
+    sortOrdersByDate(
+      ordersData?.data.data.filter(
+        (order: IOrderData) => order.status === 'concluded',
+      ),
+    ).forEach((order: IOrderData) => {
+      order.products.forEach((product: IGame) => allBoughtGames.push(product))
+    })
+  }
+  const lastBoughtGames = allBoughtGames.slice(0, 8)
 
   useEffect(() => {
-    // if (!logged) {
-    //   setLogged(false)
-    //   router.push('/login')
-    // }
+    userRefetch()
+    ordersRefetch()
   }, [])
 
   return (
-    <div className="w-full">
-      <title>{`${pageTitle} - Minha conta`}</title>
+    <>
+      {userError && null}
+      {!userError && (
+        <div className="w-full animation-opacity transition-all">
+          <title>{`${
+            userIsLoading ? 'Minha conta' : userData?.data.data.name
+          } - ${pageTitle}`}</title>
 
-      <LateralMenu />
-      <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start">
-        <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
-          <div className="flex gap-1 items-start w-fit">
-            <UserCircle
-              weight="fill"
-              size={screenSize < 600 ? 36 : 56}
-              className="text-indigo-500"
-            />
-            <div className="flex flex-col">
-              <h1 className="font-regular text-xl lg:text-base">
-                Olá{' '}
-                <strong className="font-bold text-2xl lg:text-xl">
-                  Pedro Santana
-                </strong>
-                , bem vindo de volta!
-              </h1>
-              <h2 className="text-sm font-light flex lg:text-xs">
-                <EnvelopeSimple
-                  size={20}
-                  weight="fill"
-                  className="text-indigo-500"
-                />
-                phsantana99@gmail.com
-              </h2>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col gap-2">
-            <span className="font-semibold text-xl lg:text-base">
-              Detalhes do seu último pedido
-            </span>
-            <SingleOrder
-              key={orderNumber}
-              orderNumber={orderNumber}
-              price={price}
-              date={date}
-              payment={payment}
-              status={status}
-              items={items}
-            />
-          </div>
-
-          <div className="w-full flex flex-col gap-4">
-            <div className="w-full flex justify-between items-center">
-              <span className="font-semibold text-xl lg:text-base">
-                Seus últimos games comprados
-              </span>
-              <Link
-                href="/minha-conta/meus-games"
-                className="font-semibold text-lg text-indigo-400 hover:underline lg:text-base"
-              >
-                Ver todos
-              </Link>
-            </div>
-            <div className="w-full grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3">
-              {allGames.length > 0 ? (
-                allGames.map(({ name, id, image }: IGame) => (
-                  <UserOrderCard
-                    key={id}
-                    name={name}
-                    image={image}
-                    gameId={id}
-                    productId={id}
-                    isGame
+          <LateralMyAccount />
+          <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
+            <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
+              <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
+                <div className="flex gap-1 items-start justify-center w-full">
+                  <UserCircle
+                    weight="fill"
+                    className="text-slate-500 text-6xl"
                   />
-                ))
-              ) : (
-                <span>Você não possui nenhum game comprado.</span>
-              )}
+                  <div className="flex flex-col w-full">
+                    <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
+                      {userIsLoading ? (
+                        <WelcomeUserSkeleton />
+                      ) : (
+                        <>
+                          <div className="flex md:flex-col gap-1 w-full md:items-start items-center relative">
+                            <span className="h-10 md:h-6 w-fit flex items-center justify-center">
+                              Olá
+                            </span>
+                            <span
+                              className={`h-10 ${
+                                userData?.data.data.name.length > 25
+                                  ? 'md:h-10'
+                                  : 'md:h-6'
+                              } font-bold text-2xl lg:text-xl md:text-lg min-w-fit flex items-center justify-center`}
+                            >
+                              {` ${userData?.data.data.name},`}
+                            </span>
+                            <span className="h-10 md:h-6 md:text-sm w-fit flex items-center justify-center">
+                              bem vindo(a) de volta!
+                            </span>
+                            <h2 className="flex md:hidden text-sm font-light absolute -bottom-7 left-0">
+                              <EnvelopeSimple
+                                weight="fill"
+                                className="h-8 md:h-6 text-slate-500 text-2xl"
+                              />
+
+                              {userIsLoading ? (
+                                <span className="h-8 md:h-6 text-transparent bg-zinc-200 rounded loading-skeleton flex items-center justify-center">
+                                  emaildousuario@email.com
+                                </span>
+                              ) : (
+                                <span className="h-8 md:h-6 flex items-center justify-center">
+                                  {userData?.data.data.email}
+                                </span>
+                              )}
+                            </h2>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <h2 className="hidden md:flex text-sm font-light">
+                  <EnvelopeSimple
+                    weight="fill"
+                    className="h-8 md:h-6 text-slate-500 text-2xl"
+                  />
+
+                  {userIsLoading ? (
+                    <span className="h-8 md:h-6 text-transparent bg-zinc-200 rounded loading-skeleton flex items-center justify-center">
+                      emaildousuario@email.com
+                    </span>
+                  ) : (
+                    <span className="h-8 md:h-6 flex items-center justify-center">
+                      {userData?.data.data.email}
+                    </span>
+                  )}
+                </h2>
+              </div>
+
+              <div className="w-full flex flex-col gap-2">
+                <div className="w-full flex justify-between items-center">
+                  <span className="font-semibold text-xl lg:text-base w-full flex items-start justify-start">
+                    Seu último pedido
+                  </span>
+                  <Link
+                    href="/minha-conta/meus-pedidos"
+                    className="font-semibold text-lg min-w-fit text-slate-400 hover:underline lg:text-base"
+                  >
+                    Ver todos
+                  </Link>
+                </div>
+                {ordersIsLoading ? (
+                  <SingleOrderSkeleton />
+                ) : (
+                  <>
+                    {ordersData?.data.data.length > 0 ? (
+                      <SingleOrder
+                        orderNumber={
+                          ordersData?.data.data[
+                            ordersData?.data.data.length - 1
+                          ].id
+                        }
+                        price={
+                          ordersData?.data.data[
+                            ordersData?.data.data.length - 1
+                          ].value
+                        }
+                        date={
+                          ordersData?.data.data[
+                            ordersData?.data.data.length - 1
+                          ].created_at
+                        }
+                        payment={
+                          ordersData?.data.data[
+                            ordersData?.data.data.length - 1
+                          ].payment_method
+                        }
+                        status={
+                          ordersData?.data.data[
+                            ordersData?.data.data.length - 1
+                          ].status
+                        }
+                      />
+                    ) : (
+                      <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
+                        <SmileySad
+                          weight="regular"
+                          className="text-slate-500 text-5xl"
+                        />
+                        <span className="text-base font-light">
+                          Você não possui nenhum pedido feito.
+                        </span>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+
+              <div className="w-full flex flex-col gap-4">
+                <div className="w-full flex justify-between items-center">
+                  <span className="font-semibold text-xl lg:text-base w-full flex items-start justify-start">
+                    Seus últimos games comprados
+                  </span>
+                  <Link
+                    href="/minha-conta/meus-games"
+                    className="font-semibold text-lg min-w-fit text-slate-400 hover:underline lg:text-base"
+                  >
+                    Ver todos
+                  </Link>
+                </div>
+                <div
+                  className={`w-full ${
+                    lastBoughtGames.length === 0 ? 'flex flex-wrap' : 'grid'
+                  } grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3 `}
+                >
+                  {ordersIsLoading ? (
+                    <>
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
+                    </>
+                  ) : (
+                    <>
+                      {lastBoughtGames.length > 0 ? (
+                        lastBoughtGames.map(({ name, id, image }: IGame) => (
+                          <UserProductCard
+                            key={id}
+                            name={name}
+                            image={image}
+                            gameId={id}
+                            productId={id}
+                          />
+                        ))
+                      ) : (
+                        <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
+                          <SmileySad
+                            weight="regular"
+                            className="text-slate-500 text-5xl"
+                          />
+                          <span className="text-base font-light">
+                            Você não possui nenhum game comprado.
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }

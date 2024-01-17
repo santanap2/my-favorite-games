@@ -32,6 +32,9 @@ export const defineInputName = (name: string) => {
     case 'actionRhythm':
       return 'actionRhythm'
 
+    case 'metroidvania':
+      return 'metroidvania'
+
     default:
       return 'actionAdventure'
   }
