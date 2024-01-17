@@ -5,7 +5,7 @@
 import LateralMyAccount from '@/components/LateralMyAccount'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
-import { getUserByToken, updateUser } from '@/services'
+import { getUserByToken } from '@/services'
 import { getOneUserEvaluation, updateEvaluation } from '@/services/evaluations'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Star, ThumbsUp } from '@phosphor-icons/react'
@@ -15,6 +15,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import Link from 'next/link'
+import UpdateEvaluationSkeleton from '@/components/Skeletons/UpdateEvaluationSkeleton'
 
 export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
   const [stars, setStars] = useState(0)
@@ -92,7 +93,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
       {userError && null}
       {!userError &&
         (userEvaluationIsLoading ? (
-          <p className="mt-24">carregando...</p>
+          <UpdateEvaluationSkeleton />
         ) : (
           <div className="mt-24 xxl:mt-20 w-full h-full">
             <title>{`Editar avaliação - ${pageTitle}`}</title>
