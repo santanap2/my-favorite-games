@@ -3,26 +3,21 @@
 'use client'
 
 import LateralMyAccount from '@/components/LateralMyAccount'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
-import { getUserByToken } from '@/services'
-import { getOneUserEvaluation } from '@/services/evaluations'
+import { getUserByToken, updateUser } from '@/services'
+import { getOneUserEvaluation, updateEvaluation } from '@/services/evaluations'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Star, ThumbsUp } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
-import React, {
-  ChangeEvent,
-  SyntheticEvent,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import Link from 'next/link'
 
 export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
-  const { screenSize } = useContext(GamesPlatformContext)
   const [stars, setStars] = useState(0)
-  const [description, setDescription] = useState('')
 
   const { isFetched: userIsFetched, error: userError } = useQuery({
     queryKey: ['userData'],
@@ -47,25 +42,41 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
     queryFn: async () => await getOneUserEvaluation(id),
   })
 
-  // console.log(userEvaluationsData?.data.data)
+  const formSchema = z.object({
+    evaluation: z.object({
+      description: z.string(),
+    }),
+  })
 
-  const inputHandler = ({
-    target: { value },
-  }: ChangeEvent<HTMLTextAreaElement>) => {
-    setDescription(value)
-  }
+  type FormProps = z.infer<typeof formSchema>
 
-  const formSubmit = (event: SyntheticEvent) => {
-    event.preventDefault()
+  const { handleSubmit, register } = useForm<FormProps>({
+    criteriaMode: 'all',
+    mode: 'all',
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      evaluation: {
+        description: userEvaluationsData?.data.data.description,
+      },
+    },
+  })
 
+  const handleFormSubmit = async (data: FormProps) => {
     const evaluation = {
-      id: Number(id),
+      evaluationId: Number(id),
       stars,
-      description,
-      productId: userEvaluationsData?.data.data.productId,
+      description: data.evaluation.description,
     }
 
-    console.log(evaluation)
+    const response = await updateEvaluation(evaluation).catch((error) => {
+      if (error) {
+        console.log(error)
+      }
+    })
+
+    if (response && response.status === 200) {
+      console.log('avaliacao atualizada')
+    }
   }
 
   useEffect(() => {
@@ -73,10 +84,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
   }, [])
 
   useEffect(() => {
-    if (userEvaluationIsFetched) {
-      setDescription(userEvaluationsData?.data.data.description)
-      setStars(userEvaluationsData?.data.data.stars)
-    }
+    if (userEvaluationIsFetched) setStars(userEvaluationsData?.data.data.stars)
   }, [userEvaluationIsFetched])
 
   return (
@@ -87,7 +95,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
           <p className="mt-24">carregando...</p>
         ) : (
           <div className="mt-24 xxl:mt-20 w-full h-full">
-            <title>{`Avaliar produto - ${pageTitle}`}</title>
+            <title>{`Editar avaliação - ${pageTitle}`}</title>
             <LateralMyAccount />
 
             <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center">
@@ -97,27 +105,35 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                   className="text-slate-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
-                  Avaliar produto
+                  Editar avaliação
                 </h1>
               </div>
 
               <div className="w-full flex flex-col gap-6">
                 <div className="flex w-full sm:justify-start items-center gap-4">
-                  <img
-                    src={userEvaluationsData?.data.data?.product.image}
-                    alt={userEvaluationsData?.data.data?.product.name}
-                    className="rounded w-40 h-40 sm:w-24 sm:h-24 object-cover"
-                  />
-                  <span className="text-xl tracking-wide font-light text-zinc-600">
+                  <Link
+                    href={`/game/${userEvaluationsData?.data.data.product.id}`}
+                    className="text-xl tracking-wide font-light text-zinc-600"
+                  >
+                    <img
+                      src={userEvaluationsData?.data.data?.product.image}
+                      alt={userEvaluationsData?.data.data?.product.name}
+                      className="rounded w-40 h-40 sm:w-24 sm:h-24 object-cover"
+                    />
+                  </Link>
+                  <Link
+                    href={`/game/${userEvaluationsData?.data.data.product.id}`}
+                    className="text-xl tracking-wide font-light text-zinc-600 hover:underline"
+                  >
                     {userEvaluationsData?.data.data.product.name}
-                  </span>
+                  </Link>
                 </div>
 
                 <form
-                  onSubmit={(e) => formSubmit(e)}
+                  onSubmit={handleSubmit(handleFormSubmit)}
                   className="w-full bg-white px-2 py-4 rounded shadow-md flex flex-col gap-4"
                 >
-                  <label htmlFor="sortBy" className="flex flex-col gap-1">
+                  <label className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
                       Quantas estrelas você dá para o produto:
                     </span>
@@ -138,15 +154,16 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     </div>
                   </label>
 
-                  <label htmlFor="sortBy" className="flex flex-col gap-1">
+                  <label htmlFor="description" className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
                       Descreva sua experiência com o produto:
                     </span>
                     <textarea
+                      {...register('evaluation.description')}
                       className="border rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md"
-                      value={description}
-                      onChange={(e) => inputHandler(e)}
                       maxLength={500}
+                      id="description"
+                      placeholder={userEvaluationsData?.data.data.description}
                     />
                   </label>
                   <button

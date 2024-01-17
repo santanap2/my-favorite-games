@@ -192,3 +192,9 @@ export interface IEvaluationCard {
   productEvaluation?: IEvaluation
   stars: number
 }
+
+export interface IEvaluationUpdate {
+  evaluationId: number
+  stars: number
+  description: string
+}

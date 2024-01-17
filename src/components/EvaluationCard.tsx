@@ -51,10 +51,12 @@ export default function EvaluationCard({
   return (
     <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md relative">
       {alreadyEvaluated && (
-        <CheckSquare
-          weight="fill"
-          className="text-green-500 absolute right-0 top-1 text-2xl"
-        />
+        <div className="flex items-center gap-1 absolute right-0 top-0">
+          <span className="text-sm text-emerald-400 font-semibold sm:hidden">
+            Produto avaliado
+          </span>
+          <CheckSquare weight="fill" className="text-emerald-400 text-2xl" />
+        </div>
       )}
       <img
         src={image}
@@ -62,7 +64,7 @@ export default function EvaluationCard({
         className="w-28 h-44 rounded shadow-md object-cover"
       />
       <div className="flex flex-col w-full h-44 items-start justify-start gap-1">
-        <span className="text-xl font-bold sm:text-lg sm:font-semibold w-full">
+        <span className="text-xl font-bold sm:text-lg sm:font-semibold w-full pr-3">
           {calcNameSlice(name)}
         </span>
 
