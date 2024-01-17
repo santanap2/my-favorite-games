@@ -19,7 +19,7 @@ export default function CreditCardForm() {
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
       className="flex flex-col gap-6 cursor-default appear-animation lg:gap-6"
-      id="creditCardForm"
+      id="creditCardForm animation-opacity transition-all"
     >
       <label htmlFor="card-number" className="w-full relative">
         <input

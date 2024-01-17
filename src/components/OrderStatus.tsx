@@ -24,7 +24,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
 
   return (
     <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-slate-400 relative">
-      <div className="bg-slate-400 h-2 w-[400px] absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px]">
+      <div className="bg-slate-400 h-2 w-[400px] absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px] animation-opacity transition-all">
         <div className={`${checkOrderStatus()} relative h-2 z-10`} />
       </div>
 

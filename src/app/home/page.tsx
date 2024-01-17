@@ -48,7 +48,7 @@ export default function Home({ searchParams }: ISearchParams) {
   }, [])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full">
+    <div className="mt-24 xxl:mt-20 w-full animation-opacity transition-all">
       <title>{headerSearch ? `${pageTitle} - Busca` : `${pageTitle}`}</title>
       <LateralFilters />
 

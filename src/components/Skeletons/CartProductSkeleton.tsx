@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function CartProductSkeleton() {
   return (
-    <div className="flex w-full gap-3 border-b pb-4 sm:pb-2">
+    <div className="flex w-full gap-3 border-b pb-4 sm:pb-2 animation-opacity transition-all">
       <div className="w-32 h-36 object-cover rounded sm:w-24 bg-zinc-200 loading-skeleton" />
       <div className="flex flex-col justify-between items-start w-full">
         <div className="flex flex-col w-full gap-1">

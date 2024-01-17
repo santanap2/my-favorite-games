@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function EvaluationsGameSkeleton() {
   return (
-    <div className="w-full h-fit bg-white p-4 rounded shadow-md text-base text-zinc-600 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit">
+    <div className="w-full h-fit bg-white p-4 rounded shadow-md text-base text-zinc-600 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit animation-opacity transition-all">
       <div className="flex flex-col gap-1">
         <h1 className="font-bold text-transparent bg-zinc-100 loading-skeleton rounded w-fit shadow-md cursor-default">
           Nome completo do usuário

@@ -56,7 +56,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
           <title>{`Detalhes do pedido #${id} - ${pageTitle}`}</title>
           <LateralMyAccount />
 
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start">
               <ListPlus
                 weight="fill"

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ProductCardSkeleton() {
   return (
-    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md transition-all sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100">
+    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md sm:w-full sm:h-96 xxl:w-52 xxl:h-96 xxl:hover:scale-100 animation-opacity transition-all">
       <div className="bg-zinc-100 rounded-t h-72 w-64 absolute top-0 left-0 sm:h-52 xxl:w-full xxl:h-52 loading-skeleton" />
 
       <div className="w-full">

@@ -15,7 +15,6 @@ export default function Pagamento() {
   const {
     paymentMethod,
     setPaymentMethod,
-    screenSize,
     loading,
     setLoading,
     isAuthenticated,
@@ -119,7 +118,7 @@ export default function Pagamento() {
     <>
       {!isAuthenticated && null}
       {isAuthenticated && (
-        <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6">
+        <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all">
           <title>{`${pageTitle} - Pagamento`}</title>
 
           <div className="flex gap-1 w-fit items-center justify-center">

@@ -69,13 +69,13 @@ export default function MinhaConta() {
     <>
       {userError && null}
       {!userError && (
-        <div className="w-full">
+        <div className="w-full animation-opacity transition-all">
           <title>{`${
             userIsLoading ? 'Minha conta' : userData?.data.data.name
           } - ${pageTitle}`}</title>
 
           <LateralMyAccount />
-          <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start">
+          <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
             <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
               <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
                 <div className="flex gap-1 items-start justify-center w-full">

@@ -41,11 +41,11 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
     <>
       {userError && null}
       {!userError && (
-        <div className="w-full">
+        <div className="w-full animation-opacity transition-all">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
           <LateralMyAccount />
-          <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-center justify-center gap-4">
+          <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-center justify-center gap-4 animation-opacity transition-all">
             <div className="w-full flex flex-col items-center justify-center">
               <div className="flex gap-2 w-full items-center justify-center relative">
                 <ShoppingBagOpen

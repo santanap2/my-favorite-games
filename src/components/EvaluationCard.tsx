@@ -49,7 +49,7 @@ export default function EvaluationCard({
   }
 
   return (
-    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md relative">
+    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md relative animation-opacity transition-all">
       {alreadyEvaluated && (
         <div className="flex items-center gap-1 absolute right-0 top-0">
           <span className="text-sm text-emerald-400 font-semibold sm:hidden">

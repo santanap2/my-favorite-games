@@ -11,7 +11,7 @@ import EvaluationsGameSkeleton from './EvaluationsGameSkeleton'
 
 export default function GameIdSkeleton() {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full animation-opacity transition-all">
       <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
         <span className="min-w-fit text-transparent bg-zinc-100 loading-skeleton rounded shadow-md cursor-default text-select">
           Todos os jogos

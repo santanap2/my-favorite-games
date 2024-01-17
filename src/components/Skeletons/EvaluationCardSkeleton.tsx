@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function EvaluationCardSkeleton() {
   return (
-    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md">
+    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md animation-opacity transition-all">
       <div className="w-fit">
         <div className="w-28 h-44 object-cover bg-zinc-100 loading-skeleton rounded text-transparent shadow-md cursor-default" />
       </div>

@@ -34,7 +34,7 @@ export default function Logout() {
     <>
       {!isAuthenticated && null}
       {isAuthenticated && (
-        <div className="mt-24 xxl:mt-20 w-full flex flex-col items-center justify-center gap-4 h-[400px]">
+        <div className="mt-24 xxl:mt-20 w-full flex flex-col items-center justify-center gap-4 h-[400px] animation-opacity transition-all">
           <title>{`${pageTitle} - Sair`}</title>
           <LoadingSpinner colored />
           <span className="text-lg font-semibold">Saindo...</span>

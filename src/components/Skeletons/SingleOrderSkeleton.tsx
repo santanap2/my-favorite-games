@@ -36,7 +36,7 @@ export default function SingleOrderSkeleton() {
             </td>
             <td className="py-3 px-4 w-52 text-slate-400 font-bold xxl:p-1 xxl:w-20">
               <p className="bg-zinc-100 loading-skeleton rounded text-transparent cursor-default">
-                Cartao de credito
+                Cartaodecredito
               </p>
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-20 text-justify">

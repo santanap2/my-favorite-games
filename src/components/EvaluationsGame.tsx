@@ -12,7 +12,7 @@ export default function EvaluationsGame({ gameId }: { gameId: string }) {
   })
 
   return (
-    <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full">
+    <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full animation-opacity transition-all">
       {evaluationData?.data.data.evaluations.length > 0 ? (
         evaluationData?.data.data.evaluations.map(
           ({

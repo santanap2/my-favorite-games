@@ -12,7 +12,7 @@ export default function ProductOnOrder({
   description,
 }: IGame) {
   return (
-    <div className="flex w-[600px] gap-3 border-b pb-4 sm:max-w-full sm:w-full sm:pb-2">
+    <div className="flex w-[600px] gap-3 border-b pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all">
       <img
         src={image}
         alt={name}

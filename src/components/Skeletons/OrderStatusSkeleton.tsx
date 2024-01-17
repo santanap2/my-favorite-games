@@ -9,7 +9,7 @@ import React from 'react'
 
 export default function OrderStatusSkeleton() {
   return (
-    <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-slate-400 relative">
+    <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-slate-400 relative animation-opacity transition-all">
       <div className="bg-slate-400 h-2 w-[400px] absolute left-10 bottom-14 z-0 loading-skeleton sm:w-[300px] xs:w-[250px]" />
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-0 z-10">

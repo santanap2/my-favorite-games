@@ -35,7 +35,7 @@ export default function FinalizarCompra() {
   }, [isLoading])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6">
+    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6 animation-opacity transition-all">
       <title>{`${pageTitle} - Finalizar compra`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">

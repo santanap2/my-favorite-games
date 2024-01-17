@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function LateralFiltersSkeleton() {
   return (
-    <div className="flex flex-col items-center h-full justify-start w-full">
+    <div className="flex flex-col items-center h-full justify-start w-full animation-opacity transition-all">
       <div className="w-full text-md font-bold flex gap-3 items-center justify-center px-6">
         <span>Filtre sua busca</span>
       </div>

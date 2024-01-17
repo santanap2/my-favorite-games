@@ -22,7 +22,7 @@ export default function ProductCard({
   const router = useRouter()
 
   return (
-    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity transition-all">
+    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity transition-all animation-opacity transition-all">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}

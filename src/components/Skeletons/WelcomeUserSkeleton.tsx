@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function WelcomeUserSkeleton() {
   return (
-    <div className="flex md:flex-col md:gap-1 gap-0 w-full relative">
+    <div className="flex md:flex-col md:gap-1 gap-0 w-full relative animation-opacity transition-all">
       <span className="h-8 md:h-6 md:rounded rounded-l text-transparent loading-skeleton w-fit">
         Oláááá
       </span>

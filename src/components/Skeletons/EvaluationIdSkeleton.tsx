@@ -1,19 +1,14 @@
-'use client'
-
 import { pageTitle } from '@/helpers'
 import { ThumbsUp, Star } from '@phosphor-icons/react'
-import React, { useContext } from 'react'
+import React from 'react'
 import LateralMyAccount from '../LateralMyAccount'
-import GamesPlatformContext from '@/context/Context'
 
 export default function EvaluationIdSkeleton() {
-  const { screenSize } = useContext(GamesPlatformContext)
-
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full">
+    <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
       <title>{`Minhas avaliações - ${pageTitle}`}</title>
       <LateralMyAccount />
-      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center">
+      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
         <div className="flex gap-1 w-full items-center justify-start relative">
           <ThumbsUp
             weight="fill"

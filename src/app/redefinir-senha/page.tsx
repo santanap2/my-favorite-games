@@ -15,10 +15,10 @@ export default function RedefinirSenha() {
   const router = useRouter()
 
   return (
-    <div className="flex flex-col gap-10 mt-24 xxl:mt-20">
+    <div className="flex flex-col gap-10 mt-24 xxl:mt-20 animation-opacity transition-all">
       <title>{`${pageTitle} - Redefinir senha`}</title>
 
-      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow">
+      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow animation-opacity transition-all">
         <h1 className="font-semibold text-xl text-zinc-800 text-shadow">
           Redefinir senha
         </h1>

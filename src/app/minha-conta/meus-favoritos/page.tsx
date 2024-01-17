@@ -51,11 +51,11 @@ export default function MeusFavoritos() {
     <>
       {userError && null}
       {!userError && (
-        <div className="mt-24 xxl:mt-20 w-full h-full">
+        <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
           <title>{`${pageTitle} - Meus favoritos`}</title>
 
           <LateralMyAccount />
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 animation-opacity transition-all">
             <div className="flex gap-1 w-fit items-center justify-center">
               <Heart
                 weight="fill"

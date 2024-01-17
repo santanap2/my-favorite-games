@@ -33,7 +33,7 @@ export default function Login() {
     <>
       {isAuthenticated && null}
       {!isAuthenticated && (
-        <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6">
+        <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6 animation-opacity transition-all">
           <title>{`${pageTitle} - Entrar`}</title>
           <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6">
             <h1 className="font-semibold text-xl text-zinc-800 text-shadow sm:text-lg">
