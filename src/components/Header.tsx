@@ -86,6 +86,9 @@ export default function Header() {
 
     if (pathname.includes('/pedido'))
       setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
+
+    if (pathname.includes('/avaliar-produto'))
+      setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
   }
 
   return (

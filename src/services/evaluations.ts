@@ -1,4 +1,4 @@
-import { IEvaluationUpdate } from '@/interfaces'
+import { ICreateEvaluation, IEvaluationUpdate } from '@/interfaces'
 import { api } from '.'
 
 export const getUserEvaluations = async () => {
@@ -13,5 +13,10 @@ export const getOneUserEvaluation = async (evaluationId: string) => {
 
 export const updateEvaluation = async (evaluationUpdate: IEvaluationUpdate) => {
   const result = await api.put('/update-evaluation', evaluationUpdate)
+  return result
+}
+
+export const createEvaluation = async (createEvaluation: ICreateEvaluation) => {
+  const result = await api.post('/add-evaluation', createEvaluation)
   return result
 }

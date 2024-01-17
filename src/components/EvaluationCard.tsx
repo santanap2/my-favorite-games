@@ -2,7 +2,7 @@
 import GamesPlatformContext from '@/context/Context'
 import { convertDate } from '@/helpers/date'
 import { IEvaluationCard } from '@/interfaces'
-import { CheckSquare, Star } from '@phosphor-icons/react'
+import { CheckCircle, Star } from '@phosphor-icons/react'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
@@ -55,7 +55,7 @@ export default function EvaluationCard({
           <span className="text-sm text-emerald-400 font-semibold sm:hidden">
             Produto avaliado
           </span>
-          <CheckSquare weight="fill" className="text-emerald-400 text-2xl" />
+          <CheckCircle weight="fill" className="text-emerald-400 text-2xl" />
         </div>
       )}
       <img

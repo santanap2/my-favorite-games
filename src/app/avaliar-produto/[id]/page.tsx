@@ -1,25 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
+/* eslint-disable @next/next/no-img-element */
 import LateralMyAccount from '@/components/LateralMyAccount'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import UpdateEvaluationSkeleton from '@/components/Skeletons/UpdateEvaluationSkeleton'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { getUserByToken } from '@/services'
-import { getOneUserEvaluation, updateEvaluation } from '@/services/evaluations'
+import { createEvaluation } from '@/services/evaluations'
+import { getGame } from '@/services/games.requests'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CheckCircle, Star, ThumbsUp, Warning } from '@phosphor-icons/react'
+import { ThumbsUp, Star, Warning, CheckCircle } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
+import Link from 'next/link'
 import { redirect, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import Link from 'next/link'
-import UpdateEvaluationSkeleton from '@/components/Skeletons/UpdateEvaluationSkeleton'
-import LoadingSpinner from '@/components/LoadingSpinner'
 
-export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
-  const [stars, setStars] = useState(0)
+export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
+  const [stars, setStars] = useState(5)
   const [loading, setLoading] = useState(false)
   const [evaluated, setEvaluated] = useState(false)
   const [response, setResponse] = useState({
@@ -43,13 +44,12 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
     redirect('/login')
 
   const {
-    data: userEvaluationsData,
-    isLoading: userEvaluationIsLoading,
-    isFetched: userEvaluationIsFetched,
-    refetch: userEvaluationsRefetch,
+    data: gameData,
+    isLoading: gameIsLoading,
+    refetch: gameRefetch,
   } = useQuery({
-    queryKey: ['userEvaluation'],
-    queryFn: async () => await getOneUserEvaluation(id),
+    queryKey: ['game'],
+    queryFn: async () => await getGame(id),
   })
 
   const formSchema = z.object({
@@ -66,49 +66,50 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       evaluation: {
-        description: userEvaluationsData?.data.data.description,
+        description: '',
       },
     },
   })
 
   const handleFormSubmit = async (data: FormProps) => {
     const evaluation = {
-      evaluationId: Number(id),
+      productId: Number(id),
       stars,
       description: data.evaluation.description,
     }
 
-    const response = await updateEvaluation(evaluation).catch((error) => {
+    const response = await createEvaluation(evaluation).catch((error) => {
       if (error) {
         setLoading(false)
         setResponse({ success: '', error: error.response.data.message })
+        if (
+          error.response.data.message ===
+          'Você só pode avaliar um produto uma vez.'
+        )
+          setEvaluated(true)
       }
     })
 
-    if (response && response.status === 200) {
+    if (response && response.status === 201) {
       setLoading(false)
       setEvaluated(true)
-      setResponse({ success: 'Avaliação atualizada com sucesso.', error: '' })
+      setResponse({ success: 'Produto avaliado com sucesso.', error: '' })
     }
   }
 
   useEffect(() => {
-    userEvaluationsRefetch()
+    gameRefetch()
   }, [])
-
-  useEffect(() => {
-    if (userEvaluationIsFetched) setStars(userEvaluationsData?.data.data.stars)
-  }, [userEvaluationIsFetched])
 
   return (
     <>
       {userError && null}
       {!userError &&
-        (userEvaluationIsLoading ? (
+        (gameIsLoading ? (
           <UpdateEvaluationSkeleton />
         ) : (
           <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
-            <title>{`Editar avaliação - ${pageTitle}`}</title>
+            <title>{`Avaliar produto - ${pageTitle}`}</title>
             <LateralMyAccount />
 
             <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
@@ -118,27 +119,27 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                   className="text-slate-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
-                  Editar avaliação
+                  Avaliar produto
                 </h1>
               </div>
 
               <div className="w-full flex flex-col gap-6">
                 <div className="flex w-full sm:justify-start items-center gap-4">
                   <Link
-                    href={`/game/${userEvaluationsData?.data.data.product.id}`}
+                    href={`/game/${gameData?.data.data.id}`}
                     className="text-xl tracking-wide font-light text-zinc-600"
                   >
                     <img
-                      src={userEvaluationsData?.data.data?.product.image}
-                      alt={userEvaluationsData?.data.data?.product.name}
+                      src={gameData?.data.data.image}
+                      alt={gameData?.data.data.name}
                       className="rounded w-40 h-40 sm:w-24 sm:h-24 object-cover"
                     />
                   </Link>
                   <Link
-                    href={`/game/${userEvaluationsData?.data.data.product.id}`}
+                    href={`/game/${gameData?.data.data.id}`}
                     className="text-xl tracking-wide font-light text-zinc-600 hover:underline"
                   >
-                    {userEvaluationsData?.data.data.product.name}
+                    {gameData?.data.data.name}
                   </Link>
                 </div>
 
@@ -176,7 +177,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                       className="border rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md"
                       maxLength={500}
                       id="description"
-                      placeholder={userEvaluationsData?.data.data.description}
+                      placeholder="Escreva aqui sua avaliação"
                     />
                   </label>
 

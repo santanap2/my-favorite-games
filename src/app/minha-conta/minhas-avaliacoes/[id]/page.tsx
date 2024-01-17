@@ -4,7 +4,6 @@
 import LateralMyAccount from '@/components/LateralMyAccount'
 import EvaluationIdSkeleton from '@/components/Skeletons/EvaluationIdSkeleton'
 
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { convertFullDate } from '@/helpers/date'
 import { IGameIDParams } from '@/interfaces'
@@ -13,10 +12,9 @@ import { getOneUserEvaluation } from '@/services/evaluations'
 import { Star, ThumbsUp } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect, useRouter } from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
-  const { screenSize } = useContext(GamesPlatformContext)
   const router = useRouter()
 
   const { isFetched: userIsFetched, error: userError } = useQuery({
@@ -120,11 +118,17 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                     Sua descrição para o produto:
                   </span>
 
-                  <div className="px-2 py-4 w-full min-w-fit bg-white rounded border border-zinc-200 min-h-fit text-justify">
-                    <span className="text-sm tracking-wide font-light text-zinc-600">
-                      {userEvaluationsData?.data.data.description}
+                  {userEvaluationsData?.data.data.description ? (
+                    <div className="p-2 w-full min-w-fit bg-white rounded border border-zinc-200 min-h-fit text-justify">
+                      <span className="text-sm tracking-wide font-light text-zinc-600">
+                        {userEvaluationsData?.data.data.description}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="font-light text-sm text-zinc-500">
+                      Você não forneceu nenhuma descrição para o produto.
                     </span>
-                  </div>
+                  )}
                 </div>
 
                 <button

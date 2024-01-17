@@ -198,3 +198,9 @@ export interface IEvaluationUpdate {
   stars: number
   description: string
 }
+
+export interface ICreateEvaluation {
+  description?: string
+  stars: number
+  productId: number
+}
