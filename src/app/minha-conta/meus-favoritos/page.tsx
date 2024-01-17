@@ -2,10 +2,9 @@
 'use client'
 
 import { Heart, SmileySad } from '@phosphor-icons/react'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import UserProductCard from '@/components/UserProductCard'
 import { IGame } from '@/interfaces'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import LateralMyAccount from '@/components/LateralMyAccount'
 import { getAllFavorites } from '@/services/favorites.requests'
@@ -16,7 +15,6 @@ import { redirect } from 'next/navigation'
 import { getUserByToken } from '@/services'
 
 export default function MeusFavoritos() {
-  const { screenSize } = useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('alphabetical')
 
   const { isFetched: userIsFetched, error: userError } = useQuery({

@@ -4,7 +4,6 @@
 import LateralMyAccount from '@/components/LateralMyAccount'
 import UserProductCard from '@/components/UserProductCard'
 import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate, sortProductsByName } from '@/helpers/orders'
 import { IGame, IOrderData } from '@/interfaces'
@@ -12,11 +11,10 @@ import { getUserOrders } from '@/services/orders.requests'
 import { GameController, SmileySad } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getUserByToken } from '@/services'
 
 export default function MeusGames() {
-  const { screenSize } = useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('alphabetical')
 
   const { isFetched: userIsFetched, error: userError } = useQuery({

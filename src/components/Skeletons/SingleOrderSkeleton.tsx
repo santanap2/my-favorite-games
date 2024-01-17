@@ -50,8 +50,10 @@ export default function SingleOrderSkeleton() {
 
       <div className="flex justify-between items-center w-full">
         <p className="text-xs ml-2 sm:text-zinc-900 text-transparent">
-          <span className="uppercase font-semibold">Pedido: #</span>
-          <span>9999999</span>
+          <span className="uppercase font-semibold">Pedido: </span>
+          <span className="bg-zinc-100 loading-skeleton rounded text-transparent cursor-default">
+            9999999
+          </span>
         </p>
 
         <div className=" w-48 text-slate-500 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">

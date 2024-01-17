@@ -8,7 +8,6 @@ import ProductOnOrder from '@/components/ProductOnOrder'
 import OrderDetailsSkeleton from '@/components/Skeletons/OrderDetailsSkeleton'
 import OrderStatusSkeleton from '@/components/Skeletons/OrderStatusSkeleton'
 import ProductOnOrderSkeleton from '@/components/Skeletons/ProductOnOrderSkeleton'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
 import { getUserByToken } from '@/services'
@@ -16,11 +15,9 @@ import { getOneUserOrder } from '@/services/orders.requests'
 import { ListPlus } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 export default function PedidoId({ params: { id } }: IGameIDParams) {
-  const { screenSize } = useContext(GamesPlatformContext)
-
   const { isFetched: userIsFetched, error: userError } = useQuery({
     queryKey: ['userData'],
     queryFn: async () => await getUserByToken(),

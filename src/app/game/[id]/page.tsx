@@ -66,8 +66,6 @@ export default function GameId({ params: { id } }: IGameIDParams) {
     (product: IGame) => product.id === Number(id),
   )
 
-  const game = productData?.data.data
-
   const clickExpandMenu = (menu: string) => {
     if (menu === 'description')
       setExpandMenus({ ...expandMenus, description: !expandMenus.description })

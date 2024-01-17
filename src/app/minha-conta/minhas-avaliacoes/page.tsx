@@ -4,7 +4,6 @@
 import EvaluationCard from '@/components/EvaluationCard'
 import LateralMyAccount from '@/components/LateralMyAccount'
 import EvaluationCardSkeleton from '@/components/Skeletons/EvaluationCardSkeleton'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import { sortBoughtProductsByName } from '@/helpers/orders'
 import { IEvaluation, IGameWithOrderInfo } from '@/interfaces'
@@ -14,10 +13,9 @@ import { getBoughtProducts } from '@/services/orders.requests'
 import { SmileySad, ThumbsUp } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function MinhasAvaliacoes() {
-  const { screenSize } = useContext(GamesPlatformContext)
   const [filter, setFilter] = useState('date')
 
   const { isFetched: userIsFetched, error: userError } = useQuery({
