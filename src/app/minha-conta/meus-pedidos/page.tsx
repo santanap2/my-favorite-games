@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import GamesPlatformContext from '@/context/Context'
 import { ArrowUUpLeft, Bag, SmileySad } from '@phosphor-icons/react'
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import SingleOrder from '@/components/SingleOrder'
 import { IOrderData, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
@@ -16,8 +15,6 @@ import { sortOrdersByDate } from '@/helpers/orders'
 import { getUserByToken } from '@/services'
 
 export default function MeusPedidos({ searchParams }: ISearchParams) {
-  const { screenSize } = useContext(GamesPlatformContext)
-
   const router = useRouter()
   const {
     refetch: userRefetch,
@@ -77,7 +74,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
             <div className="flex gap-1 w-fit items-center justify-center">
               <Bag
                 weight="fill"
-                className="text-slate-500 sm:text-3xl text-5xl"
+                className="text-blue-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Meus pedidos
@@ -130,7 +127,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     <button
                       type="button"
                       onClick={() => router.push('/minha-conta/meus-pedidos')}
-                      className="flex gap-3 items-center justify-center px-8 py-2 bg-slate-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                      className="flex gap-3 items-center justify-center px-8 py-2 bg-blue-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
                     >
                       <ArrowUUpLeft className="text-3xl" />
 
@@ -154,7 +151,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4">
                     <SmileySad
                       weight="light"
-                      className="text-slate-500 text-5xl"
+                      className="text-blue-500 text-5xl"
                     />
                     <span className="text-base font-light">
                       Você não possui nenhum pedido feito.

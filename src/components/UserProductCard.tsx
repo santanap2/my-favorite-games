@@ -49,7 +49,7 @@ export default function UserProductCard({
           >
             <Heart
               weight={favorited ? 'fill' : 'bold'}
-              className="text-slate-400 text-3xl"
+              className="text-blue-400 text-3xl"
             />
           </button>
         )}

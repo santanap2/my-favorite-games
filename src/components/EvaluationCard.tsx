@@ -51,7 +51,7 @@ export default function EvaluationCard({
   return (
     <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-white px-2 rounded shadow-md relative animation-opacity transition-all">
       {alreadyEvaluated && (
-        <div className="flex items-center gap-1 absolute right-0 top-0">
+        <div className="flex items-center gap-1 absolute right-3 top-3 sm:right-0 sm:top-0">
           <span className="text-sm text-emerald-400 font-semibold sm:hidden">
             Produto avaliado
           </span>
@@ -101,7 +101,7 @@ export default function EvaluationCard({
           </div>
 
           <button
-            className="w-64 sm:w-full bg-slate-500 rounded px-2 py-2 text-white font-light text-base sm:text-sm shadow-md hover:bg-slate-600 transition-all"
+            className="w-64 sm:w-full bg-blue-500 rounded px-2 py-2 text-white font-light text-base sm:text-sm shadow-md hover:bg-blue-600 transition-all"
             onClick={() => {
               alreadyEvaluated
                 ? router.push(

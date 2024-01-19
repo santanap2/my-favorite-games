@@ -116,7 +116,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  className="text-slate-500 sm:text-3xl text-5xl"
+                  className="text-blue-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Avaliar produto
@@ -199,7 +199,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     ) : (
                       <button
                         type="submit"
-                        className="p-2 sm:w-full w-64 bg-slate-500 text-white font-light rounded shadow-md hover:bg-slate-600 transition-all flex items-center justify-center"
+                        className="p-2 sm:w-full w-64 bg-blue-500 text-white font-light rounded shadow-md hover:bg-blue-600 transition-all flex items-center justify-center"
                         onClick={() => setLoading(true)}
                       >
                         {loading ? <LoadingSpinner /> : 'Avaliar produto'}

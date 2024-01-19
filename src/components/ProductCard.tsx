@@ -22,7 +22,7 @@ export default function ProductCard({
   const router = useRouter()
 
   return (
-    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity transition-all animation-opacity transition-all">
+    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg hover:scale-105 cursor-pointer sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity animation-opacity transition-all">
       <Link href={`/game/${id}`} className="w-full">
         <img
           src={image}
@@ -46,7 +46,7 @@ export default function ProductCard({
             </h2>
           </div>
 
-          <span className="text-xl font-bold text-slate-400 sm:text-lg">
+          <span className="text-xl font-bold text-blue-400 sm:text-lg">
             {`R$ ${priceToBRL(price)}`}
           </span>
         </div>
@@ -60,7 +60,7 @@ export default function ProductCard({
             await buyOneItem(id.toString())
             router.push('/finalizar-compra')
           }}
-          className="w-[72.5%] h-9 bg-slate-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-slate-500 transition-all shadow-md  sm:text-xs"
+          className="w-[72.5%] h-9 bg-blue-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-blue-500 transition-all shadow-md  sm:text-xs"
         >
           Comprar
         </button>
@@ -71,7 +71,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="w-1/4 h-9 bg-slate-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-slate-500 transition-all shadow-md sm:text-xs "
+          className="w-1/4 h-9 bg-blue-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-blue-500 transition-all shadow-md sm:text-xs "
         >
           <ShoppingCartSimple
             weight="bold"

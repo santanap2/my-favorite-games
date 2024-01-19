@@ -39,7 +39,7 @@ export default function FinalizarCompra() {
       <title>{`${pageTitle} - Finalizar compra`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">
-        <Wallet weight="fill" className="text-slate-500 sm:text-3xl text-5xl" />
+        <Wallet weight="fill" className="text-blue-500 sm:text-3xl text-5xl" />
         <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
 
@@ -75,7 +75,7 @@ export default function FinalizarCompra() {
                   </div>
                 </div>
 
-                <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-slate-500 lg:text-sm lg:text-right lg:w-20">
+                <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-blue-500 lg:text-sm lg:text-right lg:w-20">
                   {`R$ ${priceToBRL(price)}`}
                 </h2>
               </div>
@@ -98,7 +98,7 @@ export default function FinalizarCompra() {
             )})`}</h3>
           </div>
 
-          <div className="w-full h-30 bg-slate-50 p-4 rounded flex flex-col items-center justify-center text-slate-500">
+          <div className="w-full h-30 bg-blue-50 p-4 rounded flex flex-col items-center justify-center text-blue-500">
             <div className="text-sm">
               <span>Valor à vista no</span>
               <span className="font-semibold">{` PIX`}</span>
@@ -126,7 +126,7 @@ export default function FinalizarCompra() {
                 }
                 router.push('/finalizar-compra/pagamento')
               }}
-              className={`w-full bg-slate-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4 ${
+              className={`w-full bg-blue-400 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg lg:px-4 ${
                 !isAuthenticated && 'sm:text-sm'
               }`}
             >
@@ -138,7 +138,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/home')}
-              className="w-full bg-white h-10 rounded text-slate-400 border border-slate-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
+              className="w-full bg-white h-10 rounded text-blue-400 border border-blue-400 font-light text-regular hover:shadow-lg md:px-0 xl:px-4 xl:py-2"
             >
               Continuar comprando
             </button>

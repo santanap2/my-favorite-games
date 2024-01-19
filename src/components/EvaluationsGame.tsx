@@ -33,7 +33,7 @@ export default function EvaluationsGame({ gameId }: { gameId: string }) {
                     <Star
                       key={index}
                       weight="duotone"
-                      className="text-slate-400 text-xl"
+                      className="text-blue-400 text-xl"
                     />
                   ))}
                 </div>

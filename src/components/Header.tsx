@@ -93,7 +93,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-slate-900 text-slate-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
+      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-blue-900 text-blue-400 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
       onMouseLeave={() => {
         setShowPopup(false)
       }}
@@ -140,7 +140,7 @@ export default function Header() {
               >
                 <X
                   weight="bold"
-                  className="text-slate-400 absolute top-2 -right-6 text-xl"
+                  className="text-blue-400 absolute top-2 -right-6 text-xl"
                 />
               </button>
             )}
@@ -172,7 +172,7 @@ export default function Header() {
             <button type="submit">
               <MagnifyingGlass
                 weight={hoverBtn.search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-slate-400 text-3xl"
+                className="h-10 w-9 text-zinc-700 pr-2 bg-white rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-blue-400 text-3xl"
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }
@@ -236,7 +236,7 @@ export default function Header() {
           >
             <MagnifyingGlass
               weight={hoverBtn.search ? 'duotone' : 'regular'}
-              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-slate-400 text-3xl"
+              className="h-10 text-zinc-700 cursor-pointer sm:bg-transparent xl:text-blue-400 text-3xl"
             />
           </button>
         )}
