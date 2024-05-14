@@ -38,7 +38,8 @@ export default function LateralFilters() {
     queryFn: async () => await getCategories(),
   })
 
-  const orderedCategories = sortCategoriesByName(categoriesData?.data.data)
+  const orderedCategories =
+    sortCategoriesByName(categoriesData?.data.data) || []
 
   const categoriesHandler = (value: string) => {
     if (formFilters.includes(value)) {

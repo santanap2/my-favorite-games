@@ -106,7 +106,7 @@ export default function Pagamento() {
         ? 'PIX'
         : paymentMethod.bankSlip
           ? 'bankSlip'
-          : '',
+          : 'creditCard',
     })
     if (result.status === 201)
       router.push(`/pedido-realizado/${result.data.data.id}`)
