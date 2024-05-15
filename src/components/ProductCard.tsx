@@ -23,11 +23,11 @@ export default function ProductCard({
     <div className="flex flex-col w-64 h-fit items-start justify-start lg:w-full xl:w-64 animation-opacity animation-opacity transition-all">
       <Link
         href={`/game/${id}`}
-        className="w-64 h-72 lg:w-full lg:h-52 xl:h-72"
+        className="w-64 h-72 lg:w-full md:h-52 xl:h-72"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-64 h-72 overflow-hidden inline-block rounded lg:w-full lg:h-52 xl:w-64 xl:h-72 shadow-[0_0px_5px_rgba(0,0,0,0.2)] ">
+        <div className="w-64 h-72 overflow-hidden inline-block rounded lg:w-full md:h-52 xl:w-64 xl:h-72 shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt={name}
@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="w-full h-9 text-white font-bold uppercase bg-blue-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-600 transition-all sm:text-xs "
+          className="mt-1 w-full h-9 text-white font-bold uppercase bg-blue-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-600 transition-all sm:text-xs "
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
