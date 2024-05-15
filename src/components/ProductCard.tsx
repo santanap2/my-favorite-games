@@ -20,14 +20,14 @@ export default function ProductCard({
   const [hover, setHover] = useState<boolean>(false)
 
   return (
-    <div className="flex flex-col w-64 items-start justify-start sm:w-full xxl:w-52 animation-opacity animation-opacity transition-all">
+    <div className="flex flex-col w-64 h-fit items-start justify-start lg:w-full xl:w-64 animation-opacity animation-opacity transition-all">
       <Link
         href={`/game/${id}`}
-        className="w-64 h-96"
+        className="w-64 h-72 lg:w-full lg:h-52 xl:h-72"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-64 h-96 overflow-hidden inline-block rounded sm:h-52 xxl:h-52 shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
+        <div className="w-64 h-72 overflow-hidden inline-block rounded lg:w-full lg:h-52 xl:w-64 xl:h-72 shadow-[0_0px_5px_rgba(0,0,0,0.2)] ">
           <img
             src={image}
             alt={name}
@@ -38,11 +38,11 @@ export default function ProductCard({
         </div>
       </Link>
 
-      <div className="w-full h-40 flex flex-col justify-between items-start sm:top-52 sm:py-1 sm:h-32 xxl:top-52 xxl:h-32">
-        <div className="flex flex-col gap-1 h-20">
-          <Link href={`/game/${id}`}>
+      <div className="w-full h-40 flex flex-col justify-between items-start xl:h-fit">
+        <div className="flex flex-col gap-1 h-20 mt-1">
+          <Link href={`/game/${id}`} className="w-fit">
             <h1
-              className="font-semibold text-lg text-zinc-800 w-full max-h-20 sm:text-base sm:max-h-11 hover:underline"
+              className="font-semibold text-lg text-zinc-800 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -54,14 +54,14 @@ export default function ProductCard({
             </h1>
           </Link>
 
-          <Link href={`/home?${category}=true`}>
-            <h2 className="font-light text-sm w-full sm:text-xs sm:h-8 hover:underline">
+          <Link href={`/home?${category}=true`} className=" w-fit">
+            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline">
               {categoryPt}
             </h2>
           </Link>
         </div>
 
-        <span className="text-xl font-bold text-blue-400 sm:text-lg">
+        <span className="text-lg font-bold text-blue-600 sm:text-md">
           {`R$ ${priceToBRL(price)}`}
         </span>
 
@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="w-full h-9 text-white font-bold uppercase bg-blue-400 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-500 transition-all shadow-md sm:text-xs "
+          className="w-full h-9 text-white font-bold uppercase bg-blue-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-600 transition-all sm:text-xs "
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >

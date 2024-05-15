@@ -36,7 +36,6 @@ export default function Home({ searchParams }: ISearchParams) {
 
   useEffect(() => {
     refetch()
-    console.log(data)
   }, [queryParams])
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export default function Home({ searchParams }: ISearchParams) {
           className={`${
             error?.message === 'Request failed with status code 404'
               ? 'flex items-center justify-center'
-              : 'grid grid-cols-5 gap-12 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 lg:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
+              : 'grid grid-cols-5 gap-12 row-auto sm:grid sm:grid-cols-2 sm:w-screen sm:gap-4 xl:grid-cols-3 xxl:grid-cols-4 xxl:gap-6 xl:w-full'
           }`}
         >
           {error?.message === 'Request failed with status code 404' ? (
