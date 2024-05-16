@@ -48,6 +48,7 @@ export interface IGame {
   id: number
   image: string
   description: string
+  indexAndLength?: { index: number; lenght: number }
 }
 
 export interface ILastOrderDetail {

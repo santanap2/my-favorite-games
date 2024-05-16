@@ -53,12 +53,9 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
           <title>{`Detalhes do pedido #${id} - ${pageTitle}`}</title>
           <LateralMyAccount />
 
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start">
-              <ListPlus
-                weight="fill"
-                className="text-rose-500 sm:text-3xl text-5xl"
-              />
+              <ListPlus weight="fill" className=" sm:text-3xl text-5xl" />
               <h1 className="font-regular text-xl font-semibold">
                 Detalhes do pedido
               </h1>
@@ -78,7 +75,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
                   </>
                 )}
               </div>
-              <div className="flex flex-col w-fit gap-4 bg-white px-2 pt-4 rounded shadow-md sm:w-full sm:max-w-full">
+              <div className="flex flex-col w-fit gap-4 bg-slate-800 px-2 pt-4 rounded shadow-md sm:w-full sm:max-w-full">
                 {orderIsLoading ? (
                   <>
                     <ProductOnOrderSkeleton />
@@ -86,17 +83,23 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
                     <ProductOnOrderSkeleton />
                   </>
                 ) : (
-                  orderData?.data.data.products.map((product: IGame) => (
-                    <ProductOnOrder
-                      key={product.id}
-                      description={product.description}
-                      category={product.category}
-                      id={product.id}
-                      image={product.image}
-                      name={product.name}
-                      price={product.price}
-                    />
-                  ))
+                  orderData?.data.data.products.map(
+                    (product: IGame, index: number) => (
+                      <ProductOnOrder
+                        key={product.id}
+                        description={product.description}
+                        category={product.category}
+                        id={product.id}
+                        image={product.image}
+                        name={product.name}
+                        price={product.price}
+                        indexAndLength={{
+                          index,
+                          lenght: orderData?.data.data.products.length,
+                        }}
+                      />
+                    ),
+                  )
                 )}
               </div>
             </div>

@@ -10,9 +10,16 @@ export default function ProductOnOrder({
   category,
   price,
   description,
+  indexAndLength,
 }: IGame) {
   return (
-    <div className="flex w-[600px] gap-3 border-b pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all">
+    <div
+      className={`flex w-[600px] gap-3 pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all ${
+        indexAndLength && indexAndLength?.index === indexAndLength.lenght - 1
+          ? ''
+          : 'border-b border-zinc-600'
+      }`}
+    >
       <img
         src={image}
         alt={name}
@@ -20,7 +27,7 @@ export default function ProductOnOrder({
       />
 
       <div className="flex flex-col items-start justify-center w-full">
-        <h1 className="font-semibold text-lg tracking-tight text-rose-800 w-full">
+        <h1 className="font-semibold text-lg tracking-tight text-rose-600 w-full">
           {name}
         </h1>
 

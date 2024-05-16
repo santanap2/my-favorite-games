@@ -20,14 +20,14 @@ export default function ProductCard({
   const [hover, setHover] = useState<boolean>(false)
 
   return (
-    <div className="flex flex-col w-64 h-fit items-start justify-start lg:w-full xl:w-64 animation-opacity animation-opacity transition-all">
+    <div className="flex flex-col w-40 h-fit items-start justify-start animation-opacity animation-opacity transition-all">
       <Link
         href={`/game/${id}`}
-        className="w-64 h-72 lg:w-full md:h-52 xl:h-72"
+        className="w-40 h-60"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-64 h-72 overflow-hidden inline-block rounded lg:w-full md:h-52 xl:w-64 xl:h-72 shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
+        <div className="w-40 h-60 overflow-hidden inline-block rounded lg:w-full shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt={name}
@@ -42,7 +42,7 @@ export default function ProductCard({
         <div className="flex flex-col gap-1 h-20 mt-1">
           <Link href={`/game/${id}`} className="w-fit">
             <h1
-              className="font-semibold text-lg text-zinc-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
+              className="font-semibold text-base text-zinc-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -61,7 +61,7 @@ export default function ProductCard({
           </Link>
         </div>
 
-        <span className="text-lg font-bold text-rose-600 sm:text-md">
+        <span className="text-lg font-bold text-zinc-100 sm:text-md">
           {`R$ ${priceToBRL(price)}`}
         </span>
 
@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="mt-1 w-fit h-9 px-4 text-white font-bold uppercase bg-rose-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-rose-600 transition-all sm:text-xs "
+          className="mt-1 w-fit h-9 px-4 text-white font-bold uppercase bg-rose-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-rose-600 transition-all sm:text-xs sm:w-full"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >

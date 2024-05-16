@@ -151,3 +151,6 @@ input[type=number] {
   }
 }
 
+.background {
+  background: linear-gradient(180deg, rgb(244 63 94) 1%, rgb(15 23 42) 20%);
+}

@@ -41,7 +41,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
     <>
       {userError && null}
       {!userError && (
-        <div className="w-full animation-opacity transition-all">
+        <div className="w-full animation-opacity transition-all text-zinc-100">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
           <LateralMyAccount />
@@ -50,14 +50,14 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
               <div className="flex gap-2 w-full items-center justify-center relative">
                 <ShoppingBagOpen
                   weight="fill"
-                  className="text-rose-500 relative text-6xl"
+                  className="text-zinc-100 relative text-6xl"
                 />
 
                 <h1 className="font-regular text-xl font-semibold relative">
                   Pedido realizado com sucesso!
                   <CheckCircle
                     weight="fill"
-                    className="absolute text-green-500 -bottom-4 -left-8 bg-zinc-50 rounded-full text-3xl"
+                    className="absolute text-green-500 -bottom-4 -left-8 bg-zinc-100 rounded-full text-3xl"
                   />
                 </h1>
               </div>

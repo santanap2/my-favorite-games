@@ -40,7 +40,7 @@ export default function CartProductCard({
 
           <button
             type="button"
-            className="text-xs font-regular tracking-wider uppercase underline hover:text-cyan-400"
+            className="text-xs font-regular tracking-wider uppercase underline hover:text-rose-500"
             onClick={async () => {
               await removeItemFromCart(id.toString())
               refetch()
