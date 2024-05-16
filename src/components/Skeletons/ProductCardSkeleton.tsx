@@ -27,7 +27,7 @@ export default function ProductCardSkeleton() {
           </h2>
         </div>
 
-        <span className="text-lg font-bold text-transparent sm:text-md loading-skeleton rounded">
+        <span className="mt-2 text-lg font-bold text-transparent sm:text-md loading-skeleton rounded">
           R$ 999,99
         </span>
 

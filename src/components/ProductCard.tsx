@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="mt-1 w-full h-9 text-white font-bold uppercase bg-blue-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-600 transition-all sm:text-xs "
+          className="mt-1 w-fit h-9 px-4 text-white font-bold uppercase bg-blue-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-600 transition-all sm:text-xs "
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
