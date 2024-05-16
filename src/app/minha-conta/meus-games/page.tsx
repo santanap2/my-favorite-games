@@ -66,7 +66,7 @@ export default function MeusGames() {
             <div className="flex gap-1 w-fit items-center justify-center">
               <GameController
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-rose-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Meus Games</h1>
             </div>
@@ -140,7 +140,7 @@ export default function MeusGames() {
                       <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
                         <SmileySad
                           weight="light"
-                          className="text-blue-500 text-5xl"
+                          className="text-rose-500 text-5xl"
                         />
                         <span className="text-base font-light">
                           Você não possui nenhum game comprado no momento.

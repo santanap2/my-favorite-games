@@ -15,28 +15,28 @@ import React from 'react'
 export default function OrderStatus({ order }: { order: IOrderData }) {
   const checkOrderStatus = () => {
     if (!order) return 'w-1/6'
-    if (order.status === 'awaitingPayment') return 'w-1/6 bg-emerald-500'
-    if (order.status === 'approvedPayment') return 'w-3/6 bg-emerald-500'
-    if (order.status === 'processing') return 'w-4/5 bg-emerald-500'
-    if (order.status === 'concluded') return 'w-6/6 bg-emerald-500'
+    if (order.status === 'awaitingPayment') return 'w-1/6 bg-rose-500'
+    if (order.status === 'approvedPayment') return 'w-3/6 bg-rose-500'
+    if (order.status === 'processing') return 'w-4/5 bg-rose-500'
+    if (order.status === 'concluded') return 'w-6/6 bg-rose-500'
     if (order.status === 'canceled') return 'w-6/6 bg-rose-500'
   }
 
   return (
-    <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-blue-400 relative">
-      <div className="bg-blue-400 h-2 w-[400px] absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px] animation-opacity transition-all">
+    <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-rose-400 relative">
+      <div className="bg-rose-400 h-2 w-[400px] absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px] animation-opacity transition-all">
         <div className={`${checkOrderStatus()} relative h-2 z-10`} />
       </div>
 
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-0 z-10">
         <Storefront
           weight="fill"
-          className="rounded-3xl bg-zinc-50 p-2 border-2 border-emerald-500 text-emerald-500 sm:p-1 text-6xl"
+          className="rounded-3xl bg-zinc-50 p-2 border-2 border-rose-500 text-rose-500 sm:p-1 text-6xl"
         />
         <div className="flex flex-col items-center justify-center h-full">
           <CheckCircle
             weight="fill"
-            className="text-emerald-500 rounded-3xl bg-zinc-50 text-4xl"
+            className="text-rose-500 rounded-3xl bg-zinc-50 text-4xl"
           />
           <span className="text-zinc-700 text-sm text-center">
             Pedido realizado
@@ -58,10 +58,10 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
             order.status === 'approvedPayment' ||
             order.status === 'processing' ||
             order.status === 'concluded'
-              ? 'text-emerald-500 border-emerald-500'
+              ? 'text-rose-500 border-rose-500'
               : order.status === 'canceled'
                 ? 'text-rose-500 border-rose-500'
-                : 'border-blue-400'
+                : 'border-rose-400'
           } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1 text-6xl`}
         />
 
@@ -76,7 +76,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
             order.status === 'concluded' ? (
             <CheckCircle
               weight="fill"
-              className="rounded-3xl bg-zinc-50 text-emerald-500 text-4xl"
+              className="rounded-3xl bg-zinc-50 text-rose-500 text-4xl"
             />
           ) : (
             <Circle weight="fill" className="rounded-3xl bg-zinc-50 text-4xl" />
@@ -98,10 +98,10 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           }
           className={`${
             order.status === 'processing' || order.status === 'concluded'
-              ? 'text-emerald-500 border-emerald-500'
+              ? 'text-rose-500 border-rose-500'
               : order.status === 'canceled'
                 ? 'text-rose-500 border-rose-500'
-                : 'border-blue-400'
+                : 'border-rose-400'
           } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1 text-6xl`}
         />
         <div className="flex flex-col items-center justify-center">
@@ -113,7 +113,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : order.status === 'processing' || order.status === 'concluded' ? (
             <CheckCircle
               weight="fill"
-              className="rounded-3xl bg-zinc-50 text-emerald-500 text-4xl"
+              className="rounded-3xl bg-zinc-50 text-rose-500 text-4xl"
             />
           ) : (
             <Circle weight="fill" className="rounded-3xl bg-zinc-50 text-4xl" />
@@ -133,10 +133,10 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           }
           className={`${
             order.status === 'concluded'
-              ? 'text-emerald-500 border-emerald-500'
+              ? 'text-rose-500 border-rose-500'
               : order.status === 'canceled'
                 ? 'text-rose-500 border-rose-500'
-                : 'border-blue-400'
+                : 'border-rose-400'
           } rounded-3xl bg-zinc-50 p-2 border-2 sm:p-1 text-6xl`}
         />
         <div className="flex flex-col items-center justify-center">
@@ -148,7 +148,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : order.status === 'concluded' ? (
             <CheckCircle
               weight="fill"
-              className="rounded-3xl bg-zinc-50 text-emerald-500 text-4xl"
+              className="rounded-3xl bg-zinc-50 text-rose-500 text-4xl"
             />
           ) : (
             <Circle weight="fill" className="rounded-3xl bg-zinc-50 text-4xl" />

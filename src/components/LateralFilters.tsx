@@ -105,7 +105,7 @@ export default function LateralFilters() {
       unmountOnExit
     >
       <aside
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-zinc-100 overflow-y-auto z-20 shadow-2xl xl:shadow-black"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-slate-800 overflow-y-auto z-20 shadow-2xl xl:shadow-black text-zinc-50"
         ref={nodeRef}
       >
         {categoriesIsLoading ? (
@@ -138,7 +138,7 @@ export default function LateralFilters() {
                         onChange={() => categoriesHandler(name)}
                         value={name}
                       />
-                      <span className="text-zinc-600 tracking-wider text-sm font-light">
+                      <span className="text-zinc-400 tracking-wider text-sm font-light">
                         {namePt}
                       </span>
                     </label>
@@ -157,7 +157,7 @@ export default function LateralFilters() {
                         type="text"
                         name="minPrice"
                         placeholder="R$ 00,00"
-                        className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2"
+                        className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-slate-700"
                         onChange={(e) => pricesHandler(e)}
                         value={formPrices.minPrice}
                       />
@@ -175,7 +175,7 @@ export default function LateralFilters() {
                         name="maxPrice"
                         type="text"
                         placeholder="R$ 00,00"
-                        className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 "
+                        className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-slate-700"
                         onChange={(e) => pricesHandler(e)}
                         value={formPrices.maxPrice}
                       />
@@ -187,7 +187,7 @@ export default function LateralFilters() {
             <button
               type="submit"
               form="lateral-filters"
-              className="w-52 bg-blue-400 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white"
+              className="w-52 bg-rose-400 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white "
             >
               Filtrar
             </button>

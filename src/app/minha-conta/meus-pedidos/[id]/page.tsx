@@ -57,7 +57,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
             <div className="flex gap-1 w-full items-center justify-start">
               <ListPlus
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-rose-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Detalhes do pedido

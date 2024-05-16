@@ -29,7 +29,7 @@ export default function CreditCardForm() {
           placeholder="0000 0000 0000 0000"
           maxLength={19}
           className={`relative rounded w-full border  bg-zinc-50 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardNumber ? 'border-red-400' : 'border-blue-400'
+            errors.cardData?.cardNumber ? 'border-red-400' : 'border-rose-400'
           }`}
         />
         {errors.cardData?.cardNumber && (
@@ -49,7 +49,7 @@ export default function CreditCardForm() {
           type="text"
           placeholder="Digite seu nome"
           className={`relative rounded w-full border bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardName ? 'border-red-400' : 'border-blue-400'
+            errors.cardData?.cardName ? 'border-red-400' : 'border-rose-400'
           }`}
         />
         {errors.cardData?.cardName && (
@@ -71,7 +71,7 @@ export default function CreditCardForm() {
             maxLength={5}
             placeholder="MM/AA"
             className={`relative rounded w-full border bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardDate ? 'border-red-400' : 'border-blue-400'
+              errors.cardData?.cardDate ? 'border-red-400' : 'border-rose-400'
             }`}
           />
           {errors.cardData?.cardDate && (
@@ -91,8 +91,8 @@ export default function CreditCardForm() {
             type="text"
             maxLength={3}
             placeholder="000"
-            className={`relative rounded w-full border border-blue-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardCvv ? 'border-red-400' : 'border-blue-400'
+            className={`relative rounded w-full border border-rose-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+              errors.cardData?.cardCvv ? 'border-red-400' : 'border-rose-400'
             }`}
           />
           {errors.cardData?.cardCvv && (
@@ -111,7 +111,7 @@ export default function CreditCardForm() {
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="relative rounded w-full border border-blue-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="relative rounded w-full border border-rose-400 bg-zinc-50 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
         >
           <option value="1" className="rounded py-4 h-10">
             {`1x sem juros de R$ ${priceToBRL(

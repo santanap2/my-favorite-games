@@ -42,7 +42,7 @@ export default function ProductCard({
         <div className="flex flex-col gap-1 h-20 mt-1">
           <Link href={`/game/${id}`} className="w-fit">
             <h1
-              className="font-semibold text-lg text-zinc-800 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
+              className="font-semibold text-lg text-zinc-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -55,13 +55,13 @@ export default function ProductCard({
           </Link>
 
           <Link href={`/home?${category}=true`} className=" w-fit">
-            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline">
+            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline text-zinc-50">
               {categoryPt}
             </h2>
           </Link>
         </div>
 
-        <span className="text-lg font-bold text-blue-600 sm:text-md">
+        <span className="text-lg font-bold text-rose-600 sm:text-md">
           {`R$ ${priceToBRL(price)}`}
         </span>
 
@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="mt-1 w-fit h-9 px-4 text-white font-bold uppercase bg-blue-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-blue-600 transition-all sm:text-xs "
+          className="mt-1 w-fit h-9 px-4 text-white font-bold uppercase bg-rose-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-rose-600 transition-all sm:text-xs "
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >

@@ -34,7 +34,7 @@ export default function SingleOrderSkeleton() {
                 99/99/9999
               </p>
             </td>
-            <td className="py-3 px-4 w-52 text-blue-400 font-bold xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-rose-400 font-bold xxl:p-1 xxl:w-20">
               <p className="bg-zinc-100 loading-skeleton rounded text-transparent cursor-default">
                 Cartaodecredito
               </p>
@@ -56,7 +56,7 @@ export default function SingleOrderSkeleton() {
           </span>
         </p>
 
-        <div className=" w-48 text-blue-500 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">
+        <div className=" w-48 text-rose-500 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">
           <p className="bg-zinc-100 loading-skeleton rounded text-transparent cursor-default h-full">
             Detalhes do pedido
           </p>

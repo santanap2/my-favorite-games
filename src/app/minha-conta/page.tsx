@@ -81,7 +81,7 @@ export default function MinhaConta() {
                 <div className="flex gap-1 items-start justify-center w-full">
                   <UserCircle
                     weight="fill"
-                    className="text-blue-500 text-6xl"
+                    className="text-rose-500 text-6xl"
                   />
                   <div className="flex flex-col w-full">
                     <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
@@ -108,7 +108,7 @@ export default function MinhaConta() {
                             <h2 className="flex md:hidden text-sm font-light absolute -bottom-7 left-0">
                               <EnvelopeSimple
                                 weight="fill"
-                                className="h-8 md:h-6 text-blue-500 text-2xl"
+                                className="h-8 md:h-6 text-rose-500 text-2xl"
                               />
 
                               {userIsLoading ? (
@@ -130,7 +130,7 @@ export default function MinhaConta() {
                 <h2 className="hidden md:flex text-sm font-light">
                   <EnvelopeSimple
                     weight="fill"
-                    className="h-8 md:h-6 text-blue-500 text-2xl"
+                    className="h-8 md:h-6 text-rose-500 text-2xl"
                   />
 
                   {userIsLoading ? (
@@ -152,7 +152,7 @@ export default function MinhaConta() {
                   </span>
                   <Link
                     href="/minha-conta/meus-pedidos"
-                    className="font-semibold text-lg min-w-fit text-blue-400 hover:underline lg:text-base"
+                    className="font-semibold text-lg min-w-fit text-rose-400 hover:underline lg:text-base"
                   >
                     Ver todos
                   </Link>
@@ -193,7 +193,7 @@ export default function MinhaConta() {
                       <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                         <SmileySad
                           weight="regular"
-                          className="text-blue-500 text-5xl"
+                          className="text-rose-500 text-5xl"
                         />
                         <span className="text-base font-light">
                           Você não possui nenhum pedido feito.
@@ -211,7 +211,7 @@ export default function MinhaConta() {
                   </span>
                   <Link
                     href="/minha-conta/meus-games"
-                    className="font-semibold text-lg min-w-fit text-blue-400 hover:underline lg:text-base"
+                    className="font-semibold text-lg min-w-fit text-rose-400 hover:underline lg:text-base"
                   >
                     Ver todos
                   </Link>
@@ -248,7 +248,7 @@ export default function MinhaConta() {
                         <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                           <SmileySad
                             weight="regular"
-                            className="text-blue-500 text-5xl"
+                            className="text-rose-500 text-5xl"
                           />
                           <span className="text-base font-light">
                             Você não possui nenhum game comprado.

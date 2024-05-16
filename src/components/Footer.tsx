@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="flex w-screen border-t border-zinc-300 bg-blue-900 text-white justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start z-10 animation-opacity transition-all">
+    <footer className="flex w-screen bg-rose-900 text-white justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start z-10 animation-opacity transition-all">
       <div className="w-3/5 flex justify-between items-center xxl:w-[95%] flex-col gap-2">
         <img
           src="logo.png"

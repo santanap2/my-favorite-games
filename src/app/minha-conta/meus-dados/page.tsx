@@ -60,7 +60,7 @@ export default function MeusDados() {
             <div className="flex gap-1 w-full items-center justify-start">
               <IdentificationCard
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-rose-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
             </div>
@@ -76,7 +76,7 @@ export default function MeusDados() {
                     <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                       <IdentificationBadge
                         weight="light"
-                        className="text-blue-400 text-2xl"
+                        className="text-rose-400 text-2xl"
                       />
                       <span>Nome completo</span>
                     </h2>
@@ -103,7 +103,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-rose-400 text-2xl"
                         />
                         <span>
                           E-mail{' '}
@@ -133,7 +133,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-rose-400 text-2xl"
                         />
                         <span>Novo E-mail</span>
                       </h2>
@@ -159,7 +159,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Phone
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-rose-400 text-2xl"
                         />
                         <span>Telefone</span>
                       </h2>
@@ -189,7 +189,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-rose-400 text-2xl"
                         />
                         <span>
                           Senha atual{' '}
@@ -222,7 +222,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-rose-400 text-2xl"
                         />
                         <span>Nova senha</span>
                       </h2>
@@ -250,7 +250,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-rose-400 text-2xl"
                         />
                         <span>Confirmar nova senha</span>
                       </h2>
@@ -279,7 +279,7 @@ export default function MeusDados() {
                   <button
                     type="submit"
                     form="myDataForm"
-                    className="flex items-center justify-center bg-blue-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
+                    className="flex items-center justify-center bg-rose-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
                     disabled={!!userDataResponse.success}
                   >
                     {loading.updateUserData ? (
@@ -290,7 +290,7 @@ export default function MeusDados() {
                   </button>
 
                   {userDataResponse.success && (
-                    <div className="w-full text-sm text-blue-500 font-semibold flex gap-4 items-center justify-start">
+                    <div className="w-full text-sm text-rose-500 font-semibold flex gap-4 items-center justify-start">
                       <CheckFat weight="light" className="text-3xl" />
                       <h3>{userDataResponse.success}</h3>
                     </div>

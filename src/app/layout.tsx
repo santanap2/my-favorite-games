@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ContextGamesPlatform>
       <html lang="en">
-        <body className={`${roboto.className} bg-zinc-50 overflow-x-hidden`}>
+        <body className={`${roboto.className} bg-slate-900 overflow-x-hidden`}>
           <div className="flex w-full items-center justify-start flex-col">
             <div className="flex flex-col min-h-screen justify-between items-center w-full">
               <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
