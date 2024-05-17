@@ -17,7 +17,7 @@ export default function ProductCardSkeleton() {
           </div>
 
           <div className="w-fit">
-            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline text-transparent loading-skeleton rounded">
+            <h2 className="font-light text-sm w-fit sm:text-xs hover:underline text-transparent loading-skeleton rounded">
               Category
             </h2>
           </div>

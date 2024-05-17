@@ -12,6 +12,7 @@ import ProductCardSkeleton from '@/components/Skeletons/ProductCardSkeleton'
 import NotFoundProducts from '@/components/NotFoundProducts'
 import LateralFilters from '@/components/LateralFilters'
 import { useQuery } from '@tanstack/react-query'
+import allGames from '@/helpers/allGames'
 
 export default function Home({ searchParams }: ISearchParams) {
   const {
@@ -57,7 +58,7 @@ export default function Home({ searchParams }: ISearchParams) {
           className={`${
             error?.message === 'Request failed with status code 404'
               ? 'flex items-center justify-center'
-              : 'grid grid-cols-6 auto-cols-auto gap-12 row-auto sm:grid sm:grid-cols-2 sm:gap-4 xl:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
+              : 'grid grid-cols-6 auto-cols-auto gap-12 row-auto sm:grid sm:grid-cols-2 sm:gap-6 xl:grid-cols-3 xxl:grid-cols-4 xxl:gap-6'
           }`}
         >
           {error?.message === 'Request failed with status code 404' ? (
@@ -80,7 +81,8 @@ export default function Home({ searchParams }: ISearchParams) {
                   <ProductCardSkeleton />
                 </>
               ) : (
-                data?.data.data.map((game: IGame) => (
+                // data?.data.data
+                allGames.map((game: IGame) => (
                   <ProductCard
                     key={game.id}
                     name={game.name}
