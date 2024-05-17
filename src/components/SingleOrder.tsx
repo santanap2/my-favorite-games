@@ -50,13 +50,13 @@ export default function SingleOrder({
       case 'awaitingPayment':
         return 'text-amber-500'
       case 'approvedPayment':
-        return 'text-rose-500'
+        return 'text-sky-500'
       case 'processing':
-        return 'text-rose-500'
+        return 'text-purple-500'
       case 'concluded':
-        return 'text-rose-500'
+        return 'text-green-500'
       case 'canceled':
-        return 'text-rose-500'
+        return 'text-red-500'
       default:
         return ''
     }
