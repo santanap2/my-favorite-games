@@ -54,9 +54,9 @@ export default function SingleOrder({
       case 'processing':
         return 'text-rose-500'
       case 'concluded':
-        return 'text-green-500'
+        return 'text-rose-500'
       case 'canceled':
-        return 'text-red-500'
+        return 'text-rose-500'
       default:
         return ''
     }

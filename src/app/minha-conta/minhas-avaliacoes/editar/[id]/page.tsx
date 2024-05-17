@@ -157,7 +157,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                           key={index}
                           weight={index < stars ? 'fill' : 'duotone'}
                           className={`${
-                            index < stars ? 'text-yellow-400' : 'text-zinc-600'
+                            index < stars ? 'text-rose-400' : 'text-zinc-600'
                           } text-4xl cursor-pointer`}
                           onClick={() => setStars(index + 1)}
                         />

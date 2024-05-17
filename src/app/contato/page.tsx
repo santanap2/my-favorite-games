@@ -35,7 +35,7 @@ export default function Contato() {
             >
               <WhatsappLogo
                 weight="duotone"
-                className="text-green-400 text-3xl"
+                className="text-rose-400 text-3xl"
               />
               <h3 className="flex flex-col">
                 <span>(31) 99869-5219</span>
@@ -49,7 +49,7 @@ export default function Contato() {
             >
               <WhatsappLogo
                 weight="duotone"
-                className="text-green-400 text-3xl"
+                className="text-rose-400 text-3xl"
               />
               <h3 className="flex flex-col">
                 <span>(37) 9904-2144</span>

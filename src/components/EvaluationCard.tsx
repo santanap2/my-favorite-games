@@ -88,7 +88,7 @@ export default function EvaluationCard({
                     <Star
                       key={index}
                       weight="fill"
-                      className="text-yellow-400 text-xl"
+                      className="text-rose-400 text-xl"
                     />
                   ))}
                 </div>

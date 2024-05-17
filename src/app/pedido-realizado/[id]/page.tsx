@@ -57,7 +57,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                   Pedido realizado com sucesso!
                   <CheckCircle
                     weight="fill"
-                    className="absolute text-green-500 -bottom-4 -left-8 bg-zinc-100 rounded-full text-3xl"
+                    className="absolute text-rose-500 -bottom-4 -left-8 bg-zinc-100 rounded-full text-3xl"
                   />
                 </h1>
               </div>

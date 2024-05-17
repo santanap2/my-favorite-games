@@ -35,11 +35,11 @@ export default function RedefinirSenha() {
               id="email"
               placeholder="email@exemplo.com"
               className={`${
-                errors.resetPassword?.email && 'border border-red-300'
+                errors.resetPassword?.email && 'border border-rose-300'
               } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
             />
             {errors.resetPassword?.email && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.resetPassword.email.message}
               </span>
             )}

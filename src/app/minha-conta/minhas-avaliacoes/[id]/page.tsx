@@ -102,7 +102,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                         }
                         className={`${
                           index < userEvaluationsData?.data.data.stars
-                            ? 'text-yellow-400'
+                            ? 'text-rose-400'
                             : 'text-zinc-600'
                         } text-3xl`}
                       />

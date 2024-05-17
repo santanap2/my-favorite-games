@@ -158,7 +158,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                           key={index}
                           weight={index < stars ? 'fill' : 'duotone'}
                           className={`${
-                            index < stars ? 'text-yellow-400' : 'text-zinc-200'
+                            index < stars ? 'text-rose-400' : 'text-zinc-200'
                           } text-4xl cursor-pointer`}
                           onClick={() => setStars(index + 1)}
                         />

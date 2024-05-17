@@ -29,11 +29,11 @@ export default function CreditCardForm() {
           placeholder="0000 0000 0000 0000"
           maxLength={19}
           className={`relative rounded w-full border  bg-slate-900 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardNumber ? 'border-red-400' : 'border-rose-400'
+            errors.cardData?.cardNumber ? 'border-rose-400' : 'border-rose-400'
           }`}
         />
         {errors.cardData?.cardNumber && (
-          <span className="text-sm font-light text-red-500">
+          <span className="text-sm font-light text-rose-500">
             {errors.cardData.cardNumber.message}
           </span>
         )}
@@ -49,11 +49,11 @@ export default function CreditCardForm() {
           type="text"
           placeholder="Digite seu nome"
           className={`relative rounded w-full border bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardName ? 'border-red-400' : 'border-rose-400'
+            errors.cardData?.cardName ? 'border-rose-400' : 'border-rose-400'
           }`}
         />
         {errors.cardData?.cardName && (
-          <span className="text-sm font-light text-red-500">
+          <span className="text-sm font-light text-rose-500">
             {errors.cardData.cardName.message}
           </span>
         )}
@@ -71,11 +71,11 @@ export default function CreditCardForm() {
             maxLength={5}
             placeholder="MM/AA"
             className={`relative rounded w-full border bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardDate ? 'border-red-400' : 'border-rose-400'
+              errors.cardData?.cardDate ? 'border-rose-400' : 'border-rose-400'
             }`}
           />
           {errors.cardData?.cardDate && (
-            <span className="text-sm font-light text-red-500">
+            <span className="text-sm font-light text-rose-500">
               {errors.cardData.cardDate.message}
             </span>
           )}
@@ -92,11 +92,11 @@ export default function CreditCardForm() {
             maxLength={3}
             placeholder="000"
             className={`relative rounded w-full border border-rose-400 bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardCvv ? 'border-red-400' : 'border-rose-400'
+              errors.cardData?.cardCvv ? 'border-rose-400' : 'border-rose-400'
             }`}
           />
           {errors.cardData?.cardCvv && (
-            <span className="text-sm font-light text-red-500">
+            <span className="text-sm font-light text-rose-500">
               {errors.cardData.cardCvv.message}
             </span>
           )}

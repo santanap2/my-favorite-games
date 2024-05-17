@@ -34,11 +34,11 @@ export default function Cadastro() {
               id="email"
               placeholder="email@exemplo.com"
               className={`${
-                errors.registerUser?.email && 'border border-red-500'
+                errors.registerUser?.email && 'border border-rose-500'
               } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-zinc-200 placeholder:text-zinc-500`}
             />
             {errors.registerUser?.email && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.registerUser.email.message}
               </span>
             )}
@@ -52,11 +52,11 @@ export default function Cadastro() {
               id="confirmEmail"
               placeholder="email@exemplo.com"
               className={`${
-                errors.registerUser?.email && 'border border-red-500'
+                errors.registerUser?.email && 'border border-rose-500'
               } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-zinc-200 placeholder:text-zinc-500`}
             />
             {errors.registerUser?.confirmEmail && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.registerUser.confirmEmail.message}
               </span>
             )}
@@ -70,11 +70,11 @@ export default function Cadastro() {
               id="name"
               placeholder="Seu nome"
               className={`${
-                errors.registerUser?.name && 'border border-red-500'
+                errors.registerUser?.name && 'border border-rose-500'
               } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-zinc-200 placeholder:text-zinc-500`}
             />
             {errors.registerUser?.name && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.registerUser.name.message}
               </span>
             )}
@@ -89,11 +89,11 @@ export default function Cadastro() {
               placeholder="(99) 99999-9999"
               maxLength={15}
               className={`${
-                errors.registerUser?.phone && 'border border-red-500'
+                errors.registerUser?.phone && 'border border-rose-500'
               } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-zinc-200 placeholder:text-zinc-500`}
             />
             {errors.registerUser?.phone && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.registerUser.phone.message}
               </span>
             )}
@@ -108,11 +108,11 @@ export default function Cadastro() {
               id="password"
               placeholder="**********"
               className={`${
-                errors.registerUser?.password && 'border border-red-500'
+                errors.registerUser?.password && 'border border-rose-500'
               } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-slate-700 text-zinc-200 placeholder:text-zinc-500`}
             />
             {errors.registerUser?.password && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.registerUser.password.message}
               </span>
             )}
@@ -127,11 +127,11 @@ export default function Cadastro() {
               id="confirmPassword"
               placeholder="**********"
               className={`${
-                errors.registerUser?.confirmPassword && 'border border-red-500'
+                errors.registerUser?.confirmPassword && 'border border-rose-500'
               } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-slate-700 text-zinc-200 placeholder:text-zinc-500`}
             />
             {errors.registerUser?.confirmPassword && (
-              <span className="text-sm font-light text-red-500">
+              <span className="text-sm font-light text-rose-500">
                 {errors.registerUser.confirmPassword.message}
               </span>
             )}
@@ -160,7 +160,7 @@ export default function Cadastro() {
           )}
 
           {registerResponse.error && (
-            <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
+            <div className="w-full text-sm text-rose-500 font-semibold flex gap-4 items-center justify-center">
               <Warning weight="light" className="text-3xl" />
               <h3>{registerResponse.error}</h3>
             </div>

@@ -151,12 +151,36 @@ input[type=number] {
   }
 }
 
+/* Tailwind Colors 950 */
+:root {
+  --red: rgb(69 10 10);
+  --orange: rgb(67 20 7);
+  --amber: rgb(69 26 3);
+  --yellow: rgb(66 32 6);
+  --lime: rgb(26 46 5);
+  --green: rgb(5 46 22);
+  --emerald: rgb(2 44 34);
+  --teal: rgb(4 47 46);
+  --cyan: rgb(8 51 68);
+  --sky: rgb(8 47 73);
+  --blue: rgb(23 37 84);
+  --indigo: rgb(30 27 75);
+  --violet: rgb(46 16 101);
+  --purple: rgb(59 7 100);
+  --fuchsia: rgb(74 4 78);
+  --pink: rgb(80 7 36);
+  --rose: rgb(76 5 25);
+}
+
 .background {
-  background: linear-gradient(180deg, rgb(76 5 25) 10%, rgb(15 23 42) 25%);  
+  background: linear-gradient(180deg, var(--rose) 10%, rgb(15 23 42) 25%);  
   
 }
+
+
 
 .footer-bg {
   background: rgb(244,63,94);
   background: linear-gradient(0deg, rgba(76 5 25) 10%, rgba(15,23,42,1) 100%);
 }
+

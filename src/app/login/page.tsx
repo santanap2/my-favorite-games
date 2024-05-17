@@ -54,11 +54,11 @@ export default function Login() {
                   id="email"
                   placeholder="email@exemplo.com"
                   className={`${
-                    errors.login?.email && 'border border-red-500'
+                    errors.login?.email && 'border border-rose-500'
                   } bg-slate-700 h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow text-zinc-200 placeholder:text-zinc-500`}
                 />
                 {errors.login?.email && (
-                  <span className="text-sm font-light text-red-500">
+                  <span className="text-sm font-light text-rose-500">
                     {errors.login.email.message}
                   </span>
                 )}
@@ -82,11 +82,11 @@ export default function Login() {
                   id="password"
                   placeholder="**********"
                   className={`${
-                    errors.login?.password && 'border border-red-500'
+                    errors.login?.password && 'border border-rose-500'
                   } bg-slate-700 h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow text-zinc-200 placeholder:text-zinc-500`}
                 />
                 {errors.login?.password && (
-                  <span className="text-sm font-light text-red-500">
+                  <span className="text-sm font-light text-rose-500">
                     {errors.login.password.message}
                   </span>
                 )}
@@ -117,7 +117,7 @@ export default function Login() {
                 </div>
               )}
               {loginResponse.error && (
-                <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
+                <div className="w-full text-sm text-rose-500 font-semibold flex gap-4 items-center justify-center">
                   <Warning className="text-3xl" weight="light" />
                   <h3>{loginResponse.error}</h3>
                 </div>

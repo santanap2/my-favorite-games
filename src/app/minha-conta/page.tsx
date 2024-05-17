@@ -79,10 +79,7 @@ export default function MinhaConta() {
             <div className="w-full h-full flex flex-col gap-10 text-zinc-100 items-start lg:gap-6">
               <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
                 <div className="flex gap-1 items-start justify-center w-full">
-                  <UserCircle
-                    weight="fill"
-                    className="text-rose-500 text-6xl"
-                  />
+                  <UserCircle weight="fill" className="text-rose-500 text-6xl" />
                   <div className="flex flex-col w-full">
                     <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
                       {userIsLoading ? (
