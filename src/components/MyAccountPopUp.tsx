@@ -40,7 +40,10 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus dados</span>
-        <IdentificationCard weight="duotone" className="text-xl text-rose-500" />
+        <IdentificationCard
+          weight="duotone"
+          className="text-xl text-rose-500"
+        />
       </Link>
 
       <Link

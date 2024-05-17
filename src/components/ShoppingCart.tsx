@@ -37,7 +37,7 @@ export default function ShoppingCart() {
         onEntered={() => refetch()}
       >
         <aside
-          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-slate-800 text-zinc-100 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
+          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-slate-900 text-zinc-300 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
           ref={nodeRef}
         >
           <div className="flex w-full justify-between pr-4 items-center">
@@ -147,7 +147,7 @@ export default function ShoppingCart() {
       </CSSTransition>
       {showCart && (
         <div
-          className="bg-black opacity-60 w-screen h-screen fixed top-0 bottom-0 left-0 right-0 z-40 animation-opacity"
+          className="bg-black opacity-70 w-screen h-screen fixed top-0 bottom-0 left-0 right-0 z-40 animation-opacity"
           onClick={() => setShowCart(false)}
         />
       )}

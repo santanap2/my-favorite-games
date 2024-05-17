@@ -221,11 +221,11 @@ export default function Header() {
       >
         <ShoppingCartSimple
           weight={hoverBtn.cart ? 'duotone' : 'regular'}
-          className="text-orange-400 xl:hidden text-3xl"
+          className="text-rose-500 xl:hidden text-3xl"
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
-        <span className="absolute bg-orange-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
+        <span className="absolute bg-rose-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
           {cartData?.data.data.products.length
             ? cartData?.data.data.products.length
             : '0'}
@@ -269,7 +269,7 @@ export default function Header() {
         >
           <ShoppingCartSimple
             weight={hoverBtn.cart ? 'duotone' : 'regular'}
-            className="text-orange-400 text-3xl"
+            className="text-rose-500 text-3xl"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, cart: true }))
             }
@@ -277,7 +277,7 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, cart: false }))
             }
           />
-          <span className="absolute bg-orange-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
+          <span className="absolute bg-rose-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
             {cartData?.data.data.products.length
               ? cartData?.data.data.products.length
               : '0'}
