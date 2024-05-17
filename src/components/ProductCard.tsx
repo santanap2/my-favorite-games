@@ -20,7 +20,7 @@ export default function ProductCard({
   const [hover, setHover] = useState<boolean>(false)
 
   return (
-    <div className="flex flex-col w-40 h-fit items-start justify-start animation-opacity animation-opacity transition-all">
+    <div className="flex flex-col w-40 h-fit items-start justify-start">
       <Link
         href={`/game/${id}`}
         className="w-40 h-60"

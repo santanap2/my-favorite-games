@@ -76,6 +76,8 @@ export default function Home({ searchParams }: ISearchParams) {
                   <ProductCardSkeleton />
                   <ProductCardSkeleton />
                   <ProductCardSkeleton />
+                  <ProductCardSkeleton />
+                  <ProductCardSkeleton />
                 </>
               ) : (
                 data?.data.data.map((game: IGame) => (
