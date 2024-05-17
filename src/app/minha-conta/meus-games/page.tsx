@@ -96,7 +96,7 @@ export default function MeusGames() {
                 className={`w-full ${
                   ordersIsFetched && allBoughtGames.length === 0
                     ? 'flex items-center justify-start'
-                    : 'grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
+                    : 'grid grid-cols-5 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
                 }`}
               >
                 {ordersIsLoading ? (

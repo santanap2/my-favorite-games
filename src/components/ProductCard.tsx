@@ -27,7 +27,7 @@ export default function ProductCard({
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-40 h-60 overflow-hidden inline-block rounded lg:w-full shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
+        <div className="w-40 h-60 overflow-hidden inline-block rounded shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt={name}

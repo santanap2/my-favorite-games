@@ -64,8 +64,8 @@ export default function MeusFavoritos() {
               </h1>
             </div>
 
-            <div className="flex flex-col gap-6 w-full">
-              <form className="w-fit">
+            <div className="flex flex-col gap-6 w-full items-center">
+              <form className="w-full flex">
                 <label
                   htmlFor="sortBy"
                   className="flex gap-3 items-center justify-center"
@@ -90,7 +90,7 @@ export default function MeusFavoritos() {
                   favoritesIsFetched &&
                   favoritesData?.data.data.products.length === 0
                     ? 'flex items-center justify-start'
-                    : 'grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
+                    : 'grid grid-cols-5 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-5 xxl:w-fit  xxl:gap-3'
                 }`}
               >
                 {favoritesIsLoading ? (
@@ -139,7 +139,7 @@ export default function MeusFavoritos() {
                       className="text-rose-500 text-5xl"
                     />
                     <span className="text-base font-light">
-                      Você não possui nenhum game comprado no momento.
+                      Você não possui nenhum favorito no momento.
                     </span>
                   </div>
                 )}

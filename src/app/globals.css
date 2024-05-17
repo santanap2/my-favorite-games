@@ -177,10 +177,13 @@ input[type=number] {
   
 }
 
-
-
 .footer-bg {
   background: rgb(244,63,94);
   background: linear-gradient(0deg, rgba(76 5 25) 10%, rgba(15,23,42,1) 100%);
+}
+
+.user-product-card-bg {
+  background: black;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
 }
 
