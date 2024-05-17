@@ -62,7 +62,7 @@ export default function MeusGames() {
           <title>{`${pageTitle} - Meus games`}</title>
 
           <LateralMyAccount />
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 animation-opacity transition-all">
             <div className="flex gap-1 w-fit items-center justify-center">
               <GameController
                 weight="fill"
@@ -83,7 +83,7 @@ export default function MeusGames() {
                   <select
                     name=""
                     id="sortBy"
-                    className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                    className="h-10 rounded px-3 focus:outline-none text-zinc-200 hover:shadow-lg w-60 text-left text-sm font-light bg-slate-700 shadow-md"
                     onChange={({ target: { value } }) => setFilter(value)}
                   >
                     <option value="alphabetical">Ordem alfabética</option>

@@ -19,7 +19,7 @@ export default function UserProductCard({
   const [favorited, setFavorited] = useState(true)
 
   return (
-    <div className="bg-white rounded shadow-md w-80 h-60 relative flex justify-center items-end hover:scale-105 hover:shadow-lg sm:w-44 md:w-52 lg:w-64 lg:h-56 xxl:w-72 xxl:hover:scale-100 animation-opacity transition-all">
+    <div className="bg-slate-950 rounded shadow-md w-80 h-60 relative flex justify-center items-end hover:scale-105 hover:shadow-lg sm:w-44 md:w-52 lg:w-64 lg:h-56 xxl:w-72 xxl:hover:scale-100 animation-opacity transition-all">
       <Link href={`/game/${productId}`}>
         <img
           className="w-full absolute top-0 left-0 right-0 rounded-t h-40 object-cover"
@@ -32,7 +32,7 @@ export default function UserProductCard({
           <div
             className={`${
               isFavorite ? 'w-64' : 'w-full'
-            } text-md font-semibold mb-4 text-zinc-700 h-14 lg:text-sm lg:max-h-14 lg:mb-0 lg:w-full`}
+            } text-md font-semibold mb-4 text-zinc-100 h-14 lg:text-sm lg:max-h-14 lg:mb-0 lg:w-full`}
           >
             {name.length > 55 ? `${name.slice(0, 55)}...` : name}
           </div>
@@ -45,11 +45,11 @@ export default function UserProductCard({
               await addItemToFavorites(gameId.toString())
               setFavorited(!favorited)
             }}
-            className="absolute -top-4 right-1 p-2 bg-white rounded-full lg:-top-9 lg:right-0 lg:rounded-tl lg:rounded-tr-none lg:rounded-b-none lg:pt-2 lg:px-1"
+            className="absolute -top-4 right-1 p-2 bg-slate-950 rounded-full lg:-top-9 lg:right-0 lg:rounded-tl lg:rounded-tr-none lg:rounded-b-none lg:pt-2 lg:px-1"
           >
             <Heart
               weight={favorited ? 'fill' : 'bold'}
-              className="text-rose-400 text-3xl"
+              className="text-rose-500 text-3xl"
             />
           </button>
         )}

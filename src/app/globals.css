@@ -152,5 +152,11 @@ input[type=number] {
 }
 
 .background {
-  background: linear-gradient(180deg, rgb(244 63 94) 1%, rgb(15 23 42) 20%);
+  background: linear-gradient(180deg, rgb(76 5 25) 10%, rgb(15 23 42) 25%);  
+  
+}
+
+.footer-bg {
+  background: rgb(244,63,94);
+  background: linear-gradient(0deg, rgba(76 5 25) 10%, rgba(15,23,42,1) 100%);
 }

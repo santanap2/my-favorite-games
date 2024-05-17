@@ -76,7 +76,7 @@ export default function MinhaConta() {
 
           <LateralMyAccount />
           <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
-            <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
+            <div className="w-full h-full flex flex-col gap-10 text-zinc-100 items-start lg:gap-6">
               <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
                 <div className="flex gap-1 items-start justify-center w-full">
                   <UserCircle
@@ -152,7 +152,7 @@ export default function MinhaConta() {
                   </span>
                   <Link
                     href="/minha-conta/meus-pedidos"
-                    className="font-semibold text-lg min-w-fit text-rose-400 hover:underline lg:text-base"
+                    className="font-semibold text-lg min-w-fit text-rose-500 hover:underline lg:text-base"
                   >
                     Ver todos
                   </Link>
@@ -211,7 +211,7 @@ export default function MinhaConta() {
                   </span>
                   <Link
                     href="/minha-conta/meus-games"
-                    className="font-semibold text-lg min-w-fit text-rose-400 hover:underline lg:text-base"
+                    className="font-semibold text-lg min-w-fit text-rose-500 hover:underline lg:text-base"
                   >
                     Ver todos
                   </Link>

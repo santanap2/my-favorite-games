@@ -61,7 +61,7 @@ export default function ProductCard({
           </Link>
         </div>
 
-        <span className="text-lg font-bold text-zinc-100 sm:text-md">
+        <span className="text-lg font-bold text-rose-500 sm:text-md">
           {`R$ ${priceToBRL(price)}`}
         </span>
 

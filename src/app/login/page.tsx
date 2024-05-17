@@ -35,8 +35,8 @@ export default function Login() {
       {!isAuthenticated && (
         <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6 animation-opacity transition-all">
           <title>{`${pageTitle} - Entrar`}</title>
-          <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-100 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6">
-            <h1 className="font-semibold text-xl text-zinc-800 text-shadow sm:text-lg">
+          <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-slate-800 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6">
+            <h1 className="font-semibold text-xl text-zinc-100 text-shadow sm:text-lg">
               Fazer login
             </h1>
 
@@ -45,15 +45,17 @@ export default function Login() {
               className="flex flex-col justify-center items-center gap-10 sm:w-full sm:gap-6"
             >
               <label htmlFor="email" className="flex flex-col gap-1">
-                <span className="text-sm font-semibold">Email</span>
+                <span className="text-sm font-semibold text-zinc-100">
+                  Email
+                </span>
                 <input
                   {...register('login.email')}
                   type="email"
                   id="email"
                   placeholder="email@exemplo.com"
                   className={`${
-                    errors.login?.email && 'border border-red-300'
-                  } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow`}
+                    errors.login?.email && 'border border-red-500'
+                  } bg-slate-700 h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow text-zinc-200 placeholder:text-zinc-500`}
                 />
                 {errors.login?.email && (
                   <span className="text-sm font-light text-red-500">
@@ -64,7 +66,9 @@ export default function Login() {
 
               <label htmlFor="password" className="flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold">Senha</span>
+                  <span className="text-sm font-semibold text-zinc-100">
+                    Senha
+                  </span>
                   <Link
                     href="/redefinir-senha"
                     className="font-light text-sm text-rose-600 hover:underline"
@@ -78,8 +82,8 @@ export default function Login() {
                   id="password"
                   placeholder="**********"
                   className={`${
-                    errors.login?.password && 'border border-red-300'
-                  } h-10 w-80 rounded px-3 focus:outline-none text-zinc-700 focus:shadow-xl hover:shadow-lg shadow`}
+                    errors.login?.password && 'border border-red-500'
+                  } bg-slate-700 h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow text-zinc-200 placeholder:text-zinc-500`}
                 />
                 {errors.login?.password && (
                   <span className="text-sm font-light text-red-500">
@@ -90,7 +94,7 @@ export default function Login() {
 
               <label
                 htmlFor="remember"
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 text-zinc-100"
               >
                 <input
                   {...register('login.rememberUser')}
@@ -102,7 +106,7 @@ export default function Login() {
 
               <button
                 type="submit"
-                className="w-80 h-10 flex items-center justify-center bg-rose-400 font-light text-white rounded text-md shadow hover:shadow-lg disabled:opacity-40"
+                className="w-80 h-10 flex items-center justify-center bg-rose-500 font-light text-white rounded text-md shadow hover:bg-rose-600 disabled:opacity-40 transition-all"
               >
                 {loading.login ? <LoadingSpinner /> : 'Entrar'}
               </button>
@@ -124,14 +128,14 @@ export default function Login() {
           <div className="flex flex-col gap-2 justify-center items-center sm:w-full">
             <div className="flex items-center justify-center gap-3 w-full">
               <div className="w-40 border-t sm:w-full" />
-              <span className="font-light text-sm text-center sm:w-40">
+              <span className="text-zinc-200 font-light text-sm text-center sm:w-40">
                 Novo na plataforma?
               </span>
               <div className="w-40 border-t sm:w-full" />
             </div>
             <button
               type="button"
-              className="w-48 h-10 bg-orange-400 text-zinc-800 rounded text-sm font-light shadow hover:shadow-lg"
+              className="w-48 h-10 bg-rose-500 text-zinc-50 rounded text-sm font-light shadow hover:bg-rose-600 transition-all"
               onClick={() => router.push('/cadastro')}
             >
               Crie sua conta

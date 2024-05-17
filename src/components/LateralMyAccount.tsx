@@ -37,7 +37,7 @@ export default function LateralMyAccount() {
       unmountOnExit
     >
       <div
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-100 shadow-md z-20 sm:shadow-2xl"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-slate-950 shadow-md z-20 sm:shadow-2xl"
         ref={nodeRef}
       >
         <div className="flex flex-col">
@@ -47,13 +47,13 @@ export default function LateralMyAccount() {
             >
               <UserCircle
                 weight={pathname === links.myAccount ? 'fill' : 'duotone'}
-                className="text-rose-600 text-4xl"
+                className="text-rose-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myAccount
                     ? 'text-rose-500 font-semibold'
-                    : 'text-zinc-500'
+                    : 'text-zinc-200'
                 } w-full`}
               >
                 Minha conta
@@ -67,13 +67,13 @@ export default function LateralMyAccount() {
             >
               <Bag
                 weight={pathname === links.myOrders ? 'fill' : 'duotone'}
-                className="text-rose-600 text-4xl"
+                className="text-rose-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myOrders
                     ? 'text-rose-500 font-semibold'
-                    : 'text-zinc-500'
+                    : 'text-zinc-200'
                 } w-full`}
               >
                 Meus pedidos
@@ -87,13 +87,13 @@ export default function LateralMyAccount() {
             >
               <IdentificationCard
                 weight={pathname === links.myData ? 'fill' : 'duotone'}
-                className="text-rose-600 text-4xl"
+                className="text-rose-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myData
                     ? 'text-rose-500 font-semibold'
-                    : 'text-zinc-500'
+                    : 'text-zinc-200'
                 } w-full`}
               >
                 Meus dados
@@ -107,13 +107,13 @@ export default function LateralMyAccount() {
             >
               <GameController
                 weight={pathname === links.myGames ? 'fill' : 'duotone'}
-                className="text-rose-600 text-4xl"
+                className="text-rose-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myGames
                     ? 'text-rose-500 font-semibold'
-                    : 'text-zinc-500'
+                    : 'text-zinc-200'
                 } w-full`}
               >
                 Meus games
@@ -127,13 +127,13 @@ export default function LateralMyAccount() {
             >
               <Heart
                 weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
-                className="text-rose-600 text-4xl"
+                className="text-rose-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myFavorites
                     ? 'text-rose-500 font-semibold'
-                    : 'text-zinc-500'
+                    : 'text-zinc-200'
                 } w-full`}
               >
                 Meus favoritos
@@ -147,13 +147,13 @@ export default function LateralMyAccount() {
             >
               <ThumbsUp
                 weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
-                className="text-rose-600 text-4xl"
+                className="text-rose-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myEvaluations
                     ? 'text-rose-500 font-semibold'
-                    : 'text-zinc-500'
+                    : 'text-zinc-200'
                 } w-full`}
               >
                 Minhas avaliações
@@ -164,7 +164,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.logout}>
           <div
-            className={`flex gap-3 px-4 items-center w-full text-sm font-light text-zinc-500 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
+            className={`flex gap-3 px-4 items-center w-full text-sm font-light text-zinc-200 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
           >
             <SignOut
               weight={pathname === links.help ? 'fill' : 'duotone'}

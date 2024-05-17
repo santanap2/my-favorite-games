@@ -122,7 +122,10 @@ export default function Pagamento() {
           <title>{`${pageTitle} - Pagamento`}</title>
 
           <div className="flex gap-1 w-fit items-center justify-center">
-            <Wallet weight="fill" className="sm:text-3xl text-5xl" />
+            <Wallet
+              weight="fill"
+              className="text-rose-500 sm:text-3xl text-5xl"
+            />
             <h1 className="font-regular text-xl font-semibold">
               Forma de pagamento
             </h1>
