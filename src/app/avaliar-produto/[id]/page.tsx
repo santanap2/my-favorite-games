@@ -112,7 +112,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
             <title>{`Avaliar produto - ${pageTitle}`}</title>
             <LateralMyAccount />
 
-            <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className="w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
@@ -127,17 +127,17 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                 <div className="flex w-full sm:justify-start items-center gap-4">
                   <Link
                     href={`/game/${gameData?.data.data.id}`}
-                    className="text-xl tracking-wide font-light text-zinc-600"
+                    className="text-xl tracking-wide font-light"
                   >
                     <img
                       src={gameData?.data.data.image}
                       alt={gameData?.data.data.name}
-                      className="rounded w-40 h-40 sm:w-24 sm:h-24 object-cover"
+                      className="rounded w-40 h-60 sm:w-24 sm:h-36 object-cover"
                     />
                   </Link>
                   <Link
                     href={`/game/${gameData?.data.data.id}`}
-                    className="text-xl tracking-wide font-light text-zinc-600 hover:underline"
+                    className="text-xl tracking-wide font-light text-zinc-200 hover:underline"
                   >
                     {gameData?.data.data.name}
                   </Link>
@@ -145,7 +145,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
 
                 <form
                   onSubmit={handleSubmit(handleFormSubmit)}
-                  className="w-full bg-white px-2 py-4 rounded shadow-md flex flex-col gap-4"
+                  className="w-full bg-slate-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
                 >
                   <label className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
@@ -174,7 +174,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="border rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md"
+                      className="border border-zinc-500 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-slate-700 placeholder:text-zinc-500"
                       maxLength={500}
                       id="description"
                       placeholder="Escreva aqui sua avaliação"

@@ -93,14 +93,12 @@ export default function MeusGames() {
               </form>
 
               <div
-                className={`w-full ${
-                  ordersIsFetched && allBoughtGames.length === 0
-                    ? 'flex items-center justify-start'
-                    : 'grid grid-cols-5 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
-                }`}
+                className={`w-full grid grid-cols-5 gap-x-8 gap-y-6 xs:grid-cols-2 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-6 xl:grid-cols-5 xxl:grid-cols-4`}
               >
                 {ordersIsLoading ? (
                   <>
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
                     <UserProductCardSkeleton />

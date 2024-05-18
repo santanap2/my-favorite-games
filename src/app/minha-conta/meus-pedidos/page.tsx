@@ -117,6 +117,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     <SingleOrderSkeleton />
                     <SingleOrderSkeleton />
                     <SingleOrderSkeleton />
+                    <SingleOrderSkeleton />
                   </>
                 ) : ordersError ? (
                   <div className="w-fit sm:w-full flex flex-col gap-4 justify-center items-start sm:items-center mt-10">

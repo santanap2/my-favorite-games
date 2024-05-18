@@ -54,7 +54,7 @@ export default function SingleOrder({
       case 'processing':
         return 'text-purple-500'
       case 'concluded':
-        return 'text-rose-500'
+        return 'text-green-500'
       case 'canceled':
         return 'text-red-500'
       default:
@@ -107,7 +107,7 @@ export default function SingleOrder({
       </table>
 
       <div className="flex justify-between items-center w-full">
-        <p className="text-xs ml-2 sm:text-zinc-900 text-transparent">
+        <p className="text-xs ml-2 sm:text-zinc-200 text-transparent">
           <span className="uppercase font-semibold">Pedido: #</span>
           <span>{orderNumber}</span>
         </p>
