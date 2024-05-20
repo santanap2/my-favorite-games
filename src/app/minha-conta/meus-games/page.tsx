@@ -33,7 +33,7 @@ export default function MeusGames() {
   const {
     data: ordersData,
     isLoading: ordersIsLoading,
-    isFetched: ordersIsFetched,
+    // isFetched: ordersIsFetched,
     refetch: ordersRefetch,
   } = useQuery({
     queryKey: ['userOrders'],

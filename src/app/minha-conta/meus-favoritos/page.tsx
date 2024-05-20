@@ -34,7 +34,7 @@ export default function MeusFavoritos() {
     data: favoritesData,
     isLoading: favoritesIsLoading,
     refetch: favoritesRefetch,
-    isFetched: favoritesIsFetched,
+    // isFetched: favoritesIsFetched,
   } = useQuery({
     queryKey: ['userFavorites'],
     queryFn: async () => await getAllFavorites(),
