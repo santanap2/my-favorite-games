@@ -38,7 +38,7 @@ export default function ProductCard({
         </div>
       </Link>
 
-      <div className="w-full h-40 flex flex-col justify-between items-start xl:h-fit">
+      <div className="w-full h-fit flex flex-col justify-between items-start xl:h-fit">
         <div className="flex flex-col gap-1 h-20 mt-1">
           <Link href={`/game/${id}`} className="w-fit">
             <h1
@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="mt-1 w-fit h-9 px-4 text-white font-bold uppercase bg-rose-500 py-1 rounded text-sm flex items-center justify-center relative hover:bg-rose-600 transition-all sm:text-xs sm:w-full"
+          className="mt-1 w-fit h-9 px-4 text-zinc-100 font-bold uppercase py-1 rounded text-sm bg-rose-500 flex items-center justify-center relative hover:bg-rose-600 transition-all sm:text-xs sm:w-full sm:px-0 sm:font-semibold"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
