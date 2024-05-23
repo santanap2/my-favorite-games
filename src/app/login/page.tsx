@@ -35,7 +35,7 @@ export default function Login() {
       {!isAuthenticated && (
         <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6 animation-opacity transition-all">
           <title>{`${pageTitle} - Entrar`}</title>
-          <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-slate-800 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6">
+          <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-800 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6">
             <h1 className="font-semibold text-xl text-zinc-100 text-shadow sm:text-lg">
               Fazer login
             </h1>
@@ -54,11 +54,11 @@ export default function Login() {
                   id="email"
                   placeholder="email@exemplo.com"
                   className={`${
-                    errors.login?.email && 'border border-rose-500'
-                  } bg-slate-700 h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow text-zinc-200 placeholder:text-zinc-500`}
+                    errors.login?.email && 'border border-emerald-500'
+                  } bg-zinc-700 h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow text-zinc-200 placeholder:text-zinc-500`}
                 />
                 {errors.login?.email && (
-                  <span className="text-sm font-light text-rose-500">
+                  <span className="text-sm font-light text-emerald-500">
                     {errors.login.email.message}
                   </span>
                 )}
@@ -71,7 +71,7 @@ export default function Login() {
                   </span>
                   <Link
                     href="/redefinir-senha"
-                    className="font-light text-sm text-rose-600 hover:underline"
+                    className="font-light text-sm text-emerald-600 hover:underline"
                   >
                     Esqueci a senha
                   </Link>
@@ -82,11 +82,11 @@ export default function Login() {
                   id="password"
                   placeholder="**********"
                   className={`${
-                    errors.login?.password && 'border border-rose-500'
-                  } bg-slate-700 h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow text-zinc-200 placeholder:text-zinc-500`}
+                    errors.login?.password && 'border border-emerald-500'
+                  } bg-zinc-700 h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow text-zinc-200 placeholder:text-zinc-500`}
                 />
                 {errors.login?.password && (
-                  <span className="text-sm font-light text-rose-500">
+                  <span className="text-sm font-light text-emerald-500">
                     {errors.login.password.message}
                   </span>
                 )}
@@ -106,18 +106,18 @@ export default function Login() {
 
               <button
                 type="submit"
-                className="w-80 h-10 flex items-center justify-center bg-rose-500 font-light text-white rounded text-md shadow hover:bg-rose-600 disabled:opacity-40 transition-all"
+                className="w-80 h-10 flex items-center justify-center bg-emerald-500 font-light text-white rounded text-md shadow hover:bg-emerald-600 disabled:opacity-40 transition-all"
               >
                 {loading.login ? <LoadingSpinner /> : 'Entrar'}
               </button>
               {loginResponse.success && (
-                <div className="w-full text-sm text-rose-500 font-semibold flex gap-4 items-center justify-center">
+                <div className="w-full text-sm text-emerald-500 font-semibold flex gap-4 items-center justify-center">
                   <CheckFat className="text-3xl" weight="light" />
                   <h3>{loginResponse.success}</h3>
                 </div>
               )}
               {loginResponse.error && (
-                <div className="w-full text-sm text-rose-500 font-semibold flex gap-4 items-center justify-center">
+                <div className="w-full text-sm text-emerald-500 font-semibold flex gap-4 items-center justify-center">
                   <Warning className="text-3xl" weight="light" />
                   <h3>{loginResponse.error}</h3>
                 </div>
@@ -135,7 +135,7 @@ export default function Login() {
             </div>
             <button
               type="button"
-              className="w-48 h-10 bg-rose-500 text-zinc-50 rounded text-sm font-light shadow hover:bg-rose-600 transition-all"
+              className="w-48 h-10 bg-emerald-500 text-zinc-50 rounded text-sm font-light shadow hover:bg-emerald-600 transition-all"
               onClick={() => router.push('/cadastro')}
             >
               Crie sua conta

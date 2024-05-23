@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function EvaluationsGameSkeleton() {
   return (
-    <div className="w-full h-fit bg-slate-800 p-4 rounded shadow-md text-base text-zinc-600 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit animation-opacity transition-all">
+    <div className="w-full h-fit bg-zinc-800 p-4 rounded shadow-md text-base text-zinc-600 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit animation-opacity transition-all">
       <div className="flex flex-col gap-1">
         <h1 className="font-bold text-transparent bg-zinc-100 loading-skeleton rounded w-fit shadow-md cursor-default">
           Nome completo do usuário
@@ -13,7 +13,7 @@ export default function EvaluationsGameSkeleton() {
             <Star
               key={index}
               weight="fill"
-              className="text-slate-600 text-xl"
+              className="text-zinc-600 text-xl"
             />
           ))}
         </div>

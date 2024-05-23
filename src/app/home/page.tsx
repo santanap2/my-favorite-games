@@ -82,7 +82,8 @@ export default function Home({ searchParams }: ISearchParams) {
                 </>
               ) : (
                 // data?.data.data
-                allGames.map((game: IGame) => (
+                // allGames
+                data?.data.data.map((game: IGame) => (
                   <ProductCard
                     key={game.id}
                     name={game.name}

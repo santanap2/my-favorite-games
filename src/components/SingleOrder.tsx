@@ -50,7 +50,7 @@ export default function SingleOrder({
       case 'awaitingPayment':
         return 'text-amber-500'
       case 'approvedPayment':
-        return 'text-sky-500'
+        return 'text-emerald-500'
       case 'processing':
         return 'text-purple-500'
       case 'concluded':
@@ -65,7 +65,7 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full h-28 sm:h-32 bg-slate-800 py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative animation-opacity transition-all"
+      className="w-full h-28 sm:h-32 bg-zinc-800 py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative animation-opacity transition-all"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
@@ -96,7 +96,7 @@ export default function SingleOrder({
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
               {convertDate(date)}
             </td>
-            <td className="py-3 px-4 w-52 text-rose-500 font-bold text-sm xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-emerald-500 font-bold text-sm xxl:p-1 xxl:w-20">
               {convertPaymentMethod(payment)}
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-20 text-justify">
@@ -114,7 +114,7 @@ export default function SingleOrder({
 
         <Link
           href={`/minha-conta/meus-pedidos/${orderNumber}`}
-          className=" w-48 text-rose-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
+          className=" w-48 text-emerald-500 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
         >
           <ListPlus className="text-xl" />
           <span>Detalhes do pedido</span>

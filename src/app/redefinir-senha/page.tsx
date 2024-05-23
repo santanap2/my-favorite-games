@@ -18,7 +18,7 @@ export default function RedefinirSenha() {
     <div className="flex flex-col gap-10 mt-24 xxl:mt-20 animation-opacity transition-all">
       <title>{`${pageTitle} - Redefinir senha`}</title>
 
-      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-slate-800 shadow animation-opacity transition-all">
+      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-zinc-800 shadow animation-opacity transition-all">
         <h1 className="font-semibold text-xl text-zinc-200 text-shadow">
           Redefinir senha
         </h1>
@@ -36,7 +36,7 @@ export default function RedefinirSenha() {
               placeholder="email@exemplo.com"
               className={`${
                 errors.resetPassword?.email && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 placeholder:text-zinc-500`}
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-zinc-700 placeholder:text-zinc-500`}
             />
             {errors.resetPassword?.email && (
               <span className="text-sm font-light text-red-500">
@@ -47,7 +47,7 @@ export default function RedefinirSenha() {
 
           <button
             type="submit"
-            className="w-80 h-10 flex items-center justify-center bg-rose-500 font-light text-white rounded text-md shadow hover:bg-rose-600 transition-all disabled:opacity-40"
+            className="w-80 h-10 flex items-center justify-center bg-emerald-500 font-light text-white rounded text-md shadow hover:bg-emerald-600 transition-all disabled:opacity-40"
             disabled={!!reseted}
           >
             Enviar
@@ -73,7 +73,7 @@ export default function RedefinirSenha() {
         </div>
         <button
           type="button"
-          className="w-48 h-10 bg-rose-500 text-zinc-200 rounded text-sm font-light shadow hover:bg-rose-600"
+          className="w-48 h-10 bg-emerald-500 text-zinc-200 rounded text-sm font-light shadow hover:bg-emerald-600"
           onClick={() => {
             setRegisterResponse({ success: '', error: '' })
             router.push('/login')

@@ -170,16 +170,27 @@ input[type=number] {
   --fuchsia: rgb(74 4 78);
   --pink: rgb(80 7 36);
   --rose: rgb(76 5 25);
+
+  --slate900: rgb(15 23 42);
+  --slate950: rgb(2 6 23);
+  --gray900: rgb(17 24 39);
+  --gray950: rgb(3 7 18);
+  --zinc900: rgb(24 24 27);
+  --zinc950: rgb(9 9 11);
+  --neutral900: rgb(23 23 23);
+  --neutral950: rgb(10 10 10);
+  --stone900: rgb(28 25 23);
+  --stone950: rgb(12 10 9);
 }
 
 .background {
-  background: linear-gradient(180deg, var(--rose) 1%, rgb(15 23 42) 35%);  
+  background: linear-gradient(180deg, var(--emerald) 1%, var(--slate900) 35%);  
   
 }
 
 .footer-bg {
   background: rgb(2 6 23);
-  background: linear-gradient(0deg, rgb(2 6 23) 50%, rgb(15 23 42) 100%);
+  background: linear-gradient(0deg, var(--slate950) 50%, var(--slate900) 100%);
 }
 
 .user-product-card-bg {

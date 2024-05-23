@@ -37,22 +37,22 @@ export default function LateralMyAccount() {
       unmountOnExit
     >
       <div
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-slate-950 shadow-md z-20 sm:shadow-2xl"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-950 shadow-md z-20 sm:shadow-2xl"
         ref={nodeRef}
       >
         <div className="flex flex-col">
           <Link href={links.myAccount}>
             <div
-              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-rose-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-emerald-400 transition-all`}
             >
               <UserCircle
                 weight={pathname === links.myAccount ? 'fill' : 'duotone'}
-                className="text-rose-500 text-4xl"
+                className="text-emerald-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myAccount
-                    ? 'text-rose-500 font-semibold'
+                    ? 'text-emerald-500 font-semibold'
                     : 'text-zinc-200'
                 } w-full`}
               >
@@ -63,16 +63,16 @@ export default function LateralMyAccount() {
 
           <Link href={links.myOrders}>
             <div
-              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-rose-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-emerald-400 transition-all`}
             >
               <Bag
                 weight={pathname === links.myOrders ? 'fill' : 'duotone'}
-                className="text-rose-500 text-4xl"
+                className="text-emerald-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myOrders
-                    ? 'text-rose-500 font-semibold'
+                    ? 'text-emerald-500 font-semibold'
                     : 'text-zinc-200'
                 } w-full`}
               >
@@ -83,16 +83,16 @@ export default function LateralMyAccount() {
 
           <Link href={links.myData}>
             <div
-              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-rose-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-emerald-400 transition-all`}
             >
               <IdentificationCard
                 weight={pathname === links.myData ? 'fill' : 'duotone'}
-                className="text-rose-500 text-4xl"
+                className="text-emerald-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myData
-                    ? 'text-rose-500 font-semibold'
+                    ? 'text-emerald-500 font-semibold'
                     : 'text-zinc-200'
                 } w-full`}
               >
@@ -103,16 +103,16 @@ export default function LateralMyAccount() {
 
           <Link href={links.myGames}>
             <div
-              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-rose-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-emerald-400 transition-all`}
             >
               <GameController
                 weight={pathname === links.myGames ? 'fill' : 'duotone'}
-                className="text-rose-500 text-4xl"
+                className="text-emerald-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myGames
-                    ? 'text-rose-500 font-semibold'
+                    ? 'text-emerald-500 font-semibold'
                     : 'text-zinc-200'
                 } w-full`}
               >
@@ -123,16 +123,16 @@ export default function LateralMyAccount() {
 
           <Link href={links.myFavorites}>
             <div
-              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-rose-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-emerald-400 transition-all`}
             >
               <Heart
                 weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
-                className="text-rose-500 text-4xl"
+                className="text-emerald-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myFavorites
-                    ? 'text-rose-500 font-semibold'
+                    ? 'text-emerald-500 font-semibold'
                     : 'text-zinc-200'
                 } w-full`}
               >
@@ -143,16 +143,16 @@ export default function LateralMyAccount() {
 
           <Link href={links.myEvaluations}>
             <div
-              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-rose-400 transition-all`}
+              className={`flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-emerald-400 transition-all`}
             >
               <ThumbsUp
                 weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
-                className="text-rose-500 text-4xl"
+                className="text-emerald-500 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myEvaluations
-                    ? 'text-rose-500 font-semibold'
+                    ? 'text-emerald-500 font-semibold'
                     : 'text-zinc-200'
                 } w-full`}
               >

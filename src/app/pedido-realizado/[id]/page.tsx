@@ -57,7 +57,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                   Pedido realizado com sucesso!
                   <CheckCircle
                     weight="fill"
-                    className="absolute text-rose-500 -bottom-4 -left-8 bg-zinc-100 rounded-full text-3xl"
+                    className="absolute text-emerald-500 -bottom-4 -left-8 bg-zinc-100 rounded-full text-3xl"
                   />
                 </h1>
               </div>
@@ -74,7 +74,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                   <OrderStatus order={orderData?.data.data} />
                   <OrderDetails order={orderData?.data.data} />
                   <button
-                    className="mt-6 bg-rose-500 text-white sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-rose-600 hover:shadow-lg flex gap-4 items-center justify-center"
+                    className="mt-6 bg-emerald-500 text-white sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-emerald-600 hover:shadow-lg flex gap-4 items-center justify-center"
                     onClick={() => {
                       router.push(`/minha-conta/meus-pedidos/${id}`)
                     }}

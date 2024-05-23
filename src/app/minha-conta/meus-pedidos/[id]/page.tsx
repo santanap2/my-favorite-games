@@ -75,7 +75,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
                   </>
                 )}
               </div>
-              <div className="flex flex-col w-fit gap-4 bg-slate-800 px-2 pt-4 rounded shadow-md sm:w-full sm:max-w-full">
+              <div className="flex flex-col w-fit gap-4 bg-zinc-800 px-2 pt-4 rounded shadow-md sm:w-full sm:max-w-full">
                 {orderIsLoading ? (
                   <>
                     <ProductOnOrderSkeleton border />

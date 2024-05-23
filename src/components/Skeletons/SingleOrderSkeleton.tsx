@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SingleOrderSkeleton() {
   return (
-    <div className="w-full h-28 sm:h-32 bg-slate-800 py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 transition-all relative">
+    <div className="w-full h-28 sm:h-32 bg-zinc-800 py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 transition-all relative">
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
           <tr className="font-bold text-sm uppercase text-zinc-400 flex justify-between gap-2 xxl:text-xs">
@@ -34,7 +34,7 @@ export default function SingleOrderSkeleton() {
                 99/99/9999
               </p>
             </td>
-            <td className="py-3 px-4 w-52 text-rose-400 font-bold xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-emerald-400 font-bold xxl:p-1 xxl:w-20">
               <p className="bg-zinc-100 loading-skeleton rounded text-transparent cursor-default">
                 Cartaodecredito
               </p>
@@ -56,7 +56,7 @@ export default function SingleOrderSkeleton() {
           </span>
         </p>
 
-        <div className=" w-48 text-rose-500 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">
+        <div className=" w-48 text-emerald-500 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">
           <p className="bg-zinc-100 loading-skeleton rounded text-transparent cursor-default h-full">
             Detalhes do pedido
           </p>

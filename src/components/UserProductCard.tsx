@@ -56,7 +56,7 @@ export default function UserProductCard({
               >
                 <Heart
                   weight={favorited ? 'fill' : 'bold'}
-                  className="text-rose-500 text-2xl"
+                  className="text-emerald-500 text-2xl"
                 />
               </button>
             </div>
@@ -82,7 +82,7 @@ export default function UserProductCard({
             >
               <Heart
                 weight={favorited ? 'fill' : 'bold'}
-                className="text-rose-500 text-2xl"
+                className="text-emerald-500 text-2xl"
               />
             </button>
           </div>
