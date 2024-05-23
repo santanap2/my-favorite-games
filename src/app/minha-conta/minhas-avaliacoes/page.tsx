@@ -61,11 +61,11 @@ export default function MinhasAvaliacoes() {
           <title>{`Minhas avaliações - ${pageTitle}`}</title>
           <LateralMyAccount />
 
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start">
               <ThumbsUp
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-emerald-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Minhas avaliações
@@ -84,7 +84,7 @@ export default function MinhasAvaliacoes() {
                   <select
                     name=""
                     id="sortBy"
-                    className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                    className="h-10 rounded px-3 focus:outline-none text-zinc-200 hover:shadow-lg w-60 text-left text-sm font-light bg-zinc-700 shadow-md"
                     onChange={({ target: { value } }) => setFilter(value)}
                   >
                     <option value="date">Comprados recentemente</option>
@@ -181,7 +181,7 @@ export default function MinhasAvaliacoes() {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
                     <SmileySad
                       weight="light"
-                      className="text-blue-500 text-5xl"
+                      className="text-emerald-500 text-5xl"
                     />
                     <span className="text-base font-light">
                       Você não possui nenhum game comprado no momento.

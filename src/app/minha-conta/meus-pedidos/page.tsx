@@ -70,11 +70,11 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
           <title>{`${pageTitle} - Meus pedidos`}</title>
 
           <LateralMyAccount />
-          <div className="w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 animation-opacity transition-all">
+          <div className="w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 animation-opacity transition-all">
             <div className="flex gap-1 w-fit items-center justify-center">
               <Bag
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-emerald-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Meus pedidos
@@ -93,7 +93,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                   <select
                     name=""
                     id="filters"
-                    className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                    className="h-10 rounded px-3 focus:outline-none text-zinc-200 hover:shadow-lg w-60 text-left text-sm font-light bg-zinc-700 shadow-md"
                     onChange={({ target: { value } }) =>
                       router.push(`/minha-conta/meus-pedidos?status=${value}`)
                     }
@@ -117,6 +117,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     <SingleOrderSkeleton />
                     <SingleOrderSkeleton />
                     <SingleOrderSkeleton />
+                    <SingleOrderSkeleton />
                   </>
                 ) : ordersError ? (
                   <div className="w-fit sm:w-full flex flex-col gap-4 justify-center items-start sm:items-center mt-10">
@@ -127,7 +128,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                     <button
                       type="button"
                       onClick={() => router.push('/minha-conta/meus-pedidos')}
-                      className="flex gap-3 items-center justify-center px-8 py-2 bg-blue-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                      className="flex gap-3 items-center justify-center px-8 py-2 bg-emerald-400 rounded text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
                     >
                       <ArrowUUpLeft className="text-3xl" />
 
@@ -151,7 +152,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4">
                     <SmileySad
                       weight="light"
-                      className="text-blue-500 text-5xl"
+                      className="text-emerald-500 text-5xl"
                     />
                     <span className="text-base font-light">
                       Você não possui nenhum pedido feito.

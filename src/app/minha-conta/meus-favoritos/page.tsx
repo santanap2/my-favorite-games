@@ -34,7 +34,7 @@ export default function MeusFavoritos() {
     data: favoritesData,
     isLoading: favoritesIsLoading,
     refetch: favoritesRefetch,
-    isFetched: favoritesIsFetched,
+    // isFetched: favoritesIsFetched,
   } = useQuery({
     queryKey: ['userFavorites'],
     queryFn: async () => await getAllFavorites(),
@@ -53,19 +53,19 @@ export default function MeusFavoritos() {
           <title>{`${pageTitle} - Meus favoritos`}</title>
 
           <LateralMyAccount />
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 animation-opacity transition-all">
             <div className="flex gap-1 w-fit items-center justify-center">
               <Heart
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-emerald-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Meus favoritos
               </h1>
             </div>
 
-            <div className="flex flex-col gap-6 w-full">
-              <form className="w-fit">
+            <div className="flex flex-col gap-6 w-full items-center">
+              <form className="w-full flex">
                 <label
                   htmlFor="sortBy"
                   className="flex gap-3 items-center justify-center"
@@ -76,7 +76,7 @@ export default function MeusFavoritos() {
                   <select
                     name=""
                     id="sortBy"
-                    className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                    className="h-10 rounded px-3 focus:outline-none text-zinc-200 hover:shadow-lg w-60 text-left text-sm font-light bg-zinc-700 shadow-md"
                     onChange={({ target: { value } }) => setFilter(value)}
                   >
                     <option value="alphabetical">Ordem alfabética</option>
@@ -86,15 +86,12 @@ export default function MeusFavoritos() {
               </form>
 
               <div
-                className={`w-full ${
-                  favoritesIsFetched &&
-                  favoritesData?.data.data.products.length === 0
-                    ? 'flex items-center justify-start'
-                    : 'grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
-                }`}
+                className={`w-full grid grid-cols-5 gap-x-8 gap-y-6 xs:grid-cols-2 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-6 xl:grid-cols-5 xxl:grid-cols-4`}
               >
                 {favoritesIsLoading ? (
                   <>
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
@@ -136,10 +133,10 @@ export default function MeusFavoritos() {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
                     <SmileySad
                       weight="light"
-                      className="text-blue-500 text-5xl"
+                      className="text-emerald-500 text-5xl"
                     />
                     <span className="text-base font-light">
-                      Você não possui nenhum game comprado no momento.
+                      Você não possui nenhum favorito no momento.
                     </span>
                   </div>
                 )}

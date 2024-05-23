@@ -1,8 +1,16 @@
 import React from 'react'
 
-export default function ProductOnOrderSkeleton() {
+export default function ProductOnOrderSkeleton({
+  border,
+}: {
+  border?: boolean
+}) {
   return (
-    <div className="flex w-[600px] gap-3 border-b pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all">
+    <div
+      className={`${
+        border ? 'border-b border-zinc-600' : ''
+      } flex w-[600px] gap-3 pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all`}
+    >
       <div className="w-24 h-36 object-cover rounded bg-zinc-100 loading-skeleton" />
 
       <div className="flex flex-col items-start justify-center w-full">
@@ -30,7 +38,7 @@ export default function ProductOnOrderSkeleton() {
               </h4>
             </div>
           </div>
-          <div className="font-black flex items-center justify-center text-blue-600 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
+          <div className="font-black flex items-center justify-center text-emerald-600 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
             <h2 className="rounded bg-zinc-100 w-fit loading-skeleton text-transparent">
               R$9999,99
             </h2>

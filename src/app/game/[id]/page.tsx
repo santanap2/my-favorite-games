@@ -101,28 +101,28 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
             <Link
               href="/"
-              className="text-zinc-500 hover:text-blue-400 min-w-fit"
+              className="text-zinc-300 hover:text-zinc-50 hover:underline min-w-fit"
             >
               Todos os jogos
             </Link>
-            <CaretRight weight="light" className="text-zinc-500 text-base" />
+            <CaretRight weight="light" className="text-zinc-300 text-base" />
             <Link
               href={`/home?${productData?.data.data.category.name}=true`}
-              className="text-zinc-500 hover:text-blue-400 min-w-fit"
+              className="text-zinc-300 hover:text-zinc-50 hover:underline min-w-fit"
             >
               {productData?.data.data.category.namePt}
             </Link>
 
-            <CaretRight weight="light" className="text-zinc-500 text-base" />
+            <CaretRight weight="light" className="text-zinc-300 text-base" />
 
             <Link
               href={`/game/${id}`}
-              className="text-zinc-500 hover:text-blue-400 min-w-fit"
+              className="text-zinc-300 hover:text-zinc-50 hover:underline min-w-fit"
             >
               {productData?.data.data.name}
             </Link>
           </div>
-          <h1 className="mt-4 font-bold text-2xl text-zinc-800 sm:text-xl sm:mt-2">
+          <h1 className="mt-4 font-bold text-2xl text-zinc-100 sm:text-xl sm:mt-2">
             {productData?.data.data.name}
           </h1>
 
@@ -132,15 +132,15 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               alt={productData?.data.data.name}
               className="w-[300px] h-[400px] rounded shadow-md object-cover md:w-72 md:h-96"
             />
-            <div className="flex flex-col justify-start items-start w-full h-full text-zinc-600 gap-2">
+            <div className="flex flex-col justify-start items-start w-full h-full text-zinc-300 gap-2">
               <span className="font-light sm:text-sm">
                 Vendido por: My Fav Games™
               </span>
-              <div className="text-blue-500 text-4xl font-black sm:text-3xl">
+              <div className="text-emerald-500 text-4xl font-black sm:text-3xl">
                 <span>{'R$ '}</span>
                 <span>{priceToBRL(productData?.data.data.price * 0.9)}</span>
               </div>
-              <div className="flex flex-col mt-6 text-zinc-500 sm:mt-0 sm:text-xs gap-1">
+              <div className="flex flex-col mt-6 text-zinc-300 sm:mt-0 sm:text-xs gap-1">
                 <span>À vista no PIX com 10% de desconto</span>
                 <span>{`Ou em até 3x de R$${portionPrice(
                   productData?.data.data.price,
@@ -154,7 +154,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     await buyOneItem(id.toString())
                     router.push('/finalizar-compra')
                   }}
-                  className="w-64 h-14 bg-blue-400 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                  className="w-64 h-14 bg-emerald-500 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:bg-emerald-600 sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
                 >
                   Comprar agora
                 </button>
@@ -165,7 +165,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     await addItemToCart(id.toString())
                     setShowCart(true)
                   }}
-                  className="w-14 h-14 bg-blue-400 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                  className="w-14 h-14 bg-emerald-500 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-emerald-600 sm:h-12 sm:w-12"
                 >
                   <ShoppingCartSimple
                     weight="bold"
@@ -182,7 +182,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     setIsFavorite(!isFavorite)
                     setShowPopupFavorite(true)
                   }}
-                  className="w-14 h-14 bg-blue-400 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:shadow-lg sm:h-12 sm:w-12"
+                  className="w-14 h-14 bg-emerald-500 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-emerald-600 sm:h-12 sm:w-12"
                 >
                   <Heart
                     weight={isFavorite ? 'fill' : 'bold'}
@@ -195,7 +195,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               </div>
             </div>
           </div>
-          <div className="mt-12 text-zinc-500 w-full flex flex-col gap-4">
+          <div className="mt-12 text-zinc-300 w-full flex flex-col gap-4">
             <div className="w-full border-b">
               <button
                 className="tracking-wide flex gap-2 py-3 hover:underline sm:pb-2"

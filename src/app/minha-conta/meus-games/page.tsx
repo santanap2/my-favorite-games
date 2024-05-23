@@ -33,7 +33,7 @@ export default function MeusGames() {
   const {
     data: ordersData,
     isLoading: ordersIsLoading,
-    isFetched: ordersIsFetched,
+    // isFetched: ordersIsFetched,
     refetch: ordersRefetch,
   } = useQuery({
     queryKey: ['userOrders'],
@@ -62,11 +62,11 @@ export default function MeusGames() {
           <title>{`${pageTitle} - Meus games`}</title>
 
           <LateralMyAccount />
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 animation-opacity transition-all">
             <div className="flex gap-1 w-fit items-center justify-center">
               <GameController
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-emerald-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Meus Games</h1>
             </div>
@@ -83,7 +83,7 @@ export default function MeusGames() {
                   <select
                     name=""
                     id="sortBy"
-                    className="h-10 rounded px-3 focus:outline-none text-zinc-700 hover:shadow-lg w-60 text-left text-sm font-light bg-white shadow-md"
+                    className="h-10 rounded px-3 focus:outline-none text-zinc-200 hover:shadow-lg w-60 text-left text-sm font-light bg-zinc-700 shadow-md"
                     onChange={({ target: { value } }) => setFilter(value)}
                   >
                     <option value="alphabetical">Ordem alfabética</option>
@@ -93,14 +93,12 @@ export default function MeusGames() {
               </form>
 
               <div
-                className={`w-full ${
-                  ordersIsFetched && allBoughtGames.length === 0
-                    ? 'flex items-center justify-start'
-                    : 'grid grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3'
-                }`}
+                className={`w-full grid grid-cols-5 gap-x-8 gap-y-6 xs:grid-cols-2 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-6 xl:grid-cols-5 xxl:grid-cols-4`}
               >
                 {ordersIsLoading ? (
                   <>
+                    <UserProductCardSkeleton />
+                    <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
                     <UserProductCardSkeleton />
@@ -140,7 +138,7 @@ export default function MeusGames() {
                       <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
                         <SmileySad
                           weight="light"
-                          className="text-blue-500 text-5xl"
+                          className="text-emerald-500 text-5xl"
                         />
                         <span className="text-base font-light">
                           Você não possui nenhum game comprado no momento.

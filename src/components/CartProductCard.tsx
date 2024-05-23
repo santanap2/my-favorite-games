@@ -18,7 +18,7 @@ export default function CartProductCard({
   })
 
   return (
-    <div className="flex w-full gap-3 border-b pb-4 sm:pb-2 animation-opacity transition-all">
+    <div className="flex w-full gap-3 border-b border-zinc-600 pb-4 sm:pb-2 animation-opacity transition-all">
       <img
         src={image}
         alt={name}
@@ -34,13 +34,13 @@ export default function CartProductCard({
           </h3>
         </div>
         <div className="flex justify-between items-center w-full">
-          <h2 className="font-extrabold tracking-wider text-lg sm:text-sm sm:font-bold">
+          <h2 className="font-bold tracking-wider text-lg sm:text-sm sm:font-bold">
             {`R$ ${priceToBRL(price)}`}
           </h2>
 
           <button
             type="button"
-            className="text-xs font-regular tracking-wider uppercase underline hover:text-cyan-400"
+            className="text-xs font-regular tracking-wider uppercase underline hover:text-emerald-500"
             onClick={async () => {
               await removeItemFromCart(id.toString())
               refetch()

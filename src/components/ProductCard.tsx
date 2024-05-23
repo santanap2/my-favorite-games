@@ -1,74 +1,70 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ICard } from '@/interfaces'
-import Link from 'next/link'
 import { priceToBRL } from '@/helpers'
 import GamesPlatformContext from '@/context/Context'
-import { useRouter } from 'next/navigation'
-import { ShoppingCartSimple, PlusCircle } from '@phosphor-icons/react'
 import { addItemToCart } from '@/services'
-import { buyOneItem } from '@/services/cart.requests'
+import Link from 'next/link'
 
 export default function ProductCard({
   name,
   category,
+  categoryPt,
   price,
   image,
   id,
 }: ICard) {
   const { setShowCart, screenSize, loading, setLoading } =
     useContext(GamesPlatformContext)
-  const router = useRouter()
+  const [hover, setHover] = useState<boolean>(false)
 
   return (
-    <div className="rounded flex flex-col w-64 h-[500px] bg-white relative items-center justify-center shadow-md hover:shadow-lg cursor-pointer sm:w-full sm:h-96 xxl:w-52 xxl:h-96 animation-opacity animation-opacity transition-all">
+    <div className="flex flex-col w-40 h-fit items-start justify-start">
       <Link
         href={`/game/${id}`}
-        className="w-64 h-72 overflow-hidden inline-block"
+        className="w-40 h-60"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       >
-        <div className="w-64 h-72 overflow-hidden inline-block absolute top-0 left-0 rounded-t">
+        <div className="w-40 h-60 overflow-hidden inline-block rounded shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt={name}
-            className="object-cover sm:h-52 xxl:h-52 hover:scale-110 transition-all duration-500 h-72 w-64"
+            className={`object-cover transition-all duration-500 w-full h-full rounded ${
+              hover ? 'scale-110' : ''
+            }`}
           />
         </div>
       </Link>
 
-      <Link href={`/game/${id}`} className="w-full">
-        <div className="absolute top-72 w-full h-40 flex flex-col justify-between items-start px-[5%] py-2 sm:top-52 sm:px-2 sm:py-1 sm:h-32 xxl:top-52 xxl:h-32">
-          <div className="flex flex-col gap-1">
-            <h1 className="font-semibold text-lg text-zinc-800 w-full max-h-20 sm:text-base sm:max-h-11">
+      <div className="w-full h-fit flex flex-col justify-between items-start xl:h-fit">
+        <div className="flex flex-col gap-1 h-20 mt-1">
+          <Link href={`/game/${id}`} className="w-fit">
+            <h1
+              className="font-semibold text-base text-zinc-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
               {screenSize < 600
                 ? name.length > 26
                   ? `${name.slice(0, 26)}...`
                   : name
                 : name}
             </h1>
-            <h2 className="font-light text-sm w-full sm:text-xs sm:h-8">
-              {category}
+          </Link>
+
+          <Link href={`/home?${category}=true`} className=" w-fit">
+            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline text-zinc-50">
+              {categoryPt}
             </h2>
-          </div>
-
-          <span className="text-xl font-bold text-blue-400 sm:text-lg">
-            {`R$ ${priceToBRL(price)}`}
-          </span>
+          </Link>
         </div>
-      </Link>
 
-      <div className="absolute w-56 left-4 right-4 bottom-2 flex gap-[2.5%] sm:w-[90%] sm:left-[5%] sm:right-[5%] sm:bottom-[1.5%] xxl:w-[90%] xxl:left-[5%]">
-        <button
-          type="button"
-          onClick={async () => {
-            setLoading({ ...loading, cart: !loading.cart })
-            await buyOneItem(id.toString())
-            router.push('/finalizar-compra')
-          }}
-          className="w-[72.5%] h-9 bg-blue-400 py-2 rounded text-sm uppercase font-bold  tracking-wide text-white hover:bg-blue-500 transition-all shadow-md  sm:text-xs"
-        >
-          Comprar
-        </button>
+        <span className="text-lg font-bold text-emerald-500 sm:text-md">
+          {`R$ ${priceToBRL(price)}`}
+        </span>
+
         <button
           type="button"
           onClick={async () => {
@@ -76,16 +72,11 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="w-1/4 h-9 bg-blue-400 py-1 rounded text-sm uppercase flex items-center justify-center relative hover:bg-blue-500 transition-all shadow-md sm:text-xs "
+          className="mt-1 w-fit h-9 px-4 text-zinc-100 font-bold uppercase py-1 rounded text-sm bg-emerald-500 flex items-center justify-center relative hover:bg-emerald-600 transition-all sm:text-xs sm:w-full sm:px-0 sm:font-semibold"
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
         >
-          <ShoppingCartSimple
-            weight="bold"
-            className="text-white relative lg:text-xl text-2xl"
-          />
-          <PlusCircle
-            weight="fill"
-            className="text-white absolute top-0 right-2 xxl:top-1 xxl:right-1 xl:text-sm text-xl"
-          />
+          Adicionar ao carrinho
         </button>
       </div>
     </div>

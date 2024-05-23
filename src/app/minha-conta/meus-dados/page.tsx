@@ -56,17 +56,17 @@ export default function MeusDados() {
         <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
           <title>{`${pageTitle} - Meus dados`}</title>
           <LateralMyAccount />
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start">
               <IdentificationCard
                 weight="fill"
-                className="text-blue-500 sm:text-3xl text-5xl"
+                className="text-emerald-500 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
             </div>
 
             <div className="flex flex-col gap-6 w-full">
-              <div className="w-3/4 h-full bg-zinc-100 p-6 rounded shadow-md flex flex-col gap-10 xxl:w-full">
+              <div className="w-3/4 h-full bg-zinc-800 p-6 rounded shadow-md flex flex-col gap-10 xxl:w-full">
                 <form
                   id="myDataForm"
                   className="w-full flex flex-col gap-3"
@@ -76,7 +76,7 @@ export default function MeusDados() {
                     <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                       <IdentificationBadge
                         weight="light"
-                        className="text-blue-400 text-2xl"
+                        className="text-emerald-500 text-2xl"
                       />
                       <span>Nome completo</span>
                     </h2>
@@ -84,15 +84,15 @@ export default function MeusDados() {
                       {...register('userData.name')}
                       type="text"
                       id="name"
-                      className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
-                        errors.userData?.name && 'border border-red-300'
+                      className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded ${
+                        errors.userData?.name && 'border border-emerald-500'
                       }`}
                       placeholder={
                         isLoading ? 'Carregando...' : data?.data.data.name
                       }
                     />
                     {errors.userData?.name && (
-                      <span className="text-sm font-light text-red-500">
+                      <span className="text-sm font-light text-emerald-500">
                         {errors.userData.name.message}
                       </span>
                     )}
@@ -103,27 +103,27 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-emerald-500 text-2xl"
                         />
                         <span>
                           E-mail{' '}
-                          <span className="text-red-500 text-base">*</span>
+                          <span className="text-emerald-500 text-base">*</span>
                         </span>
                       </h2>
                       <input
                         {...register('userData.currentEmail')}
                         type="email"
                         id="email"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded ${
                           errors.userData?.currentEmail &&
-                          'border border-red-300'
+                          'border border-emerald-500'
                         }`}
                         value={
                           isLoading ? 'Carregando...' : data?.data.data.email
                         }
                       />
                       {errors.userData?.currentEmail && (
-                        <span className="text-sm font-light text-red-500">
+                        <span className="text-sm font-light text-emerald-500">
                           {errors.userData.currentEmail.message}
                         </span>
                       )}
@@ -133,7 +133,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-emerald-500 text-2xl"
                         />
                         <span>Novo E-mail</span>
                       </h2>
@@ -141,13 +141,13 @@ export default function MeusDados() {
                         {...register('userData.newEmail')}
                         type="email"
                         id="newEmail"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
-                          errors.userData?.newEmail && 'border border-red-300'
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded ${
+                          errors.userData?.newEmail && 'border border-emerald-500'
                         }`}
                         placeholder="Digite seu novo email"
                       />
                       {errors.userData?.newEmail && (
-                        <span className="text-sm font-light text-red-500">
+                        <span className="text-sm font-light text-emerald-500">
                           {errors.userData.newEmail.message}
                         </span>
                       )}
@@ -159,7 +159,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Phone
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-emerald-500 text-2xl"
                         />
                         <span>Telefone</span>
                       </h2>
@@ -168,15 +168,15 @@ export default function MeusDados() {
                         type="tel"
                         id="phone"
                         maxLength={15}
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded ${
-                          errors.userData?.phone && 'border border-red-300'
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded ${
+                          errors.userData?.phone && 'border border-emerald-500'
                         }`}
                         placeholder={
                           isLoading ? 'Carregando...' : data?.data.data.phone
                         }
                       />
                       {errors.userData?.phone && (
-                        <span className="text-sm font-light text-red-500">
+                        <span className="text-sm font-light text-emerald-500">
                           {errors.userData.phone.message}
                         </span>
                       )}
@@ -189,25 +189,25 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-emerald-500 text-2xl"
                         />
                         <span>
                           Senha atual{' '}
-                          <span className="text-red-500 text-base">*</span>
+                          <span className="text-emerald-500 text-base">*</span>
                         </span>
                       </h2>
                       <input
                         {...register('userData.currentPassword')}
                         type="password"
                         id="currentPassword"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded xxl:w-full ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded xxl:w-full ${
                           errors.userData?.currentPassword &&
-                          'border border-red-300'
+                          'border border-emerald-500'
                         }`}
                         placeholder="Digite sua senha"
                       />
                       {errors.userData?.currentPassword && (
-                        <span className="text-sm font-light text-red-500">
+                        <span className="text-sm font-light text-emerald-500">
                           {errors.userData.currentPassword.message}
                         </span>
                       )}
@@ -222,7 +222,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-emerald-500 text-2xl"
                         />
                         <span>Nova senha</span>
                       </h2>
@@ -230,14 +230,14 @@ export default function MeusDados() {
                         {...register('userData.newPassword')}
                         type="password"
                         id="newPassword"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded xxl:w-full ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded xxl:w-full ${
                           errors.userData?.newPassword &&
-                          'border border-red-300'
+                          'border border-emerald-500'
                         }`}
                         placeholder="Digite sua nova senha"
                       />
                       {errors.userData?.newPassword && (
-                        <span className="text-sm font-light text-red-500">
+                        <span className="text-sm font-light text-emerald-500">
                           {errors.userData.newPassword.message}
                         </span>
                       )}
@@ -250,7 +250,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-blue-400 text-2xl"
+                          className="text-emerald-500 text-2xl"
                         />
                         <span>Confirmar nova senha</span>
                       </h2>
@@ -258,20 +258,20 @@ export default function MeusDados() {
                         {...register('userData.confirmNewPassword')}
                         type="password"
                         id="confirmNewPassword"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-700 text-base font-light rounded xxl:w-full ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-zinc-200 bg-zinc-700 placeholder:text-zinc-500 text-base font-light rounded xxl:w-full ${
                           errors.userData?.confirmNewPassword &&
-                          'border border-red-300'
+                          'border border-emerald-500'
                         }`}
                         placeholder="Confirme sua nova senha"
                       />
                       {errors.userData?.confirmNewPassword && (
-                        <span className="text-sm font-light text-red-500">
+                        <span className="text-sm font-light text-emerald-500">
                           {errors.userData.confirmNewPassword.message}
                         </span>
                       )}
                     </label>
                   </div>
-                  <span className="text-red-500 text-sm font-light">
+                  <span className="text-emerald-500 text-sm font-light">
                     * Campos obrigatórios
                   </span>
                 </form>
@@ -279,7 +279,7 @@ export default function MeusDados() {
                   <button
                     type="submit"
                     form="myDataForm"
-                    className="flex items-center justify-center bg-blue-400 w-80 px-6 py-3 rounded shadow-md hover:shadow-lg font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
+                    className="flex items-center justify-center bg-emerald-500 w-80 px-6 py-3 rounded shadow-md hover:bg-emerald-600 transition-all font-semibold text-sm text-zinc-100 sm:w-full sm:px-16 disabled:opacity-40 "
                     disabled={!!userDataResponse.success}
                   >
                     {loading.updateUserData ? (
@@ -290,14 +290,14 @@ export default function MeusDados() {
                   </button>
 
                   {userDataResponse.success && (
-                    <div className="w-full text-sm text-blue-500 font-semibold flex gap-4 items-center justify-start">
+                    <div className="w-full text-sm text-emerald-500 font-semibold flex gap-4 items-center justify-start">
                       <CheckFat weight="light" className="text-3xl" />
                       <h3>{userDataResponse.success}</h3>
                     </div>
                   )}
 
                   {userDataResponse.error && (
-                    <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-start">
+                    <div className="w-full text-sm text-emerald-500 font-semibold flex gap-4 items-center justify-start">
                       <Warning className="text-3xl" weight="light" />
                       <h3>{userDataResponse.error}</h3>
                     </div>

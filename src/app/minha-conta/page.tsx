@@ -58,7 +58,7 @@ export default function MinhaConta() {
       order.products.forEach((product: IGame) => allBoughtGames.push(product))
     })
   }
-  const lastBoughtGames = allBoughtGames.slice(0, 8)
+  const lastBoughtGames = allBoughtGames.slice(0, 10)
 
   useEffect(() => {
     userRefetch()
@@ -76,12 +76,12 @@ export default function MinhaConta() {
 
           <LateralMyAccount />
           <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
-            <div className="w-full h-full flex flex-col gap-10 text-zinc-800 items-start lg:gap-6">
+            <div className="w-full h-full flex flex-col gap-10 text-zinc-100 items-start lg:gap-6">
               <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
                 <div className="flex gap-1 items-start justify-center w-full">
                   <UserCircle
                     weight="fill"
-                    className="text-blue-500 text-6xl"
+                    className="text-emerald-500 text-6xl"
                   />
                   <div className="flex flex-col w-full">
                     <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
@@ -108,7 +108,7 @@ export default function MinhaConta() {
                             <h2 className="flex md:hidden text-sm font-light absolute -bottom-7 left-0">
                               <EnvelopeSimple
                                 weight="fill"
-                                className="h-8 md:h-6 text-blue-500 text-2xl"
+                                className="h-8 md:h-6 text-emerald-500 text-2xl"
                               />
 
                               {userIsLoading ? (
@@ -130,7 +130,7 @@ export default function MinhaConta() {
                 <h2 className="hidden md:flex text-sm font-light">
                   <EnvelopeSimple
                     weight="fill"
-                    className="h-8 md:h-6 text-blue-500 text-2xl"
+                    className="h-8 md:h-6 text-emerald-500 text-2xl"
                   />
 
                   {userIsLoading ? (
@@ -152,7 +152,7 @@ export default function MinhaConta() {
                   </span>
                   <Link
                     href="/minha-conta/meus-pedidos"
-                    className="font-semibold text-lg min-w-fit text-blue-400 hover:underline lg:text-base"
+                    className="font-semibold text-lg min-w-fit text-emerald-500 hover:underline lg:text-base"
                   >
                     Ver todos
                   </Link>
@@ -193,7 +193,7 @@ export default function MinhaConta() {
                       <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                         <SmileySad
                           weight="regular"
-                          className="text-blue-500 text-5xl"
+                          className="text-emerald-500 text-5xl"
                         />
                         <span className="text-base font-light">
                           Você não possui nenhum pedido feito.
@@ -211,18 +211,20 @@ export default function MinhaConta() {
                   </span>
                   <Link
                     href="/minha-conta/meus-games"
-                    className="font-semibold text-lg min-w-fit text-blue-400 hover:underline lg:text-base"
+                    className="font-semibold text-lg min-w-fit text-emerald-500 hover:underline lg:text-base"
                   >
                     Ver todos
                   </Link>
                 </div>
                 <div
-                  className={`w-full ${
-                    lastBoughtGames.length === 0 ? 'flex flex-wrap' : 'grid'
-                  } grid-cols-4 gap-x-12 gap-y-6 sm:grid-cols-2 xxl:grid-cols-3 xxl:gap-3 `}
+                  className={`w-full grid grid-cols-5 gap-x-8 gap-y-6 xs:grid-cols-2 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-6 xl:grid-cols-5 xxl:grid-cols-4`}
+                  // sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3
+                  // sm:flex sm:flex-wrap sm:justify-between sm:items-center sm:gap-x-0
                 >
                   {ordersIsLoading ? (
                     <>
+                      <UserProductCardSkeleton />
+                      <UserProductCardSkeleton />
                       <UserProductCardSkeleton />
                       <UserProductCardSkeleton />
                       <UserProductCardSkeleton />
@@ -248,7 +250,7 @@ export default function MinhaConta() {
                         <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                           <SmileySad
                             weight="regular"
-                            className="text-blue-500 text-5xl"
+                            className="text-emerald-500 text-5xl"
                           />
                           <span className="text-base font-light">
                             Você não possui nenhum game comprado.

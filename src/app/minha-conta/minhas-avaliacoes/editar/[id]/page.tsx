@@ -111,11 +111,11 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
             <title>{`Editar avaliação - ${pageTitle}`}</title>
             <LateralMyAccount />
 
-            <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  className="text-blue-500 sm:text-3xl text-5xl"
+                  className="text-emerald-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Editar avaliação
@@ -131,12 +131,12 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     <img
                       src={userEvaluationsData?.data.data?.product.image}
                       alt={userEvaluationsData?.data.data?.product.name}
-                      className="rounded w-40 h-40 sm:w-24 sm:h-24 object-cover"
+                      className="rounded w-40 h-60 sm:w-24 sm:h-24 object-cover"
                     />
                   </Link>
                   <Link
                     href={`/game/${userEvaluationsData?.data.data.product.id}`}
-                    className="text-xl tracking-wide font-light text-zinc-600 hover:underline"
+                    className="text-xl tracking-wide font-light text-zinc-100 hover:underline"
                   >
                     {userEvaluationsData?.data.data.product.name}
                   </Link>
@@ -144,7 +144,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
 
                 <form
                   onSubmit={handleSubmit(handleFormSubmit)}
-                  className="w-full bg-white px-2 py-4 rounded shadow-md flex flex-col gap-4"
+                  className="w-full bg-zinc-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
                 >
                   <label className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
@@ -157,13 +157,13 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                           key={index}
                           weight={index < stars ? 'fill' : 'duotone'}
                           className={`${
-                            index < stars ? 'text-yellow-400' : 'text-zinc-200'
+                            index < stars ? 'text-yellow-500' : 'text-zinc-600'
                           } text-4xl cursor-pointer`}
                           onClick={() => setStars(index + 1)}
                         />
                       ))}
 
-                      <span className="ml-4 text-zinc-500">{`( ${stars} )`}</span>
+                      <span className="ml-4 text-zinc-200">{`( ${stars} )`}</span>
                     </div>
                   </label>
 
@@ -173,7 +173,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="border rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md"
+                      className="bg-zinc-700 border border-zinc-600 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-zinc-500"
                       maxLength={500}
                       id="description"
                       placeholder={userEvaluationsData?.data.data.description}
@@ -187,7 +187,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                         className={`p-2 sm:w-full w-64 ${
                           response.success
                             ? 'bg-emerald-500 hover:bg-emerald-600'
-                            : 'bg-rose-500 hover:bg-rose-600'
+                            : 'bg-emerald-500 hover:bg-emerald-600'
                         } text-white font-light rounded shadow-md  transition-all flex items-center justify-center`}
                         onClick={() =>
                           router.push('/minha-conta/minhas-avaliacoes')
@@ -198,7 +198,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     ) : (
                       <button
                         type="submit"
-                        className="p-2 sm:w-full w-64 bg-blue-500 text-white font-light rounded shadow-md hover:bg-blue-600 transition-all flex items-center justify-center"
+                        className="p-2 sm:w-full w-64 bg-emerald-500 text-white font-light rounded shadow-md hover:bg-emerald-600 transition-all flex items-center justify-center"
                         onClick={() => setLoading(true)}
                       >
                         {loading ? <LoadingSpinner /> : 'Avaliar produto'}
@@ -208,10 +208,10 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     {response.error && (
                       <div className="flex gap-2 items-center justify-center w-fit">
                         <Warning
-                          className="text-2xl text-rose-500"
+                          className="text-2xl text-emerald-500"
                           weight="duotone"
                         />
-                        <p className="text-rose-500 text-sm font-light">
+                        <p className="text-emerald-500 text-sm font-light">
                           {response.error}
                         </p>
                       </div>

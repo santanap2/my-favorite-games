@@ -133,13 +133,13 @@ input[type=number] {
 
 
 .loading-skeleton {
-  background-color: rgb(244 244 245);
+  background-color: rgba(244, 244, 245, 0.2);
   background: linear-gradient(
     100deg,
     rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, .5) 50%,
+    rgba(255, 255, 255, .2) 50%,
     rgba(255, 255, 255, 0) 60%
-  ) rgb(228 228 231);
+  ) rgba(228, 228, 231, 0.2);
   background-size: 200% 100%;
   background-position-x: 180%;
   animation: 0.8s loading ease-in-out infinite;
@@ -149,5 +149,52 @@ input[type=number] {
   to {
     background-position-x: -20%;
   }
+}
+
+/* Tailwind Colors 950 */
+:root {
+  --red: rgb(69 10 10);
+  --orange: rgb(67 20 7);
+  --amber: rgb(69 26 3);
+  --yellow: rgb(66 32 6);
+  --lime: rgb(26 46 5);
+  --green: rgb(5 46 22);
+  --emerald: rgb(2 44 34);
+  --teal: rgb(4 47 46);
+  --cyan: rgb(8 51 68);
+  --sky: rgb(8 47 73);
+  --blue: rgb(23 37 84);
+  --indigo: rgb(30 27 75);
+  --violet: rgb(46 16 101);
+  --purple: rgb(59 7 100);
+  --fuchsia: rgb(74 4 78);
+  --pink: rgb(80 7 36);
+  --rose: rgb(76 5 25);
+
+  --slate900: rgb(15 23 42);
+  --slate950: rgb(2 6 23);
+  --gray900: rgb(17 24 39);
+  --gray950: rgb(3 7 18);
+  --zinc900: rgb(24 24 27);
+  --zinc950: rgb(9 9 11);
+  --neutral900: rgb(23 23 23);
+  --neutral950: rgb(10 10 10);
+  --stone900: rgb(28 25 23);
+  --stone950: rgb(12 10 9);
+}
+
+.background {
+  background: linear-gradient(180deg, var(--emerald) 1%, var(--slate900) 35%);  
+  
+}
+
+.footer-bg {
+  background: rgb(2 6 23);
+  background: linear-gradient(0deg, var(--slate950) 50%, var(--slate900) 100%);
+}
+
+.user-product-card-bg {
+  background: black;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
 }
 
