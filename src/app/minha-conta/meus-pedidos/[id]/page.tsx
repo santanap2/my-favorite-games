@@ -53,7 +53,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
           <title>{`Detalhes do pedido #${id} - ${pageTitle}`}</title>
           <LateralMyAccount />
 
-          <div className=" w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start">
               <ListPlus weight="fill" className=" sm:text-3xl text-5xl" />
               <h1 className="font-regular text-xl font-semibold">
@@ -75,7 +75,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
                   </>
                 )}
               </div>
-              <div className="flex flex-col w-fit gap-4 bg-zinc-800 px-2 pt-4 rounded shadow-md sm:w-full sm:max-w-full">
+              <div className="flex flex-col w-fit gap-4 bg-slate-800 px-2 pt-4 rounded shadow-md sm:w-full sm:max-w-full">
                 {orderIsLoading ? (
                   <>
                     <ProductOnOrderSkeleton border />

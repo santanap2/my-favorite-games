@@ -17,7 +17,7 @@ export default function ProductOnOrder({
       className={`flex w-[600px] gap-3 pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all ${
         indexAndLength && indexAndLength?.index === indexAndLength.lenght - 1
           ? ''
-          : 'border-b border-zinc-600'
+          : 'border-b border-slate-600'
       }`}
     >
       <img

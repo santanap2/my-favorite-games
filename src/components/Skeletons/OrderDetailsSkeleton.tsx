@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function OrderDetailsSkeleton() {
   return (
-    <div className="text-zinc-500 flex flex-col gap-1 bg-zinc-800 w-[600px] max-w-full p-4 rounded shadow-md sm:text-sm md:w-full text-transparent animation-opacity transition-all">
+    <div className="text-slate-500 flex flex-col gap-1 bg-slate-800 w-[600px] max-w-full p-4 rounded shadow-md sm:text-sm md:w-full text-transparent animation-opacity transition-all">
       <p>
         <span className="font-bold rounded">Número do pedido:</span>
         <span className="rounded loading-skeleton text-transparent ml-1">

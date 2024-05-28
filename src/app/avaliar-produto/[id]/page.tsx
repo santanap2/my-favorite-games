@@ -112,7 +112,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
             <title>{`Avaliar produto - ${pageTitle}`}</title>
             <LateralMyAccount />
 
-            <div className="w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className="w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
@@ -137,7 +137,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                   </Link>
                   <Link
                     href={`/game/${gameData?.data.data.id}`}
-                    className="text-xl tracking-wide font-light text-zinc-200 hover:underline"
+                    className="text-xl tracking-wide font-light text-slate-200 hover:underline"
                   >
                     {gameData?.data.data.name}
                   </Link>
@@ -145,7 +145,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
 
                 <form
                   onSubmit={handleSubmit(handleFormSubmit)}
-                  className="w-full bg-zinc-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
+                  className="w-full bg-slate-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
                 >
                   <label className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
@@ -158,13 +158,13 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                           key={index}
                           weight={index < stars ? 'fill' : 'duotone'}
                           className={`${
-                            index < stars ? 'text-yellow-500' : 'text-zinc-200'
+                            index < stars ? 'text-yellow-500' : 'text-slate-200'
                           } text-4xl cursor-pointer`}
                           onClick={() => setStars(index + 1)}
                         />
                       ))}
 
-                      <span className="ml-4 text-zinc-500">{`( ${stars} )`}</span>
+                      <span className="ml-4 text-slate-500">{`( ${stars} )`}</span>
                     </div>
                   </label>
 
@@ -174,7 +174,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="border border-zinc-500 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-zinc-700 placeholder:text-zinc-500"
+                      className="border border-slate-500 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-slate-700 placeholder:text-slate-500"
                       maxLength={500}
                       id="description"
                       placeholder="Escreva aqui sua avaliação"
@@ -209,10 +209,10 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     {response.error && (
                       <div className="flex gap-2 items-center justify-center w-fit">
                         <Warning
-                          className="text-2xl text-emerald-500"
+                          className="text-2xl text-red-500"
                           weight="duotone"
                         />
-                        <p className="text-emerald-500 text-sm font-light">
+                        <p className="text-red-500 text-sm font-light">
                           {response.error}
                         </p>
                       </div>
@@ -221,10 +221,10 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     {response.success && (
                       <div className="flex gap-2 items-center justify-center w-fit">
                         <CheckCircle
-                          className="text-2xl text-emerald-500"
+                          className="text-2xl text-green-500"
                           weight="duotone"
                         />
-                        <p className="text-emerald-500 text-sm font-light">
+                        <p className="text-green-500 text-sm font-light">
                           {response.success}
                         </p>
                       </div>

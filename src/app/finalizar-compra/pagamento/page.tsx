@@ -118,7 +118,7 @@ export default function Pagamento() {
     <>
       {!isAuthenticated && null}
       {isAuthenticated && (
-        <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-zinc-100">
+        <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-slate-100">
           <title>{`${pageTitle} - Pagamento`}</title>
 
           <div className="flex gap-1 w-fit items-center justify-center">
@@ -132,13 +132,13 @@ export default function Pagamento() {
           </div>
 
           <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center">
-            <div className="w-[70%] bg-zinc-800 rounded shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
+            <div className="w-[70%] bg-slate-800 rounded shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
               <div
                 onClick={() => pickPaymentMethod('pix')}
-                className={`bg-zinc-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-100 ${
+                className={`bg-slate-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-slate-100 ${
                   paymentMethod.pix
                     ? 'border-1 border-emerald-500'
-                    : 'border-1 border-zinc-500'
+                    : 'border-1 border-slate-500'
                 }`}
               >
                 <div className="flex gap-4">
@@ -157,7 +157,7 @@ export default function Pagamento() {
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.pix ? 'text-emerald-500' : 'text-zinc-200'
+                      paymentMethod.pix ? 'text-emerald-500' : 'text-slate-200'
                     } sm:text-base`}
                   >
                     PIX
@@ -184,10 +184,10 @@ export default function Pagamento() {
               </div>
               <div
                 onClick={() => pickPaymentMethod('bankSlip')}
-                className={`bg-zinc-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-100 ${
+                className={`bg-slate-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-slate-100 ${
                   paymentMethod.bankSlip
                     ? 'border-1 border-emerald-500'
-                    : 'border-1 border-zinc-500'
+                    : 'border-1 border-slate-500'
                 }`}
               >
                 <div className="flex gap-4">
@@ -206,7 +206,7 @@ export default function Pagamento() {
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.bankSlip ? 'text-emerald-500' : 'text-zinc-200'
+                      paymentMethod.bankSlip ? 'text-emerald-500' : 'text-slate-200'
                     } sm:text-base`}
                   >
                     Boleto bancário
@@ -234,10 +234,10 @@ export default function Pagamento() {
 
               <div
                 onClick={() => pickPaymentMethod('creditCard')}
-                className={`bg-zinc-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-zinc-100 ${
+                className={`bg-slate-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-slate-100 ${
                   paymentMethod.creditCard
                     ? 'border-1 border-emerald-500'
-                    : 'border-1 border-zinc-500'
+                    : 'border-1 border-slate-500'
                 }`}
               >
                 <div className="flex gap-4 w-full">
@@ -258,7 +258,7 @@ export default function Pagamento() {
                     className={`text-lg font-bold ${
                       paymentMethod.creditCard
                         ? 'text-emerald-500'
-                        : 'text-zinc-200'
+                        : 'text-slate-200'
                     } sm:text-base`}
                   >
                     Cartão de crédito
@@ -269,8 +269,8 @@ export default function Pagamento() {
               </div>
             </div>
 
-            <div className="bg-zinc-800 rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
-              <div className="w-full h-30 bg-zinc-900 shadow-md p-4 rounded flex flex-col items-center justify-center text-emerald-zinc-100 sm:w-60 sm:p-2">
+            <div className="bg-slate-800 rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
+              <div className="w-full h-30 bg-slate-900 shadow-md p-4 rounded flex flex-col items-center justify-center text-emerald-slate-100 sm:w-60 sm:p-2">
                 <div className="text-sm flex">{whichPaymentMethod()}</div>
 
                 {paymentMethod.creditCard ? (

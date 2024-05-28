@@ -10,7 +10,7 @@ export default function Contato() {
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
       <title>{`Contato - ${pageTitle}`}</title>
-      <div className=" w-full h-full flex flex-col gap-10 text-zinc-800 sm:gap-6">
+      <div className=" w-full h-full flex flex-col gap-10 text-slate-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Chat weight="fill" className="text-emerald-500 sm:text-3xl text-5xl" />
           <h1 className="font-regular text-xl font-semibold">Contato</h1>

@@ -76,7 +76,7 @@ export default function MinhaConta() {
 
           <LateralMyAccount />
           <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
-            <div className="w-full h-full flex flex-col gap-10 text-zinc-100 items-start lg:gap-6">
+            <div className="w-full h-full flex flex-col gap-10 text-slate-100 items-start lg:gap-6">
               <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
                 <div className="flex gap-1 items-start justify-center w-full">
                   <UserCircle
@@ -112,7 +112,7 @@ export default function MinhaConta() {
                               />
 
                               {userIsLoading ? (
-                                <span className="h-8 md:h-6 text-transparent bg-zinc-200 rounded loading-skeleton flex items-center justify-center">
+                                <span className="h-8 md:h-6 text-transparent bg-slate-200 rounded loading-skeleton flex items-center justify-center">
                                   emaildousuario@email.com
                                 </span>
                               ) : (
@@ -134,7 +134,7 @@ export default function MinhaConta() {
                   />
 
                   {userIsLoading ? (
-                    <span className="h-8 md:h-6 text-transparent bg-zinc-200 rounded loading-skeleton flex items-center justify-center">
+                    <span className="h-8 md:h-6 text-transparent bg-slate-200 rounded loading-skeleton flex items-center justify-center">
                       emaildousuario@email.com
                     </span>
                   ) : (

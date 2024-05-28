@@ -70,7 +70,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
           <title>{`${pageTitle} - Meus pedidos`}</title>
 
           <LateralMyAccount />
-          <div className="w-full h-full flex flex-col gap-10 text-zinc-100 sm:gap-6 animation-opacity transition-all">
+          <div className="w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6 animation-opacity transition-all">
             <div className="flex gap-1 w-fit items-center justify-center">
               <Bag
                 weight="fill"
@@ -93,7 +93,7 @@ export default function MeusPedidos({ searchParams }: ISearchParams) {
                   <select
                     name=""
                     id="filters"
-                    className="h-10 rounded px-3 focus:outline-none text-zinc-200 hover:shadow-lg w-60 text-left text-sm font-light bg-zinc-700 shadow-md"
+                    className="h-10 rounded px-3 focus:outline-none text-slate-200 hover:shadow-lg w-60 text-left text-sm font-light bg-slate-700 shadow-md"
                     onChange={({ target: { value } }) =>
                       router.push(`/minha-conta/meus-pedidos?status=${value}`)
                     }

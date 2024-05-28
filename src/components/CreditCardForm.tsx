@@ -28,16 +28,16 @@ export default function CreditCardForm() {
           id="card-number"
           placeholder="0000 0000 0000 0000"
           maxLength={19}
-          className={`relative rounded w-full border  bg-zinc-900 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardNumber ? 'border-emerald-400' : 'border-emerald-400'
+          className={`relative rounded w-full border  bg-slate-900 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+            errors.cardData?.cardNumber && 'border-red-500'
           }`}
         />
         {errors.cardData?.cardNumber && (
-          <span className="text-sm font-light text-emerald-500">
+          <span className="text-sm font-light text-red-500">
             {errors.cardData.cardNumber.message}
           </span>
         )}
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-900 font-light py-[2px] px-1 text-zinc-200">
+        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-slate-900 font-light py-[2px] px-1 text-slate-200">
           Número do cartão *
         </span>
       </label>
@@ -48,16 +48,16 @@ export default function CreditCardForm() {
           id="card-name"
           type="text"
           placeholder="Digite seu nome"
-          className={`relative rounded w-full border bg-zinc-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardName ? 'border-emerald-400' : 'border-emerald-400'
+          className={`relative rounded w-full border bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+            errors.cardData?.cardName && 'border-red-500'
           }`}
         />
         {errors.cardData?.cardName && (
-          <span className="text-sm font-light text-emerald-500">
+          <span className="text-sm font-light text-red-500">
             {errors.cardData.cardName.message}
           </span>
         )}
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-900 font-light py-[2px] px-1 text-zinc-200">
+        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-slate-900 font-light py-[2px] px-1 text-slate-200">
           Nome impresso no cartão *
         </span>
       </label>
@@ -70,16 +70,16 @@ export default function CreditCardForm() {
             type="text"
             maxLength={5}
             placeholder="MM/AA"
-            className={`relative rounded w-full border bg-zinc-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardDate ? 'border-emerald-400' : 'border-emerald-400'
+            className={`relative rounded w-full border bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+              errors.cardData?.cardDate && 'border-red-500'
             }`}
           />
           {errors.cardData?.cardDate && (
-            <span className="text-sm font-light text-emerald-500">
+            <span className="text-sm font-light text-red-500">
               {errors.cardData.cardDate.message}
             </span>
           )}
-          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-900 font-light py-[2px] px-1 text-zinc-200">
+          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-slate-900 font-light py-[2px] px-1 text-slate-200">
             Data do vencimento *
           </span>
         </label>
@@ -91,16 +91,16 @@ export default function CreditCardForm() {
             type="text"
             maxLength={3}
             placeholder="000"
-            className={`relative rounded w-full border border-emerald-400 bg-zinc-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardCvv ? 'border-emerald-400' : 'border-emerald-400'
+            className={`relative rounded w-full border bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+              errors.cardData?.cardCvv && 'border-red-500'
             }`}
           />
           {errors.cardData?.cardCvv && (
-            <span className="text-sm font-light text-emerald-500">
+            <span className="text-sm font-light text-red-500">
               {errors.cardData.cardCvv.message}
             </span>
           )}
-          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-900 font-light py-[2px] px-1 text-zinc-200">
+          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-slate-900 font-light py-[2px] px-1 text-slate-200">
             Código de verificação (CVV) *
           </span>
         </label>
@@ -111,7 +111,7 @@ export default function CreditCardForm() {
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="relative rounded w-full border border-emerald-400 bg-zinc-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="relative rounded w-full border bg-slate-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
         >
           <option value="1" className="rounded py-4 h-10">
             {`1x sem juros de R$ ${priceToBRL(
@@ -131,7 +131,7 @@ export default function CreditCardForm() {
             )}`}
           </option>
         </select>
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-zinc-900 font-light py-[2px] px-1 text-zinc-200">
+        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-slate-900 font-light py-[2px] px-1 text-slate-200">
           Parcelamento
         </span>
       </label>

@@ -42,7 +42,7 @@ export default function ProductCard({
         <div className="flex flex-col gap-1 h-20 mt-1">
           <Link href={`/game/${id}`} className="w-fit">
             <h1
-              className="font-semibold text-base text-zinc-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
+              className="font-semibold text-base text-slate-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -55,7 +55,7 @@ export default function ProductCard({
           </Link>
 
           <Link href={`/home?${category}=true`} className=" w-fit">
-            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline text-zinc-50">
+            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline text-slate-50">
               {categoryPt}
             </h2>
           </Link>
@@ -72,7 +72,7 @@ export default function ProductCard({
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="mt-1 w-fit h-9 px-4 text-zinc-100 font-bold uppercase py-1 rounded text-sm bg-emerald-500 flex items-center justify-center relative hover:bg-emerald-600 transition-all sm:text-xs sm:w-full sm:px-0 sm:font-semibold"
+          className="mt-1 w-fit h-9 px-4 text-slate-100 font-bold uppercase py-1 rounded text-sm bg-emerald-500 flex items-center justify-center relative hover:bg-emerald-600 transition-all sm:text-xs sm:w-full sm:px-0 sm:font-semibold"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >

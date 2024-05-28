@@ -37,7 +37,7 @@ export default function LateralMyAccount() {
       unmountOnExit
     >
       <div
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-zinc-950 shadow-md z-20 sm:shadow-2xl"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-slate-950 shadow-md z-20 sm:shadow-2xl"
         ref={nodeRef}
       >
         <div className="flex flex-col">
@@ -53,7 +53,7 @@ export default function LateralMyAccount() {
                 className={`${
                   pathname === links.myAccount
                     ? 'text-emerald-500 font-semibold'
-                    : 'text-zinc-200'
+                    : 'text-slate-200'
                 } w-full`}
               >
                 Minha conta
@@ -73,7 +73,7 @@ export default function LateralMyAccount() {
                 className={`${
                   pathname === links.myOrders
                     ? 'text-emerald-500 font-semibold'
-                    : 'text-zinc-200'
+                    : 'text-slate-200'
                 } w-full`}
               >
                 Meus pedidos
@@ -93,7 +93,7 @@ export default function LateralMyAccount() {
                 className={`${
                   pathname === links.myData
                     ? 'text-emerald-500 font-semibold'
-                    : 'text-zinc-200'
+                    : 'text-slate-200'
                 } w-full`}
               >
                 Meus dados
@@ -113,7 +113,7 @@ export default function LateralMyAccount() {
                 className={`${
                   pathname === links.myGames
                     ? 'text-emerald-500 font-semibold'
-                    : 'text-zinc-200'
+                    : 'text-slate-200'
                 } w-full`}
               >
                 Meus games
@@ -133,7 +133,7 @@ export default function LateralMyAccount() {
                 className={`${
                   pathname === links.myFavorites
                     ? 'text-emerald-500 font-semibold'
-                    : 'text-zinc-200'
+                    : 'text-slate-200'
                 } w-full`}
               >
                 Meus favoritos
@@ -153,7 +153,7 @@ export default function LateralMyAccount() {
                 className={`${
                   pathname === links.myEvaluations
                     ? 'text-emerald-500 font-semibold'
-                    : 'text-zinc-200'
+                    : 'text-slate-200'
                 } w-full`}
               >
                 Minhas avaliações
@@ -164,7 +164,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.logout}>
           <div
-            className={`flex gap-3 px-4 items-center w-full text-sm font-light text-zinc-200 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
+            className={`flex gap-3 px-4 items-center w-full text-sm font-light text-slate-200 h-14 rounded mb-4 hover:text-orange-400 transition-all`}
           >
             <SignOut
               weight={pathname === links.help ? 'fill' : 'duotone'}

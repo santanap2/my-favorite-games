@@ -14,10 +14,10 @@ import React from 'react'
 
 export default function MyAccountPopUp() {
   return (
-    <div className="w-fit bg-zinc-800 pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-zinc-100 appear-animation animation-opacity transition-all">
+    <div className="w-fit bg-slate-800 pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-slate-100 appear-animation animation-opacity transition-all">
       <ArrowFatUp
         weight="fill"
-        className="text-zinc-800 absolute -top-2 right-0 text-3xl"
+        className="text-slate-800 absolute -top-2 right-0 text-3xl"
       />
       <Link
         href={links.myAccount}

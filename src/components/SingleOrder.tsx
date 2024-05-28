@@ -48,11 +48,11 @@ export default function SingleOrder({
   const setStatusColor = (status?: string | null) => {
     switch (status) {
       case 'awaitingPayment':
-        return 'text-amber-500'
+        return 'text-yellow-500'
       case 'approvedPayment':
-        return 'text-emerald-500'
+        return 'text-lime-500'
       case 'processing':
-        return 'text-purple-500'
+        return 'text-teal-500'
       case 'concluded':
         return 'text-green-500'
       case 'canceled':
@@ -65,11 +65,11 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full h-28 sm:h-32 bg-zinc-800 py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative animation-opacity transition-all"
+      className="w-full h-28 sm:h-32 bg-slate-800 py-1 px-4 rounded shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative animation-opacity transition-all"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
-          <tr className="font-bold text-sm uppercase text-zinc-100 flex justify-between gap-2 xxl:text-xs">
+          <tr className="font-bold text-sm uppercase text-slate-100 flex justify-between gap-2 xxl:text-xs">
             <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40 sm:hidden">
               Número do pedido
             </td>
@@ -81,7 +81,7 @@ export default function SingleOrder({
         </thead>
 
         <tbody className="w-full xxl:text-xs">
-          <tr className="text-zinc-100 flex justify-between items-center gap-2">
+          <tr className="text-slate-100 flex justify-between items-center gap-2">
             <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40 sm:hidden">
               {`#${orderNumber}`}
             </td>
@@ -107,7 +107,7 @@ export default function SingleOrder({
       </table>
 
       <div className="flex justify-between items-center w-full">
-        <p className="text-xs ml-2 sm:text-zinc-200 text-transparent">
+        <p className="text-xs ml-2 sm:text-slate-200 text-transparent">
           <span className="uppercase font-semibold">Pedido: #</span>
           <span>{orderNumber}</span>
         </p>

@@ -18,7 +18,7 @@ export default function CartProductCard({
   })
 
   return (
-    <div className="flex w-full gap-3 border-b border-zinc-600 pb-4 sm:pb-2 animation-opacity transition-all">
+    <div className="flex w-full gap-3 border-b border-slate-600 pb-4 sm:pb-2 animation-opacity transition-all">
       <img
         src={image}
         alt={name}

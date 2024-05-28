@@ -101,28 +101,28 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
             <Link
               href="/"
-              className="text-zinc-300 hover:text-zinc-50 hover:underline min-w-fit"
+              className="text-slate-300 hover:text-slate-50 hover:underline min-w-fit"
             >
               Todos os jogos
             </Link>
-            <CaretRight weight="light" className="text-zinc-300 text-base" />
+            <CaretRight weight="light" className="text-slate-300 text-base" />
             <Link
               href={`/home?${productData?.data.data.category.name}=true`}
-              className="text-zinc-300 hover:text-zinc-50 hover:underline min-w-fit"
+              className="text-slate-300 hover:text-slate-50 hover:underline min-w-fit"
             >
               {productData?.data.data.category.namePt}
             </Link>
 
-            <CaretRight weight="light" className="text-zinc-300 text-base" />
+            <CaretRight weight="light" className="text-slate-300 text-base" />
 
             <Link
               href={`/game/${id}`}
-              className="text-zinc-300 hover:text-zinc-50 hover:underline min-w-fit"
+              className="text-slate-300 hover:text-slate-50 hover:underline min-w-fit"
             >
               {productData?.data.data.name}
             </Link>
           </div>
-          <h1 className="mt-4 font-bold text-2xl text-zinc-100 sm:text-xl sm:mt-2">
+          <h1 className="mt-4 font-bold text-2xl text-slate-100 sm:text-xl sm:mt-2">
             {productData?.data.data.name}
           </h1>
 
@@ -132,7 +132,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               alt={productData?.data.data.name}
               className="w-[300px] h-[400px] rounded shadow-md object-cover md:w-72 md:h-96"
             />
-            <div className="flex flex-col justify-start items-start w-full h-full text-zinc-300 gap-2">
+            <div className="flex flex-col justify-start items-start w-full h-full text-slate-300 gap-2">
               <span className="font-light sm:text-sm">
                 Vendido por: My Fav Games™
               </span>
@@ -140,7 +140,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                 <span>{'R$ '}</span>
                 <span>{priceToBRL(productData?.data.data.price * 0.9)}</span>
               </div>
-              <div className="flex flex-col mt-6 text-zinc-300 sm:mt-0 sm:text-xs gap-1">
+              <div className="flex flex-col mt-6 text-slate-300 sm:mt-0 sm:text-xs gap-1">
                 <span>À vista no PIX com 10% de desconto</span>
                 <span>{`Ou em até 3x de R$${portionPrice(
                   productData?.data.data.price,
@@ -195,7 +195,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
               </div>
             </div>
           </div>
-          <div className="mt-12 text-zinc-300 w-full flex flex-col gap-4">
+          <div className="mt-12 text-slate-300 w-full flex flex-col gap-4">
             <div className="w-full border-b">
               <button
                 className="tracking-wide flex gap-2 py-3 hover:underline sm:pb-2"
