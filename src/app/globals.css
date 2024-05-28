@@ -133,13 +133,13 @@ input[type=number] {
 
 
 .loading-skeleton {
-  background-color: rgba(244, 244, 245, 0.2);
+  background-color: rgba(244, 244, 245, 0.1);
   background: linear-gradient(
     100deg,
     rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, .2) 50%,
+    rgba(255, 255, 255, .1) 50%,
     rgba(255, 255, 255, 0) 60%
-  ) rgba(228, 228, 231, 0.2);
+  ) rgba(228, 228, 231, 0.1);
   background-size: 200% 100%;
   background-position-x: 180%;
   animation: 0.8s loading ease-in-out infinite;
