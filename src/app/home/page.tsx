@@ -12,7 +12,6 @@ import ProductCardSkeleton from '@/components/Skeletons/ProductCardSkeleton'
 import NotFoundProducts from '@/components/NotFoundProducts'
 import LateralFilters from '@/components/LateralFilters'
 import { useQuery } from '@tanstack/react-query'
-// import allGames from '@/helpers/allGames'
 
 export default function Home({ searchParams }: ISearchParams) {
   const {
