@@ -12,7 +12,10 @@ export default function Contato() {
       <title>{`Contato - ${pageTitle}`}</title>
       <div className=" w-full h-full flex flex-col gap-10 text-slate-800 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
-          <Chat weight="fill" className="text-emerald-500 sm:text-3xl text-5xl" />
+          <Chat
+            weight="fill"
+            className="text-emerald-500 sm:text-3xl text-5xl"
+          />
           <h1 className="font-regular text-xl font-semibold">Contato</h1>
         </div>
 
@@ -65,7 +68,10 @@ export default function Contato() {
               href="mailto:suporte@myfavgames.com"
               className="flex gap-2 items-start justify-start hover:text-emerald-400 text-sm font-light"
             >
-              <Envelope weight="duotone" className="text-emerald-400 text-3xl" />
+              <Envelope
+                weight="duotone"
+                className="text-emerald-400 text-3xl"
+              />
               <h3 className="flex flex-col">
                 <span>suporte@myfavgames.com</span>
                 <span className="font-semibold">Suporte My Fav Games</span>
