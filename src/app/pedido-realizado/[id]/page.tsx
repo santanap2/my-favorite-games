@@ -74,7 +74,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                   <OrderStatus order={orderData?.data.data} />
                   <OrderDetails order={orderData?.data.data} />
                   <button
-                    className="mt-6 bg-emerald-500 text-white sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-emerald-600 hover:shadow-lg flex gap-4 items-center justify-center"
+                    className="mt-6 bg-emerald-500 text-slate-100 sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-emerald-600 hover:shadow-lg flex gap-4 items-center justify-center"
                     onClick={() => {
                       router.push(`/minha-conta/meus-pedidos/${id}`)
                     }}

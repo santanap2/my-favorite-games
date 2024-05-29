@@ -225,7 +225,7 @@ export default function Header() {
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
-        <span className="absolute bg-emerald-500 text-sm text-white rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
+        <span className="absolute bg-emerald-500 text-sm text-slate-100 rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
           {cartData?.data.data.products.length
             ? cartData?.data.data.products.length
             : '0'}
@@ -277,7 +277,7 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, cart: false }))
             }
           />
-          <span className="absolute bg-emerald-500 text-xs text-white rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
+          <span className="absolute bg-emerald-500 text-xs text-slate-100 rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
             {cartData?.data.data.products.length
               ? cartData?.data.data.products.length
               : '0'}

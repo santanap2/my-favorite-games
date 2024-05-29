@@ -133,7 +133,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
 
                 <button
                   type="button"
-                  className="w-64 sm:w-full px-4 py-2 text-base text-white font-light rounded shadow-md bg-emerald-500 hover:bg-emerald-600 hover:shadow-lg transition-all"
+                  className="w-64 sm:w-full px-4 py-2 text-base text-slate-100 font-light rounded shadow-md bg-emerald-500 hover:bg-emerald-600 hover:shadow-lg transition-all"
                   onClick={() =>
                     router.push(`/minha-conta/minhas-avaliacoes/editar/${id}`)
                   }

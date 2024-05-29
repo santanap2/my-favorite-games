@@ -247,7 +247,7 @@ export default function MinhaConta() {
                           />
                         ))
                       ) : (
-                        <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
+                        <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4 absolute">
                           <SmileySad
                             weight="regular"
                             className="text-emerald-500 text-5xl"

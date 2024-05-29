@@ -298,7 +298,7 @@ export default function Pagamento() {
               </div>
               <button
                 type={paymentMethod.creditCard ? 'submit' : 'button'}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 h-10 rounded text-white font-light text-regular shadow-md hover:shadow-lg"
+                className="w-full bg-emerald-500 hover:bg-emerald-600 h-10 rounded text-slate-100 font-light text-regular shadow-md hover:shadow-lg"
                 form="creditCardForm"
                 onClick={checkPaymentMethod}
               >

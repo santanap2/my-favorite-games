@@ -139,7 +139,7 @@ export default function Cadastro() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-emerald-500 font-light text-white rounded text-regular shadow hover:bg-emerald-600 transition-all disabled:opacity-40 mt-6"
+            className="w-80 h-10 bg-emerald-500 font-light text-slate-100 rounded text-regular shadow hover:bg-emerald-600 transition-all disabled:opacity-40 mt-6"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (

@@ -121,7 +121,7 @@ export default function ShoppingCart() {
                     setShowCart(false)
                     router.push('/finalizar-compra')
                   }}
-                  className="text-sm uppercase font-bold text-white py-2 bg-emerald-500 hover:bg-emerald-600 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-slate-100 py-2 bg-emerald-500 hover:bg-emerald-600 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${
                     calcSum(data?.data.data.products || []).string

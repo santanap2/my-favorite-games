@@ -188,7 +188,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                           response.success
                             ? 'bg-emerald-500 hover:bg-emerald-600'
                             : 'bg-emerald-500 hover:bg-emerald-600'
-                        } text-white font-light rounded shadow-md  transition-all flex items-center justify-center`}
+                        } text-slate-100 font-light rounded shadow-md  transition-all flex items-center justify-center`}
                         onClick={() =>
                           router.push('/minha-conta/minhas-avaliacoes')
                         }
@@ -198,7 +198,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     ) : (
                       <button
                         type="submit"
-                        className="p-2 sm:w-full w-64 bg-emerald-500 text-white font-light rounded shadow-md hover:bg-emerald-600 transition-all flex items-center justify-center"
+                        className="p-2 sm:w-full w-64 bg-emerald-500 text-slate-100 font-light rounded shadow-md hover:bg-emerald-600 transition-all flex items-center justify-center"
                         onClick={() => setLoading(true)}
                       >
                         {loading ? <LoadingSpinner /> : 'Avaliar produto'}

@@ -135,7 +135,7 @@ export default function MeusGames() {
                         ))
                       )
                     ) : (
-                      <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center">
+                      <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center absolute">
                         <SmileySad
                           weight="light"
                           className="text-emerald-500 text-5xl"

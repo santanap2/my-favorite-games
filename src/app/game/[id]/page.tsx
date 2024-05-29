@@ -154,7 +154,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     await buyOneItem(id.toString())
                     router.push('/finalizar-compra')
                   }}
-                  className="w-64 h-14 bg-emerald-500 rounded text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:bg-emerald-600 sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                  className="w-64 h-14 bg-emerald-500 rounded text-lg font-bold uppercase tracking-wider text-slate-100 shadow-sm hover:bg-emerald-600 sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
                 >
                   Comprar agora
                 </button>
@@ -165,11 +165,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     await addItemToCart(id.toString())
                     setShowCart(true)
                   }}
-                  className="w-14 h-14 bg-emerald-500 rounded text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-emerald-600 sm:h-12 sm:w-12"
+                  className="w-14 h-14 bg-emerald-500 rounded text-lg font-bold uppercase tracking-wider text-slate-100 flex items-center justify-center relative shadow-sm hover:bg-emerald-600 sm:h-12 sm:w-12"
                 >
                   <ShoppingCartSimple
                     weight="bold"
-                    className="text-white relative text-3xl"
+                    className="text-slate-100 relative text-3xl"
                   />
                   <PlusCircle
                     weight="fill"
@@ -182,11 +182,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     setIsFavorite(!isFavorite)
                     setShowPopupFavorite(true)
                   }}
-                  className="w-14 h-14 bg-emerald-500 rounded text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-emerald-600 sm:h-12 sm:w-12"
+                  className="w-14 h-14 bg-emerald-500 rounded text-lg font-bold tracking-wider text-slate-100 flex items-center justify-center relative shadow-sm hover:bg-emerald-600 sm:h-12 sm:w-12"
                 >
                   <Heart
                     weight={isFavorite ? 'fill' : 'bold'}
-                    className="text-white relative text-3xl"
+                    className="text-slate-100 relative text-3xl"
                   />
                   {showPopupFavorite && (
                     <PopUpFavorite removeFavorite={!isFavorite} />

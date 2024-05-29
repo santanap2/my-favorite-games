@@ -29,14 +29,14 @@ export default function NotFoundPage() {
       <div className="mt-24 xxl:mt-20 sm:w-[95%] flex flex-col gap-10 items-center justify-start z-50">
         <div className="flex gap-1 w-full items-center justify-center">
           <SmileySad weight="duotone" className="text-emerald-600 text-5xl" />
-          <h1 className="font-regular text-xl font-semibold">
+          <h1 className="text-slate-100 font-regular text-xl font-semibold">
             Página não encontrada.
           </h1>
         </div>
         <button
           type="button"
           onClick={() => router.push('/home')}
-          className="bg-emerald-500 w-fit px-12 sm:w-full h-10 rounded shadow-md text-white hover:bg-emerald-600 hover:shadow-lg font-light cursor-pointer"
+          className="bg-emerald-500 w-fit px-12 sm:w-full h-10 rounded shadow-md text-slate-100 hover:bg-emerald-600 hover:shadow-lg font-light cursor-pointer"
         >
           Retornar para a página inicial
         </button>
