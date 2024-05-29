@@ -7,7 +7,7 @@ export default function NotFoundProducts() {
 
   return (
     <div className="w-full flex flex-col gap-6 justify-center items-center">
-      <span className="w-full text-sm text-center animation-opacity transition-all">
+      <span className="w-full text-sm text-center animation-opacity transition-all text-slate-100">
         Nenhum produto encontrado, tente novamente.
       </span>
 
