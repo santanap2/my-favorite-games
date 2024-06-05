@@ -48,11 +48,11 @@ export default function Home({ searchParams }: ISearchParams) {
   }, [])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full animation-opacity transition-all">
+    <div className="mt-24 xxl:mt-20 w-full transition-all">
       <title>{headerSearch ? `${pageTitle} - Busca` : `${pageTitle}`}</title>
       <LateralFilters />
 
-      <div className="flex justify-center items-center w-full">
+      <div className="flex justify-center items-center w-full animation-opacity">
         <div
           className={`${
             error?.message === 'Request failed with status code 404'

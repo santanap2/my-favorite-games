@@ -10,7 +10,7 @@ export default function Contato() {
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
       <title>{`Contato - ${pageTitle}`}</title>
-      <div className=" w-full h-full flex flex-col gap-10 text-slate-800 sm:gap-6">
+      <div className=" w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Chat
             weight="fill"
@@ -20,7 +20,7 @@ export default function Contato() {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded shadow-md">
+          <div className="flex flex-col gap-4 bg-slate-800 w-80 px-6 py-4 rounded shadow-md">
             <h1 className="text-lg font-semibold">Horário de atendimento</h1>
 
             <div className="flex gap-2 items-center justify-start">
@@ -29,7 +29,7 @@ export default function Contato() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded shadow-md">
+          <div className="flex flex-col gap-4 bg-slate-800 w-80 px-6 py-4 rounded shadow-md">
             <h1 className="font-semibold text-lg">Atendimento via WhatsApp</h1>
 
             <Link
@@ -61,7 +61,7 @@ export default function Contato() {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-4 bg-white w-80 px-6 py-4 rounded shadow-md">
+          <div className="flex flex-col gap-4 bg-slate-800 w-80 px-6 py-4 rounded shadow-md">
             <h1 className="font-semibold text-lg">Atendimento via E-mail</h1>
 
             <Link

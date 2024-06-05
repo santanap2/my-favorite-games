@@ -58,7 +58,7 @@ export default function MeusGames() {
     <>
       {userError && null}
       {!userError && (
-        <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
+        <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus games`}</title>
 
           <LateralMyAccount />
