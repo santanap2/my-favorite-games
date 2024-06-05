@@ -91,13 +91,13 @@ export default function GameId({ params: { id } }: IGameIDParams) {
   }, [isFavorite])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
+    <div className="mt-24 xxl:mt-20 w-full h-full transition-all">
       <title>{`${productData?.data.data.name} - ${pageTitle}`}</title>
       <LateralFilters />
       {productIsLoading ? (
         <GameIdSkeleton />
       ) : (
-        <div className="w-full h-full">
+        <div className="w-full h-full animation-opacity">
           <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
             <Link
               href="/"

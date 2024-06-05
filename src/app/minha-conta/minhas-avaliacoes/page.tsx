@@ -57,7 +57,7 @@ export default function MinhasAvaliacoes() {
     <>
       {userError && null}
       {!userError && (
-        <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
+        <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`Minhas avaliações - ${pageTitle}`}</title>
           <LateralMyAccount />
 

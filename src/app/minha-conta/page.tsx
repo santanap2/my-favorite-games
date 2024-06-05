@@ -69,7 +69,7 @@ export default function MinhaConta() {
     <>
       {userError && null}
       {!userError && (
-        <div className="w-full animation-opacity transition-all">
+        <div className="w-full">
           <title>{`${
             userIsLoading ? 'Minha conta' : userData?.data.data.name
           } - ${pageTitle}`}</title>

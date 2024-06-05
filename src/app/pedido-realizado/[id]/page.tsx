@@ -41,7 +41,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
     <>
       {userError && null}
       {!userError && (
-        <div className="w-full animation-opacity transition-all text-slate-100">
+        <div className="w-full text-slate-100">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
           <LateralMyAccount />

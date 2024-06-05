@@ -136,7 +136,7 @@ export default function LateralFilters() {
                         onChange={() => categoriesHandler(name)}
                         value={name}
                       />
-                      <span className="text-slate-200 tracking-wider text-sm font-light">
+                      <span className="text-slate-200 text-sm font-light">
                         {namePt}
                       </span>
                     </label>

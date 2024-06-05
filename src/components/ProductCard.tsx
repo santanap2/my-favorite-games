@@ -46,11 +46,7 @@ export default function ProductCard({
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
-              {screenSize < 600
-                ? name.length > 26
-                  ? `${name.slice(0, 26)}...`
-                  : name
-                : name}
+              { name.length > 26 ? `${name.slice(0, 27)}...` : name }
             </h1>
           </Link>
 
