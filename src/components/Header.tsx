@@ -190,7 +190,7 @@ export default function Header() {
           </form>
 
           <Link
-            href={isAuthenticated ? '/minha-conta' : '/login'}
+            href={isAuthenticated ? '/minha-conta' : '/api/auth/signin'}
             className="flex items-center justify-center hover:underline xl:hidden relative"
             onMouseEnter={() => {
               setHoverBtn((prev) => ({ ...prev, user: true }))
@@ -247,7 +247,7 @@ export default function Header() {
           </button>
         )}
         <Link
-          href={isAuthenticated ? '/minha-conta' : '/login'}
+          href={isAuthenticated ? '/minha-conta' : '/api/auth/signin'}
           className="flex items-center justify-center hover:underline relative"
         >
           <span className="uppercase font-semibold text-xs sm:hidden">
