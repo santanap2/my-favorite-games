@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { IUser } from '@/interfaces'
 import { requestLogin } from '@/services'
 import NextAuth from 'next-auth'
@@ -13,6 +15,7 @@ export const {
   pages: {
     signIn: '/login',
   },
+
   providers: [
     Credentials({
       credentials: {
@@ -32,18 +35,21 @@ export const {
           },
         )
 
-        if (response && response.status === 200) {
-          console.log('Login autorizado', response.data)
+        if (response && response.status === 200)
           return {
             id: response.data.userData.id,
             email: response.data.userData.email,
             name: response.data.userData.name,
           }
-          // redirect('/minha-conta')
-        }
 
         return null
       },
     }),
   ],
+
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user }
+    },
+  },
 })

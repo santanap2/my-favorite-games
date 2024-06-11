@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import {
   // Roboto,
-  Raleway,
+  // Raleway,
   // Quicksand,
   // Inter,
-  // Exo_2 as Exo2,
+  Exo_2 as Exo2,
 } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -13,6 +13,7 @@ import Footer from '@/components/Footer'
 import { ContextGamesPlatform } from '@/context/Provider'
 import ShoppingCart from '@/components/ShoppingCart'
 import QueryProvider from '@/context/QueryProvider'
+import { SessionProvider } from 'next-auth/react'
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -28,16 +29,16 @@ import QueryProvider from '@/context/QueryProvider'
 //   subsets: ['latin'],
 //   weight: ['300', '400', '500', '600', '700'],
 // })
-
-const raleway = Raleway({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-})
-
-// const exo2 = Exo2({
+//
+// const raleway = Raleway({
 //   subsets: ['latin'],
 //   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 // })
+
+const exo2 = Exo2({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
 
 export const metadata: Metadata = {
   title: 'My favorite games',
@@ -46,25 +47,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ContextGamesPlatform>
-      <html lang="en">
-        <body
-          className={`${raleway.className} bg-slate-900 overflow-x-hidden background`}
-        >
-          <div className="flex w-full items-center justify-start flex-col">
-            <div className="flex flex-col min-h-screen justify-between items-center w-full">
-              <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
-                <QueryProvider>
-                  <Header />
-                  <ShoppingCart />
-                  {children}
-                </QueryProvider>
+    <html lang="en">
+      <ContextGamesPlatform>
+        <SessionProvider>
+          <body
+            className={`${exo2.className} bg-slate-900 overflow-x-hidden background`}
+          >
+            <div className="flex w-full items-center justify-start flex-col">
+              <div className="flex flex-col min-h-screen justify-between items-center w-full">
+                <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
+                  <QueryProvider>
+                    <Header />
+                    <ShoppingCart />
+                    {children}
+                  </QueryProvider>
+                </div>
+                <Footer />
               </div>
-              <Footer />
             </div>
-          </div>
-        </body>
-      </html>
-    </ContextGamesPlatform>
+          </body>
+        </SessionProvider>
+      </ContextGamesPlatform>
+    </html>
   )
 }

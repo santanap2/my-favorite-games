@@ -6,7 +6,7 @@ export const getUserByToken = async () => {
   return result
 }
 
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmail = async (email?: string | null) => {
   const result = await api.get(`/get-user-by-email/${email}`)
   return result
 }
