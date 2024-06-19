@@ -76,7 +76,7 @@ export default function RedefinirSenha() {
           className="w-48 h-10 bg-emerald-500 text-slate-200 rounded text-sm font-light shadow hover:bg-emerald-600"
           onClick={() => {
             setRegisterResponse({ success: '', error: '' })
-            router.push('/login')
+            router.push('/api/auth/signin')
           }}
         >
           Voltar

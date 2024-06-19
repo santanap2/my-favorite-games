@@ -9,6 +9,7 @@ import {
   ThumbsUp,
   UserCircle,
 } from '@phosphor-icons/react'
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -70,13 +71,13 @@ export default function MyAccountPopUp() {
         <ThumbsUp weight="duotone" className="text-xl text-emerald-500" />
       </Link>
 
-      <Link
-        href={links.logout}
+      <button
         className="text-sm text-orange-600 font-semibold hover:underline transition-all mt-2 flex gap-2"
+        onClick={() => signOut({ redirect: true, callbackUrl: '/home' })}
       >
         <span>Sair</span>
         <SignOut weight="duotone" className="text-xl" />
-      </Link>
+      </button>
     </div>
   )
 }

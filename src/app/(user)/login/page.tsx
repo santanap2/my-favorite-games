@@ -4,14 +4,15 @@
 import React from 'react'
 import { pageTitle } from '@/helpers'
 import LoginForm from './_components/LoginForm'
-import RegisterButton from './_components/RegisterButton'
 import { useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { Warning } from '@phosphor-icons/react'
 
 export default function Login({ errorMessage }: { errorMessage?: string }) {
   const { status } = useSession()
   if (status === 'authenticated') redirect('/minha-conta')
+
+  const router = useRouter()
 
   return (
     <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6">
@@ -41,7 +42,13 @@ export default function Login({ errorMessage }: { errorMessage?: string }) {
           </span>
           <div className="w-40 border-t sm:w-full" />
         </div>
-        <RegisterButton />
+        <button
+          type="button"
+          className="w-48 h-10 bg-emerald-500 text-slate-50 rounded text-sm font-light shadow hover:bg-emerald-600 transition-all"
+          onClick={() => router.push('/cadastro')}
+        >
+          Crie sua conta
+        </button>
       </div>
     </div>
   )

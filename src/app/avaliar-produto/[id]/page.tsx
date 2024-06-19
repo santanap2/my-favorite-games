@@ -41,7 +41,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
     userError &&
     userError.message === 'Request failed with status code 401'
   )
-    redirect('/login')
+    redirect('/api/auth/signin')
 
   const {
     data: gameData,

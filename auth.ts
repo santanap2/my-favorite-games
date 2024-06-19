@@ -9,7 +9,6 @@ export const {
   handlers: { GET, POST },
   auth,
   signIn,
-  signOut,
   unstable_update: unstableUpdate,
 } = NextAuth({
   pages: {
@@ -44,6 +43,13 @@ export const {
   callbacks: {
     async jwt({ token, user }) {
       return { ...token, ...user }
+    },
+
+    async session({ session, token }) {
+      return {
+        ...session,
+        user: token,
+      }
     },
   },
 })

@@ -33,7 +33,7 @@ export default function Pagamento() {
     userError &&
     userError.message === 'Request failed with status code 401'
   )
-    redirect('/login')
+    redirect('/api/auth/signin')
 
   const { data, refetch, isLoading } = useQuery({
     queryKey: ['cart'],
@@ -206,7 +206,9 @@ export default function Pagamento() {
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.bankSlip ? 'text-emerald-500' : 'text-slate-200'
+                      paymentMethod.bankSlip
+                        ? 'text-emerald-500'
+                        : 'text-slate-200'
                     } sm:text-base`}
                   >
                     Boleto bancário

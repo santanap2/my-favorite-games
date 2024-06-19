@@ -15,8 +15,8 @@ import { usePathname, useRouter } from 'next/navigation'
 import { CSSTransition } from 'react-transition-group'
 import { getUserCart } from '@/services'
 import { useQuery } from '@tanstack/react-query'
-import { getUserByToken } from '@/services/user.requests'
 import MyAccountPopUp from './MyAccountPopUp'
+import { useSession } from 'next-auth/react'
 
 export default function Header() {
   const {
@@ -28,8 +28,10 @@ export default function Header() {
     setShowSearchInputMobile,
     screenSize,
     loading,
-    isAuthenticated,
   } = useContext(GamesPlatformContext)
+
+  const { data: session, status } = useSession()
+  const isAuthenticated = status === 'authenticated'
 
   const [hoverBtn, setHoverBtn] = useState({
     search: false,
@@ -59,18 +61,7 @@ export default function Header() {
     retry: false,
   })
 
-  const {
-    data: userData,
-    isLoading: userIsLoading,
-    refetch: userRefetch,
-  } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
-
   useEffect(() => {
-    userRefetch()
     cartRefetch()
   }, [loading.cart])
 
@@ -202,10 +193,10 @@ export default function Header() {
           >
             <span className="uppercase font-semibold text-xs">
               {isAuthenticated
-                ? userIsLoading
-                  ? 'Carregando...'
-                  : userData?.data.data.name.split(' ')[0]
-                : 'Entrar'}
+                ? session?.user?.name?.split(' ')[0]
+                : status === 'loading'
+                  ? ''
+                  : 'Entrar'}
             </span>
             <UserCircle
               className="text-3xl"
@@ -252,10 +243,10 @@ export default function Header() {
         >
           <span className="uppercase font-semibold text-xs sm:hidden">
             {isAuthenticated
-              ? userIsLoading
-                ? 'Carregando...'
-                : userData?.data.data.name.split(' ')[0]
-              : 'Entrar'}
+              ? session?.user?.name?.split(' ')[0]
+              : status === 'loading'
+                ? ''
+                : 'Entrar'}
           </span>
           <UserCircle
             className="text-3xl"

@@ -179,7 +179,7 @@ export default function Cadastro() {
         <button
           type="button"
           className="w-48 h-10 bg-emerald-500 text-slate-100 rounded text-sm font-light shadow hover:bg-emerald-600 transition-all"
-          onClick={() => router.push('/login')}
+          onClick={() => router.push('/api/auth/signin')}
         >
           Voltar
         </button>

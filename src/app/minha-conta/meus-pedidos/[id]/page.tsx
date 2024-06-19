@@ -29,7 +29,7 @@ export default function PedidoId({ params: { id } }: IGameIDParams) {
     userError &&
     userError.message === 'Request failed with status code 401'
   )
-    redirect('/login')
+    redirect('/api/auth/signin')
 
   const {
     data: orderData,

@@ -34,7 +34,7 @@ export default function MeusDados() {
     userError &&
     userError.message === 'Request failed with status code 401'
   )
-    redirect('/login')
+    redirect('/api/auth/signin')
 
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
 

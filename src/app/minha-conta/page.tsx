@@ -18,8 +18,12 @@ import WelcomeUserSkeleton from '@/components/Skeletons/WelcomeUserSkeleton'
 import { useSession } from 'next-auth/react'
 
 export default function MinhaConta() {
-  const { data: session, status } = useSession()
-  if (status === 'unauthenticated') redirect('/login')
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/api/auth/signin')
+    },
+  })
 
   const { data: userData, isLoading } = useQuery({
     queryKey: ['userData'],

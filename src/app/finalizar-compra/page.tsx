@@ -8,7 +8,7 @@ import { IGame } from '@/interfaces'
 import { getUserCart } from '@/services'
 import { Wallet } from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function FinalizarCompra() {
@@ -131,7 +131,7 @@ export default function FinalizarCompra() {
               type="button"
               onClick={() => {
                 if (!isAuthenticated) {
-                  router.replace('/login')
+                  redirect('/api/auth/signin')
                   return
                 }
                 router.push('/finalizar-compra/pagamento')

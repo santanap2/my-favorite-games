@@ -29,7 +29,7 @@ export default function MinhasAvaliacoes() {
     userError &&
     userError.message === 'Request failed with status code 401'
   )
-    redirect('/login')
+    redirect('/api/auth/signin')
 
   const { data: userEvaluationsData, refetch: userEvaluationsRefetch } =
     useQuery({
