@@ -111,11 +111,11 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
             <title>{`Editar avaliação - ${pageTitle}`}</title>
             <LateralMyAccount />
 
-            <div className=" w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className=" w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  className="text-emerald-500 sm:text-3xl text-5xl"
+                  className="text-indigo-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Editar avaliação
@@ -126,7 +126,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                 <div className="flex w-full sm:justify-start items-center gap-4">
                   <Link
                     href={`/game/${userEvaluationsData?.data.data.product.id}`}
-                    className="text-xl tracking-wide font-light text-slate-600"
+                    className="text-xl tracking-wide font-light text-neutral-600"
                   >
                     <img
                       src={userEvaluationsData?.data.data?.product.image}
@@ -136,7 +136,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                   </Link>
                   <Link
                     href={`/game/${userEvaluationsData?.data.data.product.id}`}
-                    className="text-xl tracking-wide font-light text-slate-100 hover:underline"
+                    className="text-xl tracking-wide font-light text-neutral-100 hover:underline"
                   >
                     {userEvaluationsData?.data.data.product.name}
                   </Link>
@@ -144,7 +144,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
 
                 <form
                   onSubmit={handleSubmit(handleFormSubmit)}
-                  className="w-full bg-slate-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
+                  className="w-full bg-neutral-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
                 >
                   <label className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
@@ -157,13 +157,13 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                           key={index}
                           weight={index < stars ? 'fill' : 'duotone'}
                           className={`${
-                            index < stars ? 'text-yellow-500' : 'text-slate-600'
+                            index < stars ? 'text-yellow-500' : 'text-neutral-600'
                           } text-4xl cursor-pointer`}
                           onClick={() => setStars(index + 1)}
                         />
                       ))}
 
-                      <span className="ml-4 text-slate-200">{`( ${stars} )`}</span>
+                      <span className="ml-4 text-neutral-200">{`( ${stars} )`}</span>
                     </div>
                   </label>
 
@@ -173,7 +173,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="bg-slate-700 border border-slate-600 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-slate-500"
+                      className="bg-neutral-700 border border-neutral-600 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-neutral-500"
                       maxLength={500}
                       id="description"
                       placeholder={userEvaluationsData?.data.data.description}
@@ -186,9 +186,9 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                         type="button"
                         className={`p-2 sm:w-full w-64 ${
                           response.success
-                            ? 'bg-emerald-500 hover:bg-emerald-600'
-                            : 'bg-emerald-500 hover:bg-emerald-600'
-                        } text-slate-100 font-light rounded shadow-md  transition-all flex items-center justify-center`}
+                            ? 'bg-indigo-500 hover:bg-indigo-600'
+                            : 'bg-indigo-500 hover:bg-indigo-600'
+                        } text-neutral-100 font-light rounded shadow-md  transition-all flex items-center justify-center`}
                         onClick={() =>
                           router.push('/minha-conta/minhas-avaliacoes')
                         }
@@ -198,7 +198,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     ) : (
                       <button
                         type="submit"
-                        className="p-2 sm:w-full w-64 bg-emerald-500 text-slate-100 font-light rounded shadow-md hover:bg-emerald-600 transition-all flex items-center justify-center"
+                        className="p-2 sm:w-full w-64 bg-indigo-500 text-neutral-100 font-light rounded shadow-md hover:bg-indigo-600 transition-all flex items-center justify-center"
                         onClick={() => setLoading(true)}
                       >
                         {loading ? <LoadingSpinner /> : 'Avaliar produto'}
@@ -220,10 +220,10 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     {response.success && (
                       <div className="flex gap-2 items-center justify-center w-fit">
                         <CheckCircle
-                          className="text-2xl text-emerald-500"
+                          className="text-2xl text-indigo-500"
                           weight="duotone"
                         />
-                        <p className="text-emerald-500 text-sm font-light">
+                        <p className="text-indigo-500 text-sm font-light">
                           {response.success}
                         </p>
                       </div>

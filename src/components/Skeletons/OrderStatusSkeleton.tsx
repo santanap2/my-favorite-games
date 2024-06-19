@@ -15,14 +15,14 @@ export default function OrderStatusSkeleton() {
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-0 z-10">
         <Storefront
           weight="fill"
-          className="rounded-3xl p-2 border-2 border-slate-500 text-slate-500 loading-skeleton text-6xl"
+          className="rounded-3xl p-2 border-2 border-neutral-500 text-neutral-500 loading-skeleton text-6xl"
         />
         <div className="flex flex-col items-center justify-center h-full">
           <Circle
             weight="fill"
-            className="text-slate-500 rounded-3xl bg-slate-500 text-4xl"
+            className="text-neutral-500 rounded-3xl bg-neutral-500 text-4xl"
           />
-          <span className="text-slate-500 text-sm text-center">
+          <span className="text-neutral-500 text-sm text-center">
             Pedido realizado
           </span>
         </div>
@@ -31,15 +31,15 @@ export default function OrderStatusSkeleton() {
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-32 z-10 sm:left-24 xs:left-20">
         <CurrencyCircleDollar
           weight="fill"
-          className="rounded-3xl p-2 border-2 border-slate-500 text-slate-500 loading-skeleton text-6xl"
+          className="rounded-3xl p-2 border-2 border-neutral-500 text-neutral-500 loading-skeleton text-6xl"
         />
 
         <div className="flex flex-col items-center justify-center">
           <Circle
             weight="fill"
-            className="text-slate-500 rounded-3xl bg-slate-500 text-4xl"
+            className="text-neutral-500 rounded-3xl bg-neutral-500 text-4xl"
           />
-          <span className="text-slate-500 text-sm text-center">
+          <span className="text-neutral-500 text-sm text-center">
             Pagamento confirmado
           </span>
         </div>
@@ -48,14 +48,14 @@ export default function OrderStatusSkeleton() {
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-64 z-10 sm:left-48 xs:left-40">
         <HourglassMedium
           weight="fill"
-          className="rounded-3xl p-2 border-2 border-slate-500 text-slate-500 loading-skeleton text-6xl"
+          className="rounded-3xl p-2 border-2 border-neutral-500 text-neutral-500 loading-skeleton text-6xl"
         />
         <div className="flex flex-col items-center justify-center">
           <Circle
             weight="fill"
-            className="text-slate-500 rounded-3xl bg-slate-500 text-4xl"
+            className="text-neutral-500 rounded-3xl bg-neutral-500 text-4xl"
           />
-          <span className="text-slate-500 text-sm text-center">
+          <span className="text-neutral-500 text-sm text-center">
             Processando pedido
           </span>
         </div>
@@ -64,14 +64,14 @@ export default function OrderStatusSkeleton() {
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-96 z-10 sm:left-72 xs:left-60">
         <Package
           weight="fill"
-          className="rounded-3xl p-2 border-2 border-slate-500 text-slate-500 loading-skeleton text-6xl"
+          className="rounded-3xl p-2 border-2 border-neutral-500 text-neutral-500 loading-skeleton text-6xl"
         />
         <div className="flex flex-col items-center justify-center">
           <Circle
             weight="fill"
-            className="text-slate-500 rounded-3xl bg-slate-500 text-4xl"
+            className="text-neutral-500 rounded-3xl bg-neutral-500 text-4xl"
           />
-          <span className="text-slate-500 text-sm text-center">
+          <span className="text-neutral-500 text-sm text-center">
             Pedido concluído
           </span>
         </div>

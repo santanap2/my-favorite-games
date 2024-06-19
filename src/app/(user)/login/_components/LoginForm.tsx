@@ -49,7 +49,7 @@ export default function LoginForm() {
       className="flex flex-col justify-center items-center gap-10 sm:w-full sm:gap-6"
     >
       <label htmlFor="email" className="flex flex-col gap-1">
-        <span className="text-sm font-semibold text-slate-100">Email</span>
+        <span className="text-sm font-semibold text-neutral-100">Email</span>
         <input
           {...register('email')}
           type="email"
@@ -58,7 +58,7 @@ export default function LoginForm() {
           placeholder="email@exemplo.com"
           className={`${
             errors.email && 'border border-red-500 border-opacity-70'
-          } bg-slate-700 h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow text-slate-200 placeholder:text-slate-500`}
+          } bg-neutral-700 h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow text-neutral-200 placeholder:text-neutral-500`}
         />
         {errors.email && (
           <span className="text-sm font-light text-red-500">
@@ -69,10 +69,10 @@ export default function LoginForm() {
 
       <label htmlFor="password" className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold text-slate-100">Senha</span>
+          <span className="text-sm font-semibold text-neutral-100">Senha</span>
           <Link
             href="/redefinir-senha"
-            className="font-light text-sm text-emerald-600 hover:underline"
+            className="font-light text-sm text-indigo-600 hover:underline"
           >
             Esqueci a senha
           </Link>
@@ -85,7 +85,7 @@ export default function LoginForm() {
           placeholder="**********"
           className={`${
             errors.password && 'border border-red-500 border-opacity-70'
-          } bg-slate-700 h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow text-slate-200 placeholder:text-slate-500`}
+          } bg-neutral-700 h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow text-neutral-200 placeholder:text-neutral-500`}
         />
         {errors.password && (
           <span className="text-sm font-light text-red-500">
@@ -96,7 +96,7 @@ export default function LoginForm() {
 
       <label
         htmlFor="remember"
-        className="flex items-center justify-center gap-2 text-slate-100"
+        className="flex items-center justify-center gap-2 text-neutral-100"
       >
         <input {...register('rememberUser')} type="checkbox" id="remember" />
         <span>Lembre-me</span>
@@ -104,7 +104,7 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="w-80 h-10 flex items-center justify-center bg-emerald-500 font-light text-slate-100 rounded text-md shadow hover:bg-emerald-600 disabled:opacity-40 transition-all"
+        className="w-80 h-10 flex items-center justify-center bg-indigo-500 font-light text-neutral-100 rounded text-md shadow hover:bg-indigo-600 disabled:opacity-40 transition-all"
         disabled={buttonDisabled()}
       >
         Entrar

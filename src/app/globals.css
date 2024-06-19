@@ -184,12 +184,12 @@ input[type=number] {
 }
 
 .background {
-  background: linear-gradient(180deg, var(--emerald) 1%, var(--slate900) 35%);  
+  background: linear-gradient(180deg, var(--indigo) 1%, var(--neutral900) 35%);  
 }
 
 .footer-bg {
   background: rgb(2 6 23);
-  background: linear-gradient(0deg, var(--slate950) 50%, var(--slate900) 100%);
+  background: linear-gradient(0deg, var(--neutral950) 50%, var(--neutral900) 100%);
 }
 
 .user-product-card-bg {

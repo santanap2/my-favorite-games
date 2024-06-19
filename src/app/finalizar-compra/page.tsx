@@ -35,19 +35,19 @@ export default function FinalizarCompra() {
   }, [isLoading])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6 animation-opacity transition-all text-slate-100">
+    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6 animation-opacity transition-all text-neutral-100">
       <title>{`${pageTitle} - Finalizar compra`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">
         <Wallet
           weight="fill"
-          className="text-emerald-500 sm:text-3xl text-5xl"
+          className="text-indigo-500 sm:text-3xl text-5xl"
         />
         <h1 className="font-regular text-xl font-semibold">Finalizar compra</h1>
       </div>
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
-        <div className="w-[70%] bg-slate-800 rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
+        <div className="w-[70%] bg-neutral-800 rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
           {data?.data.data.products.map(
             (
               { category: { namePt }, id, image, name, price }: IGame,
@@ -58,7 +58,7 @@ export default function FinalizarCompra() {
                 className={`flex items-center w-full gap-3  p-4 lg:p-2 ${
                   index === data?.data.data.products.length - 1
                     ? ''
-                    : 'border-b border-slate-600'
+                    : 'border-b border-neutral-600'
                 }`}
               >
                 <img
@@ -76,7 +76,7 @@ export default function FinalizarCompra() {
                       {namePt}
                     </h3>
                   </div>
-                  <div className="flex flex-col text-slate-100 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-slate-100">
+                  <div className="flex flex-col text-neutral-100 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-neutral-100">
                     <span>No PIX com 10% de desconto</span>
                     <span>{`Ou em até 3x de R$${portionPrice(
                       price,
@@ -85,7 +85,7 @@ export default function FinalizarCompra() {
                   </div>
                 </div>
 
-                <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-emerald-500 lg:text-sm lg:text-right lg:w-20">
+                <h2 className="font-extrabold tracking-wider text-lg min-w-fit text-indigo-500 lg:text-sm lg:text-right lg:w-20">
                   {`R$ ${priceToBRL(price)}`}
                 </h2>
               </div>
@@ -93,22 +93,22 @@ export default function FinalizarCompra() {
           )}
         </div>
 
-        <div className="bg-slate-800 rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
-          <h1 className="font-regular text-lg font-semibold uppercase text-slate-100 tracking-tighter">
+        <div className="bg-neutral-800 rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
+          <h1 className="font-regular text-lg font-semibold uppercase text-neutral-100 tracking-tighter">
             Resumo
           </h1>
 
-          <div className="text-slate-300 lg:text-sm">
+          <div className="text-neutral-300 lg:text-sm">
             <span>Valor total: </span>
             <span className="font-semibold">{`R$ ${
               calcSum(data?.data.data.products || []).string
             }`}</span>
-            <h3 className="w-full text-end text-slate-300 text-sm font-light">{`(Em até 3x de R$${priceToBRL(
+            <h3 className="w-full text-end text-neutral-300 text-sm font-light">{`(Em até 3x de R$${priceToBRL(
               calcSum(data?.data.data.products || []).number / 3,
             )})`}</h3>
           </div>
 
-          <div className="w-full h-30 bg-slate-900 shadow-md p-4 rounded flex flex-col items-center justify-center text-emerald-500">
+          <div className="w-full h-30 bg-neutral-900 shadow-md p-4 rounded flex flex-col items-center justify-center text-indigo-500">
             <div className="text-sm">
               <span>Valor à vista no</span>
               <span className="font-semibold">{` PIX`}</span>
@@ -136,7 +136,7 @@ export default function FinalizarCompra() {
                 }
                 router.push('/finalizar-compra/pagamento')
               }}
-              className={`w-full bg-emerald-500 h-10 rounded text-slate-100 font-light text-regular shadow-md hover:bg-emerald-600 transition-all lg:px-4 ${
+              className={`w-full bg-indigo-500 h-10 rounded text-neutral-100 font-light text-regular shadow-md hover:bg-indigo-600 transition-all lg:px-4 ${
                 !isAuthenticated && 'sm:text-sm'
               }`}
             >
@@ -148,7 +148,7 @@ export default function FinalizarCompra() {
             <button
               type="button"
               onClick={() => router.push('/home')}
-              className="w-full bg-slate-800 h-10 rounded text-emerald-500 border border-emerald-500 font-light text-regular hover:bg-slate-900 hover:border-emerald-600 hover:text-emerald-600 transition-all md:px-0 xl:px-4 xl:py-2"
+              className="w-full bg-neutral-800 h-10 rounded text-indigo-500 border border-indigo-500 font-light text-regular hover:bg-neutral-900 hover:border-indigo-600 hover:text-indigo-600 transition-all md:px-0 xl:px-4 xl:py-2"
             >
               Continuar comprando
             </button>

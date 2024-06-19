@@ -12,71 +12,71 @@ export default function LateralFiltersSkeleton() {
           <h1 className="text-sm font-semibold">Tópico</h1>
           <div id="lateral-filters" className="flex flex-col gap-3 mt-3">
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
 
             <div className="flex justify-start items-center gap-3 w-full cursor-default">
-              <div className="w-4 h-4 rounded bg-slate-100 loading-skeleton shadow-md" />
-              <span className="tracking-wider text-sm font-light bg-slate-100 loading-skeleton rounded text-transparent shadow-sm w-full">
+              <div className="w-4 h-4 rounded bg-neutral-100 loading-skeleton shadow-md" />
+              <span className="tracking-wider text-sm font-light bg-neutral-100 loading-skeleton rounded text-transparent shadow-sm w-full">
                 {'a'}
               </span>
             </div>
@@ -84,26 +84,26 @@ export default function LateralFiltersSkeleton() {
             <div className="flex flex-col gap-3 mt-5">
               <h1 className="text-sm font-semibold">Preço</h1>
               <div className="w-full flex items-center justify-center gap-4">
-                <span className="uppercase font-semibold text-xs w-fit bg-slate-100 loading-skeleton rounded text-transparent">
+                <span className="uppercase font-semibold text-xs w-fit bg-neutral-100 loading-skeleton rounded text-transparent">
                   Min:
                 </span>
                 <input
                   id="min-price"
                   type="text"
                   name="minPrice"
-                  className="w-32 rounded shadow-md hover:shadow-md focus:outline-none p-2 bg-slate-100 loading-skeleton cursor-default"
+                  className="w-32 rounded shadow-md hover:shadow-md focus:outline-none p-2 bg-neutral-100 loading-skeleton cursor-default"
                 />
               </div>
 
               <div className="w-full flex items-center justify-center gap-4">
-                <span className="uppercase font-semibold text-xs w-fit bg-slate-100 loading-skeleton rounded text-transparent">
+                <span className="uppercase font-semibold text-xs w-fit bg-neutral-100 loading-skeleton rounded text-transparent">
                   Min:
                 </span>
                 <input
                   id="min-price"
                   type="text"
                   name="minPrice"
-                  className="w-32 rounded shadow-md hover:shadow-md focus:outline-none p-2 bg-slate-100 loading-skeleton cursor-default"
+                  className="w-32 rounded shadow-md hover:shadow-md focus:outline-none p-2 bg-neutral-100 loading-skeleton cursor-default"
                 />
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function LateralFiltersSkeleton() {
       <button
         type="submit"
         form="lateral-filters"
-        className="w-52 bg-slate-100 rounded p-2 font-regular text-sm shadow-sm cursor-default mt-12 font-light text-transparent loading-skeleton"
+        className="w-52 bg-neutral-100 rounded p-2 font-regular text-sm shadow-sm cursor-default mt-12 font-light text-transparent loading-skeleton"
       >
         Filtrar
       </button>

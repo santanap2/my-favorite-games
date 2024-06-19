@@ -10,35 +10,35 @@ export default function Contato() {
   return (
     <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
       <title>{`Contato - ${pageTitle}`}</title>
-      <div className=" w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6">
+      <div className=" w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Chat
             weight="fill"
-            className="text-emerald-500 sm:text-3xl text-5xl"
+            className="text-indigo-500 sm:text-3xl text-5xl"
           />
           <h1 className="font-regular text-xl font-semibold">Contato</h1>
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <div className="flex flex-col gap-4 bg-slate-800 w-80 px-6 py-4 rounded shadow-md">
+          <div className="flex flex-col gap-4 bg-neutral-800 w-80 px-6 py-4 rounded shadow-md">
             <h1 className="text-lg font-semibold">Horário de atendimento</h1>
 
             <div className="flex gap-2 items-center justify-start">
-              <Clock weight="bold" className="text-emerald-400 text-3xl" />
+              <Clock weight="bold" className="text-indigo-400 text-3xl" />
               <h3 className="text-sm">10:00h às 20:00h</h3>
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 bg-slate-800 w-80 px-6 py-4 rounded shadow-md">
+          <div className="flex flex-col gap-4 bg-neutral-800 w-80 px-6 py-4 rounded shadow-md">
             <h1 className="font-semibold text-lg">Atendimento via WhatsApp</h1>
 
             <Link
               href="https://api.whatsapp.com/send?phone=5531998695219"
-              className="flex gap-2 items-start justify-start hover:text-emerald-400 text-sm font-light"
+              className="flex gap-2 items-start justify-start hover:text-indigo-400 text-sm font-light"
             >
               <WhatsappLogo
                 weight="duotone"
-                className="text-emerald-400 text-3xl"
+                className="text-indigo-400 text-3xl"
               />
               <h3 className="flex flex-col">
                 <span>(31) 99869-5219</span>
@@ -48,11 +48,11 @@ export default function Contato() {
 
             <Link
               href="https://api.whatsapp.com/send?phone=553799042144"
-              className="flex gap-2 items-start justify-start hover:text-emerald-400 text-sm font-light"
+              className="flex gap-2 items-start justify-start hover:text-indigo-400 text-sm font-light"
             >
               <WhatsappLogo
                 weight="duotone"
-                className="text-emerald-400 text-3xl"
+                className="text-indigo-400 text-3xl"
               />
               <h3 className="flex flex-col">
                 <span>(37) 9904-2144</span>
@@ -61,16 +61,16 @@ export default function Contato() {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-4 bg-slate-800 w-80 px-6 py-4 rounded shadow-md">
+          <div className="flex flex-col gap-4 bg-neutral-800 w-80 px-6 py-4 rounded shadow-md">
             <h1 className="font-semibold text-lg">Atendimento via E-mail</h1>
 
             <Link
               href="mailto:suporte@myfavgames.com"
-              className="flex gap-2 items-start justify-start hover:text-emerald-400 text-sm font-light"
+              className="flex gap-2 items-start justify-start hover:text-indigo-400 text-sm font-light"
             >
               <Envelope
                 weight="duotone"
-                className="text-emerald-400 text-3xl"
+                className="text-indigo-400 text-3xl"
               />
               <h3 className="flex flex-col">
                 <span>suporte@myfavgames.com</span>

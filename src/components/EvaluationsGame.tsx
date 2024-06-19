@@ -24,7 +24,7 @@ export default function EvaluationsGame({ gameId }: { gameId: string }) {
           }: IEvaluation) => (
             <div
               key={id}
-              className="w-full h-fit bg-slate-800 p-4 rounded shadow-md text-base text-slate-300 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit"
+              className="w-full h-fit bg-neutral-800 p-4 rounded shadow-md text-base text-neutral-300 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit"
             >
               <div className="flex flex-col">
                 <h1 className="font-bold">{name}</h1>

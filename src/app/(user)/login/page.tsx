@@ -18,9 +18,9 @@ export default function Login({ errorMessage }: { errorMessage?: string }) {
     <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6">
       <title>{`${pageTitle} - Entrar`}</title>
       <div
-        className={`px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-slate-800 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6 ${errorMessage && 'border border-red-500 border-opacity-70'}`}
+        className={`px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-neutral-800 shadow-md sm:w-full sm:py-3 sm:px-3 sm:gap-6 ${errorMessage && 'border border-red-500 border-opacity-70'}`}
       >
-        <h1 className="font-semibold text-xl text-slate-100 text-shadow sm:text-lg">
+        <h1 className="font-semibold text-xl text-neutral-100 text-shadow sm:text-lg">
           Fazer login
         </h1>
         <LoginForm />
@@ -37,14 +37,14 @@ export default function Login({ errorMessage }: { errorMessage?: string }) {
       <div className="flex flex-col gap-2 justify-center items-center sm:w-full">
         <div className="flex items-center justify-center gap-3 w-full">
           <div className="w-40 border-t sm:w-full" />
-          <span className="text-slate-200 font-light text-sm text-center sm:w-40">
+          <span className="text-neutral-200 font-light text-sm text-center sm:w-40">
             Novo na plataforma?
           </span>
           <div className="w-40 border-t sm:w-full" />
         </div>
         <button
           type="button"
-          className="w-48 h-10 bg-emerald-500 text-slate-50 rounded text-sm font-light shadow hover:bg-emerald-600 transition-all"
+          className="w-48 h-10 bg-indigo-500 text-neutral-50 rounded text-sm font-light shadow hover:bg-indigo-600 transition-all"
           onClick={() => router.push('/cadastro')}
         >
           Crie sua conta

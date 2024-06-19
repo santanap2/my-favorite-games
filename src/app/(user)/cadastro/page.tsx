@@ -17,7 +17,7 @@ export default function Cadastro() {
   return (
     <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6 animation-opacity transition-all">
       <title>{`${pageTitle} - Cadastro`}</title>
-      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-slate-800 text-slate-100 shadow-md sm:w-full sm:py-3 sm:gap-6">
+      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-neutral-800 text-neutral-100 shadow-md sm:w-full sm:py-3 sm:gap-6">
         <h1 className="font-semibold text-xl text-shadow sm:text-lg">
           Cadastre-se
         </h1>
@@ -35,7 +35,7 @@ export default function Cadastro() {
               placeholder="email@exemplo.com"
               className={`${
                 errors.registerUser?.email && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-slate-200 placeholder:text-slate-500`}
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
             />
             {errors.registerUser?.email && (
               <span className="text-sm font-light text-red-500">
@@ -53,7 +53,7 @@ export default function Cadastro() {
               placeholder="email@exemplo.com"
               className={`${
                 errors.registerUser?.email && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-slate-200 placeholder:text-slate-500`}
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
             />
             {errors.registerUser?.confirmEmail && (
               <span className="text-sm font-light text-red-500">
@@ -71,7 +71,7 @@ export default function Cadastro() {
               placeholder="Seu nome"
               className={`${
                 errors.registerUser?.name && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-slate-200 placeholder:text-slate-500`}
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
             />
             {errors.registerUser?.name && (
               <span className="text-sm font-light text-red-500">
@@ -90,7 +90,7 @@ export default function Cadastro() {
               maxLength={15}
               className={`${
                 errors.registerUser?.phone && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-slate-700 text-slate-200 placeholder:text-slate-500`}
+              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
             />
             {errors.registerUser?.phone && (
               <span className="text-sm font-light text-red-500">
@@ -109,7 +109,7 @@ export default function Cadastro() {
               placeholder="**********"
               className={`${
                 errors.registerUser?.password && 'border border-red-500'
-              } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-slate-700 text-slate-200 placeholder:text-slate-500`}
+              } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
             />
             {errors.registerUser?.password && (
               <span className="text-sm font-light text-red-500">
@@ -128,7 +128,7 @@ export default function Cadastro() {
               placeholder="**********"
               className={`${
                 errors.registerUser?.confirmPassword && 'border border-red-500'
-              } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-slate-700 text-slate-200 placeholder:text-slate-500`}
+              } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
             />
             {errors.registerUser?.confirmPassword && (
               <span className="text-sm font-light text-red-500">
@@ -139,7 +139,7 @@ export default function Cadastro() {
 
           <button
             type="submit"
-            className="w-80 h-10 bg-emerald-500 font-light text-slate-100 rounded text-regular shadow hover:bg-emerald-600 transition-all disabled:opacity-40 mt-6"
+            className="w-80 h-10 bg-indigo-500 font-light text-neutral-100 rounded text-regular shadow hover:bg-indigo-600 transition-all disabled:opacity-40 mt-6"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (
@@ -171,14 +171,14 @@ export default function Cadastro() {
       <div className="flex flex-col gap-2 justify-center items-center sm:w-full">
         <div className="flex items-center justify-center gap-3 w-full">
           <div className="w-40 border-t " />
-          <span className="font-light text-sm text-center sm:w-40 text-slate-100">
+          <span className="font-light text-sm text-center sm:w-40 text-neutral-100">
             Retornar para o Login
           </span>
           <div className="w-40 border-t " />
         </div>
         <button
           type="button"
-          className="w-48 h-10 bg-emerald-500 text-slate-100 rounded text-sm font-light shadow hover:bg-emerald-600 transition-all"
+          className="w-48 h-10 bg-indigo-500 text-neutral-100 rounded text-sm font-light shadow hover:bg-indigo-600 transition-all"
           onClick={() => router.push('/api/auth/signin')}
         >
           Voltar

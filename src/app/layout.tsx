@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <ContextGamesPlatform>
         <SessionProvider>
           <body
-            className={`${exo2.className} bg-slate-900 overflow-x-hidden background`}
+            className={`${exo2.className} bg-neutral-900 overflow-x-hidden background`}
           >
             <div className="flex w-full items-center justify-start flex-col">
               <div className="flex flex-col min-h-screen justify-between items-center w-full">

@@ -18,7 +18,7 @@ export default function CartProductCard({
   })
 
   return (
-    <div className="flex w-full gap-3 border-b border-slate-600 pb-4 sm:pb-2 animation-opacity transition-all">
+    <div className="flex w-full gap-3 border-b border-neutral-600 pb-4 sm:pb-2 animation-opacity transition-all">
       <img
         src={image}
         alt={name}
@@ -40,7 +40,7 @@ export default function CartProductCard({
 
           <button
             type="button"
-            className="text-xs font-regular tracking-wider uppercase underline hover:text-emerald-500"
+            className="text-xs font-regular tracking-wider uppercase underline hover:text-indigo-500"
             onClick={async () => {
               await removeItemFromCart(id.toString())
               refetch()

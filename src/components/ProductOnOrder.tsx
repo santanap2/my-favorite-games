@@ -17,7 +17,7 @@ export default function ProductOnOrder({
       className={`flex w-[600px] gap-3 pb-4 sm:max-w-full sm:w-full sm:pb-2 animation-opacity transition-all ${
         indexAndLength && indexAndLength?.index === indexAndLength.lenght - 1
           ? ''
-          : 'border-b border-slate-600'
+          : 'border-b border-neutral-600'
       }`}
     >
       <img
@@ -27,7 +27,7 @@ export default function ProductOnOrder({
       />
 
       <div className="flex flex-col items-start justify-center w-full">
-        <h1 className="font-semibold text-lg tracking-tight text-emerald-600 w-full">
+        <h1 className="font-semibold text-lg tracking-tight text-indigo-600 w-full">
           {name}
         </h1>
 
@@ -38,7 +38,7 @@ export default function ProductOnOrder({
               description.length > 160 ? description.slice(0, 160) : description
             }...`}</h4>
           </div>
-          <div className="font-black flex items-center justify-center text-emerald-600 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
+          <div className="font-black flex items-center justify-center text-indigo-600 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
             <h2>{`R$ ${priceToBRL(price)}`}</h2>
           </div>
         </div>

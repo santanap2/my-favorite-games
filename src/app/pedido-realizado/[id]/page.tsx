@@ -41,7 +41,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
     <>
       {userError && null}
       {!userError && (
-        <div className="w-full text-slate-100">
+        <div className="w-full text-neutral-100">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
           <LateralMyAccount />
@@ -50,14 +50,14 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
               <div className="flex gap-2 w-full items-center justify-center relative">
                 <ShoppingBagOpen
                   weight="fill"
-                  className="text-slate-100 relative text-6xl"
+                  className="text-neutral-100 relative text-6xl"
                 />
 
                 <h1 className="font-regular text-xl font-semibold relative">
                   Pedido realizado com sucesso!
                   <CheckCircle
                     weight="fill"
-                    className="absolute text-emerald-500 -bottom-4 -left-8 bg-slate-100 rounded-full text-3xl"
+                    className="absolute text-indigo-500 -bottom-4 -left-8 bg-neutral-100 rounded-full text-3xl"
                   />
                 </h1>
               </div>
@@ -74,7 +74,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
                   <OrderStatus order={orderData?.data.data} />
                   <OrderDetails order={orderData?.data.data} />
                   <button
-                    className="mt-6 bg-emerald-500 text-slate-100 sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-emerald-600 hover:shadow-lg flex gap-4 items-center justify-center"
+                    className="mt-6 bg-indigo-500 text-neutral-100 sm:w-full p-3 px-12 rounded font-light shadow-md hover:bg-indigo-600 hover:shadow-lg flex gap-4 items-center justify-center"
                     onClick={() => {
                       router.push(`/minha-conta/meus-pedidos/${id}`)
                     }}

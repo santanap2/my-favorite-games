@@ -54,11 +54,11 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
           <div className="mt-24 xxl:mt-20 w-full h-full">
             <title>{`Minhas avaliações - ${pageTitle}`}</title>
             <LateralMyAccount />
-            <div className=" w-full h-full flex flex-col gap-10 text-slate-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className=" w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  className="text-emerald-500 sm:text-3xl text-5xl"
+                  className="text-indigo-500 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Avaliação de produto
@@ -72,7 +72,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                     alt={userEvaluationsData?.data.data?.product.name}
                     className="rounded w-40 h-60 sm:w-24 sm:h-24 object-cover"
                   />
-                  <span className="text-xl tracking-wide font-light text-slate-100">
+                  <span className="text-xl tracking-wide font-light text-neutral-100">
                     {userEvaluationsData?.data.data.product.name}
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                   <span className="sm:text-sm font-semibold tracking-wide">
                     Produto avaliado em:
                   </span>
-                  <span className="text-sm tracking-wide font-light text-slate-200">
+                  <span className="text-sm tracking-wide font-light text-neutral-200">
                     {convertFullDate(userEvaluationsData?.data.data.created_at)}
                   </span>
                 </div>
@@ -103,11 +103,11 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                         className={`${
                           index < userEvaluationsData?.data.data.stars
                             ? 'text-yellow-500'
-                            : 'text-slate-600'
+                            : 'text-neutral-600'
                         } text-3xl`}
                       />
                     ))}
-                    <span className="ml-2 tracking-wide font-light text-slate-200">
+                    <span className="ml-2 tracking-wide font-light text-neutral-200">
                       {`( ${userEvaluationsData?.data.data.stars} )`}
                     </span>
                   </div>
@@ -119,13 +119,13 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                   </span>
 
                   {userEvaluationsData?.data.data.description ? (
-                    <div className="p-2 w-full min-w-fit bg-slate-700 rounded border border-slate-600 min-h-fit text-justify">
-                      <span className="text-sm tracking-wide font-light text-slate-200">
+                    <div className="p-2 w-full min-w-fit bg-neutral-700 rounded border border-neutral-600 min-h-fit text-justify">
+                      <span className="text-sm tracking-wide font-light text-neutral-200">
                         {userEvaluationsData?.data.data.description}
                       </span>
                     </div>
                   ) : (
-                    <span className="font-light text-sm text-slate-500">
+                    <span className="font-light text-sm text-neutral-500">
                       Você não forneceu nenhuma descrição para o produto.
                     </span>
                   )}
@@ -133,7 +133,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
 
                 <button
                   type="button"
-                  className="w-64 sm:w-full px-4 py-2 text-base text-slate-100 font-light rounded shadow-md bg-emerald-500 hover:bg-emerald-600 hover:shadow-lg transition-all"
+                  className="w-64 sm:w-full px-4 py-2 text-base text-neutral-100 font-light rounded shadow-md bg-indigo-500 hover:bg-indigo-600 hover:shadow-lg transition-all"
                   onClick={() =>
                     router.push(`/minha-conta/minhas-avaliacoes/editar/${id}`)
                   }

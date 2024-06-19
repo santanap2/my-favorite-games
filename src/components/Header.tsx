@@ -84,7 +84,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-slate-950 text-emerald-500 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
+      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-neutral-950 text-indigo-500 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
       onMouseLeave={() => {
         setShowPopup(false)
       }}
@@ -118,15 +118,15 @@ export default function Header() {
             <input
               {...registerMobile('headerMobileSearch.headerMobileInput')}
               type="text"
-              className="h-9 rounded px-3 focus:outline-none bg-slate-800 text-slate-100 placeholder:text-slate-500 sm:w-64 xl:w-96 "
+              className="h-9 rounded px-3 focus:outline-none bg-neutral-800 text-neutral-100 placeholder:text-neutral-500 sm:w-64 xl:w-96 "
               placeholder="Qual jogo procura?"
             />
             <button
               type="submit"
-              className="absolute top-1 right-2 bg-slate-800"
+              className="absolute top-1 right-2 bg-neutral-800"
             >
               <MagnifyingGlass
-                className="text-3xl text-slate-100"
+                className="text-3xl text-neutral-100"
                 weight="regular"
               />
             </button>
@@ -137,7 +137,7 @@ export default function Header() {
               >
                 <X
                   weight="bold"
-                  className="text-emerald-400 absolute top-2 -right-6 text-xl"
+                  className="text-indigo-400 absolute top-2 -right-6 text-xl"
                 />
               </button>
             )}
@@ -163,13 +163,13 @@ export default function Header() {
             <input
               {...register('headerSearch.headerInput')}
               type="text"
-              className="h-10 rounded-l pl-3 focus:outline-none bg-slate-800 text-slate-100 placeholder:text-slate-500 hover:shadow-lg"
+              className="h-10 rounded-l pl-3 focus:outline-none bg-neutral-800 text-neutral-100 placeholder:text-neutral-500 hover:shadow-lg"
               placeholder="Qual jogo procura?"
             />
             <button type="submit">
               <MagnifyingGlass
                 weight={hoverBtn.search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-slate-200 pr-2 bg-slate-800 rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-emerald-400 text-3xl"
+                className="h-10 w-9 text-neutral-200 pr-2 bg-neutral-800 rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-indigo-400 text-3xl"
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }
@@ -212,11 +212,11 @@ export default function Header() {
       >
         <ShoppingCartSimple
           weight={hoverBtn.cart ? 'duotone' : 'regular'}
-          className="text-emerald-500 xl:hidden text-3xl"
+          className="text-indigo-500 xl:hidden text-3xl"
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
-        <span className="absolute bg-emerald-500 text-sm text-slate-100 rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
+        <span className="absolute bg-indigo-500 text-sm text-neutral-100 rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
           {cartData?.data.data.products.length
             ? cartData?.data.data.products.length
             : '0'}
@@ -233,7 +233,7 @@ export default function Header() {
           >
             <MagnifyingGlass
               weight={hoverBtn.search ? 'duotone' : 'regular'}
-              className="h-10 text-slate-200 cursor-pointer sm:bg-transparent xl:text-emerald-500 text-3xl"
+              className="h-10 text-neutral-200 cursor-pointer sm:bg-transparent xl:text-indigo-500 text-3xl"
             />
           </button>
         )}
@@ -260,7 +260,7 @@ export default function Header() {
         >
           <ShoppingCartSimple
             weight={hoverBtn.cart ? 'duotone' : 'regular'}
-            className="text-emerald-500 text-3xl"
+            className="text-indigo-500 text-3xl"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, cart: true }))
             }
@@ -268,7 +268,7 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, cart: false }))
             }
           />
-          <span className="absolute bg-emerald-500 text-xs text-slate-100 rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
+          <span className="absolute bg-indigo-500 text-xs text-neutral-100 rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
             {cartData?.data.data.products.length
               ? cartData?.data.data.products.length
               : '0'}
