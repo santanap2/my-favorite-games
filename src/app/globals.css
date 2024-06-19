@@ -185,7 +185,6 @@ input[type=number] {
 
 .background {
   background: linear-gradient(180deg, var(--emerald) 1%, var(--slate900) 35%);  
-  
 }
 
 .footer-bg {

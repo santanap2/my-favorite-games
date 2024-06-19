@@ -15,8 +15,7 @@ export default function ProductCard({
   image,
   id,
 }: ICard) {
-  const { setShowCart, screenSize, loading, setLoading } =
-    useContext(GamesPlatformContext)
+  const { setShowCart, loading, setLoading } = useContext(GamesPlatformContext)
   const [hover, setHover] = useState<boolean>(false)
 
   return (
@@ -46,7 +45,7 @@ export default function ProductCard({
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
-              { name.length > 26 ? `${name.slice(0, 27)}...` : name }
+              {name.length > 26 ? `${name.slice(0, 27)}...` : name}
             </h1>
           </Link>
 

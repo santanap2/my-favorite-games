@@ -14,6 +14,7 @@ export const {
 } = NextAuth({
   pages: {
     signIn: '/login',
+    signOut: '/logout',
   },
 
   providers: [
@@ -26,14 +27,7 @@ export const {
         // fazer chamada pro backend, e deve retornar os dados do usuario ou um erro (null) para autorizar a aplicacao ou nao (2:12:00 video cestari)
 
         const { email, password } = credentials as IUser
-        const response = await requestLogin({ email, password }).catch(
-          (error) => {
-            if (error) {
-              return null
-              // throw new Error(error.response.data.message)
-            }
-          },
-        )
+        const response = await requestLogin({ email, password })
 
         if (response && response.status === 200)
           return {

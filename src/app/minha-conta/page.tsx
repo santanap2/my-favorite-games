@@ -18,9 +18,8 @@ import WelcomeUserSkeleton from '@/components/Skeletons/WelcomeUserSkeleton'
 import { useSession } from 'next-auth/react'
 
 export default function MinhaConta() {
-  const { data: session } = useSession()
-
-  if (session === null) redirect('/login')
+  const { data: session, status } = useSession()
+  if (status === 'unauthenticated') redirect('/login')
 
   const { data: userData, isLoading } = useQuery({
     queryKey: ['userData'],
@@ -29,7 +28,7 @@ export default function MinhaConta() {
     enabled: session !== undefined && session !== null,
   })
 
-  console.log('USER DATA', userData?.data.data)
+  // console.log('USER DATA', userData?.data.data)
 
   const allBoughtGames: IGame[] = []
   if (userData?.data.data.orders) {

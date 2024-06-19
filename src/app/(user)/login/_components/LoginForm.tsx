@@ -11,7 +11,6 @@ export default function LoginForm() {
   return (
     <form
       action={myAction}
-      // onSubmit={handleSubmit(handleFormSubmit)}
       className="flex flex-col justify-center items-center gap-10 sm:w-full sm:gap-6"
     >
       <label htmlFor="email" className="flex flex-col gap-1">
