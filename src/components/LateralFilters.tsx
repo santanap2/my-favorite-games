@@ -103,7 +103,7 @@ export default function LateralFilters() {
       unmountOnExit
     >
       <aside
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 h-full justify-between items-center bg-neutral-950 text-neutral-100 overflow-y-auto z-20 shadow-2xl xl:shadow-black"
+        className="w-56 fixed left-0 top-14 bottom-0 flex flex-col pt-6 h-full justify-between items-center bg-neutral-950 bg-opacity-90 border-r border-neutral-800 backdrop-blur-sm text-neutral-100 overflow-y-auto z-20"
         ref={nodeRef}
       >
         {categoriesIsLoading ? (

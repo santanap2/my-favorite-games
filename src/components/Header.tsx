@@ -84,7 +84,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-neutral-950 text-indigo-500 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
+      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-indigo-500 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
       onMouseLeave={() => {
         setShowPopup(false)
       }}

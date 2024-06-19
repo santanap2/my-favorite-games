@@ -38,7 +38,7 @@ export default function LateralMyAccount() {
       unmountOnExit
     >
       <div
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-neutral-950 shadow-md z-20 sm:shadow-2xl"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-neutral-950 bg-opacity-90 border-r border-neutral-800 backdrop-blur-sm z-20"
         ref={nodeRef}
       >
         <div className="flex flex-col">
@@ -67,8 +67,7 @@ export default function LateralMyAccount() {
               />
               <span
                 className={`${
-                  pathname === links.myOrders &&
-                  'text-indigo-600 font-semibold'
+                  pathname === links.myOrders && 'text-indigo-600 font-semibold'
                 } w-full`}
               >
                 Meus pedidos

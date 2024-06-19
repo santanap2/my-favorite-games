@@ -4,19 +4,19 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="flex w-screen bg-neutral-950 text-neutral-100 justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start z-10 animation-opacity transition-all footer-bg">
+    <footer className="flex w-screen bg-neutral-950 bg-opacity-40 backdrop-blur-sm border-t border-neutral-800 text-neutral-100 justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start z-10 animation-opacity transition-all text-xs">
       <div className="w-3/5 flex justify-between items-center xxl:w-[95%] flex-col gap-2">
         <img
           src="logo.png"
           alt="My Favorite Games"
-          className="w-96 h-fit sm:w-4/5"
+          className="w-64 h-fit sm:w-4/5"
         />
         <div className="w-full flex justify-center gap-20 items-center xl:flex-col xl:gap-4">
           <div className="flex gap-4 sm:gap-4 md:gap-10 lg:gap-16 xl:gap-20 xl:w-full xl:text-xs xl:justify-center xl:items-center">
             <h1>© 2023 My Favorite Games™</h1>
             <h2>Todos os direitos reservados.</h2>
           </div>
-          <ul className="flex flex-wrap gap-4 items-center text-sm font-medium xl:text-xs xl:justify-between xl:gap-4">
+          <ul className="flex flex-wrap gap-4 items-center font-medium xl:text-xs xl:justify-between xl:gap-4">
             <li>
               <Link href="/sobre" className="hover:underline">
                 Sobre
