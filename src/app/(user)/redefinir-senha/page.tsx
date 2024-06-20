@@ -53,7 +53,7 @@ export default function RedefinirSenha() {
                   errors.resetPassword?.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
               />
               {errors.resetPassword?.email && (
                 <span className="text-sm font-light text-red-500">

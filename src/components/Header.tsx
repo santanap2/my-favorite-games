@@ -158,18 +158,21 @@ export default function Header() {
         <div className="flex gap-3 items-center justify-center relative">
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
-            className="flex items-center justify-center xl:hidden"
+            className="flex items-center justify-center xl:hidden relative"
           >
             <input
               {...register('headerSearch.headerInput')}
               type="text"
-              className="h-10 rounded-l pl-3 focus:outline-none bg-neutral-800 text-neutral-100 placeholder:text-neutral-500 hover:shadow-lg"
+              className="bg-neutral-900 bg-opacity-80 w-full outline-none block rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-700 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
               placeholder="Qual jogo procura?"
             />
-            <button type="submit">
+            <button
+              type="submit"
+              className="h-9 w-9 text-indigo-500 bg-transparent flex items-center justify-center cursor-pointer absolute right-1"
+            >
               <MagnifyingGlass
-                weight={hoverBtn.search ? 'duotone' : 'regular'}
-                className="h-10 w-9 text-neutral-200 pr-2 bg-neutral-800 rounded-r flex items-center justify-center cursor-pointer sm:bg-transparent sm:text-indigo-400 text-3xl"
+                weight={hoverBtn.search ? 'fill' : 'regular'}
+                size={24}
                 onMouseEnter={() =>
                   setHoverBtn((prev) => ({ ...prev, search: true }))
                 }
