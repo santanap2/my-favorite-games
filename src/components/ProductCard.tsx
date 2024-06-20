@@ -3,9 +3,10 @@
 import React, { useContext, useState } from 'react'
 import { ICard } from '@/interfaces'
 import { priceToBRL } from '@/helpers'
-import GamesPlatformContext from '@/context/Context'
-import { addItemToCart } from '@/services'
 import Link from 'next/link'
+import { PlusCircle, ShoppingCart } from '@phosphor-icons/react'
+import { addItemToCart } from '@/services'
+import GamesPlatformContext from '@/context/Context'
 
 export default function ProductCard({
   name,
@@ -15,14 +16,15 @@ export default function ProductCard({
   image,
   id,
 }: ICard) {
-  const { setShowCart, loading, setLoading } = useContext(GamesPlatformContext)
+  const { loading, setLoading, setShowCart } = useContext(GamesPlatformContext)
   const [hover, setHover] = useState<boolean>(false)
+  const [hoverPrice, setHoverPrice] = useState<boolean>(false)
 
   return (
-    <div className="flex flex-col w-40 h-fit items-start justify-start">
+    <div className="w-40 flex flex-col h-fit items-center justify-start rounded">
       <Link
         href={`/game/${id}`}
-        className="w-40 h-60"
+        className="w-fit"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -30,7 +32,7 @@ export default function ProductCard({
           <img
             src={image}
             alt={name}
-            className={`object-cover transition-all duration-500 w-full h-full rounded ${
+            className={`object-cover transition-all duration-500 w-40 h-full rounded ${
               hover ? 'scale-110' : ''
             }`}
           />
@@ -50,28 +52,43 @@ export default function ProductCard({
           </Link>
 
           <Link href={`/home?${category}=true`} className=" w-fit">
-            <h2 className="font-light text-sm w-fit sm:text-xs sm:h-8 hover:underline text-neutral-50">
+            <h2 className="font-extralight text-sm w-fit sm:text-xs sm:h-8 hover:underline text-neutral-50">
               {categoryPt}
             </h2>
           </Link>
         </div>
 
-        <span className="text-lg font-bold text-indigo-500 sm:text-md">
-          {`R$ ${priceToBRL(price)}`}
-        </span>
-
         <button
           type="button"
+          className="flex items-center justify-center h-8 text-sm font-bold text-neutral-200 sm:text-md bg-indigo-800 w-full p-2 rounded text-center"
+          onMouseEnter={() => {
+            setHover(true)
+            setHoverPrice(true)
+          }}
+          onMouseLeave={() => {
+            setHover(false)
+            setHoverPrice(false)
+          }}
           onClick={async () => {
             setLoading({ ...loading, cart: !loading.cart })
             await addItemToCart(id.toString())
             setShowCart(true)
           }}
-          className="mt-1 w-fit h-9 px-4 text-neutral-100 font-bold uppercase py-1 rounded text-sm bg-indigo-500 flex items-center justify-center relative hover:bg-indigo-600 transition-all sm:text-xs sm:w-full sm:px-0 sm:font-semibold"
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
         >
-          Adicionar ao carrinho
+          {hoverPrice ? (
+            <>
+              <PlusCircle weight="fill" size={16} />
+              <ShoppingCart size={24} weight="regular" />
+            </>
+          ) : (
+            <span className="flex items-center justify-center gap-6 w-full">
+              R$ {priceToBRL(price)}
+              <span className="hidden md:flex items-center justify-center">
+                <PlusCircle weight="fill" size={16} />
+                <ShoppingCart size={24} weight="regular" />
+              </span>
+            </span>
+          )}
         </button>
       </div>
     </div>

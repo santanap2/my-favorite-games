@@ -4,8 +4,8 @@ import {
   // Roboto,
   // Raleway,
   // Quicksand,
-  // Inter,
-  Exo_2 as Exo2,
+  Inter,
+  // Exo_2 as Exo2,
 } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -19,26 +19,26 @@ import { SessionProvider } from 'next-auth/react'
 //   subsets: ['latin'],
 //   weight: ['100', '300', '400', '500', '700', '900'],
 // })
-//
-// const inter = Inter({
-//   subsets: ['latin'],
-//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-// })
-//
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
+
 // const quicksand = Quicksand({
 //   subsets: ['latin'],
 //   weight: ['300', '400', '500', '600', '700'],
 // })
-//
+
 // const raleway = Raleway({
 //   subsets: ['latin'],
 //   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 // })
 
-const exo2 = Exo2({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-})
+// const exo2 = Exo2({
+//   subsets: ['latin'],
+//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+// })
 
 export const metadata: Metadata = {
   title: 'My favorite games',
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <ContextGamesPlatform>
         <SessionProvider>
           <body
-            className={`${exo2.className} bg-neutral-900 overflow-x-hidden background`}
+            className={`${inter.className} bg-neutral-900 overflow-x-hidden background`}
           >
             <div className="flex w-full items-center justify-start flex-col">
               <div className="flex flex-col min-h-screen justify-between items-center w-full">
