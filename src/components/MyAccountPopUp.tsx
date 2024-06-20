@@ -25,7 +25,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Minha conta</span>
-        <UserCircle weight="duotone" className="text-xl text-indigo-500" />
+        <UserCircle weight="duotone" className="text-xl text-indigo-600" />
       </Link>
 
       <Link
@@ -33,7 +33,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus pedidos</span>
-        <Bag weight="duotone" className="text-xl text-indigo-500" />
+        <Bag weight="duotone" className="text-xl text-indigo-600" />
       </Link>
 
       <Link
@@ -43,7 +43,7 @@ export default function MyAccountPopUp() {
         <span>Meus dados</span>
         <IdentificationCard
           weight="duotone"
-          className="text-xl text-indigo-500"
+          className="text-xl text-indigo-600"
         />
       </Link>
 
@@ -52,7 +52,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus games</span>
-        <GameController weight="duotone" className="text-xl text-indigo-500" />
+        <GameController weight="duotone" className="text-xl text-indigo-600" />
       </Link>
 
       <Link
@@ -60,7 +60,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Meus favoritos</span>
-        <Heart weight="duotone" className="text-xl text-indigo-500" />
+        <Heart weight="duotone" className="text-xl text-indigo-600" />
       </Link>
 
       <Link
@@ -68,7 +68,7 @@ export default function MyAccountPopUp() {
         className="text-sm font-semibold hover:underline transition-all flex gap-2"
       >
         <span>Minhas avaliações</span>
-        <ThumbsUp weight="duotone" className="text-xl text-indigo-500" />
+        <ThumbsUp weight="duotone" className="text-xl text-indigo-600" />
       </Link>
 
       <button

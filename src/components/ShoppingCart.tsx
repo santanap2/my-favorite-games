@@ -52,7 +52,7 @@ export default function ShoppingCart() {
                     await emptyCart()
                     refetch()
                   }}
-                  className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-500"
+                  className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600"
                 >
                   <Trash className="text-xl" weight="light" />
                   <span>Esvaziar</span>
@@ -62,7 +62,7 @@ export default function ShoppingCart() {
             <button type="button" onClick={() => setShowCart(!showCart)}>
               <X
                 weight="bold"
-                className="text-neutral-100 hover:text-indigo-500 text-3xl"
+                className="text-neutral-100 hover:text-indigo-600 text-3xl"
               />
             </button>
           </div>
@@ -121,7 +121,7 @@ export default function ShoppingCart() {
                     setShowCart(false)
                     router.push('/finalizar-compra')
                   }}
-                  className="text-sm uppercase font-bold text-neutral-100 py-2 bg-indigo-500 hover:bg-indigo-600 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-neutral-100 py-2 bg-indigo-600 hover:bg-indigo-700 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${
                     calcSum(data?.data.data.products || []).string
@@ -130,7 +130,7 @@ export default function ShoppingCart() {
 
                 <button
                   type="button"
-                  className="uppercase tracking-wide underline text-xs font-light hover:text-indigo-500"
+                  className="uppercase tracking-wide underline text-xs font-light hover:text-indigo-600"
                   onClick={() => {
                     setShowCart(false)
                     router.push('/home')

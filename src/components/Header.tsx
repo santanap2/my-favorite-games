@@ -84,7 +84,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-indigo-500 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
+      className="fixed left-0 top-0 z-30 flex h-14 w-screen items-center justify-center bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-indigo-600 shadow-xl xl:shadow-lg xl:justify-between md:px-1 xl:gap-0 xl:px-8"
       onMouseLeave={() => {
         setShowPopup(false)
       }}
@@ -163,12 +163,12 @@ export default function Header() {
             <input
               {...register('headerSearch.headerInput')}
               type="text"
-              className="bg-neutral-900 bg-opacity-80 w-full outline-none block rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-700 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+              className="bg-neutral-900 bg-opacity-80 w-full outline-none block rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-700 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Qual jogo procura?"
             />
             <button
               type="submit"
-              className="h-9 w-9 text-indigo-500 bg-transparent flex items-center justify-center cursor-pointer absolute right-1"
+              className="h-9 w-9 text-indigo-600 bg-transparent flex items-center justify-center cursor-pointer absolute right-1"
             >
               <MagnifyingGlass
                 weight={hoverBtn.search ? 'fill' : 'regular'}
@@ -215,11 +215,11 @@ export default function Header() {
       >
         <ShoppingCartSimple
           weight={hoverBtn.cart ? 'duotone' : 'regular'}
-          className="text-indigo-500 xl:hidden text-3xl"
+          className="text-indigo-600 xl:hidden text-3xl"
           onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, cart: true }))}
           onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, cart: false }))}
         />
-        <span className="absolute bg-indigo-500 text-sm text-neutral-100 rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
+        <span className="absolute bg-indigo-600 text-sm text-neutral-100 rounded-full  w-5 h-5 p-2 flex justify-center items-center top-[-8px] right-[-8px] xl:hidden">
           {cartData?.data.data.products.length
             ? cartData?.data.data.products.length
             : '0'}
@@ -236,7 +236,7 @@ export default function Header() {
           >
             <MagnifyingGlass
               weight={hoverBtn.search ? 'duotone' : 'regular'}
-              className="h-10 text-neutral-200 cursor-pointer sm:bg-transparent xl:text-indigo-500 text-3xl"
+              className="h-10 text-neutral-200 cursor-pointer sm:bg-transparent xl:text-indigo-600 text-3xl"
             />
           </button>
         )}
@@ -263,7 +263,7 @@ export default function Header() {
         >
           <ShoppingCartSimple
             weight={hoverBtn.cart ? 'duotone' : 'regular'}
-            className="text-indigo-500 text-3xl"
+            className="text-indigo-600 text-3xl"
             onMouseEnter={() =>
               setHoverBtn((prev) => ({ ...prev, cart: true }))
             }
@@ -271,7 +271,7 @@ export default function Header() {
               setHoverBtn((prev) => ({ ...prev, cart: false }))
             }
           />
-          <span className="absolute bg-indigo-500 text-xs text-neutral-100 rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
+          <span className="absolute bg-indigo-600 text-xs text-neutral-100 rounded-full  w-4 h-4 p-0 flex justify-center items-center top-2 md:right-1 xl:right-7">
             {cartData?.data.data.products.length
               ? cartData?.data.data.products.length
               : '0'}

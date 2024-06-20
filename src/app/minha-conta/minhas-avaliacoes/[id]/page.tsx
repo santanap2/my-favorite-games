@@ -58,7 +58,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  className="text-indigo-500 sm:text-3xl text-5xl"
+                  className="text-indigo-600 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Avaliação de produto
@@ -133,7 +133,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
 
                 <button
                   type="button"
-                  className="w-64 sm:w-full px-4 py-2 text-base text-neutral-100 font-light rounded shadow-md bg-indigo-500 hover:bg-indigo-600 hover:shadow-lg transition-all"
+                  className="w-64 sm:w-full px-4 py-2 text-base text-neutral-100 font-light rounded shadow-md bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg transition-all"
                   onClick={() =>
                     router.push(`/minha-conta/minhas-avaliacoes/editar/${id}`)
                   }

@@ -116,7 +116,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
-                  className="text-indigo-500 sm:text-3xl text-5xl"
+                  className="text-indigo-600 sm:text-3xl text-5xl"
                 />
                 <h1 className="font-regular text-xl font-semibold">
                   Avaliar produto
@@ -189,8 +189,8 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                         type="button"
                         className={`p-2 sm:w-full w-64 ${
                           response.success
-                            ? 'bg-indigo-500 hover:bg-indigo-600'
-                            : 'bg-indigo-500 hover:bg-indigo-600'
+                            ? 'bg-indigo-600 hover:bg-indigo-700'
+                            : 'bg-indigo-600 hover:bg-indigo-700'
                         } text-neutral-100 font-light rounded shadow-md  transition-all flex items-center justify-center`}
                         onClick={() =>
                           router.push('/minha-conta/minhas-avaliacoes')
@@ -201,7 +201,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     ) : (
                       <button
                         type="submit"
-                        className="p-2 sm:w-full w-64 bg-indigo-500 text-neutral-100 font-light rounded shadow-md hover:bg-indigo-600 transition-all flex items-center justify-center"
+                        className="p-2 sm:w-full w-64 bg-indigo-600 text-neutral-100 font-light rounded shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center"
                         onClick={() => setLoading(true)}
                       >
                         {loading ? <LoadingSpinner /> : 'Avaliar produto'}

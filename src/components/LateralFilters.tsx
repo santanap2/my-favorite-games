@@ -185,7 +185,7 @@ export default function LateralFilters() {
             <button
               type="submit"
               form="lateral-filters"
-              className="w-52 bg-indigo-500 hover:bg-indigo-600 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-neutral-100 "
+              className="w-52 bg-indigo-600 hover:bg-indigo-700 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-neutral-100 "
             >
               Filtrar
             </button>

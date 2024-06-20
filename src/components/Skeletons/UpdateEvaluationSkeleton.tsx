@@ -8,7 +8,7 @@ export default function UpdateEvaluationSkeleton() {
         <div className="flex gap-1 w-full items-center justify-start relative">
           <ThumbsUp
             weight="fill"
-            className="text-indigo-500 sm:text-3xl text-5xl"
+            className="text-indigo-600 sm:text-3xl text-5xl"
           />
           <h1 className="font-regular text-xl font-semibold">
             Editar avaliação

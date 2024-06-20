@@ -38,7 +38,7 @@ export default function ProductOnOrderSkeleton({
               </h4>
             </div>
           </div>
-          <div className="font-black flex items-center justify-center text-indigo-600 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
+          <div className="font-black flex items-center justify-center text-indigo-700 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
             <h2 className="rounded bg-neutral-100 w-fit loading-skeleton text-transparent">
               R$9999,99
             </h2>

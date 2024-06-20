@@ -20,22 +20,22 @@ export default function OrderDetails({ order }: { order: IOrderData }) {
   return (
     <div className="text-neutral-100 flex flex-col gap-1 bg-neutral-800 w-[600px] max-w-full p-4 rounded shadow-md sm:text-sm md:w-full animation-opacity transition-all">
       <p>
-        <span className="font-bold text-indigo-500">Número do pedido:</span>
+        <span className="font-bold text-indigo-600">Número do pedido:</span>
         <span>{` #${order.id}`}</span>
       </p>
 
       <p>
-        <span className="font-bold text-indigo-500">Data: </span>
+        <span className="font-bold text-indigo-600">Data: </span>
         <span>{convertFullDate(order.created_at)}</span>
       </p>
 
       <p>
-        <span className="font-bold text-indigo-500">Valor: </span>
+        <span className="font-bold text-indigo-600">Valor: </span>
         <span>{`R$ ${priceToBRL(order.value)}`}</span>
       </p>
 
       <p>
-        <span className="font-bold text-indigo-500">
+        <span className="font-bold text-indigo-600">
           Método de pagamento:{' '}
         </span>
         <span>{checkPaymentMethod(order.payment_method)}</span>
@@ -43,7 +43,7 @@ export default function OrderDetails({ order }: { order: IOrderData }) {
 
       <p className="mt-4">
         <span>Confira seu email </span>
-        <span className="font-bold text-indigo-500">{order.user?.email}</span>
+        <span className="font-bold text-indigo-600">{order.user?.email}</span>
         <span> para mais informações sobre seu pedido.</span>
       </p>
     </div>

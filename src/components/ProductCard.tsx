@@ -60,7 +60,7 @@ export default function ProductCard({
 
         <button
           type="button"
-          className="flex items-center justify-center h-8 text-sm font-bold text-neutral-200 sm:text-md bg-indigo-800 w-full p-2 rounded text-center"
+          className="flex items-center justify-center h-8 text-sm font-bold text-neutral-200 sm:text-md bg-indigo-800 w-full p-2 rounded text-center hover:bg-indigo-600 transition-all duration-300"
           onMouseEnter={() => {
             setHover(true)
             setHoverPrice(true)

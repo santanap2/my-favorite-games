@@ -27,7 +27,7 @@ export default function ProductOnOrder({
       />
 
       <div className="flex flex-col items-start justify-center w-full">
-        <h1 className="font-semibold text-lg tracking-tight text-indigo-600 w-full">
+        <h1 className="font-semibold text-lg tracking-tight text-indigo-700 w-full">
           {name}
         </h1>
 
@@ -38,7 +38,7 @@ export default function ProductOnOrder({
               description.length > 160 ? description.slice(0, 160) : description
             }...`}</h4>
           </div>
-          <div className="font-black flex items-center justify-center text-indigo-600 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
+          <div className="font-black flex items-center justify-center text-indigo-700 tracking-wide text-lg sm:text-base sm:font-extrabold min-w-fit h-full">
             <h2>{`R$ ${priceToBRL(price)}`}</h2>
           </div>
         </div>

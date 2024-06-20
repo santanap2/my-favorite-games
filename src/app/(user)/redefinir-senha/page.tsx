@@ -53,7 +53,7 @@ export default function RedefinirSenha() {
                   errors.resetPassword?.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.resetPassword?.email && (
                 <span className="text-sm font-light text-red-500">
@@ -66,7 +66,7 @@ export default function RedefinirSenha() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-40"
+              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40"
               disabled={!!registerResponse.success}
             >
               Enviar
@@ -85,7 +85,7 @@ export default function RedefinirSenha() {
         <p className="mt-10 text-center text-sm text-neutral-500">
           <Link
             href="/api/auth/signin"
-            className="font-semibold leading-6 text-indigo-500 hover:text-indigo-600 hover:underline"
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-700 hover:underline"
             onClick={() => setRegisterResponse({ success: '', error: '' })}
           >
             Retornar para o Login

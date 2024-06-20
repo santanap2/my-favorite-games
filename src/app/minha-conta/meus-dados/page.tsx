@@ -60,7 +60,7 @@ export default function MeusDados() {
             <div className="flex gap-1 w-full items-center justify-start">
               <IdentificationCard
                 weight="fill"
-                className="text-indigo-500 sm:text-3xl text-5xl"
+                className="text-indigo-600 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">Meus dados</h1>
             </div>
@@ -76,7 +76,7 @@ export default function MeusDados() {
                     <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                       <IdentificationBadge
                         weight="light"
-                        className="text-indigo-500 text-2xl"
+                        className="text-indigo-600 text-2xl"
                       />
                       <span>Nome completo</span>
                     </h2>
@@ -103,11 +103,11 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
                           weight="light"
-                          className="text-indigo-500 text-2xl"
+                          className="text-indigo-600 text-2xl"
                         />
                         <span>
                           E-mail{' '}
-                          <span className="text-indigo-500 text-base">*</span>
+                          <span className="text-indigo-600 text-base">*</span>
                         </span>
                       </h2>
                       <input
@@ -133,7 +133,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Envelope
                           weight="light"
-                          className="text-indigo-500 text-2xl"
+                          className="text-indigo-600 text-2xl"
                         />
                         <span>Novo E-mail</span>
                       </h2>
@@ -159,7 +159,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Phone
                           weight="light"
-                          className="text-indigo-500 text-2xl"
+                          className="text-indigo-600 text-2xl"
                         />
                         <span>Telefone</span>
                       </h2>
@@ -169,7 +169,7 @@ export default function MeusDados() {
                         id="phone"
                         maxLength={15}
                         className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded ${
-                          errors.userData?.phone && 'border border-indigo-500'
+                          errors.userData?.phone && 'border border-indigo-600'
                         }`}
                         placeholder={
                           isLoading ? 'Carregando...' : data?.data.data.phone
@@ -189,11 +189,11 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-indigo-500 text-2xl"
+                          className="text-indigo-600 text-2xl"
                         />
                         <span>
                           Senha atual{' '}
-                          <span className="text-indigo-500 text-base">*</span>
+                          <span className="text-indigo-600 text-base">*</span>
                         </span>
                       </h2>
                       <input
@@ -202,7 +202,7 @@ export default function MeusDados() {
                         id="currentPassword"
                         className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded xxl:w-full ${
                           errors.userData?.currentPassword &&
-                          'border border-indigo-500'
+                          'border border-indigo-600'
                         }`}
                         placeholder="Digite sua senha"
                       />
@@ -222,7 +222,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-indigo-500 text-2xl"
+                          className="text-indigo-600 text-2xl"
                         />
                         <span>Nova senha</span>
                       </h2>
@@ -250,7 +250,7 @@ export default function MeusDados() {
                       <h2 className="font-semibold text-sm tracking-normal flex gap-1 items-center justify center">
                         <Password
                           weight="light"
-                          className="text-indigo-500 text-2xl"
+                          className="text-indigo-600 text-2xl"
                         />
                         <span>Confirmar nova senha</span>
                       </h2>
@@ -271,7 +271,7 @@ export default function MeusDados() {
                       )}
                     </label>
                   </div>
-                  <span className="text-indigo-500 text-sm font-light">
+                  <span className="text-indigo-600 text-sm font-light">
                     * Campos obrigatórios
                   </span>
                 </form>
@@ -279,7 +279,7 @@ export default function MeusDados() {
                   <button
                     type="submit"
                     form="myDataForm"
-                    className="flex items-center justify-center bg-indigo-500 w-80 px-6 py-3 rounded shadow-md hover:bg-indigo-600 transition-all font-semibold text-sm text-neutral-100 sm:w-full sm:px-16 disabled:opacity-40 "
+                    className="flex items-center justify-center bg-indigo-600 w-80 px-6 py-3 rounded shadow-md hover:bg-indigo-700 transition-all font-semibold text-sm text-neutral-100 sm:w-full sm:px-16 disabled:opacity-40 "
                     disabled={!!userDataResponse.success}
                   >
                     {loading.updateUserData ? (

@@ -72,7 +72,7 @@ export default function LoginForm() {
           <span className="text-sm font-semibold text-neutral-100">Senha</span>
           <Link
             href="/redefinir-senha"
-            className="font-light text-sm text-indigo-600 hover:underline"
+            className="font-light text-sm text-indigo-700 hover:underline"
           >
             Esqueci a senha
           </Link>
@@ -104,7 +104,7 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="w-80 h-10 flex items-center justify-center bg-indigo-500 font-light text-neutral-100 rounded text-md shadow hover:bg-indigo-600 disabled:opacity-40 transition-all"
+        className="w-80 h-10 flex items-center justify-center bg-indigo-600 font-light text-neutral-100 rounded text-md shadow hover:bg-indigo-700 disabled:opacity-40 transition-all"
         disabled={buttonDisabled()}
       >
         Entrar

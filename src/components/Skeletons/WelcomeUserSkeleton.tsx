@@ -16,7 +16,7 @@ export default function WelcomeUserSkeleton() {
       <h2 className="flex md:hidden text-sm font-light absolute -bottom-9 left-0">
         <EnvelopeSimple
           weight="fill"
-          className="h-8 md:h-6 text-indigo-500 text-2xl"
+          className="h-8 md:h-6 text-indigo-600 text-2xl"
         />
 
         <span className="h-8 md:h-6 text-transparent bg-neutral-200 rounded loading-skeleton flex items-center justify-center">

@@ -46,12 +46,12 @@ export default function LateralMyAccount() {
             <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
               <UserCircle
                 weight={pathname === links.myAccount ? 'fill' : 'duotone'}
-                className="text-indigo-500 text-4xl"
+                className="text-indigo-600 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myAccount &&
-                  'text-indigo-600 font-semibold'
+                  'text-indigo-700 font-semibold'
                 } w-full`}
               >
                 Minha conta
@@ -63,11 +63,11 @@ export default function LateralMyAccount() {
             <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
               <Bag
                 weight={pathname === links.myOrders ? 'fill' : 'duotone'}
-                className="text-indigo-500 text-4xl"
+                className="text-indigo-600 text-4xl"
               />
               <span
                 className={`${
-                  pathname === links.myOrders && 'text-indigo-600 font-semibold'
+                  pathname === links.myOrders && 'text-indigo-700 font-semibold'
                 } w-full`}
               >
                 Meus pedidos
@@ -79,11 +79,11 @@ export default function LateralMyAccount() {
             <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
               <IdentificationCard
                 weight={pathname === links.myData ? 'fill' : 'duotone'}
-                className="text-indigo-500 text-4xl"
+                className="text-indigo-600 text-4xl"
               />
               <span
                 className={`${
-                  pathname === links.myData && 'text-indigo-600 font-semibold'
+                  pathname === links.myData && 'text-indigo-700 font-semibold'
                 } w-full`}
               >
                 Meus dados
@@ -95,11 +95,11 @@ export default function LateralMyAccount() {
             <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
               <GameController
                 weight={pathname === links.myGames ? 'fill' : 'duotone'}
-                className="text-indigo-500 text-4xl"
+                className="text-indigo-600 text-4xl"
               />
               <span
                 className={`${
-                  pathname === links.myGames && 'text-indigo-600 font-semibold'
+                  pathname === links.myGames && 'text-indigo-700 font-semibold'
                 } w-full`}
               >
                 Meus games
@@ -111,12 +111,12 @@ export default function LateralMyAccount() {
             <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
               <Heart
                 weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
-                className="text-indigo-500 text-4xl"
+                className="text-indigo-600 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myFavorites &&
-                  'text-indigo-600 font-semibold'
+                  'text-indigo-700 font-semibold'
                 } w-full`}
               >
                 Meus favoritos
@@ -128,12 +128,12 @@ export default function LateralMyAccount() {
             <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
               <ThumbsUp
                 weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
-                className="text-indigo-500 text-4xl"
+                className="text-indigo-600 text-4xl"
               />
               <span
                 className={`${
                   pathname === links.myEvaluations &&
-                  'text-indigo-600 font-semibold'
+                  'text-indigo-700 font-semibold'
                 } w-full`}
               >
                 Minhas avaliações

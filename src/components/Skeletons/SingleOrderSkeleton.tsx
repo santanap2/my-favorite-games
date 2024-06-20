@@ -56,7 +56,7 @@ export default function SingleOrderSkeleton() {
           </span>
         </p>
 
-        <div className=" w-48 text-indigo-500 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">
+        <div className=" w-48 text-indigo-600 font-bold flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs">
           <p className="bg-neutral-100 loading-skeleton rounded text-transparent cursor-default h-full">
             Detalhes do pedido
           </p>

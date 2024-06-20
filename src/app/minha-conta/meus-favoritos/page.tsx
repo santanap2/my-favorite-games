@@ -57,7 +57,7 @@ export default function MeusFavoritos() {
             <div className="flex gap-1 w-fit items-center justify-center">
               <Heart
                 weight="fill"
-                className="text-indigo-500 sm:text-3xl text-5xl"
+                className="text-indigo-600 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Meus favoritos
@@ -133,7 +133,7 @@ export default function MeusFavoritos() {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center absolute">
                     <SmileySad
                       weight="light"
-                      className="text-indigo-500 text-5xl"
+                      className="text-indigo-600 text-5xl"
                     />
                     <span className="text-base font-light">
                       Você não possui nenhum favorito no momento.
