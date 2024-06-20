@@ -1,145 +1,207 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
-import LoadingSpinner from '@/components/LoadingSpinner'
-import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
-import CadastroHooks from '@/hooks/RegisterUserHooks'
-import { CheckFat, Warning } from '@phosphor-icons/react'
-import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
+import Link from 'next/link'
+import GamesPlatformContext from '@/context/Context'
+import CadastroHooks from '@/hooks/RegisterUserHooks'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import { Check, Warning } from '@phosphor-icons/react'
 
 export default function Cadastro() {
   const { registerResponse, loading } = useContext(GamesPlatformContext)
   const { errors, handleFormSubmit, handleSubmit, register } = CadastroHooks()
 
-  const router = useRouter()
-
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-10 mt-24 xxl:mt-20 sm:gap-6 animation-opacity transition-all">
-      <title>{`${pageTitle} - Cadastro`}</title>
-      <div className="px-20 py-8 rounded flex flex-col gap-10 items-center justify-center bg-neutral-800 text-neutral-100 shadow-md sm:w-full sm:py-3 sm:gap-6">
-        <h1 className="font-semibold text-xl text-shadow sm:text-lg">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full">
+      <title>{`Cadastre-se - ${pageTitle}`}</title>
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img
+          className="mx-auto h-10 w-auto"
+          src="/logo-min.png"
+          alt="My Fav Games"
+        />
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-neutral-50">
           Cadastre-se
-        </h1>
+        </h2>
+      </div>
 
+      <div className="mt-10 sm:mx-auto w-full sm:max-w-sm flex flex-col items-center justify-center">
         <form
           onSubmit={handleSubmit(handleFormSubmit)}
-          className="flex flex-col justify-center items-center gap-4 sm:gap-6"
+          className="space-y-6 sm:w-full w-96"
         >
-          <label htmlFor="email" className="flex flex-col gap-1">
-            <span className="text-sm font-semibold">Email</span>
-            <input
-              {...register('registerUser.email')}
-              type="email"
-              id="email"
-              placeholder="email@exemplo.com"
-              className={`${
-                errors.registerUser?.email && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
-            />
-            {errors.registerUser?.email && (
-              <span className="text-sm font-light text-red-500">
-                {errors.registerUser.email.message}
-              </span>
-            )}
-          </label>
+          <div className="w-full">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium leading-6 text-neutral-200"
+            >
+              Endereço de email
+            </label>
+            <div className="mt-2 w-full">
+              <input
+                {...register('registerUser.email')}
+                id="email"
+                type="email"
+                placeholder="email@exemplo.com"
+                className={`${
+                  errors.registerUser?.email
+                    ? 'ring-red-500 ring-opacity-60'
+                    : 'ring-neutral-600'
+                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+              />
+              {errors.registerUser?.email && (
+                <span className="text-sm font-light text-red-500">
+                  {errors.registerUser?.email.message}
+                </span>
+              )}
+            </div>
+          </div>
 
-          <label htmlFor="confirmEmail" className="flex flex-col gap-1">
-            <span className="text-sm font-semibold">Confirmar email</span>
-            <input
-              {...register('registerUser.confirmEmail')}
-              type="email"
-              id="confirmEmail"
-              placeholder="email@exemplo.com"
-              className={`${
-                errors.registerUser?.email && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
-            />
-            {errors.registerUser?.confirmEmail && (
-              <span className="text-sm font-light text-red-500">
-                {errors.registerUser.confirmEmail.message}
-              </span>
-            )}
-          </label>
+          <div>
+            <label
+              htmlFor="confirmEmail"
+              className="block text-sm font-medium leading-6 text-neutral-200"
+            >
+              Confirme seu email
+            </label>
+            <div className="mt-2">
+              <input
+                {...register('registerUser.confirmEmail')}
+                id="confirmEmail"
+                type="email"
+                placeholder="email@exemplo.com"
+                className={`${
+                  errors.registerUser?.confirmEmail
+                    ? 'ring-red-500 ring-opacity-60'
+                    : 'ring-neutral-600'
+                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+              />
+              {errors.registerUser?.confirmEmail && (
+                <span className="text-sm font-light text-red-500">
+                  {errors.registerUser?.confirmEmail.message}
+                </span>
+              )}
+            </div>
+          </div>
 
-          <label htmlFor="name" className="flex flex-col gap-1">
-            <span className="text-sm font-semibold">Nome completo</span>
-            <input
-              {...register('registerUser.name')}
-              type="text"
-              id="name"
-              placeholder="Seu nome"
-              className={`${
-                errors.registerUser?.name && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
-            />
-            {errors.registerUser?.name && (
-              <span className="text-sm font-light text-red-500">
-                {errors.registerUser.name.message}
-              </span>
-            )}
-          </label>
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium leading-6 text-neutral-200"
+            >
+              Nome
+            </label>
+            <div className="mt-2">
+              <input
+                {...register('registerUser.name')}
+                id="name"
+                type="text"
+                placeholder="Seu nome"
+                className={`${
+                  errors.registerUser?.name
+                    ? 'ring-red-500 ring-opacity-60'
+                    : 'ring-neutral-600'
+                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+              />
+              {errors.registerUser?.name && (
+                <span className="text-sm font-light text-red-500">
+                  {errors.registerUser?.name.message}
+                </span>
+              )}
+            </div>
+          </div>
 
-          <label htmlFor="phone" className="flex flex-col gap-1">
-            <span className="text-sm font-semibold">Telefone</span>
-            <input
-              {...register('registerUser.phone')}
-              type="text"
-              id="phone"
-              placeholder="(99) 99999-9999"
-              maxLength={15}
-              className={`${
-                errors.registerUser?.phone && 'border border-red-500'
-              } h-10 w-80 rounded px-3 hover:shadow-lg focus:outline-none focus:shadow-xl shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
-            />
-            {errors.registerUser?.phone && (
-              <span className="text-sm font-light text-red-500">
-                {errors.registerUser.phone.message}
-              </span>
-            )}
-          </label>
+          <div>
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium leading-6 text-neutral-200"
+            >
+              Celular
+            </label>
+            <div className="mt-2">
+              <input
+                {...register('registerUser.phone')}
+                id="phone"
+                type="text"
+                maxLength={15}
+                placeholder="(99) 99999-9999"
+                className={`${
+                  errors.registerUser?.phone
+                    ? 'ring-red-500 ring-opacity-60'
+                    : 'ring-neutral-600'
+                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+              />
+              {errors.registerUser?.phone && (
+                <span className="text-sm font-light text-red-500">
+                  {errors.registerUser?.phone.message}
+                </span>
+              )}
+            </div>
+          </div>
 
-          <label htmlFor="password" className="flex flex-col gap-1">
-            <span className="text-sm font-semibold">Senha</span>
+          <div>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-neutral-200"
+              >
+                Senha
+              </label>
+            </div>
+            <div className="mt-2">
+              <input
+                {...register('registerUser.password')}
+                id="password"
+                type="password"
+                placeholder="************"
+                className={`${
+                  errors.registerUser?.password
+                    ? 'ring-red-500 ring-opacity-60'
+                    : 'ring-neutral-600'
+                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+              />
+              {errors.registerUser?.password && (
+                <span className="text-sm font-light text-red-500">
+                  {errors.registerUser.password.message}
+                </span>
+              )}
+            </div>
+          </div>
 
-            <input
-              {...register('registerUser.password')}
-              type="password"
-              id="password"
-              placeholder="**********"
-              className={`${
-                errors.registerUser?.password && 'border border-red-500'
-              } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
-            />
-            {errors.registerUser?.password && (
-              <span className="text-sm font-light text-red-500">
-                {errors.registerUser.password.message}
-              </span>
-            )}
-          </label>
-
-          <label htmlFor="confirmPassword" className="flex flex-col gap-1">
-            <span className="text-sm font-semibold">Confirmar senha</span>
-
-            <input
-              {...register('registerUser.confirmPassword')}
-              type="password"
-              id="confirmPassword"
-              placeholder="**********"
-              className={`${
-                errors.registerUser?.confirmPassword && 'border border-red-500'
-              } h-10 w-80 rounded px-3 focus:outline-none focus:shadow-xl hover:shadow-lg shadow bg-neutral-700 text-neutral-200 placeholder:text-neutral-500`}
-            />
-            {errors.registerUser?.confirmPassword && (
-              <span className="text-sm font-light text-red-500">
-                {errors.registerUser.confirmPassword.message}
-              </span>
-            )}
-          </label>
+          <div>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium leading-6 text-neutral-200"
+              >
+                Confirme sua senha
+              </label>
+            </div>
+            <div className="mt-2">
+              <input
+                {...register('registerUser.confirmPassword')}
+                id="confirmPassword"
+                type="password"
+                placeholder="************"
+                className={`${
+                  errors.registerUser?.confirmPassword
+                    ? 'ring-red-500 ring-opacity-60'
+                    : 'ring-neutral-600'
+                } bg-transparent outline-none block w-full rounded border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6`}
+              />
+              {errors.registerUser?.confirmPassword && (
+                <span className="text-sm font-light text-red-500">
+                  {errors.registerUser.confirmPassword.message}
+                </span>
+              )}
+            </div>
+          </div>
 
           <button
             type="submit"
-            className="w-80 h-10 bg-indigo-500 font-light text-neutral-100 rounded text-regular shadow hover:bg-indigo-600 transition-all disabled:opacity-40 mt-6"
+            className="mt-4 flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-40"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (
@@ -151,38 +213,30 @@ export default function Cadastro() {
               'Cadastrar'
             )}
           </button>
-
-          {registerResponse.success && (
-            <div className="w-full text-sm text-green-500 font-semibold flex gap-4 items-center justify-center">
-              <CheckFat weight="light" className="text-3xl" />
-              <h3>{registerResponse.success}</h3>
-            </div>
-          )}
-
-          {registerResponse.error && (
-            <div className="w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
-              <Warning weight="light" className="text-3xl" />
-              <h3>{registerResponse.error}</h3>
-            </div>
-          )}
         </form>
-      </div>
 
-      <div className="flex flex-col gap-2 justify-center items-center sm:w-full">
-        <div className="flex items-center justify-center gap-3 w-full">
-          <div className="w-40 border-t " />
-          <span className="font-light text-sm text-center sm:w-40 text-neutral-100">
-            Retornar para o Login
-          </span>
-          <div className="w-40 border-t " />
-        </div>
-        <button
-          type="button"
-          className="w-48 h-10 bg-indigo-500 text-neutral-100 rounded text-sm font-light shadow hover:bg-indigo-600 transition-all"
-          onClick={() => router.push('/api/auth/signin')}
-        >
-          Voltar
-        </button>
+        {registerResponse.success && (
+          <div className="mt-6 w-full text-sm text-green-500 font-semibold flex gap-4 items-center justify-center">
+            <Check weight="regular" className="text-2xl" />
+            <h3>{registerResponse.success}</h3>
+          </div>
+        )}
+
+        {registerResponse.error && (
+          <div className="mt-6 w-full text-sm text-red-500 font-semibold flex gap-4 items-center justify-center">
+            <Warning weight="regular" className="text-2xl" />
+            <h3>{registerResponse.error}</h3>
+          </div>
+        )}
+
+        <p className="mt-6 text-center text-sm text-neutral-500">
+          <Link
+            href="/api/auth/signin"
+            className="font-semibold leading-6 text-indigo-500 hover:text-indigo-600 hover:underline"
+          >
+            Retornar para o login
+          </Link>
+        </p>
       </div>
     </div>
   )
