@@ -38,12 +38,12 @@ export default function LateralMyAccount() {
       unmountOnExit
     >
       <div
-        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-full justify-between bg-neutral-950 bg-opacity-90 border-r border-neutral-800 backdrop-blur-sm z-20"
+        className="w-56 fixed left-0 top-0 bottom-0 flex flex-col pt-20 pl-6 h-screen justify-between bg-neutral-950 bg-opacity-90 border-r border-neutral-800 backdrop-blur-sm z-20"
         ref={nodeRef}
       >
         <div className="flex flex-col">
           <Link href={links.myAccount}>
-            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
+            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-xs h-14 rounded hover:text-indigo-500 transition-all">
               <UserCircle
                 weight={pathname === links.myAccount ? 'fill' : 'duotone'}
                 className="text-indigo-600 text-4xl"
@@ -60,7 +60,7 @@ export default function LateralMyAccount() {
           </Link>
 
           <Link href={links.myOrders}>
-            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
+            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-xs h-14 rounded hover:text-indigo-500 transition-all">
               <Bag
                 weight={pathname === links.myOrders ? 'fill' : 'duotone'}
                 className="text-indigo-600 text-4xl"
@@ -76,7 +76,7 @@ export default function LateralMyAccount() {
           </Link>
 
           <Link href={links.myData}>
-            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
+            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-xs h-14 rounded hover:text-indigo-500 transition-all">
               <IdentificationCard
                 weight={pathname === links.myData ? 'fill' : 'duotone'}
                 className="text-indigo-600 text-4xl"
@@ -92,7 +92,7 @@ export default function LateralMyAccount() {
           </Link>
 
           <Link href={links.myGames}>
-            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
+            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-xs h-14 rounded hover:text-indigo-500 transition-all">
               <GameController
                 weight={pathname === links.myGames ? 'fill' : 'duotone'}
                 className="text-indigo-600 text-4xl"
@@ -108,7 +108,7 @@ export default function LateralMyAccount() {
           </Link>
 
           <Link href={links.myFavorites}>
-            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
+            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-xs h-14 rounded hover:text-indigo-500 transition-all">
               <Heart
                 weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
                 className="text-indigo-600 text-4xl"
@@ -125,7 +125,7 @@ export default function LateralMyAccount() {
           </Link>
 
           <Link href={links.myEvaluations}>
-            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-sm font-light h-14 rounded hover:text-indigo-400 transition-all">
+            <div className="text-neutral-100 flex gap-3 px-4 items-center w-full text-xs h-14 rounded hover:text-indigo-500 transition-all">
               <ThumbsUp
                 weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
                 className="text-indigo-600 text-4xl"
@@ -144,7 +144,7 @@ export default function LateralMyAccount() {
 
         <button
           onClick={() => signOut({ redirect: true, callbackUrl: '/home' })}
-          className="flex gap-3 px-4 items-center w-full text-sm font-light text-neutral-200 h-14 rounded mb-4 hover:text-orange-600 transition-all bg-red-2 text-left"
+          className="flex gap-3 px-4 items-center w-full text-xs text-neutral-200 h-14 rounded mb-4 hover:text-orange-600 transition-all bg-red-2 text-left"
         >
           <SignOut
             weight={pathname === links.help ? 'fill' : 'duotone'}

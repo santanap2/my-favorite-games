@@ -110,7 +110,7 @@ export default function LateralFilters() {
           <LateralFiltersSkeleton />
         ) : (
           <div className="flex flex-col items-center h-full justify-start w-full">
-            <div className="w-full text-md font-bold flex gap-3 items-center justify-center px-6">
+            <div className="w-full text-base font-bold flex gap-3 items-center justify-center px-6">
               <span>Filtre sua busca</span>
             </div>
 
@@ -136,9 +136,7 @@ export default function LateralFilters() {
                         onChange={() => categoriesHandler(name)}
                         value={name}
                       />
-                      <span className="text-neutral-200 text-sm font-light">
-                        {namePt}
-                      </span>
+                      <span className="text-neutral-200 text-sm">{namePt}</span>
                     </label>
                   ))}
                   <div className="flex flex-col gap-3 mt-5">
