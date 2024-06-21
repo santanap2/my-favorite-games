@@ -25,26 +25,26 @@ export default function EvaluationIdSkeleton() {
               <div className="w-40 h-40 sm:w-24 sm:h-24 object-cover bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded" />
             </div>
             <div className="flex flex-col gap-1 w-full">
-              <span className="text-xl tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-full">
+              <span className="text-xl tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-full">
                 Nome completo do jogo
               </span>
-              <span className="text-xl tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-1/2">
+              <span className="text-xl tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-1/2">
                 a
               </span>
             </div>
           </div>
 
           <div className="flex flex-col gap-1">
-            <span className="sm:text-sm font-semibold tracking-wide bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-fit">
+            <span className="sm:text-sm font-semibold tracking-wide bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-fit">
               Produto avaliado em:
             </span>
-            <span className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-fit">
+            <span className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-fit">
               domingo, 14 de janeiro de 2024 às 10:54:20
             </span>
           </div>
 
           <div>
-            <span className="sm:text-sm font-semibold tracking-wide bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-fit">
+            <span className="sm:text-sm font-semibold tracking-wide bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-fit">
               Sua nota para o produto:
             </span>
 
@@ -53,25 +53,25 @@ export default function EvaluationIdSkeleton() {
                 <Star
                   key={index}
                   weight="fill"
-                  className="text-neutral-200 text-3xl"
+                  className="text-white text-3xl"
                 />
               ))}
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <span className="sm:text-sm font-semibold tracking-wide bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-fit">
+            <span className="sm:text-sm font-semibold tracking-wide bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-fit">
               Sua descrição para o produto:
             </span>
 
-            <div className="px-2 py-4 w-full bg-white rounded min-h-fit flex flex-col gap-1 shadow-md">
+            <div className="px-2 py-4 w-full bg-white rounded-md min-h-fit flex flex-col gap-1 shadow-md">
               <p className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded">
                 Descricao
               </p>
-              <p className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-2/3">
+              <p className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-2/3">
                 Descricao
               </p>
-              <p className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded w-1/3">
+              <p className="text-sm tracking-wide font-light bg-neutral-100 loading-skeleton shadow-md text-transparent cursor-default rounded-md w-1/3">
                 Descricao
               </p>
             </div>

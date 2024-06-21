@@ -49,7 +49,7 @@ export default function EvaluationCard({
   }
 
   return (
-    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-neutral-800 px-2 rounded shadow-md relative animation-opacity transition-all">
+    <div className="flex items-center justify-between gap-6 sm:gap-2 w-full h-48 bg-neutral-800 px-2 rounded-md shadow-md relative animation-opacity transition-all">
       {alreadyEvaluated && (
         <div className="flex items-center gap-1 absolute right-3 top-3 sm:right-0 sm:top-0">
           <span className="text-sm text-indigo-600 font-semibold sm:hidden">
@@ -61,7 +61,7 @@ export default function EvaluationCard({
       <img
         src={image}
         alt={name}
-        className="w-28 h-44 rounded shadow-md object-cover"
+        className="w-28 h-44 rounded-md shadow-md object-cover"
       />
       <div className="flex flex-col w-full h-44 items-start justify-start gap-1">
         <span className="text-xl font-bold sm:text-lg sm:font-semibold w-full pr-3">
@@ -101,7 +101,7 @@ export default function EvaluationCard({
           </div>
 
           <button
-            className="w-64 sm:w-full bg-indigo-600 rounded px-2 py-2 text-neutral-100 font-light text-base sm:text-sm shadow-md hover:bg-indigo-700 transition-all"
+            className="w-64 sm:w-full bg-indigo-600 rounded-md px-2 py-2 text-white font-light text-base sm:text-sm shadow-md hover:bg-indigo-700 transition-all"
             onClick={() => {
               alreadyEvaluated
                 ? router.push(

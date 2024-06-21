@@ -45,7 +45,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
           <div className="mt-24 xxl:mt-20 w-full h-full">
             <title>{`Minhas avaliações - ${pageTitle}`}</title>
             <LateralMyAccount />
-            <div className=" w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
@@ -61,9 +61,9 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                   <img
                     src={userEvaluationsData?.data.data?.product.image}
                     alt={userEvaluationsData?.data.data?.product.name}
-                    className="rounded w-40 h-60 sm:w-24 sm:h-24 object-cover"
+                    className="rounded-md w-40 h-60 sm:w-24 sm:h-24 object-cover"
                   />
-                  <span className="text-xl tracking-wide font-light text-neutral-100">
+                  <span className="text-xl tracking-wide font-light text-white">
                     {userEvaluationsData?.data.data.product.name}
                   </span>
                 </div>
@@ -72,7 +72,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                   <span className="sm:text-sm font-semibold tracking-wide">
                     Produto avaliado em:
                   </span>
-                  <span className="text-sm tracking-wide font-light text-neutral-200">
+                  <span className="text-sm tracking-wide font-light text-white">
                     {convertFullDate(userEvaluationsData?.data.data.created_at)}
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                         } text-3xl`}
                       />
                     ))}
-                    <span className="ml-2 tracking-wide font-light text-neutral-200">
+                    <span className="ml-2 tracking-wide font-light text-white">
                       {`( ${userEvaluationsData?.data.data.stars} )`}
                     </span>
                   </div>
@@ -110,13 +110,13 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                   </span>
 
                   {userEvaluationsData?.data.data.description ? (
-                    <div className="p-2 w-full min-w-fit bg-neutral-700 rounded border border-neutral-600 min-h-fit text-justify">
-                      <span className="text-sm tracking-wide font-light text-neutral-200">
+                    <div className="p-2 w-full min-w-fit bg-neutral-700 rounded-md border border-neutral-600 min-h-fit text-justify">
+                      <span className="text-sm tracking-wide font-light text-white">
                         {userEvaluationsData?.data.data.description}
                       </span>
                     </div>
                   ) : (
-                    <span className="font-light text-sm text-neutral-500">
+                    <span className="font-light text-sm text-white0">
                       Você não forneceu nenhuma descrição para o produto.
                     </span>
                   )}
@@ -124,7 +124,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                 <Link href={`/minha-conta/minhas-avaliacoes/editar/${id}`}>
                   <button
                     type="button"
-                    className="w-64 sm:w-full px-4 py-2 text-base text-neutral-100 font-light rounded shadow-md bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg transition-all"
+                    className="w-64 sm:w-full px-4 py-2 text-base text-white font-light rounded-md shadow-md bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg transition-all"
                   >
                     Editar avaliação
                   </button>

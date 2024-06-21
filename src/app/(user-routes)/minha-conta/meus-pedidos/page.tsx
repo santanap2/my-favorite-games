@@ -29,7 +29,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
       <title>{`Meus pedidos - ${pageTitle}`}</title>
       <LateralMyAccount />
 
-      <div className="w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6 animation-opacity transition-all">
+      <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 animation-opacity transition-all">
         <div className="flex gap-1 w-fit items-center justify-center">
           <Bag weight="fill" className="text-indigo-600 sm:text-3xl text-5xl" />
           <h1 className="font-regular text-xl font-semibold">Meus pedidos</h1>
@@ -47,7 +47,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
                 <Link href="/minha-conta/meus-pedidos">
                   <button
                     type="button"
-                    className="flex gap-4 items-center justify-center p-4 py-2 bg-indigo-500 rounded-md text-sm font-bold text-neutral-100 hover:bg-indigo-600 transition-all"
+                    className="flex gap-4 items-center justify-center p-4 py-2 bg-indigo-500 rounded-md text-sm font-bold text-white hover:bg-indigo-600 transition-all"
                   >
                     <ArrowUUpLeft className="text-xl" />
 

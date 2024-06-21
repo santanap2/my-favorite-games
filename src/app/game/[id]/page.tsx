@@ -101,14 +101,14 @@ export default function GameId({ params: { id } }: IGameIDParams) {
           <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
             <Link
               href="/"
-              className="text-neutral-300 hover:text-neutral-50 hover:underline min-w-fit"
+              className="text-neutral-300 hover:text-white hover:underline min-w-fit"
             >
               Todos os jogos
             </Link>
             <CaretRight weight="light" className="text-neutral-300 text-base" />
             <Link
               href={`/home?${productData?.data.data.category.name}=true`}
-              className="text-neutral-300 hover:text-neutral-50 hover:underline min-w-fit"
+              className="text-neutral-300 hover:text-white hover:underline min-w-fit"
             >
               {productData?.data.data.category.namePt}
             </Link>
@@ -117,12 +117,12 @@ export default function GameId({ params: { id } }: IGameIDParams) {
 
             <Link
               href={`/game/${id}`}
-              className="text-neutral-300 hover:text-neutral-50 hover:underline min-w-fit"
+              className="text-neutral-300 hover:text-white hover:underline min-w-fit"
             >
               {productData?.data.data.name}
             </Link>
           </div>
-          <h1 className="mt-4 font-bold text-2xl text-neutral-100 sm:text-xl sm:mt-2">
+          <h1 className="mt-4 font-bold text-2xl text-white sm:text-xl sm:mt-2">
             {productData?.data.data.name}
           </h1>
 
@@ -130,7 +130,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
             <img
               src={productData?.data.data.image}
               alt={productData?.data.data.name}
-              className="w-[300px] h-[400px] rounded shadow-md object-cover md:w-72 md:h-96"
+              className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96"
             />
             <div className="flex flex-col justify-start items-start w-full h-full text-neutral-300 gap-2">
               <span className="font-light sm:text-sm">
@@ -154,7 +154,7 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     await buyOneItem(id.toString())
                     router.push('/finalizar-compra')
                   }}
-                  className="w-64 h-14 bg-indigo-600 rounded text-lg font-bold uppercase tracking-wider text-neutral-100 shadow-sm hover:bg-indigo-700 sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+                  className="w-64 h-14 bg-indigo-600 rounded-md text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:bg-indigo-700 sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
                 >
                   Comprar agora
                 </button>
@@ -165,11 +165,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     await addItemToCart(id.toString())
                     setShowCart(true)
                   }}
-                  className="w-14 h-14 bg-indigo-600 rounded text-lg font-bold uppercase tracking-wider text-neutral-100 flex items-center justify-center relative shadow-sm hover:bg-indigo-700 sm:h-12 sm:w-12"
+                  className="w-14 h-14 bg-indigo-600 rounded-md text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-indigo-700 sm:h-12 sm:w-12"
                 >
                   <ShoppingCartSimple
                     weight="bold"
-                    className="text-neutral-100 relative text-3xl"
+                    className="text-white relative text-3xl"
                   />
                   <PlusCircle
                     weight="fill"
@@ -182,11 +182,11 @@ export default function GameId({ params: { id } }: IGameIDParams) {
                     setIsFavorite(!isFavorite)
                     setShowPopupFavorite(true)
                   }}
-                  className="w-14 h-14 bg-indigo-600 rounded text-lg font-bold tracking-wider text-neutral-100 flex items-center justify-center relative shadow-sm hover:bg-indigo-700 sm:h-12 sm:w-12"
+                  className="w-14 h-14 bg-indigo-600 rounded-md text-lg font-bold tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-indigo-700 sm:h-12 sm:w-12"
                 >
                   <Heart
                     weight={isFavorite ? 'fill' : 'bold'}
-                    className="text-neutral-100 relative text-3xl"
+                    className="text-white relative text-3xl"
                   />
                   {showPopupFavorite && (
                     <PopUpFavorite removeFavorite={!isFavorite} />

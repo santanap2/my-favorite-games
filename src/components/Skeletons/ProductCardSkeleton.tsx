@@ -8,10 +8,10 @@ export default function ProductCardSkeleton() {
       <div className="w-full h-40 flex flex-col justify-between items-start xl:h-fit">
         <div className="flex flex-col gap-1 h-20 mt-1 w-full">
           <div className="w-full flex flex-col gap-[2px]">
-            <h1 className="font-semibold text-base text-transparent loading-skeleton rounded w-full max-h-20 sm:text-base sm:max-h-11 hover:underline">
+            <h1 className="font-semibold text-base text-transparent loading-skeleton rounded-md w-full max-h-20 sm:text-base sm:max-h-11 hover:underline">
               Titulo titulo titulo
             </h1>
-            <h1 className="font-semibold text-base text-transparent loading-skeleton rounded w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline">
+            <h1 className="font-semibold text-base text-transparent loading-skeleton rounded-md w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline">
               Titulo titulo titulo
             </h1>
           </div>

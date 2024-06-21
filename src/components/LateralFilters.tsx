@@ -103,7 +103,7 @@ export default function LateralFilters() {
       unmountOnExit
     >
       <aside
-        className="w-56 fixed left-0 top-14 bottom-0 flex flex-col pt-6 h-full justify-between items-center bg-neutral-950 bg-opacity-90 border-r border-neutral-800 backdrop-blur-sm text-neutral-100 overflow-y-auto z-20"
+        className="w-56 fixed left-0 top-14 bottom-0 flex flex-col pt-6 h-full justify-between items-center bg-neutral-950 bg-opacity-90 border-r border-neutral-800 backdrop-blur-sm text-white overflow-y-auto z-20"
         ref={nodeRef}
       >
         {categoriesIsLoading ? (
@@ -136,7 +136,7 @@ export default function LateralFilters() {
                         onChange={() => categoriesHandler(name)}
                         value={name}
                       />
-                      <span className="text-neutral-200 text-sm">{namePt}</span>
+                      <span className="text-white text-sm">{namePt}</span>
                     </label>
                   ))}
                   <div className="flex flex-col gap-3 mt-5">
@@ -153,7 +153,7 @@ export default function LateralFilters() {
                         type="text"
                         name="minPrice"
                         placeholder="R$ 00,00"
-                        className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-neutral-500"
+                        className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-white0"
                         onChange={(e) => pricesHandler(e)}
                         value={formPrices.minPrice}
                       />
@@ -171,7 +171,7 @@ export default function LateralFilters() {
                         name="maxPrice"
                         type="text"
                         placeholder="R$ 00,00"
-                        className="w-32 rounded shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-neutral-500"
+                        className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-white0"
                         onChange={(e) => pricesHandler(e)}
                         value={formPrices.maxPrice}
                       />
@@ -183,7 +183,7 @@ export default function LateralFilters() {
             <button
               type="submit"
               form="lateral-filters"
-              className="w-52 bg-indigo-600 hover:bg-indigo-700 rounded p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-neutral-100 "
+              className="w-52 bg-indigo-600 hover:bg-indigo-700 rounded-md p-2 font-regular text-sm shadow-sm hover:shadow-lg mt-12 font-light text-white "
             >
               Filtrar
             </button>

@@ -28,11 +28,11 @@ export default function ProductCard({
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="w-40 h-60 overflow-hidden inline-block rounded shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
+        <div className="w-40 h-60 overflow-hidden inline-block rounded-md shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt={name}
-            className={`object-cover transition-all duration-500 w-40 h-full rounded ${
+            className={`object-cover transition-all duration-500 w-40 h-full rounded-md ${
               hover ? 'scale-110' : ''
             }`}
           />
@@ -43,7 +43,7 @@ export default function ProductCard({
         <div className="flex flex-col gap-1 h-20 mt-1">
           <Link href={`/game/${id}`} className="w-fit">
             <h1
-              className="font-semibold text-base text-neutral-50 w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
+              className="font-semibold text-base text-white w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -52,7 +52,7 @@ export default function ProductCard({
           </Link>
 
           <Link href={`/home?${category}=true`} className=" w-fit">
-            <h2 className="font-extralight text-sm w-fit sm:text-xs sm:h-8 hover:underline text-neutral-50">
+            <h2 className="font-extralight text-sm w-fit sm:text-xs sm:h-8 hover:underline text-white">
               {categoryPt}
             </h2>
           </Link>
@@ -60,7 +60,7 @@ export default function ProductCard({
 
         <button
           type="button"
-          className="flex items-center justify-center h-8 text-sm font-bold text-neutral-200 sm:text-md bg-indigo-800 w-full p-2 rounded text-center hover:bg-indigo-600 transition-all duration-300"
+          className="flex items-center justify-center h-8 text-sm font-bold text-white sm:text-md bg-indigo-800 w-full p-2 rounded-md text-center hover:bg-indigo-600 transition-all duration-300"
           onMouseEnter={() => {
             setHover(true)
             setHoverPrice(true)

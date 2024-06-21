@@ -103,7 +103,7 @@ export default function Pagamento() {
     <>
       {!isAuthenticated && null}
       {isAuthenticated && (
-        <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-neutral-100">
+        <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-white">
           <title>{`${pageTitle} - Pagamento`}</title>
 
           <div className="flex gap-1 w-fit items-center justify-center">
@@ -117,10 +117,10 @@ export default function Pagamento() {
           </div>
 
           <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center">
-            <div className="w-[70%] bg-neutral-800 rounded shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
+            <div className="w-[70%] bg-neutral-800 rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
               <div
                 onClick={() => pickPaymentMethod('pix')}
-                className={`bg-neutral-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-neutral-100 ${
+                className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
                   paymentMethod.pix
                     ? 'border-1 border-indigo-600'
                     : 'border-1 border-neutral-500'
@@ -142,7 +142,7 @@ export default function Pagamento() {
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.pix ? 'text-indigo-600' : 'text-neutral-200'
+                      paymentMethod.pix ? 'text-indigo-600' : 'text-white'
                     } sm:text-base`}
                   >
                     PIX
@@ -169,7 +169,7 @@ export default function Pagamento() {
               </div>
               <div
                 onClick={() => pickPaymentMethod('bankSlip')}
-                className={`bg-neutral-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-neutral-100 ${
+                className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
                   paymentMethod.bankSlip
                     ? 'border-1 border-indigo-600'
                     : 'border-1 border-neutral-500'
@@ -193,7 +193,7 @@ export default function Pagamento() {
                     className={`text-lg font-bold ${
                       paymentMethod.bankSlip
                         ? 'text-indigo-600'
-                        : 'text-neutral-200'
+                        : 'text-white'
                     } sm:text-base`}
                   >
                     Boleto bancário
@@ -221,7 +221,7 @@ export default function Pagamento() {
 
               <div
                 onClick={() => pickPaymentMethod('creditCard')}
-                className={`bg-neutral-900 px-6 py-4 border border-1 rounded flex flex-col gap-2 justify-start cursor-pointer text-neutral-100 ${
+                className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
                   paymentMethod.creditCard
                     ? 'border-1 border-indigo-600'
                     : 'border-1 border-neutral-500'
@@ -245,7 +245,7 @@ export default function Pagamento() {
                     className={`text-lg font-bold ${
                       paymentMethod.creditCard
                         ? 'text-indigo-600'
-                        : 'text-neutral-200'
+                        : 'text-white'
                     } sm:text-base`}
                   >
                     Cartão de crédito
@@ -256,8 +256,8 @@ export default function Pagamento() {
               </div>
             </div>
 
-            <div className="bg-neutral-800 rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
-              <div className="w-full h-30 bg-neutral-900 shadow-md p-4 rounded flex flex-col items-center justify-center text-indigo-neutral-100 sm:w-60 sm:p-2">
+            <div className="bg-neutral-800 rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
+              <div className="w-full h-30 bg-neutral-900 shadow-md p-4 rounded-md flex flex-col items-center justify-center text-indigo-neutral-100 sm:w-60 sm:p-2">
                 <div className="text-sm flex">{whichPaymentMethod()}</div>
 
                 {paymentMethod.creditCard ? (
@@ -285,7 +285,7 @@ export default function Pagamento() {
               </div>
               <button
                 type={paymentMethod.creditCard ? 'submit' : 'button'}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 h-10 rounded text-neutral-100 font-light text-regular shadow-md hover:shadow-lg"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
                 form="creditCardForm"
                 onClick={checkPaymentMethod}
               >

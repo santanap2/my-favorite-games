@@ -25,13 +25,13 @@ export default function NotFoundPage() {
       <div className="mt-24 xxl:mt-20 sm:w-[95%] flex flex-col gap-10 items-center justify-start z-50">
         <div className="flex gap-1 w-full items-center justify-center">
           <SmileySad weight="duotone" className="text-indigo-700 text-5xl" />
-          <h1 className="text-neutral-100 font-regular text-xl font-semibold">
+          <h1 className="text-white font-regular text-xl font-semibold">
             Página não encontrada.
           </h1>
         </div>
         <Link
           href="/home"
-          className="flex items-center justify-center bg-indigo-600 w-fit px-12 sm:w-full h-9 rounded shadow-md text-sm text-neutral-100 hover:bg-indigo-700 hover:shadow-lg"
+          className="flex items-center justify-center bg-indigo-600 w-fit px-12 sm:w-full h-9 rounded-md shadow-md text-sm text-white hover:bg-indigo-700 hover:shadow-lg"
         >
           Retornar para a página inicial
         </Link>

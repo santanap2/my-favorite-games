@@ -24,7 +24,7 @@ export default function Login() {
           src="/logo-min.png"
           alt="My Fav Games"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-neutral-50">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
           Faça login em sua conta
         </h2>
       </div>
@@ -37,7 +37,7 @@ export default function Login() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-neutral-200"
+              className="block text-sm font-medium leading-6 text-white"
             >
               Endereço de email
             </label>
@@ -53,7 +53,7 @@ export default function Login() {
                   errors.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.email && (
                 <span className="text-sm font-light text-red-500">
@@ -67,7 +67,7 @@ export default function Login() {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-neutral-200"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Senha
               </label>
@@ -92,7 +92,7 @@ export default function Login() {
                   errors.password
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.password && (
                 <span className="text-sm font-light text-red-500">
@@ -122,7 +122,7 @@ export default function Login() {
           </div>
         )}
 
-        <p className="mt-10 text-center text-sm text-neutral-500">
+        <p className="mt-10 text-center text-sm text-white0">
           Não possui uma conta?{' '}
           <Link
             href="/cadastro"

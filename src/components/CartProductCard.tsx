@@ -22,7 +22,7 @@ export default function CartProductCard({
       <img
         src={image}
         alt={name}
-        className="w-24 h-36 object-cover rounded sm:w-24"
+        className="w-24 h-36 object-cover rounded-md sm:w-24"
       />
       <div className="flex flex-col justify-between items-start w-full">
         <div className="flex flex-col">

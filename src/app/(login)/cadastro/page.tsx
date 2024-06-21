@@ -22,7 +22,7 @@ export default function Cadastro() {
           src="/logo-min.png"
           alt="My Fav Games"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-neutral-50">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
           Cadastre-se
         </h2>
       </div>
@@ -35,7 +35,7 @@ export default function Cadastro() {
           <div className="w-full">
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-neutral-200"
+              className="block text-sm font-medium leading-6 text-white"
             >
               Endereço de email
             </label>
@@ -49,7 +49,7 @@ export default function Cadastro() {
                   errors.registerUser?.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.email && (
                 <span className="text-sm font-light text-red-500">
@@ -62,7 +62,7 @@ export default function Cadastro() {
           <div>
             <label
               htmlFor="confirmEmail"
-              className="block text-sm font-medium leading-6 text-neutral-200"
+              className="block text-sm font-medium leading-6 text-white"
             >
               Confirme seu email
             </label>
@@ -76,7 +76,7 @@ export default function Cadastro() {
                   errors.registerUser?.confirmEmail
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.confirmEmail && (
                 <span className="text-sm font-light text-red-500">
@@ -89,7 +89,7 @@ export default function Cadastro() {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium leading-6 text-neutral-200"
+              className="block text-sm font-medium leading-6 text-white"
             >
               Nome
             </label>
@@ -103,7 +103,7 @@ export default function Cadastro() {
                   errors.registerUser?.name
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.name && (
                 <span className="text-sm font-light text-red-500">
@@ -116,7 +116,7 @@ export default function Cadastro() {
           <div>
             <label
               htmlFor="phone"
-              className="block text-sm font-medium leading-6 text-neutral-200"
+              className="block text-sm font-medium leading-6 text-white"
             >
               Celular
             </label>
@@ -131,7 +131,7 @@ export default function Cadastro() {
                   errors.registerUser?.phone
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.phone && (
                 <span className="text-sm font-light text-red-500">
@@ -145,7 +145,7 @@ export default function Cadastro() {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-neutral-200"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Senha
               </label>
@@ -160,7 +160,7 @@ export default function Cadastro() {
                   errors.registerUser?.password
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.password && (
                 <span className="text-sm font-light text-red-500">
@@ -174,7 +174,7 @@ export default function Cadastro() {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium leading-6 text-neutral-200"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Confirme sua senha
               </label>
@@ -189,7 +189,7 @@ export default function Cadastro() {
                   errors.registerUser?.confirmPassword
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.confirmPassword && (
                 <span className="text-sm font-light text-red-500">
@@ -229,7 +229,7 @@ export default function Cadastro() {
           </div>
         )}
 
-        <p className="mt-6 text-center text-sm text-neutral-500">
+        <p className="mt-6 text-center text-sm text-white0">
           <Link
             href="/api/auth/signin"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-700 hover:underline"

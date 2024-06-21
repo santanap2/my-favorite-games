@@ -21,14 +21,14 @@ export default function UserProductCard({
 
   return (
     <div
-      className="rounded shadow-md w-64 h-96 relative animation-opacity transition-all sm:w-32 sm:h-48 xl:w-40 xl:h-60"
+      className="rounded-md shadow-md w-64 h-96 relative animation-opacity transition-all sm:w-32 sm:h-48 xl:w-40 xl:h-60"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       <Link href={`/game/${productId}`} className="w-full">
-        <div className="overflow-hidden inline-block rounded w-full">
+        <div className="overflow-hidden inline-block rounded-md w-full">
           <img
-            className={`object-cover w-full h-full rounded  transition-all duration-500 ${
+            className={`object-cover w-full h-full rounded-md  transition-all duration-500 ${
               hover ? 'scale-110' : ''
             }`}
             src={image}
@@ -38,8 +38,8 @@ export default function UserProductCard({
       </Link>
 
       {hover && (
-        <div className="user-product-card-bg absolute bottom-0 w-full h-32 rounded-b flex justify-between items-center xxl:hidden">
-          <div className="w-full h-full flex items-end justify-start pl-3 pb-3 text-lg font-semibold text-neutral-100 hover:underline xxl:text-sm xxl:pl-1 xxl:pb-1">
+        <div className="user-product-card-bg absolute bottom-0 w-full h-32 rounded-b-md flex justify-between items-center xxl:hidden">
+          <div className="w-full h-full flex items-end justify-start pl-3 pb-3 text-lg font-semibold text-white hover:underline xxl:text-sm xxl:pl-1 xxl:pb-1">
             <Link href={`/game/${productId}`} className="w-full">
               {name.length > 32 ? `${name.slice(0, 32)}...` : name}
             </Link>
@@ -64,8 +64,8 @@ export default function UserProductCard({
         </div>
       )}
 
-      <div className="hidden user-product-card-bg absolute bottom-0 w-full h-32 rounded-b xxl:flex justify-between items-center">
-        <div className="w-full h-full flex items-end justify-start pl-3 pb-3 text-lg font-semibold text-neutral-100 hover:underline xxl:text-sm xxl:pl-1 xxl:pb-1">
+      <div className="hidden user-product-card-bg absolute bottom-0 w-full h-32 rounded-b-md xxl:flex justify-between items-center">
+        <div className="w-full h-full flex items-end justify-start pl-3 pb-3 text-lg font-semibold text-white hover:underline xxl:text-sm xxl:pl-1 xxl:pb-1">
           <Link href={`/game/${productId}`} className="w-full">
             {name.length > 32 ? `${name.slice(0, 32)}...` : name}
           </Link>

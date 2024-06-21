@@ -49,7 +49,7 @@ export default function MeusDados() {
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus dados`}</title>
           <LateralMyAccount />
-          <div className=" w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+          <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start">
               <IdentificationCard
                 weight="fill"
@@ -59,7 +59,7 @@ export default function MeusDados() {
             </div>
 
             <div className="flex flex-col gap-6 w-full">
-              <div className="w-3/4 h-full bg-neutral-800 p-6 rounded shadow-md flex flex-col gap-10 xxl:w-full">
+              <div className="w-3/4 h-full bg-neutral-800 p-6 rounded-md shadow-md flex flex-col gap-10 xxl:w-full">
                 <form
                   id="myDataForm"
                   className="w-full flex flex-col gap-3"
@@ -77,7 +77,7 @@ export default function MeusDados() {
                       {...register('userData.name')}
                       type="text"
                       id="name"
-                      className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded ${
+                      className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md ${
                         errors.userData?.name && 'border border-red-500'
                       }`}
                       placeholder={
@@ -107,7 +107,7 @@ export default function MeusDados() {
                         {...register('userData.currentEmail')}
                         type="email"
                         id="email"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md ${
                           errors.userData?.currentEmail &&
                           'border border-red-500'
                         }`}
@@ -134,7 +134,7 @@ export default function MeusDados() {
                         {...register('userData.newEmail')}
                         type="email"
                         id="newEmail"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md ${
                           errors.userData?.newEmail && 'border border-red-500'
                         }`}
                         placeholder="Digite seu novo email"
@@ -161,7 +161,7 @@ export default function MeusDados() {
                         type="tel"
                         id="phone"
                         maxLength={15}
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md ${
                           errors.userData?.phone && 'border border-indigo-600'
                         }`}
                         placeholder={
@@ -193,7 +193,7 @@ export default function MeusDados() {
                         {...register('userData.currentPassword')}
                         type="password"
                         id="currentPassword"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded xxl:w-full ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md xxl:w-full ${
                           errors.userData?.currentPassword &&
                           'border border-indigo-600'
                         }`}
@@ -223,7 +223,7 @@ export default function MeusDados() {
                         {...register('userData.newPassword')}
                         type="password"
                         id="newPassword"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded xxl:w-full ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md xxl:w-full ${
                           errors.userData?.newPassword &&
                           'border border-red-500'
                         }`}
@@ -251,7 +251,7 @@ export default function MeusDados() {
                         {...register('userData.confirmNewPassword')}
                         type="password"
                         id="confirmNewPassword"
-                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-neutral-200 bg-neutral-700 placeholder:text-neutral-500 text-base font-light rounded xxl:w-full ${
+                        className={`px-4 h-10 w-full shadow-sm focus:outline-none hover:shadow-md focus:shadow-lg text-white bg-neutral-700 placeholder:text-white0 text-base font-light rounded-md xxl:w-full ${
                           errors.userData?.confirmNewPassword &&
                           'border border-red-500'
                         }`}
@@ -272,7 +272,7 @@ export default function MeusDados() {
                   <button
                     type="submit"
                     form="myDataForm"
-                    className="flex items-center justify-center bg-indigo-600 w-80 px-6 py-3 rounded shadow-md hover:bg-indigo-700 transition-all font-semibold text-sm text-neutral-100 sm:w-full sm:px-16 disabled:opacity-40 "
+                    className="flex items-center justify-center bg-indigo-600 w-80 px-6 py-3 rounded-md shadow-md hover:bg-indigo-700 transition-all font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
                     disabled={!!userDataResponse.success}
                   >
                     {loading.updateUserData ? (

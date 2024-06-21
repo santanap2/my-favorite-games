@@ -23,7 +23,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
   }
 
   return (
-    <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-neutral-200 relative">
+    <div className="flex w-[463px] sm:max-w-full sm:w-full h-40 gap-16 items-center justify-center text-white relative">
       <div className="bg-neutral-500 h-2 w-[400px] absolute left-10 bottom-14 z-0 sm:w-[300px] xs:w-[250px] animation-opacity transition-all">
         <div className={`${checkOrderStatus()} relative h-2 z-10`} />
       </div>
@@ -56,7 +56,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           }
           className={`${
             order.status === 'awaitingPayment'
-              ? 'text-neutral-500'
+              ? 'text-white0'
               : 'text-indigo-600'
           } ${
             order.status === 'approvedPayment' ||
@@ -85,7 +85,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : (
             <Circle
               weight="fill"
-              className="rounded-3xl bg-neutral-500 text-4xl text-neutral-500"
+              className="rounded-3xl bg-neutral-500 text-4xl text-white0"
             />
           )}
           <span className="text-neutral-300 text-sm text-center">
@@ -106,7 +106,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           className={`${
             order.status === 'processing' || order.status === 'concluded'
               ? 'text-indigo-600'
-              : 'text-neutral-500'
+              : 'text-white0'
           } ${
             order.status === 'processing' || order.status === 'concluded'
               ? 'text-indigo-600 border-indigo-600'
@@ -129,7 +129,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : (
             <Circle
               weight="fill"
-              className="rounded-3xl bg-neutral-500 text-neutral-500 text-4xl"
+              className="rounded-3xl bg-neutral-500 text-white0 text-4xl"
             />
           )}
           <span className="text-neutral-300 text-sm text-center">
@@ -146,9 +146,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : 'regular'
           }
           className={`${
-            order.status === 'concluded'
-              ? 'text-indigo-600'
-              : 'text-neutral-500'
+            order.status === 'concluded' ? 'text-indigo-600' : 'text-white0'
           } ${
             order.status === 'concluded'
               ? 'text-indigo-600 border-indigo-600'
@@ -171,7 +169,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : (
             <Circle
               weight="fill"
-              className="rounded-3xl bg-neutral-500 text-neutral-500 text-4xl"
+              className="rounded-3xl bg-neutral-500 text-white0 text-4xl"
             />
           )}
           <span className="text-neutral-300 text-sm text-center">

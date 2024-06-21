@@ -15,7 +15,7 @@ export default function MyAccountSkeleton() {
 
       <LateralMyAccount />
       <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
-        <div className="w-full h-full flex flex-col gap-10 text-neutral-100 items-start lg:gap-6">
+        <div className="w-full h-full flex flex-col gap-10 text-white items-start lg:gap-6">
           <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
             <div className="flex gap-1 items-start justify-center w-full">
               <UserCircle weight="fill" className="text-indigo-600 text-6xl" />
@@ -31,7 +31,7 @@ export default function MyAccountSkeleton() {
                 className="h-8 md:h-6 text-indigo-600 text-2xl"
               />
 
-              <span className="h-8 md:h-6 text-transparent bg-neutral-200 rounded loading-skeleton flex items-center justify-center">
+              <span className="h-8 md:h-6 text-transparent bg-neutral-200 rounded-md loading-skeleton flex items-center justify-center">
                 emaildousuario@email.com
               </span>
             </h2>

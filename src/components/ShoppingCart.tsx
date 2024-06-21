@@ -37,7 +37,7 @@ export default function ShoppingCart() {
         onEntered={() => refetch()}
       >
         <aside
-          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-neutral-900 bg-opacity-80 border-l border-neutral-800 backdrop-blur-sm text-neutral-300 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
+          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-neutral-900 border-l border-neutral-800 text-neutral-300 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
           ref={nodeRef}
         >
           <div className="flex w-full justify-between pr-4 items-center">
@@ -62,7 +62,7 @@ export default function ShoppingCart() {
             <button type="button" onClick={() => setShowCart(!showCart)}>
               <X
                 weight="bold"
-                className="text-neutral-100 hover:text-indigo-600 text-3xl"
+                className="text-white hover:text-indigo-600 text-3xl"
               />
             </button>
           </div>
@@ -121,7 +121,7 @@ export default function ShoppingCart() {
                     setShowCart(false)
                     router.push('/finalizar-compra')
                   }}
-                  className="text-sm uppercase font-bold text-neutral-100 py-2 bg-indigo-600 hover:bg-indigo-700 rounded tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+                  className="text-sm uppercase font-bold text-white py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${
                     calcSum(data?.data.data.products || []).string
@@ -147,7 +147,7 @@ export default function ShoppingCart() {
       </CSSTransition>
       {showCart && (
         <div
-          className="bg-black opacity-70 w-screen h-screen fixed top-0 bottom-0 left-0 right-0 z-40 animation-opacity"
+          className="bg-black backdrop-blur-sm opacity-90 w-screen h-screen fixed top-0 bottom-0 left-0 right-0 z-40 animation-opacity"
           onClick={() => setShowCart(false)}
         />
       )}

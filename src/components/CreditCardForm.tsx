@@ -28,7 +28,7 @@ export default function CreditCardForm() {
           id="card-number"
           placeholder="0000 0000 0000 0000"
           maxLength={19}
-          className={`relative rounded w-full border  bg-neutral-900 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+          className={`relative rounded-md w-full border  bg-neutral-900 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
             errors.cardData?.cardNumber && 'border-red-500'
           }`}
         />
@@ -37,7 +37,7 @@ export default function CreditCardForm() {
             {errors.cardData.cardNumber.message}
           </span>
         )}
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-neutral-200">
+        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
           Número do cartão *
         </span>
       </label>
@@ -48,7 +48,7 @@ export default function CreditCardForm() {
           id="card-name"
           type="text"
           placeholder="Digite seu nome"
-          className={`relative rounded w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+          className={`relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
             errors.cardData?.cardName && 'border-red-500'
           }`}
         />
@@ -57,7 +57,7 @@ export default function CreditCardForm() {
             {errors.cardData.cardName.message}
           </span>
         )}
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-neutral-200">
+        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
           Nome impresso no cartão *
         </span>
       </label>
@@ -70,7 +70,7 @@ export default function CreditCardForm() {
             type="text"
             maxLength={5}
             placeholder="MM/AA"
-            className={`relative rounded w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+            className={`relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
               errors.cardData?.cardDate && 'border-red-500'
             }`}
           />
@@ -79,7 +79,7 @@ export default function CreditCardForm() {
               {errors.cardData.cardDate.message}
             </span>
           )}
-          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-neutral-200">
+          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
             Data do vencimento *
           </span>
         </label>
@@ -91,7 +91,7 @@ export default function CreditCardForm() {
             type="text"
             maxLength={3}
             placeholder="000"
-            className={`relative rounded w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
+            className={`relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
               errors.cardData?.cardCvv && 'border-red-500'
             }`}
           />
@@ -100,7 +100,7 @@ export default function CreditCardForm() {
               {errors.cardData.cardCvv.message}
             </span>
           )}
-          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-neutral-200">
+          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
             Código de verificação (CVV) *
           </span>
         </label>
@@ -111,27 +111,27 @@ export default function CreditCardForm() {
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="relative rounded w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
         >
-          <option value="1" className="rounded py-4 h-10">
+          <option value="1" className="rounded-md py-4 h-10">
             {`1x sem juros de R$ ${priceToBRL(
               calcSum(data?.data.data.products).number,
             )}`}
           </option>
 
-          <option value="2" className="rounded py-">
+          <option value="2" className="rounded-md py-">
             {`2x sem juros de R$ ${priceToBRL(
               calcSum(data?.data.data.products).number / 2,
             )}`}
           </option>
 
-          <option value="3" className="rounded py-">
+          <option value="3" className="rounded-md py-">
             {`3x sem juros de R$ ${priceToBRL(
               calcSum(data?.data.data.products).number / 3,
             )}`}
           </option>
         </select>
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-neutral-200">
+        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
           Parcelamento
         </span>
       </label>

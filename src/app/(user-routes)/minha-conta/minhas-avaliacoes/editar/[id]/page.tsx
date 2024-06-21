@@ -101,7 +101,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
             <title>{`Editar avaliação - ${pageTitle}`}</title>
             <LateralMyAccount />
 
-            <div className=" w-full h-full flex flex-col gap-10 text-neutral-100 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+            <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
               <div className="flex gap-1 w-full items-center justify-start relative">
                 <ThumbsUp
                   weight="fill"
@@ -121,12 +121,12 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     <img
                       src={userEvaluationsData?.data.data?.product.image}
                       alt={userEvaluationsData?.data.data?.product.name}
-                      className="rounded w-40 h-60 sm:w-24 sm:h-24 object-cover"
+                      className="rounded-md w-40 h-60 sm:w-24 sm:h-24 object-cover"
                     />
                   </Link>
                   <Link
                     href={`/game/${userEvaluationsData?.data.data.product.id}`}
-                    className="text-xl tracking-wide font-light text-neutral-100 hover:underline"
+                    className="text-xl tracking-wide font-light text-white hover:underline"
                   >
                     {userEvaluationsData?.data.data.product.name}
                   </Link>
@@ -134,7 +134,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
 
                 <form
                   onSubmit={handleSubmit(handleFormSubmit)}
-                  className="w-full bg-neutral-800 px-2 py-4 rounded shadow-md flex flex-col gap-4"
+                  className="w-full bg-neutral-800 px-2 py-4 rounded-md shadow-md flex flex-col gap-4"
                 >
                   <label className="flex flex-col gap-1">
                     <span className="text-sm tracking-wide font-semibold">
@@ -155,7 +155,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                         />
                       ))}
 
-                      <span className="ml-4 text-neutral-200">{`( ${stars} )`}</span>
+                      <span className="ml-4 text-white">{`( ${stars} )`}</span>
                     </div>
                   </label>
 
@@ -165,7 +165,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="bg-neutral-700 border border-neutral-600 rounded px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-neutral-500"
+                      className="bg-neutral-700 border border-neutral-600 rounded-md px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-white0"
                       maxLength={500}
                       id="description"
                       placeholder={userEvaluationsData?.data.data.description}
@@ -181,7 +181,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                             response.success
                               ? 'bg-indigo-600 hover:bg-indigo-700'
                               : 'bg-indigo-600 hover:bg-indigo-700'
-                          } text-neutral-100 font-light rounded shadow-md  transition-all flex items-center justify-center`}
+                          } text-white font-light rounded-md shadow-md  transition-all flex items-center justify-center`}
                         >
                           Voltar para minhas avaliações
                         </button>
@@ -189,7 +189,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     ) : (
                       <button
                         type="submit"
-                        className="p-2 sm:w-full w-64 bg-indigo-600 text-neutral-100 font-light rounded shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center"
+                        className="p-2 sm:w-full w-64 bg-indigo-600 text-white font-light rounded-md shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center"
                         onClick={() => setLoading(true)}
                       >
                         {loading ? <LoadingSpinner /> : 'Avaliar produto'}

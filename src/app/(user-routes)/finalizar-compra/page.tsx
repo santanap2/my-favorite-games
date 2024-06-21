@@ -35,7 +35,7 @@ export default function FinalizarCompra() {
   }, [isLoading])
 
   return (
-    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6 animation-opacity transition-all text-neutral-100">
+    <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-12 xxl:w-full lg:gap-6 animation-opacity transition-all text-white">
       <title>{`${pageTitle} - Finalizar compra`}</title>
 
       <div className="flex gap-1 w-fit items-center justify-center">
@@ -47,7 +47,7 @@ export default function FinalizarCompra() {
       </div>
 
       <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-6 sm:items-end">
-        <div className="w-[70%] bg-neutral-800 rounded shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
+        <div className="w-[70%] bg-neutral-800 rounded-md shadow-md px-6 sm:w-full xxl:w-[65%] xxl:px-2">
           {data?.data.data.products.map(
             (
               { category: { namePt }, id, image, name, price }: IGame,
@@ -64,7 +64,7 @@ export default function FinalizarCompra() {
                 <img
                   src={image}
                   alt={name}
-                  className="w-32 h-48 object-cover rounded lg:w-28 lg:h-44"
+                  className="w-32 h-48 object-cover rounded-md lg:w-28 lg:h-44"
                 />
 
                 <div className="flex flex-col justify-between items-start w-full h-48 lg:h-44">
@@ -76,7 +76,7 @@ export default function FinalizarCompra() {
                       {namePt}
                     </h3>
                   </div>
-                  <div className="flex flex-col text-neutral-100 text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-neutral-100">
+                  <div className="flex flex-col text-white text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-white">
                     <span>No PIX com 10% de desconto</span>
                     <span>{`Ou em até 3x de R$${portionPrice(
                       price,
@@ -93,8 +93,8 @@ export default function FinalizarCompra() {
           )}
         </div>
 
-        <div className="bg-neutral-800 rounded shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
-          <h1 className="font-regular text-lg font-semibold uppercase text-neutral-100 tracking-tighter">
+        <div className="bg-neutral-800 rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
+          <h1 className="font-regular text-lg font-semibold uppercase text-white tracking-tighter">
             Resumo
           </h1>
 
@@ -108,7 +108,7 @@ export default function FinalizarCompra() {
             )})`}</h3>
           </div>
 
-          <div className="w-full h-30 bg-neutral-900 shadow-md p-4 rounded flex flex-col items-center justify-center text-indigo-600">
+          <div className="w-full h-30 bg-neutral-900 shadow-md p-4 rounded-md flex flex-col items-center justify-center text-indigo-600">
             <div className="text-sm">
               <span>Valor à vista no</span>
               <span className="font-semibold">{` PIX`}</span>
@@ -130,7 +130,7 @@ export default function FinalizarCompra() {
             <Link href="/finalizar-compra/pagamento">
               <button
                 type="button"
-                className={`w-full bg-indigo-600 h-10 rounded text-neutral-100 font-light text-regular shadow-md hover:bg-indigo-700 transition-all lg:px-4 ${
+                className={`w-full bg-indigo-600 h-10 rounded-md text-white font-light text-regular shadow-md hover:bg-indigo-700 transition-all lg:px-4 ${
                   !isAuthenticated && 'sm:text-sm'
                 }`}
               >
@@ -143,7 +143,7 @@ export default function FinalizarCompra() {
             <Link href="/home">
               <button
                 type="button"
-                className="w-full bg-neutral-800 h-10 rounded text-indigo-600 border border-indigo-600 font-light text-regular hover:bg-neutral-900 hover:border-indigo-700 hover:text-indigo-700 transition-all md:px-0 xl:px-4 xl:py-2"
+                className="w-full bg-neutral-800 h-10 rounded-md text-indigo-600 border border-indigo-600 font-light text-regular hover:bg-neutral-900 hover:border-indigo-700 hover:text-indigo-700 transition-all md:px-0 xl:px-4 xl:py-2"
               >
                 Continuar comprando
               </button>
