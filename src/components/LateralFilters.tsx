@@ -153,7 +153,7 @@ export default function LateralFilters() {
                         type="text"
                         name="minPrice"
                         placeholder="R$ 00,00"
-                        className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-white0"
+                        className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-neutral-500"
                         onChange={(e) => pricesHandler(e)}
                         value={formPrices.minPrice}
                       />
@@ -171,7 +171,7 @@ export default function LateralFilters() {
                         name="maxPrice"
                         type="text"
                         placeholder="R$ 00,00"
-                        className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-white0"
+                        className="w-32 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:shadow-lg p-2 bg-neutral-700 placeholder:text-neutral-500"
                         onChange={(e) => pricesHandler(e)}
                         value={formPrices.maxPrice}
                       />

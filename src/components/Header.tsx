@@ -119,7 +119,7 @@ export default function Header() {
             <input
               {...registerMobile('headerMobileSearch.headerMobileInput')}
               type="text"
-              className="h-9 rounded-md px-3 focus:outline-none bg-neutral-800 text-white placeholder:text-white0 sm:w-64 xl:w-96 "
+              className="h-9 rounded-md px-3 focus:outline-none bg-neutral-800 text-white placeholder:text-neutral-500 sm:w-64 xl:w-96 "
               placeholder="Qual jogo procura?"
             />
             <button

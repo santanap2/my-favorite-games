@@ -7,6 +7,8 @@ import Link from 'next/link'
 import { PlusCircle, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
 import { addItemToCart } from '@/services'
 import GamesPlatformContext from '@/context/Context'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 export default function ProductCard({
   name,
@@ -16,6 +18,11 @@ export default function ProductCard({
   image,
   id,
 }: ICard) {
+  const { data, status } = useSession()
+  const email = data?.user?.email as string
+
+  const router = useRouter()
+
   const { loading, setLoading, setShowCart } = useContext(GamesPlatformContext)
   const [hover, setHover] = useState<boolean>(false)
   const [hoverPrice, setHoverPrice] = useState<boolean>(false)
@@ -70,8 +77,13 @@ export default function ProductCard({
             setHoverPrice(false)
           }}
           onClick={async () => {
+            if (status !== 'authenticated') {
+              router.push('/api/auth/signin')
+              return
+            }
+
             setLoading({ ...loading, cart: !loading.cart })
-            await addItemToCart(id.toString())
+            await addItemToCart({ email, gameId: id.toString() })
             setShowCart(true)
           }}
         >

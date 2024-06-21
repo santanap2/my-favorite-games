@@ -116,7 +116,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
                       </span>
                     </div>
                   ) : (
-                    <span className="font-light text-sm text-white0">
+                    <span className="font-light text-sm text-neutral-500">
                       Você não forneceu nenhuma descrição para o produto.
                     </span>
                   )}

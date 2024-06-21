@@ -157,7 +157,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                         />
                       ))}
 
-                      <span className="ml-4 text-white0">{`( ${stars} )`}</span>
+                      <span className="ml-4 text-neutral-500">{`( ${stars} )`}</span>
                     </div>
                   </label>
 
@@ -167,7 +167,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="border border-neutral-500 rounded-md px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-700 placeholder:text-white0"
+                      className="border border-neutral-500 rounded-md px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-700 placeholder:text-neutral-500"
                       maxLength={500}
                       id="description"
                       placeholder="Escreva aqui sua avaliação"

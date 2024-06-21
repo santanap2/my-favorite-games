@@ -11,10 +11,9 @@ export default function NotFoundProducts() {
       <Link href="/">
         <button
           type="button"
-          className="flex gap-3 items-center justify-center px-8 py-2 bg-indigo-400 rounded-md text-sm font-semibold uppercase tracking-wider text-white shadow-sm hover:shadow-lg sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+          className="flex gap-4 items-center justify-center p-4 py-2 bg-indigo-500 rounded-md text-sm font-bold text-white hover:bg-indigo-600 transition-all"
         >
-          <ArrowUUpLeft className="text-3xl" />
-
+          <ArrowUUpLeft className="text-xl" />
           <span>Voltar para a página inicial</span>
         </button>
       </Link>

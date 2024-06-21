@@ -69,7 +69,7 @@ export default function GameIdSkeleton() {
           </div>
         </div>
       </div>
-      <div className="mt-12 text-white0 w-full flex flex-col gap-4">
+      <div className="mt-12 text-neutral-500 w-full flex flex-col gap-4">
         <div className="w-full flex gap-2 py-3">
           <span className="text-xl font-semibold sm:text-base text-transparent bg-neutral-100 loading-skeleton rounded-md w-fit shadow-md cursor-default">
             Descrição

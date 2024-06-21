@@ -122,7 +122,7 @@ export default function Login() {
           </div>
         )}
 
-        <p className="mt-10 text-center text-sm text-white0">
+        <p className="mt-10 text-center text-sm text-neutral-500">
           Não possui uma conta?{' '}
           <Link
             href="/cadastro"

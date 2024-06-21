@@ -56,7 +56,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           }
           className={`${
             order.status === 'awaitingPayment'
-              ? 'text-white0'
+              ? 'text-neutral-500'
               : 'text-indigo-600'
           } ${
             order.status === 'approvedPayment' ||
@@ -85,7 +85,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : (
             <Circle
               weight="fill"
-              className="rounded-3xl bg-neutral-500 text-4xl text-white0"
+              className="rounded-3xl bg-neutral-500 text-4xl text-neutral-500"
             />
           )}
           <span className="text-neutral-300 text-sm text-center">
@@ -106,7 +106,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           className={`${
             order.status === 'processing' || order.status === 'concluded'
               ? 'text-indigo-600'
-              : 'text-white0'
+              : 'text-neutral-500'
           } ${
             order.status === 'processing' || order.status === 'concluded'
               ? 'text-indigo-600 border-indigo-600'
@@ -129,7 +129,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : (
             <Circle
               weight="fill"
-              className="rounded-3xl bg-neutral-500 text-white0 text-4xl"
+              className="rounded-3xl bg-neutral-500 text-neutral-500 text-4xl"
             />
           )}
           <span className="text-neutral-300 text-sm text-center">
@@ -146,7 +146,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : 'regular'
           }
           className={`${
-            order.status === 'concluded' ? 'text-indigo-600' : 'text-white0'
+            order.status === 'concluded' ? 'text-indigo-600' : 'text-neutral-500'
           } ${
             order.status === 'concluded'
               ? 'text-indigo-600 border-indigo-600'
@@ -169,7 +169,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           ) : (
             <Circle
               weight="fill"
-              className="rounded-3xl bg-neutral-500 text-white0 text-4xl"
+              className="rounded-3xl bg-neutral-500 text-neutral-500 text-4xl"
             />
           )}
           <span className="text-neutral-300 text-sm text-center">

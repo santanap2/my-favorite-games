@@ -82,7 +82,7 @@ export default function RedefinirSenha() {
           ''
         )}
 
-        <p className="mt-10 text-center text-sm text-white0">
+        <p className="mt-10 text-center text-sm text-neutral-500">
           <Link
             href="/api/auth/signin"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-700 hover:underline"

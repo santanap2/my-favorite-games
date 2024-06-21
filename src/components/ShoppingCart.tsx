@@ -11,20 +11,25 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import CartProductCard from './CartProductCard'
-import CartProductSkeleton from './Skeletons/CartProductSkeleton'
+import { useSession } from 'next-auth/react'
 
 export default function ShoppingCart() {
-  const { showCart, setShowCart, loading, setLoading, isAuthenticated } =
+  const { showCart, setShowCart, loading, setLoading } =
     useContext(GamesPlatformContext)
+
+  const session = useSession()
+  const email = session?.data?.user?.email as string
 
   const nodeRef = useRef(null)
   const router = useRouter()
 
-  const { data, isLoading, refetch } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ['cart'],
-    queryFn: async () => await getUserCart(),
+    queryFn: async () => await getUserCart(email),
     retry: false,
   })
+
+  console.log(data?.data.data.products)
 
   return (
     <>
@@ -37,7 +42,7 @@ export default function ShoppingCart() {
         onEntered={() => refetch()}
       >
         <aside
-          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-neutral-900 border-l border-neutral-800 text-neutral-300 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
+          className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-neutral-900 bg-opacity-50 backdrop-blur-sm border-l border-neutral-800 text-neutral-300 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
           ref={nodeRef}
         >
           <div className="flex w-full justify-between pr-4 items-center">
@@ -68,48 +73,40 @@ export default function ShoppingCart() {
           </div>
 
           <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
-            {isAuthenticated ? (
-              isLoading ? (
-                <>
-                  <CartProductSkeleton />
-                  <CartProductSkeleton />
-                  <CartProductSkeleton />
-                </>
-              ) : (
-                <div className="w-full h-fit flex flex-col gap-4 pr-4 sm:pr-2 sm:gap-4">
-                  {data?.data.data.products.length > 0 ? (
-                    data?.data.data.products.map(
-                      ({
-                        id,
-                        description,
-                        category,
-                        image,
-                        name,
-                        price,
-                      }: IGame) => (
-                        <>
-                          <CartProductCard
-                            key={id}
-                            id={id}
-                            description={description}
-                            category={category}
-                            name={name}
-                            image={image}
-                            price={price}
-                          />
-                        </>
-                      ),
-                    )
-                  ) : (
-                    <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
-                      <span className="mt-16">Seu carrinho está vazio.</span>
-                    </div>
-                  )}
-                </div>
-              )
-            ) : (
+            {data?.data.data.products.length === 0 ? (
               <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
                 <span className="mt-16">Seu carrinho está vazio.</span>
+              </div>
+            ) : (
+              <div className="w-full h-fit flex flex-col gap-4 pr-4 sm:pr-2 sm:gap-4">
+                {data?.data.data.products.length > 0 ? (
+                  data?.data.data.products.map(
+                    ({
+                      id,
+                      description,
+                      category,
+                      image,
+                      name,
+                      price,
+                    }: IGame) => (
+                      <>
+                        <CartProductCard
+                          key={id}
+                          id={id}
+                          description={description}
+                          category={category}
+                          name={name}
+                          image={image}
+                          price={price}
+                        />
+                      </>
+                    ),
+                  )
+                ) : (
+                  <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
+                    <span className="mt-16">Seu carrinho está vazio.</span>
+                  </div>
+                )}
               </div>
             )}
 
@@ -147,7 +144,7 @@ export default function ShoppingCart() {
       </CSSTransition>
       {showCart && (
         <div
-          className="bg-black backdrop-blur-sm opacity-90 w-screen h-screen fixed top-0 bottom-0 left-0 right-0 z-40 animation-opacity"
+          className="bg-black opacity-[95%] w-screen h-screen fixed top-0 bottom-0 left-0 right-0 z-40"
           onClick={() => setShowCart(false)}
         />
       )}

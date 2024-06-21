@@ -43,7 +43,7 @@ export default function UpdateEvaluationSkeleton() {
                   <Star
                     key={index}
                     weight="fill"
-                    className="text-white0 text-4xl"
+                    className="text-neutral-500 text-4xl"
                   />
                 ))}
               </div>

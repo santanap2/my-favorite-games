@@ -32,7 +32,7 @@ export default function EvaluationCardSkeleton() {
                     <Star
                       key={index}
                       weight="fill"
-                      className="text-white0 text-xl"
+                      className="text-neutral-500 text-xl"
                     />
                   ))}
                 </div>

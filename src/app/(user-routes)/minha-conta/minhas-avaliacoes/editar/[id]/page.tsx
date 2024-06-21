@@ -165,7 +165,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                     </span>
                     <textarea
                       {...register('evaluation.description')}
-                      className="bg-neutral-700 border border-neutral-600 rounded-md px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-white0"
+                      className="bg-neutral-700 border border-neutral-600 rounded-md px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md placeholder:text-neutral-500"
                       maxLength={500}
                       id="description"
                       placeholder={userEvaluationsData?.data.data.description}
