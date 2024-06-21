@@ -38,7 +38,7 @@ export const removeItemFromCart = async ({
   return result
 }
 
-export const emptyCart = async () => {
-  const result = await api.put('/empty-cart')
+export const emptyCart = async (email: string) => {
+  const result = await api.put('/empty-cart', { email })
   return result
 }

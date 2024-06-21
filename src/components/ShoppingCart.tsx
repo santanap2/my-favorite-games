@@ -52,7 +52,7 @@ export default function ShoppingCart() {
                 <button
                   onClick={async () => {
                     setLoading({ ...loading, cart: !loading.cart })
-                    await emptyCart()
+                    await emptyCart(email)
                     refetch()
                   }}
                   className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600"
