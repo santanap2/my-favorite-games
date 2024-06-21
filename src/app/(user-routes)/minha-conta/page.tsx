@@ -22,14 +22,14 @@ export default async function MinhaConta() {
     return <MyAccountSkeleton />
   }
 
-  const response = await getUserByEmail(session?.user?.email)
+  const {
+    data: { user },
+  } = await getUserByEmail(session?.user?.email)
 
   const allBoughtGames: IGame[] = []
-  if (response.data.user.orders) {
+  if (user.orders) {
     sortOrdersByDate(
-      response.data.user.orders.filter(
-        (order: IOrderData) => order.status === 'concluded',
-      ),
+      user.orders.filter((order: IOrderData) => order.status === 'concluded'),
     ).forEach((order: IOrderData) => {
       order.products.forEach((product: IGame) => allBoughtGames.push(product))
     })
@@ -54,36 +54,34 @@ export default async function MinhaConta() {
                     </span>
                     <span
                       className={`h-10 ${
-                        response?.data.user.name.length > 25
-                          ? 'md:h-10'
-                          : 'md:h-6'
+                        user.name.length > 25 ? 'md:h-10' : 'md:h-6'
                       } font-bold text-2xl lg:text-xl md:text-lg min-w-fit flex items-center justify-center`}
                     >
-                      {` ${response?.data.user.name},`}
+                      {` ${user.name},`}
                     </span>
                     <span className="h-10 md:h-6 md:text-sm w-fit flex items-center justify-center">
                       bem vindo(a) de volta!
                     </span>
-                    <h2 className="flex md:hidden text-sm font-light absolute -bottom-7 left-0">
+                    <h2 className="flex md:hidden text-sm absolute -bottom-7 left-0">
                       <EnvelopeSimple
                         weight="fill"
                         className="h-8 md:h-6 text-indigo-600 text-2xl"
                       />
                       <span className="h-8 md:h-6 flex items-center justify-center">
-                        {response?.data.user.email}
+                        {user.email}
                       </span>
                     </h2>
                   </div>
                 </div>
               </div>
             </div>
-            <h2 className="hidden md:flex text-sm font-light">
+            <h2 className="hidden md:flex text-sm">
               <EnvelopeSimple
                 weight="fill"
                 className="h-8 md:h-6 text-indigo-600 text-2xl"
               />
               <span className="h-8 md:h-6 flex items-center justify-center">
-                {response?.data.user.email}
+                {user.email}
               </span>
             </h2>
           </div>
@@ -101,41 +99,21 @@ export default async function MinhaConta() {
               </Link>
             </div>
             <>
-              {response.data.user.orders.length > 0 ? (
+              {user.orders.length > 0 ? (
                 <SingleOrder
-                  orderNumber={
-                    response.data.user.orders[
-                      response.data.user.orders.length - 1
-                    ].id
-                  }
-                  price={
-                    response.data.user.orders[
-                      response.data.user.orders.length - 1
-                    ].value
-                  }
-                  date={
-                    response.data.user.orders[
-                      response.data.user.orders.length - 1
-                    ].created_at
-                  }
-                  payment={
-                    response.data.user.orders[
-                      response.data.user.orders.length - 1
-                    ].payment_method
-                  }
-                  status={
-                    response.data.user.orders[
-                      response.data.user.orders.length - 1
-                    ].status
-                  }
+                  orderNumber={user.orders[user.orders.length - 1].id}
+                  price={user.orders[user.orders.length - 1].value}
+                  date={user.orders[user.orders.length - 1].created_at}
+                  payment={user.orders[user.orders.length - 1].payment_method}
+                  status={user.orders[user.orders.length - 1].status}
                 />
               ) : (
                 <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
                   <SmileySad
                     weight="regular"
-                    className="text-indigo-600 text-5xl"
+                    className="text-indigo-600 text-3xl"
                   />
-                  <span className="text-base font-light">
+                  <span className="text-sm">
                     Você não possui nenhum pedido feito.
                   </span>
                 </div>
@@ -173,9 +151,9 @@ export default async function MinhaConta() {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4 absolute">
                     <SmileySad
                       weight="regular"
-                      className="text-indigo-600 text-5xl"
+                      className="text-indigo-600 text-3xl"
                     />
-                    <span className="text-base font-light">
+                    <span className="text-sm">
                       Você não possui nenhum game comprado.
                     </span>
                   </div>

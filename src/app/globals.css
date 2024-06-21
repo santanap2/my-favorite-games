@@ -51,9 +51,9 @@ input[type=number] {
   animation: slideInLeft 0.2s ease-out
 }
 
-.animation-opacity {
+/* .animation-opacity {
   animation: opacity 0.2s ease-in;
-}
+} */
 
 .appear-animation {
   animation: appearFromTop 0.3s ease-out;

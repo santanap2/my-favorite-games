@@ -1,8 +1,8 @@
 import { IPaymentData } from '@/interfaces'
 import { api } from '.'
 
-export const getUserOrders = async (queryParams?: string) => {
-  const result = await api.get(`/get-orders?${queryParams}`)
+export const getUserOrders = async (email: string, queryParams?: string) => {
+  const result = await api.get(`/get-orders?email=${email}&${queryParams}`)
   return result
 }
 
