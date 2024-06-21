@@ -15,7 +15,7 @@ import React from 'react'
 
 export default function MyAccountPopUp() {
   return (
-    <div className="w-fit bg-neutral-900 pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-12 right-0 z-50 flex flex-col gap-4 items-end justify-center text-neutral-100 appear-animation animation-opacity transition-all backdrop-blur-lg bg-opacity-90">
+    <div className="w-fit bg-neutral-900 pl-4 pr-2 pt-5 pb-3 rounded shadow-md absolute top-11 right-0 z-50 flex flex-col gap-4 items-end justify-center text-neutral-100 appear-animation animation-opacity transition-all backdrop-blur-lg bg-opacity-90">
       <ArrowFatUp
         weight="fill"
         className="text-neutral-900 absolute -top-2 right-0 text-3xl"

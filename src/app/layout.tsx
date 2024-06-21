@@ -1,44 +1,18 @@
 import React, { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import {
-  // Roboto,
-  // Raleway,
-  // Quicksand,
-  Inter,
-  // Exo_2 as Exo2,
-} from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ContextGamesPlatform } from '@/context/Provider'
 import ShoppingCart from '@/components/ShoppingCart'
 import QueryProvider from '@/context/QueryProvider'
-import { SessionProvider } from 'next-auth/react'
-
-// const roboto = Roboto({
-//   subsets: ['latin'],
-//   weight: ['100', '300', '400', '500', '700', '900'],
-// })
+import NextAuthSessionProvider from '@/providers/SessionProvider'
 
 const inter = Inter({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
-
-// const quicksand = Quicksand({
-//   subsets: ['latin'],
-//   weight: ['300', '400', '500', '600', '700'],
-// })
-
-// const raleway = Raleway({
-//   subsets: ['latin'],
-//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-// })
-
-// const exo2 = Exo2({
-//   subsets: ['latin'],
-//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-// })
 
 export const metadata: Metadata = {
   title: 'My favorite games',
@@ -49,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <ContextGamesPlatform>
-        <SessionProvider>
+        <NextAuthSessionProvider>
           <body
             className={`${inter.className} bg-neutral-900 overflow-x-hidden background`}
           >
@@ -66,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
           </body>
-        </SessionProvider>
+        </NextAuthSessionProvider>
       </ContextGamesPlatform>
     </html>
   )

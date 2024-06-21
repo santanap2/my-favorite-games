@@ -1,12 +1,8 @@
-'use client'
-
 import { SmileySad } from '@phosphor-icons/react/dist/ssr'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import React from 'react'
 
 export default function NotFoundPage() {
-  const router = useRouter()
-
   return (
     <div className="fixed top-0 left-0 bottom-0 right-0 w-screen h-screen z-0 flex items-start justify-center">
       <h1 className="absolute -top-[40%] sm:-top-[5%] right-96 sm:-right-10 -rotate-12 text-[40rem] sm:text-[18rem] font-extrabold tracking-tighter text-indigo-600 opacity-5">
@@ -33,13 +29,12 @@ export default function NotFoundPage() {
             Página não encontrada.
           </h1>
         </div>
-        <button
-          type="button"
-          onClick={() => router.push('/home')}
-          className="bg-indigo-600 w-fit px-12 sm:w-full h-10 rounded shadow-md text-neutral-100 hover:bg-indigo-700 hover:shadow-lg font-light cursor-pointer"
+        <Link
+          href="/home"
+          className="flex items-center justify-center bg-indigo-600 w-fit px-12 sm:w-full h-9 rounded shadow-md text-sm text-neutral-100 hover:bg-indigo-700 hover:shadow-lg"
         >
           Retornar para a página inicial
-        </button>
+        </Link>
       </div>
     </div>
   )

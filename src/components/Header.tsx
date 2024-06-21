@@ -11,7 +11,7 @@ import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
 import { List, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { CSSTransition } from 'react-transition-group'
 import { getUserCart } from '@/services'
 import { useQuery } from '@tanstack/react-query'
@@ -43,7 +43,6 @@ export default function Header() {
   const [showPopup, setShowPopup] = useState(false)
 
   const pathname = usePathname()
-  const router = useRouter()
   const nodeRef = useRef(null)
 
   const {
@@ -143,17 +142,14 @@ export default function Header() {
             )}
           </form>
         </CSSTransition>
-        <button
-          onClick={() => {
-            router.push('/')
-          }}
-        >
+
+        <Link href="/">
           <img
             src="/logo.png"
             alt="My Favorite Games Logo"
             className="h-12 sm:w-48 sm:h-auto"
           />
-        </button>
+        </Link>
 
         <div className="flex gap-3 items-center justify-center relative">
           <form
