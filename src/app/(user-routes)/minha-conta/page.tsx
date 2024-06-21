@@ -40,9 +40,7 @@ export default function MinhaConta() {
 
   return (
     <div className="w-full">
-      <title>{`${
-        !session || isLoading ? 'Minha conta' : userData?.data.data.name
-      } - ${pageTitle}`}</title>
+      <title>{`Minha conta - ${pageTitle}`}</title>
 
       <LateralMyAccount />
       <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">

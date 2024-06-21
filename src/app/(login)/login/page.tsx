@@ -1,50 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { pageTitle } from '@/helpers'
 import { Warning } from '@phosphor-icons/react'
-import { myAction } from './_actions/login'
 import Link from 'next/link'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import LoginHooks from '@/hooks/LoginHooks'
+import GamesPlatformContext from '@/context/Context'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
-export default function Login({ errorMessage }: { errorMessage?: string }) {
-  const formSchema = z.object({
-    email: z
-      .string()
-      .email('Informe um email válido')
-      .min(1, 'Informe seu email'),
-    password: z.string().min(8, 'Informe uma senha válida'),
-    rememberUser: z.boolean(),
-  })
-
-  type FormProps = z.infer<typeof formSchema>
-
-  const {
-    register,
-    formState: { errors },
-    watch,
-  } = useForm<FormProps>({
-    criteriaMode: 'all',
-    mode: 'all',
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  })
-
-  const buttonDisabled = () => {
-    const email = watch('email')
-    const password = watch('password')
-
-    if (!email || !password) return true
-    if (errors.email || errors.password) return true
-
-    return false
-  }
+export default function Login() {
+  const { buttonDisabled, errors, handleFormSubmit, handleSubmit, register } =
+    LoginHooks()
+  const { loginResponse, loading } = useContext(GamesPlatformContext)
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full">
@@ -62,7 +30,10 @@ export default function Login({ errorMessage }: { errorMessage?: string }) {
       </div>
 
       <div className="mt-10 sm:mx-auto w-full sm:max-w-sm flex flex-col items-center justify-center">
-        <form className="space-y-6 sm:w-full w-96" action={myAction}>
+        <form
+          className="space-y-6 sm:w-full w-96"
+          onSubmit={handleSubmit(handleFormSubmit)}
+        >
           <div>
             <label
               htmlFor="email"
@@ -137,16 +108,16 @@ export default function Login({ errorMessage }: { errorMessage?: string }) {
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40"
               disabled={buttonDisabled()}
             >
-              Entrar
+              {loading.login ? <LoadingSpinner /> : 'Entrar'}
             </button>
           </div>
         </form>
 
-        {errorMessage && (
+        {loginResponse.error && (
           <div className="w-full text-center flex items-center justify-center gap-2 mt-6">
             <Warning className="text-red-500" size={24} weight="light" />
             <span className="text-red-500 text-sm tracking-tight">
-              {errorMessage}
+              {loginResponse.error}
             </span>
           </div>
         )}
