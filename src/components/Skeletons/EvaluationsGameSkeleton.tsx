@@ -1,4 +1,4 @@
-import { Star } from '@phosphor-icons/react'
+import { Star } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 
 export default function EvaluationsGameSkeleton() {

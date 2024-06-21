@@ -10,7 +10,7 @@ import {
   SignOut,
   UserCircle,
   ThumbsUp,
-} from '@phosphor-icons/react'
+} from '@phosphor-icons/react/dist/ssr'
 import GamesPlatformContext from '@/context/Context'
 import { CSSTransition } from 'react-transition-group'
 import Link from 'next/link'

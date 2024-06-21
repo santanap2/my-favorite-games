@@ -15,7 +15,7 @@ import {
   Password,
   Phone,
   Warning,
-} from '@phosphor-icons/react'
+} from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import {} from 'next/navigation'
 import React, { useContext, useEffect } from 'react'

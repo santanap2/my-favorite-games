@@ -1,4 +1,4 @@
-import { ArrowFatUp, CheckFat, Trash } from '@phosphor-icons/react'
+import { ArrowFatUp, CheckFat, Trash } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 
 export default function PopUpFavorite({

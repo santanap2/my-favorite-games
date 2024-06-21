@@ -2,7 +2,7 @@
 import GamesPlatformContext from '@/context/Context'
 import { convertDate } from '@/helpers/date'
 import { IEvaluationCard } from '@/interfaces'
-import { CheckCircle, Star } from '@phosphor-icons/react'
+import { CheckCircle, Star } from '@phosphor-icons/react/dist/ssr'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 

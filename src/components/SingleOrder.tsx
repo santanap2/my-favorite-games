@@ -1,7 +1,7 @@
 import { priceToBRL } from '@/helpers'
 import { convertDate } from '@/helpers/date'
 import { ILastOrderDetail } from '@/interfaces'
-import { ListPlus } from '@phosphor-icons/react'
+import { ListPlus } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
 

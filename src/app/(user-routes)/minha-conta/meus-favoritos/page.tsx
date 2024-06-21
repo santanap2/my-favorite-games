@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import { Heart, SmileySad } from '@phosphor-icons/react'
+import { Heart, SmileySad } from '@phosphor-icons/react/dist/ssr'
 import React, { useEffect, useState } from 'react'
 import UserProductCard from '@/components/UserProductCard'
 import { IGame } from '@/interfaces'

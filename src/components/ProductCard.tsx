@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react'
 import { ICard } from '@/interfaces'
 import { priceToBRL } from '@/helpers'
 import Link from 'next/link'
-import { PlusCircle, ShoppingCart } from '@phosphor-icons/react'
+import { PlusCircle, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
 import { addItemToCart } from '@/services'
 import GamesPlatformContext from '@/context/Context'
 

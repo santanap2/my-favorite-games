@@ -1,4 +1,4 @@
-import { ArrowUUpLeft } from '@phosphor-icons/react'
+import { ArrowUUpLeft } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
 

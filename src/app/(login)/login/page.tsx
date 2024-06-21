@@ -3,7 +3,7 @@
 
 import React, { useContext } from 'react'
 import { pageTitle } from '@/helpers'
-import { Warning } from '@phosphor-icons/react'
+import { Warning } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import LoginHooks from '@/hooks/LoginHooks'
 import GamesPlatformContext from '@/context/Context'

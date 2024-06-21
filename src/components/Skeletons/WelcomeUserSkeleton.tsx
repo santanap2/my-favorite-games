@@ -1,4 +1,4 @@
-import { EnvelopeSimple } from '@phosphor-icons/react'
+import { EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 
 export default function WelcomeUserSkeleton() {

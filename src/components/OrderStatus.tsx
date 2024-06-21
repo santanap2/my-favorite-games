@@ -9,7 +9,7 @@ import {
   Circle,
   HourglassMedium,
   Package,
-} from '@phosphor-icons/react'
+} from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 
 export default function OrderStatus({ order }: { order: IOrderData }) {
@@ -146,7 +146,9 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : 'regular'
           }
           className={`${
-            order.status === 'concluded' ? 'text-indigo-600' : 'text-neutral-500'
+            order.status === 'concluded'
+              ? 'text-indigo-600'
+              : 'text-neutral-500'
           } ${
             order.status === 'concluded'
               ? 'text-indigo-600 border-indigo-600'

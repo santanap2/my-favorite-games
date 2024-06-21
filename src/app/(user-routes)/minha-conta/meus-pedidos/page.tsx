@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import { ArrowUUpLeft, Bag, SmileySad } from '@phosphor-icons/react'
+import { ArrowUUpLeft, Bag, SmileySad } from '@phosphor-icons/react/dist/ssr'
 import React, { useEffect } from 'react'
 import SingleOrder from '@/components/SingleOrder'
 import { IOrderData, ISearchParams } from '@/interfaces'

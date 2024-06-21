@@ -1,5 +1,5 @@
 import React from 'react'
-import { Star } from '@phosphor-icons/react'
+import { Star } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import { getGame } from '@/services/games.requests'
 import { convertDate } from '@/helpers/date'

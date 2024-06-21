@@ -5,7 +5,7 @@
 
 import { IUserProductCard } from '@/interfaces'
 import { addItemToFavorites } from '@/services/favorites.requests'
-import { Heart } from '@phosphor-icons/react'
+import { Heart } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React, { useState } from 'react'
 

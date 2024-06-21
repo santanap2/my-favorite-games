@@ -4,7 +4,7 @@ import {
   Circle,
   HourglassMedium,
   Package,
-} from '@phosphor-icons/react'
+} from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 
 export default function OrderStatusSkeleton() {

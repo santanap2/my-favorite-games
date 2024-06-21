@@ -12,7 +12,7 @@ import { pageTitle } from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
 import { getUserByToken } from '@/services'
 import { getOneUserOrder } from '@/services/orders.requests'
-import { ListPlus } from '@phosphor-icons/react'
+import { ListPlus } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
 

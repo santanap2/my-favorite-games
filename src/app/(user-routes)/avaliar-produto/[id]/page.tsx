@@ -11,7 +11,7 @@ import { getUserByToken } from '@/services'
 import { createEvaluation } from '@/services/evaluations'
 import { getGame } from '@/services/games.requests'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ThumbsUp, Star, Warning, CheckCircle } from '@phosphor-icons/react'
+import { ThumbsUp, Star, Warning, CheckCircle } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 

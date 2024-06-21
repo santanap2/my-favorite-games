@@ -6,10 +6,12 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import {
   MagnifyingGlass,
   ShoppingCartSimple,
+  List,
+  UserCircle,
+  X,
 } from '@phosphor-icons/react/dist/ssr'
 import GamesPlatformContext from '@/context/Context'
 import Link from 'next/link'
-import { List, UserCircle, X } from '@phosphor-icons/react'
 import HeaderHooks from '@/hooks/HeaderHooks'
 import { usePathname } from 'next/navigation'
 import { CSSTransition } from 'react-transition-group'

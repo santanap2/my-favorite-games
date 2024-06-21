@@ -22,7 +22,7 @@ import {
   Heart,
   PlusCircle,
   ShoppingCartSimple,
-} from '@phosphor-icons/react'
+} from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'

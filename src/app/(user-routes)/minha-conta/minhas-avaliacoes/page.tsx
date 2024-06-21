@@ -10,7 +10,7 @@ import { IEvaluation, IGameWithOrderInfo } from '@/interfaces'
 import { getUserByToken } from '@/services'
 import { getUserEvaluations } from '@/services/evaluations'
 import { getBoughtProducts } from '@/services/orders.requests'
-import { SmileySad, ThumbsUp } from '@phosphor-icons/react'
+import { SmileySad, ThumbsUp } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
 

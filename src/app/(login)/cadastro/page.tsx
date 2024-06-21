@@ -7,7 +7,7 @@ import Link from 'next/link'
 import GamesPlatformContext from '@/context/Context'
 import CadastroHooks from '@/hooks/RegisterUserHooks'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { Check, Warning } from '@phosphor-icons/react'
+import { Check, Warning } from '@phosphor-icons/react/dist/ssr'
 
 export default function Cadastro() {
   const { registerResponse, loading } = useContext(GamesPlatformContext)

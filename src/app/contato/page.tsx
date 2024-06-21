@@ -2,7 +2,12 @@
 'use client'
 
 import { pageTitle } from '@/helpers'
-import { Chat, Clock, Envelope, WhatsappLogo } from '@phosphor-icons/react'
+import {
+  Chat,
+  Clock,
+  Envelope,
+  WhatsappLogo,
+} from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
 
@@ -68,10 +73,7 @@ export default function Contato() {
               href="mailto:suporte@myfavgames.com"
               className="flex gap-2 items-start justify-start hover:text-indigo-400 text-sm font-light"
             >
-              <Envelope
-                weight="duotone"
-                className="text-indigo-400 text-3xl"
-              />
+              <Envelope weight="duotone" className="text-indigo-400 text-3xl" />
               <h3 className="flex flex-col">
                 <span>suporte@myfavgames.com</span>
                 <span className="font-semibold">Suporte My Fav Games</span>

@@ -1,4 +1,4 @@
-import { Star, ThumbsUp } from '@phosphor-icons/react'
+import { Star, ThumbsUp } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 
 export default function UpdateEvaluationSkeleton() {
