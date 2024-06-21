@@ -29,8 +29,6 @@ export default function ShoppingCart() {
     retry: false,
   })
 
-  console.log(data?.data.data.products)
-
   return (
     <>
       <CSSTransition

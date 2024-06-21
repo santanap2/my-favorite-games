@@ -1,20 +1,17 @@
 import React from 'react'
 import { Star } from '@phosphor-icons/react/dist/ssr'
-import { useQuery } from '@tanstack/react-query'
-import { getGame } from '@/services/games.requests'
 import { convertDate } from '@/helpers/date'
 import { IEvaluation } from '@/interfaces'
 
-export default function EvaluationsGame({ gameId }: { gameId: string }) {
-  const { data: evaluationData } = useQuery({
-    queryKey: ['product'],
-    queryFn: async () => await getGame(gameId),
-  })
-
+export default async function EvaluationsGame({
+  evaluations,
+}: {
+  evaluations: IEvaluation[]
+}) {
   return (
     <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full animation-opacity transition-all">
-      {evaluationData?.data.data.evaluations.length > 0 ? (
-        evaluationData?.data.data.evaluations.map(
+      {evaluations.length > 0 ? (
+        evaluations.map(
           ({
             id,
             created_at: date,

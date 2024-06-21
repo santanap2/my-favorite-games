@@ -31,15 +31,15 @@ export default function CartProductCard({
       />
       <div className="flex flex-col justify-between items-start w-full">
         <div className="flex flex-col">
-          <h1 className="font-bold text-base tracking-tight sm:text-sm sm:font-bold">
+          <h1 className="font-bold text-base sm:tracking-tight sm:text-sm sm:font-bold">
             {name}
           </h1>
-          <h3 className="text-sm sm:text-xs sm:font-light sm:tracking-tight">
+          <h3 className="text-sm sm:text-xs sm:font-light sm:tracking-tight text-neutral-500">
             {category.namePt}
           </h3>
         </div>
         <div className="flex justify-between items-center w-full">
-          <h2 className="font-bold tracking-wider text-lg sm:text-sm sm:font-bold">
+          <h2 className="font-bold tracking-wider text-base sm:text-sm">
             {`R$ ${priceToBRL(price)}`}
           </h2>
 

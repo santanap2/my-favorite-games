@@ -59,7 +59,7 @@ export default function ProductCard({
           </Link>
 
           <Link href={`/home?${category}=true`} className=" w-fit">
-            <h2 className="font-extralight text-sm w-fit sm:text-xs sm:h-8 hover:underline text-white">
+            <h2 className="text-sm w-fit sm:text-xs sm:h-8 hover:underline text-neutral-500">
               {categoryPt}
             </h2>
           </Link>

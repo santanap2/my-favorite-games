@@ -13,8 +13,6 @@ export default async function Home({ searchParams }: ISearchParams) {
     data: { games, message },
   } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
 
-  console.log(message)
-
   return (
     <div className="mt-24 xxl:mt-20 w-full transition-all">
       <title>{`Home - ${pageTitle}`}</title>

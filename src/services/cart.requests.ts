@@ -11,8 +11,14 @@ export const addItemToCart = async ({
   return result
 }
 
-export const buyOneItem = async (gameId: string) => {
-  const result = await api.put('/buy-one-item', { gameId })
+export const buyOneItem = async ({
+  gameId,
+  email,
+}: {
+  gameId: string
+  email: string
+}) => {
+  const result = await api.put('/buy-one-item', { gameId, email })
   return result
 }
 
