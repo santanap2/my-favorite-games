@@ -8,7 +8,6 @@ import { getUserByEmail } from '@/services/user.requests'
 import Link from 'next/link'
 import React from 'react'
 import { getServerSession } from 'next-auth'
-import MyAccountSkeleton from '@/components/Skeletons/MyAccountSkeleton'
 import {
   EnvelopeSimple,
   SmileySad,
@@ -17,10 +16,6 @@ import {
 
 export default async function MinhaConta() {
   const session = await getServerSession()
-
-  if (!session) {
-    return <MyAccountSkeleton />
-  }
 
   const {
     data: { user },

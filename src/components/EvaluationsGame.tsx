@@ -3,7 +3,7 @@ import { Star } from '@phosphor-icons/react/dist/ssr'
 import { convertDate } from '@/helpers/date'
 import { IEvaluation } from '@/interfaces'
 
-export default async function EvaluationsGame({
+export default function EvaluationsGame({
   evaluations,
 }: {
   evaluations: IEvaluation[]
@@ -45,9 +45,7 @@ export default async function EvaluationsGame({
           ),
         )
       ) : (
-        <span className="tracking-wide font-light text-base sm:text-sm">
-          O produto ainda não possui avaliações.
-        </span>
+        <span className="text-sm">O produto ainda não possui avaliações.</span>
       )}
     </div>
   )

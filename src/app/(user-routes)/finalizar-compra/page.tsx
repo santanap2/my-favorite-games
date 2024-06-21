@@ -13,7 +13,7 @@ import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
 
 export default function FinalizarCompra() {
-  const { screenSize, isAuthenticated } = useContext(GamesPlatformContext)
+  const { screenSize } = useContext(GamesPlatformContext)
 
   const calcNameSlice = (name: string) => {
     const small = name.length > 25 ? `${name.slice(0, 25)}...` : name
@@ -130,20 +130,16 @@ export default function FinalizarCompra() {
             <Link href="/finalizar-compra/pagamento">
               <button
                 type="button"
-                className={`w-full bg-indigo-600 h-10 rounded-md text-white font-light text-regular shadow-md hover:bg-indigo-700 transition-all lg:px-4 ${
-                  !isAuthenticated && 'sm:text-sm'
-                }`}
+                className={`w-full bg-indigo-600 py-2 rounded-lg text-white text-sm font-bold shadow-md hover:bg-indigo-700 transition-all lg:px-4`}
               >
-                {isAuthenticated
-                  ? 'Ir para o pagamento'
-                  : 'Faça login para continuar'}
+                Ir para o pagamento
               </button>
             </Link>
 
             <Link href="/home">
               <button
                 type="button"
-                className="w-full bg-neutral-800 h-10 rounded-md text-indigo-600 border border-indigo-600 font-light text-regular hover:bg-neutral-900 hover:border-indigo-700 hover:text-indigo-700 transition-all md:px-0 xl:px-4 xl:py-2"
+                className="w-full bg-trasparent py-2 rounded-lg text-neutral-400 border border-neutral-400 text-sm font-bold hover:border-indigo-600 hover:text-indigo-600 transition-all md:px-0 xl:px-4 xl:py-2"
               >
                 Continuar comprando
               </button>

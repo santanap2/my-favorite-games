@@ -1,3 +1,4 @@
+'use server'
 /* eslint-disable @next/next/no-img-element */
 
 import LateralFilters from '@/components/LateralFilters'
@@ -27,7 +28,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
       <title>{`${game.name} - ${pageTitle}`}</title>
       <LateralFilters />
       <div className="w-full h-full animation-opacity">
-        <div className="flex flex-wrap items-center gap-1 w-fit text-sm sm:w-full sm:text-xs max-w-full">
+        <div className="flex flex-wrap items-center gap-1 w-fit text-xs sm:w-full max-w-full">
           <Link
             href="/"
             className="text-neutral-300 hover:text-white hover:underline min-w-fit"
@@ -51,7 +52,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
             {game.name}
           </Link>
         </div>
-        <h1 className="mt-4 font-bold text-2xl text-white sm:text-xl sm:mt-2">
+        <h1 className="mt-4 font-bold text-xl text-white sm:mt-2">
           {game.name}
         </h1>
 
@@ -62,14 +63,12 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
             className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96"
           />
           <div className="flex flex-col justify-start items-start w-full h-full text-neutral-300 gap-2">
-            <span className="font-light sm:text-sm">
-              Vendido por: My Fav Games™
-            </span>
+            <span className="text-sm">Vendido por: My Fav Games™</span>
             <div className="text-indigo-600 text-4xl font-black sm:text-3xl">
               <span>{'R$ '}</span>
               <span>{priceToBRL(game.price * 0.9)}</span>
             </div>
-            <div className="flex flex-col mt-6 text-neutral-300 sm:mt-0 sm:text-xs gap-1">
+            <div className="flex flex-col mt-6 text-neutral-300 text-sm sm:mt-0 sm:text-xs gap-1">
               <span>À vista no PIX com 10% de desconto</span>
               <span>{`Ou em até 3x de R$${portionPrice(
                 game.price,

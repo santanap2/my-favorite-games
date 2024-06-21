@@ -8,7 +8,12 @@ import { IGameIDParams } from '@/interfaces'
 import { getUserByToken } from '@/services'
 import { getOneUserEvaluation, updateEvaluation } from '@/services/evaluations'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CheckCircle, Star, ThumbsUp, Warning } from '@phosphor-icons/react/dist/ssr'
+import {
+  CheckCircle,
+  Star,
+  ThumbsUp,
+  Warning,
+} from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'

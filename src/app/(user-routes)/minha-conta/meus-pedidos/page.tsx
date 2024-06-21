@@ -14,10 +14,6 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
   const session = await getServerSession()
   const email = session?.user?.email as string
 
-  if (!session) {
-    return <div className="mt-24">Carregando</div>
-  }
-
   const queryParams = new URLSearchParams(searchParams).toString()
 
   const {
