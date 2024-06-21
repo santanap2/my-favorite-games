@@ -9,6 +9,10 @@ export const nextAuthOptions: NextAuthOptions = {
     signIn: '/login',
   },
 
+  session: {
+    strategy: 'jwt',
+  },
+
   providers: [
     Credentials({
       name: 'credentials',
@@ -39,9 +43,9 @@ export const nextAuthOptions: NextAuthOptions = {
       user && (token.user = user)
       return token
     },
+
     async session({ session, token }) {
-      session = token.user as any
-      return session
+      return { ...session, user: token.user } as any
     },
   },
 }
