@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
@@ -45,17 +44,15 @@ export default function ShoppingCart() {
         >
           <div className="flex w-full justify-between pr-4 items-center">
             <div className="flex flex-col relative">
-              <h1 className="uppercase tracking-wider font-bold text-sm">
-                Carrinho
-              </h1>
-              {data?.data.data.products.length > 0 && (
+              <h1 className="tracking-wider font-black text-base">Carrinho</h1>
+              {data?.data.cart.products.length > 0 && (
                 <button
                   onClick={async () => {
                     setLoading({ ...loading, cart: !loading.cart })
                     await emptyCart(email)
                     refetch()
                   }}
-                  className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600"
+                  className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600 font-normal"
                 >
                   <Trash className="text-xl" weight="light" />
                   <span>Esvaziar</span>
@@ -65,20 +62,20 @@ export default function ShoppingCart() {
             <button type="button" onClick={() => setShowCart(!showCart)}>
               <X
                 weight="bold"
-                className="text-white hover:text-indigo-600 text-3xl"
+                className="text-white hover:text-indigo-600 text-xl"
               />
             </button>
           </div>
 
           <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
-            {data?.data.data.products.length === 0 ? (
+            {data?.data.cart.products.length === 0 ? (
               <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
                 <span className="mt-16">Seu carrinho está vazio.</span>
               </div>
             ) : (
               <div className="w-full h-fit flex flex-col gap-4 pr-4 sm:pr-2 sm:gap-4">
-                {data?.data.data.products.length > 0 ? (
-                  data?.data.data.products.map(
+                {data?.data.cart.products.length > 0 ? (
+                  data?.data.cart.products.map(
                     ({
                       id,
                       description,
@@ -108,7 +105,7 @@ export default function ShoppingCart() {
               </div>
             )}
 
-            {data?.data.data.products.length > 0 ? (
+            {data?.data.cart.products.length > 0 ? (
               <div className="w-full flex flex-col items-center justify-center gap-3 mb-16">
                 <button
                   type="button"
@@ -119,7 +116,7 @@ export default function ShoppingCart() {
                   className="text-sm uppercase font-bold text-white py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${
-                    calcSum(data?.data.data.products || []).string
+                    calcSum(data?.data.cart.products || []).string
                   }`}
                 </button>
 

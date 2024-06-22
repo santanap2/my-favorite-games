@@ -8,6 +8,7 @@ import { ContextGamesPlatform } from '@/context/Provider'
 import ShoppingCart from '@/components/ShoppingCart'
 import QueryProvider from '@/context/QueryProvider'
 import NextAuthSessionProvider from '@/context/SessionProvider'
+import HeaderMobile from '@/components/HeaderMobile'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
                   <QueryProvider>
                     <Header />
+                    <HeaderMobile />
                     <ShoppingCart />
                     {children}
                   </QueryProvider>
