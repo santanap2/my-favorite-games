@@ -191,9 +191,7 @@ export default function Pagamento() {
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.bankSlip
-                        ? 'text-indigo-600'
-                        : 'text-white'
+                      paymentMethod.bankSlip ? 'text-indigo-600' : 'text-white'
                     } sm:text-base`}
                   >
                     Boleto bancário

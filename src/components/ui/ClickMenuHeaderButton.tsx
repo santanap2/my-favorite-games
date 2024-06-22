@@ -1,7 +1,7 @@
 'use client'
 
 import GamesPlatformContext from '@/context/Context'
-import { List } from '@phosphor-icons/react/dist/ssr'
+import { TextIndent } from '@phosphor-icons/react/dist/ssr'
 import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from 'react'
 
@@ -42,8 +42,8 @@ export default function ClickMenuHeaderButton() {
       onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
       onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
     >
-      <List
-        className="sm:text-2xl text-3xl"
+      <TextIndent
+        className="text-2xl"
         weight={hoverBtn.menu ? 'duotone' : 'regular'}
       />
     </button>

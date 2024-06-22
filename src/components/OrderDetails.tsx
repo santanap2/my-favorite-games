@@ -35,9 +35,7 @@ export default function OrderDetails({ order }: { order: IOrderData }) {
       </p>
 
       <p>
-        <span className="font-bold text-indigo-600">
-          Método de pagamento:{' '}
-        </span>
+        <span className="font-bold text-indigo-600">Método de pagamento: </span>
         <span>{checkPaymentMethod(order.payment_method)}</span>
       </p>
 

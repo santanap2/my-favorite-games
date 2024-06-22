@@ -184,7 +184,7 @@ input[type=number] {
 }
 
 .background {
-  background: linear-gradient(180deg, var(--indigo) 1%, var(--neutral900) 35%);  
+  background: linear-gradient(180deg, var(--indigo) 1%, var(--neutral900) 20%);  
 }
 
 .footer-bg {

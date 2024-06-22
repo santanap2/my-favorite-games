@@ -11,13 +11,17 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@phosphor-icons/react": "^2.0.14",
+    "@radix-ui/react-navigation-menu": "^1.2.0",
     "@tanstack/react-query": "^5.15.0",
     "@tanstack/react-query-devtools": "^5.15.0",
     "@tanstack/react-query-next-experimental": "^5.15.0",
     "@types/cookies": "^0.7.10",
     "axios": "^1.6.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.396.0",
     "next": "14.0.2",
     "next-auth": "^4.24.7",
     "nookies": "^2.5.2",
@@ -25,6 +29,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
     "react-transition-group": "^4.4.5",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {

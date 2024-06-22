@@ -8,7 +8,11 @@ import OrderStatus from '@/components/OrderStatus'
 import OrderStatusSkeleton from '@/components/Skeletons/OrderStatusSkeleton'
 import { IGameIDParams } from '@/interfaces'
 import { getOneUserOrder } from '@/services/orders.requests'
-import { CheckCircle, ListPlus, ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
+import {
+  CheckCircle,
+  ListPlus,
+  ShoppingBagOpen,
+} from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import OrderDetails from '@/components/OrderDetails'

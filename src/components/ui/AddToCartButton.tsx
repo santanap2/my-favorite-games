@@ -22,7 +22,7 @@ export default function AddToCartButton({
         await addItemToCart({ email, gameId })
         setShowCart(true)
       }}
-      className="w-14 h-14 bg-indigo-600 rounded-xl text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-indigo-700 transition-all sm:h-12 sm:w-12"
+      className="w-14 h-14 bg-indigo-600 lg:rounded-lg rounded-xl text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-indigo-700 transition-all sm:h-12 sm:w-12"
     >
       <ShoppingCartSimple
         weight="bold"

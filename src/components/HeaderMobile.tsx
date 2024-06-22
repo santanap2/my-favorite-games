@@ -23,7 +23,10 @@ export default async function HeaderMobile() {
       <div className="w-fit h-full flex items-center justify-center space-x-1">
         <ClickMenuHeaderButton />
         <Link href="/home">
-          <HouseSimple weight="regular" className="sm:text-2xl text-3xl" />
+          <HouseSimple
+            weight="regular"
+            className="text-2xl hover:text-indigo-600"
+          />
         </Link>
       </div>
 
