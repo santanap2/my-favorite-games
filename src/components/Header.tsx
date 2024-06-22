@@ -3,20 +3,24 @@
 import React from 'react'
 import { getUserCart } from '@/services'
 import { getServerSession } from 'next-auth'
-import { HouseSimple, User } from '@phosphor-icons/react/dist/ssr'
+import { HouseSimple } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import ClickMenuHeaderButton from './ui/ClickMenuHeaderButton'
 import FormHeader from './FormHeader'
 import CartButtonHeader from './ui/BagButtonHeader'
+import MyAccountHeaderButton from './MyAccountHeaderButton'
 
 export default async function Header() {
   const session = await getServerSession()
   const email = session?.user?.email as string
   const username = session?.user?.name
 
-  const {
-    data: { cart },
-  } = await getUserCart(email)
+  let cart
+
+  if (session) {
+    const { data } = await getUserCart(email)
+    cart = data.cart
+  }
 
   return (
     <header className="sm:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
@@ -37,18 +41,12 @@ export default async function Header() {
       <FormHeader />
 
       <div className="flex items-center justify-end lg:space-x-2 space-x-4 w-96">
-        <Link
-          href="/api/auth/signin"
-          className="flex items-center justify-center hover:underline relative hover:text-indigo-600 transition-all"
-        >
-          <span className="uppercase font-semibold text-xs">
-            {session ? username?.split(' ')[0] : 'Entrar'}
-          </span>
-          <User className="text-3xl" weight="regular" />
-        </Link>
-        {/* {session && <MyAccountPopUp />} */}
+        <MyAccountHeaderButton
+          session={session}
+          username={username as string}
+        />
 
-        <CartButtonHeader cartLength={cart.products.length || 0} />
+        <CartButtonHeader cartLength={session ? cart.products.length : 0} />
       </div>
     </header>
   )

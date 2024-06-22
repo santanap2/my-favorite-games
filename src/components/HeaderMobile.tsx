@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { HouseSimple, User } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
@@ -12,9 +11,12 @@ export default async function HeaderMobile() {
   const session = await getServerSession()
   const email = session?.user?.email as string
 
-  const {
-    data: { cart },
-  } = await getUserCart(email)
+  let cart
+
+  if (session) {
+    const { data } = await getUserCart(email)
+    cart = data.cart
+  }
 
   return (
     <header className="hidden w-screen h-14 sm:flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-white px-2">
@@ -35,7 +37,7 @@ export default async function HeaderMobile() {
           <User className="sm:text-2xl text-3xl" weight="regular" />
         </Link>
 
-        <CartButtonHeader cartLength={cart.products.length || 0} />
+        <CartButtonHeader cartLength={session ? cart.products.length : 0} />
       </div>
     </header>
   )
