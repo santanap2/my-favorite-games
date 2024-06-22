@@ -9,9 +9,10 @@ import SingleOrder from '@/components/SingleOrder'
 import { sortOrdersByDate } from '@/helpers/orders'
 import { getUserOrders } from '@/services/orders.requests'
 import Link from 'next/link'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function MeusPedidos({ searchParams }: ISearchParams) {
-  const session = await getServerSession()
+  const session = await getServerSession(nextAuthOptions)
   const email = session?.user?.email as string
 
   const queryParams = new URLSearchParams(searchParams).toString()

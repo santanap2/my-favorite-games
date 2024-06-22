@@ -13,9 +13,10 @@ import {
   SmileySad,
   UserCircle,
 } from '@phosphor-icons/react/dist/ssr'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function MinhaConta() {
-  const session = await getServerSession()
+  const session = await getServerSession(nextAuthOptions)
 
   const {
     data: { user },

@@ -206,3 +206,33 @@ export interface ICreateEvaluation {
   stars: number
   productId: number
 }
+
+export interface IServerSession {
+  user: {
+    name?: string
+    email?: string
+    image?: string
+  }
+}
+
+export interface IShoppingCart {
+  user: {
+    id: number
+    name: string
+    email: string
+  }
+  products: {
+    id: number
+    name: string
+    categoryId: number
+    price: number
+    image: string
+    description: string
+    created_at: string
+    category: {
+      id: number
+      name: string
+      namePt: string
+    }
+  }[]
+}

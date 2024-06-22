@@ -6,17 +6,15 @@ import ClickMenuHeaderButton from './ui/ClickMenuHeaderButton'
 import { getUserCart } from '@/services'
 import { getServerSession } from 'next-auth'
 import FormHeaderMobile from './FormHeaderMobile'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function HeaderMobile() {
-  const session = await getServerSession()
+  const session = await getServerSession(nextAuthOptions)
   const email = session?.user?.email as string
 
-  let cart
-
-  if (session) {
-    const { data } = await getUserCart(email)
-    cart = data.cart
-  }
+  const {
+    data: { message, cart },
+  } = await getUserCart(email)
 
   return (
     <header className="hidden w-screen h-14 sm:flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-white px-2">
@@ -40,7 +38,13 @@ export default async function HeaderMobile() {
           <User className="sm:text-2xl text-3xl" weight="regular" />
         </Link>
 
-        <CartButtonHeader cartLength={session ? cart.products.length : 0} />
+        <CartButtonHeader
+          cartLength={
+            !session || message === 'Carrinho não encontrado'
+              ? 0
+              : cart.products.length
+          }
+        />
       </div>
     </header>
   )

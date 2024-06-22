@@ -2,31 +2,26 @@
 
 import GamesPlatformContext from '@/context/Context'
 import { calcSum } from '@/helpers'
-import { IGame } from '@/interfaces'
-import { emptyCart, getUserCart } from '@/services'
+import { IGame, IShoppingCart } from '@/interfaces'
+import { emptyCart } from '@/services'
 import { Trash, X } from '@phosphor-icons/react/dist/ssr'
-import { useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import CartProductCard from './CartProductCard'
-import { useSession } from 'next-auth/react'
 
-export default function ShoppingCart() {
+export default function ShoppingCart({
+  userCart,
+  sessionEmail,
+}: {
+  userCart: IShoppingCart | null
+  sessionEmail: string | null
+}) {
   const { showCart, setShowCart, loading, setLoading } =
     useContext(GamesPlatformContext)
 
-  const session = useSession()
-  const email = session?.data?.user?.email as string
-
   const nodeRef = useRef(null)
   const router = useRouter()
-
-  const { data, refetch } = useQuery({
-    queryKey: ['cart'],
-    queryFn: async () => await getUserCart(email),
-    retry: false,
-  })
 
   return (
     <>
@@ -36,7 +31,6 @@ export default function ShoppingCart() {
         timeout={200}
         classNames="slide-cart"
         unmountOnExit
-        onEntered={() => refetch()}
       >
         <aside
           className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-neutral-900 bg-opacity-50 backdrop-blur-sm border-l border-neutral-800 text-neutral-300 py-6 pl-6 shadow-2xl flex flex-col justify-start items-center gap-10 sm:w-[85%] sm:py-3 sm:px-3"
@@ -45,19 +39,20 @@ export default function ShoppingCart() {
           <div className="flex w-full justify-between pr-4 items-center">
             <div className="flex flex-col relative">
               <h1 className="tracking-wider font-black text-base">Carrinho</h1>
-              {data?.data.cart.products.length > 0 && (
-                <button
-                  onClick={async () => {
-                    setLoading({ ...loading, cart: !loading.cart })
-                    await emptyCart(email)
-                    refetch()
-                  }}
-                  className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600 font-normal"
-                >
-                  <Trash className="text-xl" weight="light" />
-                  <span>Esvaziar</span>
-                </button>
-              )}
+              {userCart &&
+                userCart.products &&
+                userCart.products.length > 0 && (
+                  <button
+                    onClick={async () => {
+                      setLoading({ ...loading, cart: !loading.cart })
+                      await emptyCart(sessionEmail as string)
+                    }}
+                    className="text-xs tracking-wider lowercase absolute -bottom-5 underline cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600 font-normal"
+                  >
+                    <Trash className="text-xl" weight="light" />
+                    <span>Esvaziar</span>
+                  </button>
+                )}
             </div>
             <button type="button" onClick={() => setShowCart(!showCart)}>
               <X
@@ -68,44 +63,48 @@ export default function ShoppingCart() {
           </div>
 
           <div className="flex flex-col w-full min-h-full h-fit justify-between items-center gap-10 overflow-y-auto">
-            {data?.data.cart.products.length === 0 ? (
-              <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
-                <span className="mt-16">Seu carrinho está vazio.</span>
+            {!userCart || !userCart.products ? (
+              sessionEmail ? (
+                <span className="text-sm font-semibold mt-16">
+                  Seu carrinho está vazio.
+                </span>
+              ) : (
+                <span className="text-sm font-semibold mt-16">
+                  Faça login para adicionar itens ao carrinho
+                </span>
+              )
+            ) : userCart.products.length === 0 ? (
+              <div className="flex w-full h-full justify-center items-start text-sm">
+                <span className="text-sm font-semibold mt-16">
+                  Seu carrinho está vazio.
+                </span>
               </div>
             ) : (
               <div className="w-full h-fit flex flex-col gap-4 pr-4 sm:pr-2 sm:gap-4">
-                {data?.data.cart.products.length > 0 ? (
-                  data?.data.cart.products.map(
-                    ({
-                      id,
-                      description,
-                      category,
-                      image,
-                      name,
-                      price,
-                    }: IGame) => (
-                      <>
-                        <CartProductCard
-                          key={id}
-                          id={id}
-                          description={description}
-                          category={category}
-                          name={name}
-                          image={image}
-                          price={price}
-                        />
-                      </>
-                    ),
-                  )
-                ) : (
-                  <div className="flex w-full h-full justify-center items-start font-light sm:text-sm">
-                    <span className="mt-16">Seu carrinho está vazio.</span>
-                  </div>
+                {userCart.products.map(
+                  ({
+                    id,
+                    description,
+                    category,
+                    image,
+                    name,
+                    price,
+                  }: IGame) => (
+                    <CartProductCard
+                      key={id}
+                      id={id}
+                      description={description}
+                      category={category}
+                      name={name}
+                      image={image}
+                      price={price}
+                    />
+                  ),
                 )}
               </div>
             )}
 
-            {data?.data.cart.products.length > 0 ? (
+            {userCart && userCart.products && userCart.products.length > 0 && (
               <div className="w-full flex flex-col items-center justify-center gap-3 mb-16">
                 <button
                   type="button"
@@ -116,7 +115,7 @@ export default function ShoppingCart() {
                   className="text-sm uppercase font-bold text-white py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
                 >
                   {`Finalizar compra -  R$ ${
-                    calcSum(data?.data.cart.products || []).string
+                    calcSum(userCart.products || []).string
                   }`}
                 </button>
 
@@ -131,8 +130,6 @@ export default function ShoppingCart() {
                   Continuar comprando
                 </button>
               </div>
-            ) : (
-              ''
             )}
           </div>
         </aside>

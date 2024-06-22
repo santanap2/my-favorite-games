@@ -28,18 +28,16 @@ import {
 import { links } from '@/helpers/myAccount'
 import MyAccountHeaderButton from './MyAccountHeaderButton'
 import SignOutButton from './SignOutButton'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function Header() {
-  const session = await getServerSession()
+  const session = await getServerSession(nextAuthOptions)
   const email = session?.user?.email as string
   const username = session?.user?.name
 
-  let cart
-
-  if (session) {
-    const { data } = await getUserCart(email)
-    cart = data.cart
-  }
+  const {
+    data: { message, cart },
+  } = await getUserCart(email)
 
   return (
     <header className="sm:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
@@ -145,7 +143,13 @@ export default async function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <CartButtonHeader cartLength={session ? cart.products.length : 0} />
+        <CartButtonHeader
+          cartLength={
+            !session || message === 'Carrinho não encontrado'
+              ? 0
+              : cart.products.length
+          }
+        />
       </div>
     </header>
   )

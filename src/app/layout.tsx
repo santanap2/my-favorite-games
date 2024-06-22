@@ -9,6 +9,9 @@ import ShoppingCart from '@/components/ShoppingCart'
 import QueryProvider from '@/context/QueryProvider'
 import NextAuthSessionProvider from '@/context/SessionProvider'
 import HeaderMobile from '@/components/HeaderMobile'
+import { getUserCart } from '@/services'
+import { nextAuthOptions } from './api/auth/[...nextauth]/auth'
+import { getServerSession } from 'next-auth'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,7 +23,18 @@ export const metadata: Metadata = {
   description: 'Buy your favorite games here!',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode
+}) {
+  const session = await getServerSession(nextAuthOptions)
+  const email = session?.user?.email as string
+
+  const {
+    data: { cart },
+  } = await getUserCart(email)
+
   return (
     <html lang="en">
       <ContextGamesPlatform>
@@ -34,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <QueryProvider>
                     <Header />
                     <HeaderMobile />
-                    <ShoppingCart />
+                    <ShoppingCart userCart={cart} sessionEmail={email} />
                     {children}
                   </QueryProvider>
                 </div>

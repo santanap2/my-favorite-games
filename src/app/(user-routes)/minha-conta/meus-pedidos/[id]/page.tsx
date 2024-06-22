@@ -1,3 +1,4 @@
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 import LateralMyAccount from '@/components/LateralMyAccount'
 import OrderDetails from '@/components/OrderDetails'
 import OrderStatus from '@/components/OrderStatus'
@@ -10,7 +11,7 @@ import { getServerSession } from 'next-auth'
 import React from 'react'
 
 export default async function PedidoId({ params: { id } }: IGameIDParams) {
-  const session = await getServerSession()
+  const session = await getServerSession(nextAuthOptions)
   const email = session?.user?.email as string
 
   const {
