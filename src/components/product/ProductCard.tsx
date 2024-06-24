@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react'
 import { ICard } from '@/interfaces'
 import { priceToBRL } from '@/helpers'
 import Link from 'next/link'
-import { PlusCircle, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
+import { PlusCircle, ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
 import { addItemToCart } from '@/services'
 import GamesPlatformContext from '@/context/Context'
 import { useSession } from 'next-auth/react'
@@ -89,15 +89,15 @@ export default function ProductCard({
         >
           {hoverPrice ? (
             <>
-              <PlusCircle weight="fill" size={16} />
-              <ShoppingCart size={24} weight="regular" />
+              <PlusCircle weight="fill" className="text-base" />
+              <ShoppingBagOpen className="text-2xl" weight="regular" />
             </>
           ) : (
             <span className="flex items-center justify-center gap-6 w-full">
               R$ {priceToBRL(price)}
               <span className="hidden md:flex items-center justify-center">
-                <PlusCircle weight="fill" size={16} />
-                <ShoppingCart size={24} weight="regular" />
+                <PlusCircle weight="fill" className="text-base" />
+                <ShoppingBagOpen className="text-2xl" weight="regular" />
               </span>
             </span>
           )}

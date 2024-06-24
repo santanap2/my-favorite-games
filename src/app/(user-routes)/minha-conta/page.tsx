@@ -8,11 +8,7 @@ import { getUserByEmail } from '@/services/user.requests'
 import Link from 'next/link'
 import React from 'react'
 import { getServerSession } from 'next-auth'
-import {
-  EnvelopeSimple,
-  SmileySad,
-  UserCircle,
-} from '@phosphor-icons/react/dist/ssr'
+import { EnvelopeSimple, SmileySad, User } from '@phosphor-icons/react/dist/ssr'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function MinhaConta() {
@@ -41,7 +37,7 @@ export default async function MinhaConta() {
         <div className="w-full h-full flex flex-col gap-10 text-white items-start lg:gap-6">
           <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
             <div className="flex gap-1 items-start justify-center w-full">
-              <UserCircle weight="fill" className="text-indigo-600 text-6xl" />
+              <User weight="fill" className="text-7xl text-indigo-600" />
               <div className="flex flex-col w-full">
                 <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
                   <div className="flex md:flex-col gap-1 w-full md:items-start items-center relative">
@@ -60,8 +56,8 @@ export default async function MinhaConta() {
                     </span>
                     <h2 className="flex md:hidden text-sm absolute -bottom-7 left-0">
                       <EnvelopeSimple
-                        weight="fill"
-                        className="h-8 md:h-6 text-indigo-600 text-2xl"
+                        weight="regular"
+                        className="h-8 md:h-6 text-2xl text-indigo-600"
                       />
                       <span className="h-8 md:h-6 flex items-center justify-center">
                         {user.email}
@@ -105,10 +101,7 @@ export default async function MinhaConta() {
                 />
               ) : (
                 <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
-                  <SmileySad
-                    weight="regular"
-                    className="text-indigo-600 text-3xl"
-                  />
+                  <SmileySad weight="regular" className="text-3xl" />
                   <span className="text-sm">
                     Você não possui nenhum pedido feito.
                   </span>
@@ -145,10 +138,7 @@ export default async function MinhaConta() {
                   ))
                 ) : (
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4 absolute">
-                    <SmileySad
-                      weight="regular"
-                      className="text-indigo-600 text-3xl"
-                    />
+                    <SmileySad weight="regular" className="text-3xl" />
                     <span className="text-sm">
                       Você não possui nenhum game comprado.
                     </span>

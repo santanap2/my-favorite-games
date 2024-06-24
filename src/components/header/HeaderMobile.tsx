@@ -35,7 +35,7 @@ export default async function HeaderMobile() {
           href="/api/auth/signin"
           className="h-full w-full flex items-center justify-center"
         >
-          <User className="text-2xl" weight="regular" />
+          <User className="text-2xl hover:text-indigo-600" weight="regular" />
         </Link>
 
         <CartHeaderButton

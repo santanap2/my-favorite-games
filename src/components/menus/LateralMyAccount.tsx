@@ -8,8 +8,8 @@ import {
   Heart,
   IdentificationCard,
   SignOut,
-  UserCircle,
   ThumbsUp,
+  User,
 } from '@phosphor-icons/react/dist/ssr'
 import GamesPlatformContext from '@/context/Context'
 import { CSSTransition } from 'react-transition-group'
@@ -44,9 +44,9 @@ export default function LateralMyAccount() {
         <div className="flex flex-col">
           <Link href={links.myAccount}>
             <div className="text-white flex gap-3 px-4 items-center w-full text-xs h-14 rounded-md hover:text-indigo-500 transition-all">
-              <UserCircle
-                weight={pathname === links.myAccount ? 'fill' : 'duotone'}
-                className="text-indigo-600 text-4xl"
+              <User
+                weight={pathname === links.myAccount ? 'fill' : 'regular'}
+                className={`${pathname === links.myAccount && 'text-indigo-600'} text-3xl`}
               />
               <span
                 className={`${
@@ -62,8 +62,8 @@ export default function LateralMyAccount() {
           <Link href={links.myOrders}>
             <div className="text-white flex gap-3 px-4 items-center w-full text-xs h-14 rounded-md hover:text-indigo-500 transition-all">
               <Bag
-                weight={pathname === links.myOrders ? 'fill' : 'duotone'}
-                className="text-indigo-600 text-4xl"
+                weight={pathname === links.myOrders ? 'fill' : 'regular'}
+                className={`${pathname === links.myOrders && 'text-indigo-600'} text-3xl`}
               />
               <span
                 className={`${
@@ -78,8 +78,8 @@ export default function LateralMyAccount() {
           <Link href={links.myData}>
             <div className="text-white flex gap-3 px-4 items-center w-full text-xs h-14 rounded-md hover:text-indigo-500 transition-all">
               <IdentificationCard
-                weight={pathname === links.myData ? 'fill' : 'duotone'}
-                className="text-indigo-600 text-4xl"
+                weight={pathname === links.myData ? 'fill' : 'regular'}
+                className={`${pathname === links.myData && 'text-indigo-600'} text-3xl`}
               />
               <span
                 className={`${
@@ -94,8 +94,8 @@ export default function LateralMyAccount() {
           <Link href={links.myGames}>
             <div className="text-white flex gap-3 px-4 items-center w-full text-xs h-14 rounded-md hover:text-indigo-500 transition-all">
               <GameController
-                weight={pathname === links.myGames ? 'fill' : 'duotone'}
-                className="text-indigo-600 text-4xl"
+                weight={pathname === links.myGames ? 'fill' : 'regular'}
+                className={`${pathname === links.myGames && 'text-indigo-600'} text-3xl`}
               />
               <span
                 className={`${
@@ -110,8 +110,8 @@ export default function LateralMyAccount() {
           <Link href={links.myFavorites}>
             <div className="text-white flex gap-3 px-4 items-center w-full text-xs h-14 rounded-md hover:text-indigo-500 transition-all">
               <Heart
-                weight={pathname === links.myFavorites ? 'fill' : 'duotone'}
-                className="text-indigo-600 text-4xl"
+                weight={pathname === links.myFavorites ? 'fill' : 'regular'}
+                className={`${pathname === links.myFavorites && 'text-indigo-600'} text-3xl`}
               />
               <span
                 className={`${
@@ -127,8 +127,8 @@ export default function LateralMyAccount() {
           <Link href={links.myEvaluations}>
             <div className="text-white flex gap-3 px-4 items-center w-full text-xs h-14 rounded-md hover:text-indigo-500 transition-all">
               <ThumbsUp
-                weight={pathname === links.myEvaluations ? 'fill' : 'duotone'}
-                className="text-indigo-600 text-4xl"
+                weight={pathname === links.myEvaluations ? 'fill' : 'regular'}
+                className={`${pathname === links.myEvaluations && 'text-indigo-600'} text-3xl`}
               />
               <span
                 className={`${
@@ -144,11 +144,11 @@ export default function LateralMyAccount() {
 
         <button
           onClick={() => signOut({ redirect: true, callbackUrl: '/home' })}
-          className="flex gap-3 px-4 items-center w-full text-xs text-white h-14 rounded-md mb-4 hover:text-orange-600 transition-all bg-red-2 text-left"
+          className="flex gap-3 px-4 items-center w-full text-xs text-white h-14 rounded-md mb-4 hover:red-orange-600 transition-all bg-red-2 text-left"
         >
           <SignOut
-            weight={pathname === links.help ? 'fill' : 'duotone'}
-            className="text-orange-600 text-4xl"
+            weight={pathname === links.help ? 'fill' : 'regular'}
+            className="text-red-600 text-4xl"
           />
           <span className="w-full">Sair</span>
         </button>

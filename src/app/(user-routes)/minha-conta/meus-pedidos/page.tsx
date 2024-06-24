@@ -4,8 +4,8 @@ import { IOrderData, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
 import LateralMyAccount from '@/components/menus/LateralMyAccount'
 import { getServerSession } from 'next-auth'
-import FormOrdersSelect from '@/components/FormOrdersSelect'
-import SingleOrder from '@/components/SingleOrder'
+import FormOrdersSelect from '@/components/order/FormOrdersSelect'
+import SingleOrder from '@/components/order/SingleOrder'
 import { sortOrdersByDate } from '@/helpers/orders'
 import { getUserOrders } from '@/services/orders.requests'
 import Link from 'next/link'
@@ -65,10 +65,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
               ))
             ) : (
               <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 absolute ">
-                <SmileySad
-                  weight="light"
-                  className="text-indigo-600 text-3xl"
-                />
+                <SmileySad weight="light" className="text-3xl" />
                 <span className="text-sm">
                   Você não possui nenhum pedido feito.
                 </span>

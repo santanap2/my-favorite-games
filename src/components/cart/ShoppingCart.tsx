@@ -8,7 +8,7 @@ import { Trash, X } from '@phosphor-icons/react/dist/ssr'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import CartProductCard from './CartProductCard'
+import ItemCart from './ItemCart'
 
 export default function ShoppingCart({
   userCart,
@@ -90,7 +90,7 @@ export default function ShoppingCart({
                     name,
                     price,
                   }: IGame) => (
-                    <CartProductCard
+                    <ItemCart
                       key={id}
                       id={id}
                       description={description}
@@ -98,6 +98,7 @@ export default function ShoppingCart({
                       name={name}
                       image={image}
                       price={price}
+                      userEmail={sessionEmail}
                     />
                   ),
                 )}

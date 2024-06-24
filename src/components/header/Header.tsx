@@ -51,7 +51,10 @@ export default async function Header() {
           />
         </Link>
         <Link href="/home">
-          <HouseSimple weight="regular" className="lg:flex hidden text-xl" />
+          <HouseSimple
+            weight="regular"
+            className="lg:flex hidden text-xl hover:text-indigo-600 transition-all"
+          />
         </Link>
       </div>
 
@@ -134,7 +137,7 @@ export default async function Header() {
                     </NavigationMenuLink>
                   </Link>
 
-                  <NavigationMenuLink className="flex gap-2 hover:text-orange-600 transition-all">
+                  <NavigationMenuLink className="flex gap-2 hover:text-red-600 transition-all">
                     <SignOutButton />
                   </NavigationMenuLink>
                 </NavigationMenuContent>

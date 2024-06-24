@@ -49,6 +49,7 @@ export interface IGame {
   image: string
   description: string
   indexAndLength?: { index: number; lenght: number }
+  userEmail?: string | null
 }
 
 export interface ILastOrderDetail {

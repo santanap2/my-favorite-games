@@ -21,7 +21,7 @@ export default function FormHeaderMobile() {
         placeholder="Qual jogo procura?"
       />
       <button type="submit" className="absolute right-2 bg-transparent">
-        <MagnifyingGlass weight="regular" size={24} />
+        <MagnifyingGlass weight="regular" className="text-2xl" />
       </button>
     </form>
   )

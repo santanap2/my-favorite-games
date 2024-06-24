@@ -27,11 +27,11 @@ export default function FormHeader() {
       />
       <button
         type="submit"
-        className="h-9 w-9 text-indigo-600 bg-transparent flex items-center justify-center cursor-pointer absolute right-1"
+        className="h-9 w-9 bg-transparent flex items-center justify-center cursor-pointer absolute right-1"
       >
         <MagnifyingGlass
           weight={hoverBtn.search ? 'fill' : 'regular'}
-          size={24}
+          className="text-xl"
           onMouseEnter={() =>
             setHoverBtn((prev) => ({ ...prev, search: true }))
           }
