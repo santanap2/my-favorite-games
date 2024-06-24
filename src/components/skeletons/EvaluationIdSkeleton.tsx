@@ -1,7 +1,7 @@
 import { pageTitle } from '@/helpers'
 import { ThumbsUp, Star } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
-import LateralMyAccount from '../LateralMyAccount'
+import LateralMyAccount from '../menus/LateralMyAccount'
 
 export default function EvaluationIdSkeleton() {
   return (

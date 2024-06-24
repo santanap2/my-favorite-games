@@ -16,7 +16,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getCategories } from '@/services/categories.requests'
 import { currencyMask } from '@/helpers'
 import { useRouter } from 'next/navigation'
-import LateralFiltersSkeleton from './Skeletons/LateralFiltersSkeleton'
+import LateralFiltersSkeleton from '../skeletons/LateralFiltersSkeleton'
 import { sortCategoriesByName } from '@/helpers/categories'
 
 export default function LateralFilters() {

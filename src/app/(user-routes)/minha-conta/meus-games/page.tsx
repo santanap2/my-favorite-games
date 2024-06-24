@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
-import UserProductCard from '@/components/UserProductCard'
-import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
+import UserProductCard from '@/components/order/UserProductCard'
+import UserProductCardSkeleton from '@/components/skeletons/UserProductCardSkeleton'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate, sortProductsByName } from '@/helpers/orders'
 import { IGame, IOrderData } from '@/interfaces'

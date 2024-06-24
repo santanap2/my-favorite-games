@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
-import LoadingSpinner from '@/components/LoadingSpinner'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
+import LoadingSpinner from '@/components/general/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'

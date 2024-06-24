@@ -7,7 +7,7 @@ import { Warning } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import LoginHooks from '@/hooks/LoginHooks'
 import GamesPlatformContext from '@/context/Context'
-import LoadingSpinner from '@/components/LoadingSpinner'
+import LoadingSpinner from '@/components/general/LoadingSpinner'
 
 export default function Login() {
   const { buttonDisabled, errors, handleFormSubmit, handleSubmit, register } =

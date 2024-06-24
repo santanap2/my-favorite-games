@@ -6,7 +6,7 @@ import {
 } from '@/services/favorites.requests'
 import { Heart } from '@phosphor-icons/react/dist/ssr'
 import React, { useEffect, useState } from 'react'
-import PopUpFavorite from '../PopUpFavorite'
+import PopUpFavorite from '../order/PopUpFavorite'
 import { useQuery } from '@tanstack/react-query'
 import { IGame } from '@/interfaces'
 

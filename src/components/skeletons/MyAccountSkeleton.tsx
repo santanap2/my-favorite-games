@@ -2,7 +2,7 @@ import { pageTitle } from '@/helpers'
 import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
-import LateralMyAccount from '../LateralMyAccount'
+import LateralMyAccount from '../menus/LateralMyAccount'
 
 import SingleOrderSkeleton from './SingleOrderSkeleton'
 import UserProductCardSkeleton from './UserProductCardSkeleton'

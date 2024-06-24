@@ -13,9 +13,9 @@ import {
   User,
 } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
-import ClickMenuHeaderButton from './ui/ClickMenuHeaderButton'
+import ClickMenuHeaderButton from '../ui/ClickMenuHeaderButton'
 import FormHeader from './FormHeader'
-import CartHeaderButton from './ui/CartHeaderButton'
+import CartHeaderButton from '../ui/CartHeaderButton'
 
 import {
   NavigationMenu,
@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { links } from '@/helpers/myAccount'
 import MyAccountHeaderButton from './MyAccountHeaderButton'
-import SignOutButton from './SignOutButton'
+import SignOutButton from '../menus/SignOutButton'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function Header() {

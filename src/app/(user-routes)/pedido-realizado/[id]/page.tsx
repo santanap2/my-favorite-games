@@ -2,10 +2,10 @@
 
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
-import OrderInfoSkeleton from '@/components/Skeletons/OrderInfoSkeleton'
-import OrderStatus from '@/components/OrderStatus'
-import OrderStatusSkeleton from '@/components/Skeletons/OrderStatusSkeleton'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
+import OrderInfoSkeleton from '@/components/skeletons/OrderInfoSkeleton'
+import OrderStatus from '@/components/order/OrderStatus'
+import OrderStatusSkeleton from '@/components/skeletons/OrderStatusSkeleton'
 import { IGameIDParams } from '@/interfaces'
 import { getOneUserOrder } from '@/services/orders.requests'
 import {
@@ -15,7 +15,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
-import OrderDetails from '@/components/OrderDetails'
+import OrderDetails from '@/components/order/OrderDetails'
 import { getUserByToken } from '@/services'
 import Link from 'next/link'
 

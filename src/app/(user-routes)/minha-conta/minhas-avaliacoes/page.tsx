@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import EvaluationCard from '@/components/EvaluationCard'
-import LateralMyAccount from '@/components/LateralMyAccount'
-import EvaluationCardSkeleton from '@/components/Skeletons/EvaluationCardSkeleton'
+import EvaluationCard from '@/components/product/EvaluationCard'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
+import EvaluationCardSkeleton from '@/components/skeletons/EvaluationCardSkeleton'
 import { pageTitle } from '@/helpers'
 import { sortBoughtProductsByName } from '@/helpers/orders'
 import { IEvaluation, IGameWithOrderInfo } from '@/interfaces'

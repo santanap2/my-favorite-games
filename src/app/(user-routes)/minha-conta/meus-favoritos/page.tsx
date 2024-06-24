@@ -3,13 +3,13 @@
 
 import { Heart, SmileySad } from '@phosphor-icons/react/dist/ssr'
 import React, { useEffect, useState } from 'react'
-import UserProductCard from '@/components/UserProductCard'
+import UserProductCard from '@/components/order/UserProductCard'
 import { IGame } from '@/interfaces'
 import { pageTitle } from '@/helpers'
-import LateralMyAccount from '@/components/LateralMyAccount'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
 import { getAllFavorites } from '@/services/favorites.requests'
 import { useQuery } from '@tanstack/react-query'
-import UserProductCardSkeleton from '@/components/Skeletons/UserProductCardSkeleton'
+import UserProductCardSkeleton from '@/components/skeletons/UserProductCardSkeleton'
 import { sortProductsByName } from '@/helpers/orders'
 import { getUserByToken } from '@/services'
 

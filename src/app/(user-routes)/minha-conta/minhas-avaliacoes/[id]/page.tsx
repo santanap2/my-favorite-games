@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
-import EvaluationIdSkeleton from '@/components/Skeletons/EvaluationIdSkeleton'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
+import EvaluationIdSkeleton from '@/components/skeletons/EvaluationIdSkeleton'
 
 import { pageTitle } from '@/helpers'
 import { convertFullDate } from '@/helpers/date'

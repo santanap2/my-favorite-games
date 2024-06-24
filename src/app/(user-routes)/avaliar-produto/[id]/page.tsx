@@ -2,9 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
-import LoadingSpinner from '@/components/LoadingSpinner'
-import UpdateEvaluationSkeleton from '@/components/Skeletons/UpdateEvaluationSkeleton'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
+import LoadingSpinner from '@/components/general/LoadingSpinner'
+import UpdateEvaluationSkeleton from '@/components/skeletons/UpdateEvaluationSkeleton'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { getUserByToken } from '@/services'

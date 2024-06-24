@@ -1,10 +1,10 @@
 import React from 'react'
-import ProductCard from '@/components/ProductCard'
+import ProductCard from '@/components/product/ProductCard'
 import { IGame, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
 import { getGamesFiltered } from '@/services'
-import LateralFilters from '@/components/LateralFilters'
-import NotFoundProducts from '@/components/NotFoundProducts'
+import LateralFilters from '@/components/menus/LateralFilters'
+import NotFoundProducts from '@/components/general/NotFoundProducts'
 
 export default async function Home({ searchParams }: ISearchParams) {
   const queryParams = new URLSearchParams(searchParams).toString()

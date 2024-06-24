@@ -1,7 +1,7 @@
 'use server'
 /* eslint-disable @next/next/no-img-element */
 
-import LateralFilters from '@/components/LateralFilters'
+import LateralFilters from '@/components/menus/LateralFilters'
 import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { getGame } from '@/services/games.requests'
@@ -12,7 +12,7 @@ import { getServerSession } from 'next-auth'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 import AddToCartButton from '@/components/ui/AddToCartButton'
 import BuyNowButton from '@/components/ui/BuyNowButton'
-import GameDetails from '@/components/GameDetails'
+import GameDetails from '@/components/product/GameDetails'
 import AddToFavoritesButton from '@/components/ui/AddToFavoritesButton'
 
 export default async function GameId({ params: { id } }: IGameIDParams) {

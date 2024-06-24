@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import LateralMyAccount from '@/components/LateralMyAccount'
+import LateralMyAccount from '@/components/menus/LateralMyAccount'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
 import { getUserByToken } from '@/services'
@@ -19,8 +19,8 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import Link from 'next/link'
-import UpdateEvaluationSkeleton from '@/components/Skeletons/UpdateEvaluationSkeleton'
-import LoadingSpinner from '@/components/LoadingSpinner'
+import UpdateEvaluationSkeleton from '@/components/skeletons/UpdateEvaluationSkeleton'
+import LoadingSpinner from '@/components/general/LoadingSpinner'
 
 export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
   const [stars, setStars] = useState(0)

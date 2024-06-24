@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import CreditCardForm from '@/components/CreditCardForm'
+import CreditCardForm from '@/components/general/CreditCardForm'
 import GamesPlatformContext from '@/context/Context'
 import { calcSum, pageTitle, priceToBRL } from '@/helpers'
 import { getUserCart } from '@/services'
