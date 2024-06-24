@@ -4,7 +4,7 @@ import GamesPlatformContext from '@/context/Context'
 import { ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
 import React, { useContext } from 'react'
 
-export default function BagButtonHeader({
+export default function CartHeaderButton({
   cartLength,
 }: {
   cartLength: number

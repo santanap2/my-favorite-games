@@ -15,7 +15,7 @@ import {
 import Link from 'next/link'
 import ClickMenuHeaderButton from './ui/ClickMenuHeaderButton'
 import FormHeader from './FormHeader'
-import CartButtonHeader from './ui/BagButtonHeader'
+import CartHeaderButton from './ui/CartHeaderButton'
 
 import {
   NavigationMenu,
@@ -143,7 +143,7 @@ export default async function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <CartButtonHeader
+        <CartHeaderButton
           cartLength={
             !session || message === 'Carrinho não encontrado'
               ? 0
