@@ -5,13 +5,10 @@ import './globals.css'
 import Header from '@/components/header/Header'
 import Footer from '@/components/general/Footer'
 import { ContextGamesPlatform } from '@/context/Provider'
-import ShoppingCart from '@/components/cart/ShoppingCart'
 import QueryProvider from '@/context/QueryProvider'
 import NextAuthSessionProvider from '@/context/SessionProvider'
 import HeaderMobile from '@/components/header/HeaderMobile'
-import { getUserCart } from '@/services'
-import { nextAuthOptions } from './api/auth/[...nextauth]/auth'
-import { getServerSession } from 'next-auth'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,13 +25,6 @@ export default async function RootLayout({
 }: {
   children: ReactNode
 }) {
-  const session = await getServerSession(nextAuthOptions)
-  const email = session?.user?.email as string
-
-  const {
-    data: { cart },
-  } = await getUserCart(email)
-
   return (
     <html lang="en">
       <ContextGamesPlatform>
@@ -48,7 +38,7 @@ export default async function RootLayout({
                   <QueryProvider>
                     <Header />
                     <HeaderMobile />
-                    <ShoppingCart userCart={cart} sessionEmail={email} />
+                    <Toaster />
                     {children}
                   </QueryProvider>
                 </div>

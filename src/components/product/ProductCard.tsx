@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { ICard } from '@/interfaces'
 import { priceToBRL } from '@/helpers'
 import Link from 'next/link'
 import { PlusCircle, ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
-import { addItemToCart } from '@/services'
-import GamesPlatformContext from '@/context/Context'
+import { addItemToCart, removeItemFromCart } from '@/services'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 export default function ProductCard({
   name,
@@ -20,10 +20,7 @@ export default function ProductCard({
 }: ICard) {
   const { data, status } = useSession()
   const email = data?.user?.email as string
-
   const router = useRouter()
-
-  const { loading, setLoading, setShowCart } = useContext(GamesPlatformContext)
   const [hover, setHover] = useState<boolean>(false)
   const [hoverPrice, setHoverPrice] = useState<boolean>(false)
 
@@ -81,10 +78,18 @@ export default function ProductCard({
               router.push('/api/auth/signin')
               return
             }
-
-            setLoading({ ...loading, cart: !loading.cart })
-            await addItemToCart({ email, gameId: id.toString() })
-            setShowCart(true)
+            const {
+              data: { message },
+            } = await addItemToCart({ email, gameId: id.toString() })
+            toast(message, {
+              cancel: {
+                label: 'Desfazer',
+                onClick: () => removeItemFromCart({ email, gameId: email }),
+              },
+              cancelButtonStyle: {
+                backgroundColor: 'rgb(79 70 229)',
+              },
+            })
           }}
         >
           {hoverPrice ? (
