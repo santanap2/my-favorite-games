@@ -13,9 +13,6 @@ const initialValueContext = {
   reseted: false,
   setReseted: (state: boolean) => {},
 
-  showCart: false,
-  setShowCart: (state: boolean) => {},
-
   paymentMethod: {
     pix: true,
     creditCard: false,
@@ -28,9 +25,6 @@ const initialValueContext = {
     myAccount: true,
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
-
-  showSearchInputMobile: false,
-  setShowSearchInputMobile: (state: boolean) => {},
 
   screenSize: 0,
   setScreenSize: (state: number) => {},
@@ -51,12 +45,6 @@ const initialValueContext = {
 
   loginResponse: { error: '', success: '' },
   setLoginResponse: (state: IResponseState) => {},
-
-  isAuthenticated: false,
-  setIsAuthenticated: (state: boolean) => {},
-
-  showPopUpMenu: false,
-  setShowPopUpMenu: (state: boolean) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

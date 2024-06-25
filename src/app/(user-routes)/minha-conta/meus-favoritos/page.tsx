@@ -11,16 +11,9 @@ import { getAllFavorites } from '@/services/favorites.requests'
 import { useQuery } from '@tanstack/react-query'
 import UserProductCardSkeleton from '@/components/skeletons/UserProductCardSkeleton'
 import { sortProductsByName } from '@/helpers/orders'
-import { getUserByToken } from '@/services'
 
 export default function MeusFavoritos() {
   const [filter, setFilter] = useState('alphabetical')
-
-  const { error: userError } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
 
   const {
     data: favoritesData,
@@ -39,8 +32,7 @@ export default function MeusFavoritos() {
 
   return (
     <>
-      {userError && null}
-      {!userError && (
+      {
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus favoritos`}</title>
 
@@ -133,7 +125,7 @@ export default function MeusFavoritos() {
             </div>
           </div>
         </div>
-      )}
+      }
     </>
   )
 }

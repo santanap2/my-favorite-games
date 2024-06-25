@@ -1,14 +1,11 @@
 'use client'
 
-import GamesPlatformContext from '@/context/Context'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function HeaderHooks() {
-  const { setShowSearchInputMobile } = useContext(GamesPlatformContext)
   const formSchema = z.object({
     headerSearch: z.object({
       headerInput: z.string(),
@@ -59,7 +56,6 @@ export default function HeaderHooks() {
 
   const handleFormMobileSubmit = (data: FormMobileProps) => {
     router.push(`/home?busca=${data.headerMobileSearch.headerMobileInput}`)
-    setShowSearchInputMobile(false)
   }
 
   return {

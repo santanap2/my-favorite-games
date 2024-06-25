@@ -1,11 +1,6 @@
 import { IRegister, IUpdateUserData, IUser } from '@/interfaces'
 import { api } from './api'
 
-export const getUserByToken = async () => {
-  const result = await api.get('/get-user-by-token')
-  return result
-}
-
 export const getUserByEmail = async (email?: string | null) => {
   const result = await api.get(`/get-user-by-email/${email}`)
   return result

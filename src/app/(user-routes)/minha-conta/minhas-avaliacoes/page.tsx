@@ -7,7 +7,6 @@ import EvaluationCardSkeleton from '@/components/skeletons/EvaluationCardSkeleto
 import { pageTitle } from '@/helpers'
 import { sortBoughtProductsByName } from '@/helpers/orders'
 import { IEvaluation, IGameWithOrderInfo } from '@/interfaces'
-import { getUserByToken } from '@/services'
 import { getUserEvaluations } from '@/services/evaluations'
 import { getBoughtProducts } from '@/services/orders.requests'
 import { SmileySad, ThumbsUp } from '@phosphor-icons/react/dist/ssr'
@@ -16,12 +15,6 @@ import React, { useEffect, useState } from 'react'
 
 export default function MinhasAvaliacoes() {
   const [filter, setFilter] = useState('date')
-
-  const { error: userError } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
 
   const { data: userEvaluationsData, refetch: userEvaluationsRefetch } =
     useQuery({
@@ -47,8 +40,7 @@ export default function MinhasAvaliacoes() {
 
   return (
     <>
-      {userError && null}
-      {!userError && (
+      {
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`Minhas avaliações - ${pageTitle}`}</title>
           <LateralMyAccount />
@@ -181,7 +173,7 @@ export default function MinhasAvaliacoes() {
             </div>
           </div>
         </div>
-      )}
+      }
     </>
   )
 }

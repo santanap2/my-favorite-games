@@ -7,7 +7,6 @@ import EvaluationIdSkeleton from '@/components/skeletons/EvaluationIdSkeleton'
 import { pageTitle } from '@/helpers'
 import { convertFullDate } from '@/helpers/date'
 import { IGameIDParams } from '@/interfaces'
-import { getUserByToken } from '@/services'
 import { getOneUserEvaluation } from '@/services/evaluations'
 import { Star, ThumbsUp } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
@@ -15,12 +14,6 @@ import Link from 'next/link'
 import React, { useEffect } from 'react'
 
 export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
-  const { error: userError } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
-
   const {
     data: userEvaluationsData,
     refetch: userEvaluationRefetch,

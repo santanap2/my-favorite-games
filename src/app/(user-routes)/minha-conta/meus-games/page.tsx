@@ -12,16 +12,9 @@ import { GameController, SmileySad } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import {} from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import { getUserByToken } from '@/services'
 
 export default function MeusGames() {
   const [filter, setFilter] = useState('alphabetical')
-
-  const { error: userError } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
 
   const {
     data: ordersData,

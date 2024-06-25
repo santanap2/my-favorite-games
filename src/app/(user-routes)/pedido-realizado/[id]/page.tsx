@@ -16,7 +16,6 @@ import {
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import OrderDetails from '@/components/order/OrderDetails'
-import { getUserByToken } from '@/services'
 import Link from 'next/link'
 
 export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
@@ -26,16 +25,9 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
     retry: false,
   })
 
-  const { error: userError } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
-
   return (
     <>
-      {userError && null}
-      {!userError && (
+      {
         <div className="w-full text-white">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
@@ -79,7 +71,7 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
             </div>
           </div>
         </div>
-      )}
+      }
     </>
   )
 }

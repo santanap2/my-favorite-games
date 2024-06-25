@@ -6,7 +6,6 @@ import LoadingSpinner from '@/components/general/LoadingSpinner'
 import GamesPlatformContext from '@/context/Context'
 import { pageTitle } from '@/helpers'
 import MyDataHooks from '@/hooks/MyDataHooks'
-import { getUserByToken } from '@/services'
 import {
   CheckFat,
   Envelope,
@@ -16,36 +15,16 @@ import {
   Phone,
   Warning,
 } from '@phosphor-icons/react/dist/ssr'
-import { useQuery } from '@tanstack/react-query'
-import {} from 'next/navigation'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 export default function MeusDados() {
   const { loading, userDataResponse } = useContext(GamesPlatformContext)
 
-  const { error: userError } = useQuery({
-    queryKey: ['userData'],
-    queryFn: async () => await getUserByToken(),
-    retry: false,
-  })
-
   const { handleSubmit, register, errors, handleFormSubmit } = MyDataHooks()
-
-  const { data, isLoading, refetch } = useQuery({
-    queryKey: ['userData'],
-    queryFn: () => getUserByToken(),
-    retry: false,
-    staleTime: 1000 * 60 * 3, // 3 minutes
-  })
-
-  useEffect(() => {
-    refetch()
-  }, [])
 
   return (
     <>
-      {userError && null}
-      {!userError && (
+      {
         <div className="mt-24 xxl:mt-20 w-full h-full">
           <title>{`${pageTitle} - Meus dados`}</title>
           <LateralMyAccount />
@@ -300,7 +279,7 @@ export default function MeusDados() {
             </div>
           </div>
         </div>
-      )}
+      }
     </>
   )
 }

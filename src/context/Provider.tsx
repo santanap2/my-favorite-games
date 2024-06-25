@@ -3,14 +3,11 @@
 import { useEffect, useState } from 'react'
 import { IChildren } from '@/interfaces'
 import GamesPlatformContext from './Context'
-import { getUserByToken } from '@/services/user.requests'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0
 
   const [reseted, setReseted] = useState(false)
-
-  const [showCart, setShowCart] = useState(false)
 
   const [screenSize, setScreenSize] = useState(windowWidth)
 
@@ -24,8 +21,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     creditCard: false,
     bankSlip: false,
   })
-
-  const [showSearchInputMobile, setShowSearchInputMobile] = useState(false)
 
   const [loading, setLoading] = useState({
     registerUser: false,
@@ -46,10 +41,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [loginResponse, setLoginResponse] = useState({ error: '', success: '' })
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-  const [showPopUpMenu, setShowPopUpMenu] = useState(false)
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => setScreenSize(window.innerWidth))
@@ -61,23 +52,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     }
   }, [])
 
-  useEffect(() => {
-    const checkUserAuthentication = async () => {
-      const response = await getUserByToken().catch((error) => {
-        if (error) setIsAuthenticated(false)
-      })
-      if (response && response.status === 200) setIsAuthenticated(true)
-    }
-
-    checkUserAuthentication()
-  }, [])
-
   const contextValues = {
     reseted,
     setReseted,
-
-    showCart,
-    setShowCart,
 
     screenSize,
     setScreenSize,
@@ -87,9 +64,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     paymentMethod,
     setPaymentMethod,
-
-    showSearchInputMobile,
-    setShowSearchInputMobile,
 
     loading,
     setLoading,
@@ -102,12 +76,6 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     loginResponse,
     setLoginResponse,
-
-    isAuthenticated,
-    setIsAuthenticated,
-
-    showPopUpMenu,
-    setShowPopUpMenu,
   }
 
   return (

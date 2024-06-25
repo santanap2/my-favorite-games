@@ -3,7 +3,6 @@ import { api } from './api'
 import {
   registerUser,
   updateUser,
-  getUserByToken,
   getUserByEmail,
   requestLogin,
 } from './user.requests'
@@ -27,7 +26,6 @@ export {
   api,
   registerUser,
   updateUser,
-  getUserByToken,
   getUserByEmail,
   requestLogin,
   decodeToken,

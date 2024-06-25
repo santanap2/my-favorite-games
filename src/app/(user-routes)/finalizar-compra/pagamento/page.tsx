@@ -12,13 +12,8 @@ import { redirect } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
 export default function Pagamento() {
-  const {
-    paymentMethod,
-    setPaymentMethod,
-    loading,
-    setLoading,
-    isAuthenticated,
-  } = useContext(GamesPlatformContext)
+  const { paymentMethod, setPaymentMethod, loading, setLoading } =
+    useContext(GamesPlatformContext)
 
   const { data, refetch, isLoading } = useQuery({
     queryKey: ['cart'],
@@ -101,8 +96,7 @@ export default function Pagamento() {
 
   return (
     <>
-      {!isAuthenticated && null}
-      {isAuthenticated && (
+      {
         <div className="mt-24 xxl:mt-20 w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-white">
           <title>{`${pageTitle} - Pagamento`}</title>
 
@@ -292,7 +286,7 @@ export default function Pagamento() {
             </div>
           </div>
         </div>
-      )}
+      }
     </>
   )
 }
