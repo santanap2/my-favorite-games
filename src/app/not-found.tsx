@@ -22,7 +22,7 @@ export default function NotFoundPage() {
       </h1>
 
       <div className="absolute bg-transparent w-full h-full" />
-      <div className="mt-24 xxl:mt-20 sm:w-[95%] flex flex-col gap-10 items-center justify-start z-50">
+      <div className="mt-24 xxl:mt-20  sm:w-[95%] flex flex-col gap-10 items-center justify-start z-50">
         <div className="flex gap-1 w-full items-center justify-center">
           <SmileySad weight="duotone" className="text-indigo-700 text-5xl" />
           <h1 className="text-white font-regular text-xl font-semibold">

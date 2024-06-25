@@ -11,8 +11,14 @@ export const registerUser = async (data: IRegister) => {
   return result
 }
 
-export const updateUser = async (data: IUpdateUserData) => {
-  const result = await api.put('/update-user', data)
+export const updateUser = async ({
+  userData,
+  userEmail,
+}: {
+  userData: IUpdateUserData
+  userEmail: string
+}) => {
+  const result = await api.put('/update-user', { userData, userEmail })
   return result
 }
 

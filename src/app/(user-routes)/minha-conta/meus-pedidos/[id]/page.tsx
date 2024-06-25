@@ -19,7 +19,7 @@ export default async function PedidoId({ params: { id } }: IGameIDParams) {
   } = await getOneUserOrder({ email, id })
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full">
+    <div className="mt-24 xxl:mt-20  w-full h-full">
       <title>{`Detalhes do pedido #${id} - ${pageTitle}`}</title>
       <LateralMyAccount />
 

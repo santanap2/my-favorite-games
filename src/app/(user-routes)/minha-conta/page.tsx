@@ -1,6 +1,6 @@
 import LateralMyAccount from '@/components/menus/LateralMyAccount'
 import SingleOrder from '@/components/order/SingleOrder'
-import UserProductCard from '@/components/order/UserProductCard'
+import UserProductCard from '@/components/product/UserProductCard'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate } from '@/helpers/orders'
 import { IGame, IOrderData } from '@/interfaces'
@@ -19,7 +19,7 @@ export default async function MinhaConta() {
   } = await getUserByEmail(session?.user?.email)
 
   const allBoughtGames: IGame[] = []
-  if (user.orders) {
+  if (user?.orders) {
     sortOrdersByDate(
       user.orders.filter((order: IOrderData) => order.status === 'concluded'),
     ).forEach((order: IOrderData) => {
@@ -35,47 +35,27 @@ export default async function MinhaConta() {
       <LateralMyAccount />
       <div className="w-full h-full mt-24 xxl:mt-20 flex flex-col items-start justify-start animation-opacity transition-all">
         <div className="w-full h-full flex flex-col gap-10 text-white items-start lg:gap-6">
-          <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
-            <div className="flex gap-1 items-start justify-center w-full">
-              <User weight="fill" className="text-7xl text-indigo-600" />
-              <div className="flex flex-col w-full">
-                <div className="font-regular text-xl lg:text-base md:text-base w-full flex flex-col gap-1">
-                  <div className="flex md:flex-col gap-1 w-full md:items-start items-center relative">
-                    <span className="h-10 md:h-6 w-fit flex items-center justify-center">
-                      Olá
-                    </span>
-                    <span
-                      className={`h-10 ${
-                        user.name.length > 25 ? 'md:h-10' : 'md:h-6'
-                      } font-bold text-2xl lg:text-xl md:text-lg min-w-fit flex items-center justify-center`}
-                    >
-                      {` ${user.name},`}
-                    </span>
-                    <span className="h-10 md:h-6 md:text-sm w-fit flex items-center justify-center">
-                      bem vindo(a) de volta!
-                    </span>
-                    <h2 className="flex md:hidden text-sm absolute -bottom-7 left-0">
-                      <EnvelopeSimple
-                        weight="regular"
-                        className="h-8 md:h-6 text-2xl text-indigo-600"
-                      />
-                      <span className="h-8 md:h-6 flex items-center justify-center">
-                        {user.email}
-                      </span>
-                    </h2>
-                  </div>
-                </div>
+          <div className="flex flex-col gap-1 items-start justify-center w-full">
+            <div className="flex gap-1 items-end justify-center w-full">
+              <User weight="fill" className="text-5xl text-indigo-600" />
+
+              <div className="flex flex-col w-full h-full text-sm">
+                <span>
+                  Olá{' '}
+                  <span className="font-extrabold text-lg">{`${user?.name}`}</span>
+                  , bem vindo(a) de volta!
+                </span>
+                <span className="flex text-xs">
+                  <EnvelopeSimple
+                    weight="regular"
+                    className="h-8 md:h-6 text-lg text-indigo-600"
+                  />
+                  <span className="h-8 md:h-6 flex items-center justify-center">
+                    {user?.email}
+                  </span>
+                </span>
               </div>
             </div>
-            <h2 className="hidden md:flex text-sm">
-              <EnvelopeSimple
-                weight="fill"
-                className="h-8 md:h-6 text-indigo-600 text-2xl"
-              />
-              <span className="h-8 md:h-6 flex items-center justify-center">
-                {user.email}
-              </span>
-            </h2>
           </div>
 
           <div className="w-full flex flex-col gap-2">
@@ -91,13 +71,13 @@ export default async function MinhaConta() {
               </Link>
             </div>
             <>
-              {user.orders.length > 0 ? (
+              {user?.orders.length > 0 ? (
                 <SingleOrder
-                  orderNumber={user.orders[user.orders.length - 1].id}
-                  price={user.orders[user.orders.length - 1].value}
-                  date={user.orders[user.orders.length - 1].created_at}
-                  payment={user.orders[user.orders.length - 1].payment_method}
-                  status={user.orders[user.orders.length - 1].status}
+                  orderNumber={user?.orders[user?.orders.length - 1].id}
+                  price={user?.orders[user?.orders.length - 1].value}
+                  date={user?.orders[user?.orders.length - 1].created_at}
+                  payment={user?.orders[user?.orders.length - 1].payment_method}
+                  status={user?.orders[user?.orders.length - 1].status}
                 />
               ) : (
                 <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
@@ -123,7 +103,7 @@ export default async function MinhaConta() {
               </Link>
             </div>
             <div
-              className={`w-full grid grid-cols-5 gap-x-8 gap-y-6 xs:grid-cols-2 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-6 xl:grid-cols-5 xxl:grid-cols-4`}
+              className={`w-full grid grid-cols-5 gap-x-8 gap-y-6 xs:grid-cols-3 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-6 xl:grid-cols-5 xxl:grid-cols-4`}
             >
               <>
                 {lastBoughtGames.length > 0 ? (

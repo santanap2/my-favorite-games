@@ -95,7 +95,7 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
       {gameIsLoading ? (
         <UpdateEvaluationSkeleton />
       ) : (
-        <div className="mt-24 xxl:mt-20 w-full h-full transition-all">
+        <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
           <title>{`Avaliar produto - ${pageTitle}`}</title>
           <LateralMyAccount />
 

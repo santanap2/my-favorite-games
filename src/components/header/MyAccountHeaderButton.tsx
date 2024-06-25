@@ -10,10 +10,10 @@ export default function MyAccountHeaderButton({
   session: any
   username: string
 }) {
-  const firstName = (str: string) => {
-    const firstName = str.split(' ')[0]
-    return firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase()
-  }
+  // const firstName = (str: string) => {
+  //   const firstName = str.split(' ')[0]
+  //   return firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase()
+  // }
 
   return (
     <Link
@@ -21,7 +21,7 @@ export default function MyAccountHeaderButton({
       className="flex items-center justify-center hover:underline relative hover:text-indigo-600 transition-all text-white"
     >
       <span className="font-semibold text-xs">
-        {session ? firstName(username) : 'Entrar'}
+        {session ? username : 'Entrar'}
       </span>
       <User className="text-2xl" weight="regular" />
     </Link>

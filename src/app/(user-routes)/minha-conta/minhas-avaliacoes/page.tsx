@@ -41,7 +41,7 @@ export default function MinhasAvaliacoes() {
   return (
     <>
       {
-        <div className="mt-24 xxl:mt-20 w-full h-full">
+        <div className="mt-24 xxl:mt-20  w-full h-full">
           <title>{`Minhas avaliações - ${pageTitle}`}</title>
           <LateralMyAccount />
 

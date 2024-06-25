@@ -21,14 +21,14 @@ export default function UserProductCard({
 
   return (
     <div
-      className="rounded-md shadow-md w-64 h-96 relative animation-opacity transition-all sm:w-32 sm:h-48 xl:w-40 xl:h-60"
+      className="rounded-md shadow-md w-64 h-96 relative animation-opacity transition-all sm:w-28 sm:h-44 xl:w-40 xl:h-60"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <Link href={`/game/${productId}`} className="w-full">
+      <Link href={`/game/${productId}`} className="w-full h-full">
         <div className="overflow-hidden inline-block rounded-md w-full">
           <img
-            className={`object-cover w-full h-full rounded-md  transition-all duration-500 ${
+            className={`object-cover w-64 h-96 sm:w-28 sm:h-44 xl:w-40 xl:h-60 rounded-md transition-all duration-500  ${
               hover ? 'scale-110' : ''
             }`}
             src={image}

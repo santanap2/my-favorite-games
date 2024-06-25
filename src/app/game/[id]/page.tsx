@@ -24,7 +24,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   } = await getGame(id)
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full transition-all">
+    <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
       <title>{`${game.name} - ${pageTitle}`}</title>
       <LateralFilters />
       <div className="w-full h-full animation-opacity">

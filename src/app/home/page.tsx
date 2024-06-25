@@ -14,7 +14,7 @@ export default async function Home({ searchParams }: ISearchParams) {
   } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full transition-all">
+    <div className="mt-24 xxl:mt-20  w-full transition-all">
       <title>{`Home - ${pageTitle}`}</title>
       <LateralFilters />
 

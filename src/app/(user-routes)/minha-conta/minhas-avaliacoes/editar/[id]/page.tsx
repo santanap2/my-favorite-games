@@ -93,7 +93,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
       {userEvaluationIsLoading ? (
         <UpdateEvaluationSkeleton />
       ) : (
-        <div className="mt-24 xxl:mt-20 w-full h-full">
+        <div className="mt-24 xxl:mt-20  w-full h-full">
           <title>{`Editar avaliação - ${pageTitle}`}</title>
           <LateralMyAccount />
 

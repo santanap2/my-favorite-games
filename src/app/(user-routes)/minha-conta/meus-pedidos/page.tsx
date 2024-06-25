@@ -22,7 +22,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
   } = await getUserOrders(email, new URLSearchParams(queryParams).toString())
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full">
+    <div className="mt-24 xxl:mt-20  w-full h-full">
       <title>{`Meus pedidos - ${pageTitle}`}</title>
       <LateralMyAccount />
 

@@ -2,7 +2,7 @@
 'use client'
 
 import LateralMyAccount from '@/components/menus/LateralMyAccount'
-import UserProductCard from '@/components/order/UserProductCard'
+import UserProductCard from '@/components/product/UserProductCard'
 import UserProductCardSkeleton from '@/components/skeletons/UserProductCardSkeleton'
 import { pageTitle } from '@/helpers'
 import { sortOrdersByDate, sortProductsByName } from '@/helpers/orders'
@@ -43,7 +43,7 @@ export default function MeusGames() {
     <>
       {userError && null}
       {!userError && (
-        <div className="mt-24 xxl:mt-20 w-full h-full">
+        <div className="mt-24 xxl:mt-20  w-full h-full">
           <title>{`${pageTitle} - Meus games`}</title>
 
           <LateralMyAccount />

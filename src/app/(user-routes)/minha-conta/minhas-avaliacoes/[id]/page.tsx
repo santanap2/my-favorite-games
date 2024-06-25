@@ -35,7 +35,7 @@ export default function MinhasAvaliacoesId({ params: { id } }: IGameIDParams) {
         (userEvaluationIsLoading ? (
           <EvaluationIdSkeleton />
         ) : (
-          <div className="mt-24 xxl:mt-20 w-full h-full">
+          <div className="mt-24 xxl:mt-20  w-full h-full">
             <title>{`Minhas avaliações - ${pageTitle}`}</title>
             <LateralMyAccount />
             <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">

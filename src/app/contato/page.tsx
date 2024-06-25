@@ -13,7 +13,7 @@ import React from 'react'
 
 export default function Contato() {
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full animation-opacity transition-all">
+    <div className="mt-24 xxl:mt-20  w-full h-full animation-opacity transition-all">
       <title>{`Contato - ${pageTitle}`}</title>
       <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6">
         <div className="flex gap-1 w-fit items-center justify-center">

@@ -2,6 +2,8 @@ import GamesPlatformContext from '@/context/Context'
 import { phoneNumberMask } from '@/helpers'
 import { updateUser } from '@/services'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signOut, useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
 import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -9,6 +11,8 @@ import { z } from 'zod'
 export default function MyDataHooks() {
   const { setLoading, setUserDataResponse, loading } =
     useContext(GamesPlatformContext)
+
+  const { data, status } = useSession()
 
   const formSchema = z.object({
     userData: z
@@ -64,37 +68,43 @@ export default function MyDataHooks() {
   const handleFormSubmit = async ({ userData }: FormProps) => {
     setLoading({ ...loading, updateUserData: true })
 
-    const {
-      name,
-      currentEmail,
-      newEmail,
-      phone,
-      currentPassword,
-      newPassword,
-    } = userData
+    if (status === 'loading') {
+      setUserDataResponse({
+        error: 'Ocorreu um erro, por favor tente novamente,',
+        success: '',
+      })
+      return
+    }
 
-    const response = await updateUser({
-      name,
-      currentEmail,
-      newEmail,
-      phone,
-      currentPassword,
-      newPassword,
-    }).catch((error) => {
-      if (error) {
+    if (status !== 'authenticated') {
+      redirect('/api/auth/signin')
+    }
+
+    if (status === 'authenticated') {
+      const response = await updateUser({
+        userData,
+        userEmail: data?.user?.email as string,
+      }).catch((error) => {
+        if (error) {
+          setLoading({ ...loading, updateUserData: false })
+          setUserDataResponse({
+            error: error.response.data.message,
+            success: '',
+          })
+        } else {
+          setUserDataResponse({
+            error: 'Um erro inesperado ocorreu, tente novamente mais tarde',
+            success: '',
+          })
+        }
+      })
+
+      if (response && response.status === 200) {
         setLoading({ ...loading, updateUserData: false })
-        setUserDataResponse({ error: error.response.data.message, success: '' })
-      } else {
-        setUserDataResponse({
-          error: 'Um erro inesperado ocorreu, tente novamente mais tarde',
-          success: '',
-        })
+        setUserDataResponse({ error: '', success: response.data.message })
+        await new Promise((resolve) => setTimeout(resolve, 3000))
+        signOut({ redirect: true, callbackUrl: '/api/auth/signin' })
       }
-    })
-
-    if (response && response.status === 200) {
-      setLoading({ ...loading, updateUserData: false })
-      setUserDataResponse({ error: '', success: response.data.message })
     }
   }
 
