@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import {
-  ICardData,
-  ILoading,
-  IResponseState,
-  PaymentMethod,
-} from '@/interfaces'
+import { ILoading, IResponseState, PaymentMethod } from '@/interfaces'
 import { createContext } from 'react'
 
 const initialValueContext = {
@@ -45,6 +40,9 @@ const initialValueContext = {
 
   loginResponse: { error: '', success: '' },
   setLoginResponse: (state: IResponseState) => {},
+
+  filters: { myGames: 'alphabetical' },
+  setFilters: (state: { myGames: string }) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

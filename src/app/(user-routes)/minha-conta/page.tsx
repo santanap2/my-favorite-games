@@ -94,9 +94,7 @@ export default async function MinhaConta() {
                 Ver todos
               </Link>
             </div>
-            <div
-              className={`w-full grid grid-cols-6 gap-x-8 gap-y-10 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-y-6`}
-            >
+            <div className="w-full grid grid-cols-6 gap-x-8 gap-y-10 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-y-6">
               <>
                 {lastBoughtGames.length > 0 ? (
                   lastBoughtGames.map(({ name, id, image }: IGame) => (

@@ -41,6 +41,8 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [loginResponse, setLoginResponse] = useState({ error: '', success: '' })
 
+  const [filters, setFilters] = useState({ myGames: 'alphabetical' })
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => setScreenSize(window.innerWidth))
@@ -76,6 +78,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
     loginResponse,
     setLoginResponse,
+
+    filters,
+    setFilters,
   }
 
   return (
