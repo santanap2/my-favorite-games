@@ -223,7 +223,7 @@ export default function MyDataForm({
       <button
         type="submit"
         form="myDataForm"
-        className="flex items-center justify-center bg-indigo-600 w-80 px-6 py-3 rounded-md shadow-md hover:bg-indigo-700 transition-all font-semibold text-sm text-white sm:w-full sm:px-16 disabled:opacity-40 "
+        className="flex justify-center rounded-md bg-indigo-600 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40 transition-all"
         disabled={!!userDataResponse.success}
       >
         {loading.updateUserData ? <LoadingSpinner /> : 'Atualizar dados'}
