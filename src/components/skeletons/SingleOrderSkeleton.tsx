@@ -24,7 +24,7 @@ export default function SingleOrderSkeleton() {
               </p>
             </td>
 
-            <td className="py-3 px-4 w-52 font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold">
+            <td className="py-3 px-4 w-52 font-bold xxl:p-1 xxl:w-20 xxl:text-xs xxl:font-semibold">
               <p className="bg-neutral-100 loading-skeleton rounded-md text-transparent cursor-default">
                 Status
               </p>

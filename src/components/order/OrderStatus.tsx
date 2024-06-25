@@ -38,7 +38,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
             weight="fill"
             className="text-indigo-600 rounded-3xl bg-neutral-900 text-4xl"
           />
-          <span className="text-neutral-300 text-sm text-center">
+          <span className="text-neutral-400 text-sm text-center">
             Pedido realizado
           </span>
         </div>
@@ -88,7 +88,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               className="rounded-3xl bg-neutral-500 text-4xl text-neutral-500"
             />
           )}
-          <span className="text-neutral-300 text-sm text-center">
+          <span className="text-neutral-400 text-sm text-center">
             Pagamento confirmado
           </span>
         </div>
@@ -132,7 +132,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               className="rounded-3xl bg-neutral-500 text-neutral-500 text-4xl"
             />
           )}
-          <span className="text-neutral-300 text-sm text-center">
+          <span className="text-neutral-400 text-sm text-center">
             Processando pedido
           </span>
         </div>
@@ -174,7 +174,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               className="rounded-3xl bg-neutral-500 text-neutral-500 text-4xl"
             />
           )}
-          <span className="text-neutral-300 text-sm text-center">
+          <span className="text-neutral-400 text-sm text-center">
             {order.status === 'canceled'
               ? 'Pedido cancelado'
               : 'Pedido concluído'}

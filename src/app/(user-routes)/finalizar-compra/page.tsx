@@ -76,7 +76,7 @@ export default function FinalizarCompra() {
                       {namePt}
                     </h3>
                   </div>
-                  <div className="flex flex-col text-white text-sm lg:text-xxs lg:mt-0 lg:font-extralight lg:text-white">
+                  <div className="flex flex-col text-white text-sm lg:text-xs lg:mt-0 lg:font-extralight lg:text-white">
                     <span>No PIX com 10% de desconto</span>
                     <span>{`Ou em até 3x de R$${portionPrice(
                       price,

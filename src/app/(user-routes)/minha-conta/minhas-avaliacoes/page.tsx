@@ -46,14 +46,19 @@ export default function MinhasAvaliacoes() {
           <LateralMyAccount />
 
           <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
-            <div className="flex gap-1 w-full items-center justify-start">
-              <ThumbsUp
-                weight="fill"
-                className="text-indigo-600 sm:text-3xl text-5xl"
-              />
-              <h1 className="font-regular text-xl font-semibold">
-                Minhas avaliações
-              </h1>
+            <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-700">
+              <div className="flex gap-1 items-center justify-center w-full">
+                <div className="flex flex-col w-full h-full text-base">
+                  <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
+                    <ThumbsUp weight="bold" className="text-3xl" />
+                    Minhas avaliações
+                  </span>
+
+                  <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+                    Confira todas as avaliações que você fez e ainda pendentes
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col gap-6 w-full">
@@ -68,7 +73,7 @@ export default function MinhasAvaliacoes() {
                   <select
                     name=""
                     id="sortBy"
-                    className="h-10 rounded-md px-3 focus:outline-none text-white hover:shadow-lg w-60 text-left text-sm font-light bg-neutral-700 shadow-md"
+                    className="h-10 rounded-md px-3 focus:outline-none text-white hover:shadow-lg w-60 text-left text-sm font-light bg-neutral-950 border border-neutral-900 shadow-md"
                     onChange={({ target: { value } }) => setFilter(value)}
                   >
                     <option value="date">Comprados recentemente</option>
@@ -165,7 +170,7 @@ export default function MinhasAvaliacoes() {
                   <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center absolute">
                     <SmileySad weight="light" className="text-5xl" />
                     <span className="text-base font-light">
-                      Você não possui nenhum game comprado no momento.
+                      Você não possui nenhuma avaliação feita no momento.
                     </span>
                   </div>
                 )}

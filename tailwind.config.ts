@@ -50,7 +50,7 @@ const config: Config = {
       xs: { max: '410px' },
     },
     fontSize: {
-      xxs: '0.7rem',
+      // xxs: '0.7rem',
       xs: '0.75rem',
       sm: '0.8rem',
       base: '1rem',

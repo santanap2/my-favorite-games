@@ -65,11 +65,11 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full h-28 sm:h-32 bg-neutral-800 py-1 px-4 rounded-md shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative animation-opacity transition-all"
+      className="w-full h-28 md:h-fit md:py-4 bg-neutral-950 border border-neutral-900 py-1 px-4 rounded-md shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">
-          <tr className="font-bold text-sm uppercase text-white flex justify-between gap-2 xxl:text-xs">
+          <tr className="font-bold text-xs uppercase text-white flex justify-between gap-2 xxl:text-xs">
             <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40 sm:hidden">
               Número do pedido
             </td>
@@ -80,7 +80,7 @@ export default function SingleOrder({
           </tr>
         </thead>
 
-        <tbody className="w-full xxl:text-xs">
+        <tbody className="w-full text-sm xxl:text-xs">
           <tr className="text-white flex justify-between items-center gap-2">
             <td className="py-3 px-4 w-60 xxl:p-1 md:w-12 xxl:w-40 sm:hidden">
               {`#${orderNumber}`}
@@ -89,14 +89,14 @@ export default function SingleOrder({
             <td
               className={`${setStatusColor(
                 status,
-              )} py-3 px-4 w-52 text-sm font-bold xxl:p-1 xxl:w-20 xxl:text-xxs xxl:font-semibold`}
+              )} py-3 px-4 w-52 font-bold xxl:p-1 xxl:w-20 xxl:text-xs xxl:font-semibold`}
             >
               {convertStatusToPortuguese(status)}
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-16">
               {convertDate(date)}
             </td>
-            <td className="py-3 px-4 w-52 text-indigo-600 font-bold text-sm xxl:p-1 xxl:w-20">
+            <td className="py-3 px-4 w-52 text-indigo-600 font-bold xxl:p-1 xxl:w-20">
               {convertPaymentMethod(payment)}
             </td>
             <td className="py-3 px-4 w-40 xxl:p-1 xxl:w-20 text-justify">
@@ -106,15 +106,15 @@ export default function SingleOrder({
         </tbody>
       </table>
 
-      <div className="flex justify-between items-center w-full">
-        <p className="text-xs ml-2 sm:text-white text-transparent">
+      <div className="flex justify-end sm:justify-between w-full">
+        <p className="text-xs ml-2 hidden sm:block">
           <span className="uppercase font-semibold">Pedido: #</span>
           <span>{orderNumber}</span>
         </p>
 
         <Link
           href={`/minha-conta/meus-pedidos/${orderNumber}`}
-          className=" w-48 text-indigo-600 font-bold text-sm hover:underline flex gap-1 items-center ml-8 xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
+          className="w-48 text-indigo-600 font-bold text-sm hover:underline flex gap-1 items-center xxl:ml-0 xxl:justify-end xxl:px-2 xxl:w-fit xxl:font-semibold xxl:text-xs"
         >
           <ListPlus className="text-xl" />
           <span>Detalhes do pedido</span>
