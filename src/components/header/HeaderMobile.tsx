@@ -1,8 +1,8 @@
 import { HouseSimple, User } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
-import CartHeaderButton from '../ui/CartHeaderButton'
-import ClickMenuHeaderButton from '../ui/ClickMenuHeaderButton'
+import CartButton from '../cart/CartButton'
+import MenuHeaderButton from './MenuHeaderButton'
 import { getUserCart } from '@/services'
 import { getServerSession } from 'next-auth'
 import FormHeaderMobile from './FormHeaderMobile'
@@ -13,13 +13,13 @@ export default async function HeaderMobile() {
   const email = session?.user?.email as string
 
   const {
-    data: { message, cart },
+    data: { cart },
   } = await getUserCart(email)
 
   return (
     <header className="hidden w-screen h-14 sm:flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-white px-2">
       <div className="w-fit h-full flex items-center justify-center space-x-1">
-        <ClickMenuHeaderButton />
+        <MenuHeaderButton />
         <Link href="/home">
           <HouseSimple
             weight="regular"
@@ -38,13 +38,7 @@ export default async function HeaderMobile() {
           <User className="text-2xl hover:text-indigo-600" weight="regular" />
         </Link>
 
-        <CartHeaderButton
-          cartLength={
-            !session || message === 'Carrinho não encontrado'
-              ? 0
-              : cart.products.length
-          }
-        />
+        <CartButton userCart={cart} sessionEmail={email} />
       </div>
     </header>
   )

@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
-import { removeItemFromCart } from '@/services'
-import { MinusCircle } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
+import RemoveItemButton from './RemoveItemButton'
 
 export default function ItemCart({
   id,
@@ -36,19 +35,7 @@ export default function ItemCart({
             {`R$ ${priceToBRL(price)}`}
           </h2>
 
-          <button
-            type="button"
-            className="text-xs font-sm font-semibold hover:text-indigo-600 flex items-center justify-center space-x-1"
-            onClick={async () => {
-              await removeItemFromCart({
-                email: userEmail as string,
-                gameId: id.toString(),
-              })
-            }}
-          >
-            <MinusCircle weight="fill" size={18} />
-            <span>Remover</span>
-          </button>
+          <RemoveItemButton id={id} userEmail={userEmail as string} />
         </div>
       </div>
     </div>

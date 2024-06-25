@@ -13,9 +13,9 @@ import {
   User,
 } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
-import ClickMenuHeaderButton from '../ui/ClickMenuHeaderButton'
+import MenuHeaderButton from './MenuHeaderButton'
 import FormHeader from './FormHeader'
-import CartHeaderButton from '../ui/CartHeaderButton'
+import CartButton from '../cart/CartButton'
 
 import {
   NavigationMenu,
@@ -36,13 +36,13 @@ export default async function Header() {
   const username = session?.user?.name
 
   const {
-    data: { message, cart },
+    data: { cart },
   } = await getUserCart(email)
 
   return (
     <header className="sm:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
       <div className="flex items-center justify-start lg:space-x-2 space-x-4 w-96">
-        <ClickMenuHeaderButton />
+        <MenuHeaderButton />
         <Link href="/home">
           <img
             src="/logo.png"
@@ -146,13 +146,7 @@ export default async function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <CartHeaderButton
-          cartLength={
-            !session || message === 'Carrinho não encontrado'
-              ? 0
-              : cart.products.length
-          }
-        />
+        <CartButton userCart={cart} sessionEmail={email} />
       </div>
     </header>
   )

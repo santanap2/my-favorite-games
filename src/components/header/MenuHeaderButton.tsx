@@ -5,7 +5,7 @@ import { TextIndent } from '@phosphor-icons/react/dist/ssr'
 import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from 'react'
 
-export default function ClickMenuHeaderButton() {
+export default function MenuHeaderButton() {
   const { setShowMenu, showMenu } = useContext(GamesPlatformContext)
 
   const [hoverBtn, setHoverBtn] = useState({
