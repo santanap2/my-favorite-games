@@ -11,9 +11,9 @@ export default function EmptyCartButton({
 }) {
   return (
     <button
-      onClick={async () => {
-        await emptyCart(sessionEmail)
-      }}
+      type="submit"
+      form="empty-cart-form"
+      onClick={async () => await emptyCart(sessionEmail)}
       className="mt-2 mb-6 text-xs cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-600 font-normal w-fit transition-all"
     >
       <Trash className="text-xl" weight="regular" />

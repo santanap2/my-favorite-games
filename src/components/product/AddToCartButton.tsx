@@ -14,17 +14,19 @@ export default function AddToCartButton({
 }) {
   return (
     <button
-      type="button"
+      type="submit"
+      form="add-to-cart-form"
       onClick={async () => {
         const {
           data: { message },
         } = await addItemToCart({ email, gameId })
+
         toast(message, {
-          cancel: {
+          action: {
             label: 'Desfazer',
-            onClick: () => removeItemFromCart({ email, gameId: email }),
+            onClick: async () => await removeItemFromCart({ email, gameId }),
           },
-          cancelButtonStyle: {
+          actionButtonStyle: {
             backgroundColor: 'rgb(79 70 229)',
           },
         })

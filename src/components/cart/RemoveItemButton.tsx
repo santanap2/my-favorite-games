@@ -13,7 +13,8 @@ export default function RemoveItemButton({
 }) {
   return (
     <button
-      type="button"
+      type="submit"
+      form="remove-item-form"
       className="text-xs font-sm font-semibold hover:text-indigo-600 flex items-center justify-center space-x-1"
       onClick={async () => {
         await removeItemFromCart({

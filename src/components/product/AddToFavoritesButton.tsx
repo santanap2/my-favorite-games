@@ -44,8 +44,8 @@ export default function AddToFavoritesButton({
         toast(message, {
           cancel: {
             label: 'Desfazer',
-            // onClick: () => removeItemFromCart({ email, gameId: email }),
             onClick: () => console.log(message),
+            // onClick: async () => await removeItemFromCart({ email, gameId: email }),
           },
           cancelButtonStyle: {
             backgroundColor: 'rgb(79 70 229)',

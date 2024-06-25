@@ -10,10 +10,10 @@ import Link from 'next/link'
 import React from 'react'
 import { getServerSession } from 'next-auth'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
-import AddToCartButton from '@/components/product/AddToCartButton'
 import BuyNowButton from '@/components/product/BuyNowButton'
 import GameDetails from '@/components/product/GameDetails'
 import AddToFavoritesButton from '@/components/product/AddToFavoritesButton'
+import AddToCartForm from '@/components/product/AddToCartForm'
 
 export default async function GameId({ params: { id } }: IGameIDParams) {
   const session = await getServerSession(nextAuthOptions)
@@ -77,7 +77,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
             </div>
             <div className="flex gap-4 mt-20 sm:mt-6 sm:w-full sm:justify-center sm:items-center sm:gap-1">
               <BuyNowButton email={email} gameId={id} />
-              <AddToCartButton gameId={id} email={email} />
+              <AddToCartForm gameId={id} email={email} />
               <AddToFavoritesButton gameId={id} email={email} />
             </div>
           </div>

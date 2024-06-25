@@ -1,16 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-'use client'
-import React, { useState } from 'react'
-import { ICard } from '@/interfaces'
-import { priceToBRL } from '@/helpers'
-import Link from 'next/link'
-import { PlusCircle, ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
-import { addItemToCart, removeItemFromCart } from '@/services'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { toast } from 'sonner'
+'use server'
 
-export default function ProductCard({
+import React from 'react'
+import { ICard } from '@/interfaces'
+import Link from 'next/link'
+import ProductCardForm from './ProductCardForm'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
+import { getServerSession } from 'next-auth'
+
+export default async function ProductCard({
   name,
   category,
   categoryPt,
@@ -18,27 +16,17 @@ export default function ProductCard({
   image,
   id,
 }: ICard) {
-  const { data, status } = useSession()
-  const email = data?.user?.email as string
-  const router = useRouter()
-  const [hover, setHover] = useState<boolean>(false)
-  const [hoverPrice, setHoverPrice] = useState<boolean>(false)
+  const session = await getServerSession(nextAuthOptions)
+  const email = session?.user?.email as string
 
   return (
     <div className="w-40 flex flex-col h-fit items-center justify-start rounded">
-      <Link
-        href={`/game/${id}`}
-        className="w-fit"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
+      <Link href={`/game/${id}`} className="w-fit">
         <div className="w-40 h-60 overflow-hidden inline-block rounded-md shadow-[0_0px_5px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt={name}
-            className={`object-cover transition-all duration-500 w-40 h-full rounded-md ${
-              hover ? 'scale-110' : ''
-            }`}
+            className={`object-cover transition-all duration-500 w-40 h-full rounded-md hover:scale-110`}
           />
         </div>
       </Link>
@@ -46,11 +34,7 @@ export default function ProductCard({
       <div className="w-full h-fit flex flex-col justify-between items-start xl:h-fit">
         <div className="flex flex-col gap-1 h-20 mt-1">
           <Link href={`/game/${id}`} className="w-fit">
-            <h1
-              className="font-semibold text-base text-white w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline"
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-            >
+            <h1 className="font-semibold text-base text-white w-fit max-h-20 sm:text-base sm:max-h-11 hover:underline">
               {name.length > 26 ? `${name.slice(0, 27)}...` : name}
             </h1>
           </Link>
@@ -62,51 +46,12 @@ export default function ProductCard({
           </Link>
         </div>
 
-        <button
-          type="button"
-          className="flex items-center justify-center h-8 text-sm font-bold text-white sm:text-md bg-indigo-800 w-full p-2 rounded-md text-center hover:bg-indigo-600 transition-all duration-300"
-          onMouseEnter={() => {
-            setHover(true)
-            setHoverPrice(true)
-          }}
-          onMouseLeave={() => {
-            setHover(false)
-            setHoverPrice(false)
-          }}
-          onClick={async () => {
-            if (status !== 'authenticated') {
-              router.push('/api/auth/signin')
-              return
-            }
-            const {
-              data: { message },
-            } = await addItemToCart({ email, gameId: id.toString() })
-            toast(message, {
-              cancel: {
-                label: 'Desfazer',
-                onClick: () => removeItemFromCart({ email, gameId: email }),
-              },
-              cancelButtonStyle: {
-                backgroundColor: 'rgb(79 70 229)',
-              },
-            })
-          }}
-        >
-          {hoverPrice ? (
-            <>
-              <PlusCircle weight="fill" className="text-base" />
-              <ShoppingBagOpen className="text-2xl" weight="regular" />
-            </>
-          ) : (
-            <span className="flex items-center justify-center gap-6 w-full">
-              R$ {priceToBRL(price)}
-              <span className="hidden md:flex items-center justify-center">
-                <PlusCircle weight="fill" className="text-base" />
-                <ShoppingBagOpen className="text-2xl" weight="regular" />
-              </span>
-            </span>
-          )}
-        </button>
+        <ProductCardForm
+          email={email}
+          id={id}
+          price={price}
+          session={session}
+        />
       </div>
     </div>
   )

@@ -2,7 +2,7 @@
 import { priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
 import React from 'react'
-import RemoveItemButton from './RemoveItemButton'
+import RemoveItemForm from './RemoveItemForm'
 
 export default function ItemCart({
   id,
@@ -35,7 +35,7 @@ export default function ItemCart({
             {`R$ ${priceToBRL(price)}`}
           </h2>
 
-          <RemoveItemButton id={id} userEmail={userEmail as string} />
+          <RemoveItemForm id={id} userEmail={userEmail as string} />
         </div>
       </div>
     </div>

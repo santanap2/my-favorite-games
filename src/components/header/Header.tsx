@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react'
-import { getUserCart } from '@/services'
 import { getServerSession } from 'next-auth'
 import {
   Bag,
@@ -15,7 +14,7 @@ import {
 import Link from 'next/link'
 import MenuHeaderButton from './MenuHeaderButton'
 import FormHeader from './FormHeader'
-import CartButton from '../cart/CartButton'
+import CartButton from '../cart/Cart'
 
 import {
   NavigationMenu,
@@ -35,9 +34,16 @@ export default async function Header() {
   const email = session?.user?.email as string
   const username = session?.user?.name
 
-  const {
-    data: { cart },
-  } = await getUserCart(email)
+  const result = await fetch(
+    `http://localhost:3003/get-user-cart?email=${email}`,
+    {
+      next: {
+        tags: ['user-cart'],
+      },
+    },
+  )
+
+  const data = await result.json()
 
   return (
     <header className="sm:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
@@ -146,7 +152,7 @@ export default async function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <CartButton userCart={cart} sessionEmail={email} />
+        <CartButton userCart={data.cart} sessionEmail={email} />
       </div>
     </header>
   )

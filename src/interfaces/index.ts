@@ -209,10 +209,10 @@ export interface ICreateEvaluation {
 }
 
 export interface IServerSession {
-  user: {
-    name?: string
-    email?: string
-    image?: string
+  user?: {
+    name?: string | null
+    email?: string | null
+    image?: string | null
   }
 }
 
