@@ -79,7 +79,7 @@ export default async function Header() {
                 />
               </NavigationMenuTrigger>
               {session && (
-                <NavigationMenuContent className="min-w-fit bg-neutral-950 bg-opacity-80 flex flex-col gap-3 rounded-md p-4 mr-20 text-xs font-semibold">
+                <NavigationMenuContent className="w-44 shadow-md bg-neutral-950 bg-opacity-80 flex flex-col gap-3 rounded-md p-4 mr-20 text-xs font-semibold">
                   <Link
                     href={links.myAccount}
                     className="hover:text-indigo-600 transition-all"

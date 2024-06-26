@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { IServerSession } from '@/interfaces'
 import { User } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
@@ -7,14 +7,9 @@ export default function MyAccountHeaderButton({
   session,
   username,
 }: {
-  session: any
+  session: IServerSession | null
   username: string
 }) {
-  // const firstName = (str: string) => {
-  //   const firstName = str.split(' ')[0]
-  //   return firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase()
-  // }
-
   return (
     <Link
       href="/api/auth/signin"
