@@ -97,7 +97,6 @@ export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
       ) : (
         <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
           <title>{`Avaliar produto - ${pageTitle}`}</title>
-          <LateralMyAccount />
 
           <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
             <div className="flex gap-1 w-full items-center justify-start relative">

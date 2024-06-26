@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 
-import LateralFilters from '@/components/menus/LateralFilters'
 import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGame, IGameIDParams } from '@/interfaces'
 import { getGame } from '@/services/games.requests'
@@ -30,7 +29,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   return (
     <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
       <title>{`${game.name} - ${pageTitle}`}</title>
-      <LateralFilters />
+
       <div className="w-full h-full animation-opacity">
         <div className="flex flex-wrap items-center gap-1 w-fit text-xs sm:w-full max-w-full">
           <Link

@@ -31,7 +31,6 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
         <div className="w-full text-white">
           <title>{`Pedido realizado com sucesso - #${id}`}</title>
 
-          <LateralMyAccount />
           <div className="w-full h-full mt-24 xxl:mt-20  flex flex-col items-center justify-center gap-4 animation-opacity transition-all">
             <div className="w-full flex flex-col items-center justify-center">
               <div className="flex gap-2 w-full items-center justify-center relative">

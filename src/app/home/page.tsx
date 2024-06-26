@@ -3,7 +3,7 @@ import ProductCard from '@/components/product/ProductCard'
 import { IGame, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
 import { getGamesFiltered } from '@/services'
-import LateralFilters from '@/components/menus/LateralFilters'
+import GameFilters from '@/components/menus/GameFilters'
 import NotFoundProducts from '@/components/general/NotFoundProducts'
 
 export default async function Home({ searchParams }: ISearchParams) {
@@ -14,11 +14,12 @@ export default async function Home({ searchParams }: ISearchParams) {
   } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
 
   return (
-    <div className="mt-24 xxl:mt-20  w-full transition-all">
+    <div className="w-full h-full mt-24 xxl:mt-20 flex justify-start items-start gap-3">
       <title>{`Home - ${pageTitle}`}</title>
-      <LateralFilters />
 
-      <div className="flex justify-center items-center w-full animation-opacity">
+      <GameFilters searchParams={searchParams} />
+
+      <div className="flex w-full pl-2">
         <div
           className={`${
             message === 'Nenhum jogo encontrado'

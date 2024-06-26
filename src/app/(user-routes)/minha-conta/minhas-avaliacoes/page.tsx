@@ -1,4 +1,3 @@
-import LateralMyAccount from '@/components/menus/LateralMyAccount'
 import { pageTitle } from '@/helpers'
 import { ThumbsUp } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
@@ -17,12 +16,11 @@ export default async function MinhasAvaliacoes() {
   const { data: boughtProductsData } = await getBoughtProducts(email)
 
   return (
-    <div className="mt-24 xxl:mt-20  w-full h-full">
+    <div className="w-full h-full  border-l border-neutral-800 pl-4 sm:border-none sm:pl-0">
       <title>{`Minhas avaliações - ${pageTitle}`}</title>
-      <LateralMyAccount />
 
       <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
-        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-700">
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">

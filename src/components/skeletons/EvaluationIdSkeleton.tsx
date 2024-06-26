@@ -1,13 +1,13 @@
 import { pageTitle } from '@/helpers'
 import { ThumbsUp, Star } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
-import LateralMyAccount from '../menus/LateralMyAccount'
+import LateralMyAccount from '../menus/MyAccountMenu'
 
 export default function EvaluationIdSkeleton() {
   return (
     <div className="mt-24 xxl:mt-20  w-full h-full">
       <title>{`Minhas avaliações - ${pageTitle}`}</title>
-      <LateralMyAccount />
+
       <div className=" w-full h-full flex flex-col gap-10 text-neutral-800 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
         <div className="flex gap-1 w-full items-center justify-start relative">
           <ThumbsUp

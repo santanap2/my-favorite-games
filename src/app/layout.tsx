@@ -34,7 +34,7 @@ export default async function RootLayout({
           >
             <div className="flex w-full items-center justify-start flex-col">
               <div className="flex flex-col min-h-screen justify-between items-center w-full">
-                <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
+                <div className="flex w-4/5 flex-col items-center justify-between xxl:w-[95%]">
                   <QueryProvider>
                     <Header />
                     <HeaderMobile />

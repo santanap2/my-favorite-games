@@ -2,7 +2,7 @@ import { pageTitle } from '@/helpers'
 import { UserCircle, EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React from 'react'
-import LateralMyAccount from '../menus/LateralMyAccount'
+import LateralMyAccount from '../menus/MyAccountMenu'
 
 import SingleOrderSkeleton from './SingleOrderSkeleton'
 import UserProductCardSkeleton from './UserProductCardSkeleton'
@@ -13,7 +13,6 @@ export default function MyAccountSkeleton() {
     <div className="w-full">
       <title>{`Minha conta - ${pageTitle}`}</title>
 
-      <LateralMyAccount />
       <div className="w-full h-full mt-24 xxl:mt-20  flex flex-col items-start justify-start animation-opacity transition-all">
         <div className="w-full h-full flex flex-col gap-10 text-white items-start lg:gap-6">
           <div className="flex flex-col gap-1 items-start justify-center w-full md:h-32">
