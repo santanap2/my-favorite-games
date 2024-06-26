@@ -22,7 +22,7 @@ export const createOrder = async (data: IPaymentData) => {
   return result
 }
 
-export const getBoughtProducts = async () => {
-  const result = await api.get('/get-bought-products')
+export const getBoughtProducts = async (email: string) => {
+  const result = await api.get(`/get-bought-products?email=${email}`)
   return result
 }

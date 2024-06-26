@@ -1,8 +1,8 @@
 import { ICreateEvaluation, IEvaluationUpdate } from '@/interfaces'
 import { api } from '.'
 
-export const getUserEvaluations = async () => {
-  const result = await api.get('/get-user-evaluations')
+export const getUserEvaluations = async (email: string) => {
+  const result = await api.get(`/get-user-evaluations?email=${email}`)
   return result
 }
 
