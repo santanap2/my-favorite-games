@@ -50,7 +50,7 @@ export default async function MeusGames() {
         <div className="flex flex-col gap-6 w-full">
           <MyGamesForm />
           <div className="w-full grid grid-cols-6 gap-x-8 gap-y-10 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-y-6">
-            <BoughtGames allBoughtGames={allBoughtGames} />
+            <BoughtGames email={email} allBoughtGames={allBoughtGames} />
           </div>
         </div>
       </div>

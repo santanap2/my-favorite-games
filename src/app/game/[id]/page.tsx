@@ -1,9 +1,8 @@
-'use server'
 /* eslint-disable @next/next/no-img-element */
 
 import LateralFilters from '@/components/menus/LateralFilters'
 import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
-import { IGameIDParams } from '@/interfaces'
+import { IGame, IGameIDParams } from '@/interfaces'
 import { getGame } from '@/services/games.requests'
 import { CaretRight } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
@@ -14,6 +13,7 @@ import BuyNowButton from '@/components/product/BuyNowButton'
 import GameDetails from '@/components/product/GameDetails'
 import AddToFavoritesButton from '@/components/product/AddToFavoritesButton'
 import AddToCartForm from '@/components/product/AddToCartForm'
+import { getAllFavorites } from '@/services/favorites.requests'
 
 export default async function GameId({ params: { id } }: IGameIDParams) {
   const session = await getServerSession(nextAuthOptions)
@@ -22,6 +22,10 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   const {
     data: { game },
   } = await getGame(id)
+
+  const {
+    data: { favorites },
+  } = await getAllFavorites(email)
 
   return (
     <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
@@ -78,7 +82,13 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
             <div className="flex gap-4 mt-20 sm:mt-6 sm:w-full sm:justify-center sm:items-center sm:gap-1">
               <BuyNowButton email={email} gameId={id} />
               <AddToCartForm gameId={id} email={email} />
-              <AddToFavoritesButton gameId={id} email={email} />
+              <AddToFavoritesButton
+                alreadyFavorited={favorites?.products.some(
+                  (product: IGame) => product.id === Number(id),
+                )}
+                gameId={id}
+                email={email}
+              />
             </div>
           </div>
         </div>

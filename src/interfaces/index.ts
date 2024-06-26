@@ -29,6 +29,7 @@ export interface IUserProductCard {
   gameId: number
   isFavorite?: boolean
   productId: number
+  email: string
 }
 
 export interface IGameIDParams {

@@ -11,7 +11,7 @@ export const addItemToFavorites = async ({
   return result
 }
 
-export const getAllFavorites = async () => {
-  const result = await api.get('/get-all-favorites')
+export const getAllFavorites = async (email: string) => {
+  const result = await api.get(`/get-all-favorites?email=${email}`)
   return result
 }

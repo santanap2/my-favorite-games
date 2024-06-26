@@ -41,8 +41,16 @@ const initialValueContext = {
   loginResponse: { error: '', success: '' },
   setLoginResponse: (state: IResponseState) => {},
 
-  filters: { myGames: 'alphabetical' },
-  setFilters: (state: { myGames: string }) => {},
+  filters: {
+    myGames: 'alphabetical',
+    myFavorites: 'alphabetical',
+    myEvaluations: 'date',
+  },
+  setFilters: (state: {
+    myGames: string
+    myFavorites: string
+    myEvaluations: string
+  }) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

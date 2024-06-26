@@ -8,6 +8,7 @@ import { addItemToFavorites } from '@/services/favorites.requests'
 import { Heart } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { toast } from 'sonner'
 
 export default function UserProductCard({
   image,
@@ -15,6 +16,7 @@ export default function UserProductCard({
   gameId,
   isFavorite,
   productId,
+  email,
 }: IUserProductCard) {
   const [hover, setHover] = useState<boolean>(false)
   const [favorited, setFavorited] = useState<boolean>(true)
@@ -44,19 +46,37 @@ export default function UserProductCard({
               {name.length > 32 ? `${name.slice(0, 32)}...` : name}
             </Link>
           </div>
+
           {isFavorite && (
             <div className="w-1/6 h-full flex items-end justify-end pb-3 pr-3 xxl:pr-0 xxl:pb-1">
               <button
                 type="button"
                 onClick={async () => {
-                  await addItemToFavorites(gameId.toString())
+                  const { data } = await addItemToFavorites({
+                    email,
+                    gameId: gameId.toString(),
+                  })
                   setFavorited(!favorited)
+                  toast(data.message, {
+                    cancel: {
+                      label: 'Desfazer',
+                      onClick: async () => {
+                        await addItemToFavorites({
+                          email,
+                          gameId: gameId.toString(),
+                        })
+                        setFavorited((prevState) => !prevState)
+                      },
+                    },
+                    cancelButtonStyle: {
+                      backgroundColor: 'rgb(79 70 229)',
+                    },
+                  })
                 }}
-                className=""
               >
                 <Heart
                   weight={favorited ? 'fill' : 'bold'}
-                  className="text-indigo-600 text-2xl"
+                  className="text-white text-2xl"
                 />
               </button>
             </div>
@@ -70,19 +90,39 @@ export default function UserProductCard({
             {name.length > 32 ? `${name.slice(0, 32)}...` : name}
           </Link>
         </div>
+
         {isFavorite && (
           <div className="w-1/6 h-full flex items-end justify-end pb-3 pr-3 xxl:pr-0 xxl:pb-1">
             <button
               type="button"
               onClick={async () => {
-                await addItemToFavorites(gameId.toString())
+                const { data } = await addItemToFavorites({
+                  email,
+                  gameId: gameId.toString(),
+                })
+
                 setFavorited(!favorited)
+
+                toast(data.message, {
+                  cancel: {
+                    label: 'Desfazer',
+                    onClick: async () => {
+                      await addItemToFavorites({
+                        email,
+                        gameId: gameId.toString(),
+                      })
+                      setFavorited((prevState) => !prevState)
+                    },
+                  },
+                  cancelButtonStyle: {
+                    backgroundColor: 'rgb(79 70 229)',
+                  },
+                })
               }}
-              className=""
             >
               <Heart
                 weight={favorited ? 'fill' : 'bold'}
-                className="text-indigo-600 text-2xl"
+                className="text-white text-2xl"
               />
             </button>
           </div>

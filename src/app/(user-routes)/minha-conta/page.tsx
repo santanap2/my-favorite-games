@@ -13,6 +13,7 @@ import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function MinhaConta() {
   const session = await getServerSession(nextAuthOptions)
+  const email = session?.user?.email as string
 
   const {
     data: { user },
@@ -104,6 +105,7 @@ export default async function MinhaConta() {
                       image={image}
                       gameId={id}
                       productId={id}
+                      email={email}
                     />
                   ))
                 ) : (

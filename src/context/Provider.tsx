@@ -41,7 +41,11 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
 
   const [loginResponse, setLoginResponse] = useState({ error: '', success: '' })
 
-  const [filters, setFilters] = useState({ myGames: 'alphabetical' })
+  const [filters, setFilters] = useState({
+    myGames: 'alphabetical',
+    myFavorites: 'alphabetical',
+    myEvaluations: 'date',
+  })
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
