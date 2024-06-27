@@ -4,7 +4,7 @@ import React, { useContext, useRef } from 'react'
 import { ICategory } from '@/interfaces'
 import { CSSTransition } from 'react-transition-group'
 import GamesPlatformContext from '@/context/Context'
-import { X, Check } from 'lucide-react'
+import { Check, Trash } from 'lucide-react'
 import PricesFilterForm from '../general/PricesFilterForm'
 import Link from 'next/link'
 
@@ -55,14 +55,15 @@ export default function GameFiltersMobile({
         >
           <div className="flex flex-col items-center h-full justify-start w-full gap-10 overflow-y-auto">
             <div className="flex flex-col w-full gap-1">
-              <h3 className="font-bold text-base mb-1 px-4">Filtros</h3>
-
-              <Link href="home">
-                <button className="text-left px-4 py-2 w-full h-fit text-sm font-semibold rounded-md hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-between hover:text-red-600">
-                  <span>Remover filtros</span>
-                  <X size={14} className="text-red-600" />
-                </button>
-              </Link>
+              <div className="w-full flex justify-between items-center pb-2 border-b border-neutral-800 mb-4">
+                <h3 className="font-bold text-base mb-1 px-4">Filtros</h3>
+                <Link href="home">
+                  <button className="text-left px-4 py-2 w-full h-fit text-xs font-semibold rounded-md hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-between space-x-3 hover:text-red-600">
+                    <Trash size={14} className="text-red-800" />
+                    <span>Limpar</span>
+                  </button>
+                </Link>
+              </div>
 
               {categories.map(({ name, namePt }: ICategory) => (
                 <Link key={name} href={handleFilters(name)}>

@@ -12,9 +12,8 @@ import {
   User,
 } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
-import MenuHeaderButton from './MenuHeaderButton'
 import FormHeader from './FormHeader'
-import CartButton from '../cart/Cart'
+import Cart from '../cart/Cart'
 
 import {
   NavigationMenu,
@@ -48,7 +47,6 @@ export default async function Header() {
   return (
     <header className="md:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
       <div className="flex items-center justify-start lg:space-x-2 space-x-4 w-96">
-        <MenuHeaderButton />
         <Link href="/home">
           <img
             src="/logo.png"
@@ -152,7 +150,7 @@ export default async function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <CartButton userCart={data.cart} sessionEmail={email} />
+        <Cart userCart={data.cart} sessionEmail={email} />
       </div>
     </header>
   )
