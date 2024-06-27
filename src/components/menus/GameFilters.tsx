@@ -1,12 +1,16 @@
 import React from 'react'
-import { ICategory, ISearchParams } from '@/interfaces'
-import { getCategories } from '@/services/categories.requests'
-import { sortCategoriesByName } from '@/helpers/categories'
+import { ICategory } from '@/interfaces'
 import Link from 'next/link'
 import PricesFilterForm from '../general/PricesFilterForm'
 import { Check, X } from 'lucide-react'
 
-export default async function GameFilters({ searchParams }: ISearchParams) {
+export default async function GameFilters({
+  categories,
+  searchParams,
+}: {
+  categories: ICategory[]
+  searchParams: { size: string }
+}) {
   const queryParams = new URLSearchParams(searchParams).toString()
 
   const handleFilters = (name: string) => {
@@ -21,10 +25,6 @@ export default async function GameFilters({ searchParams }: ISearchParams) {
     return `/home?${newQuery}`
   }
 
-  const { data } = await getCategories()
-
-  const orderedCategories = sortCategoriesByName(data.categories)
-
   return (
     <div className="sm:hidden w-56 h-full flex flex-col py-6  justify-between items-center text-white z-20 px-2 border-r border-neutral-800">
       <div className="flex flex-col items-center h-full justify-start w-full gap-10">
@@ -38,7 +38,7 @@ export default async function GameFilters({ searchParams }: ISearchParams) {
             </button>
           </Link>
 
-          {orderedCategories.map(({ name, namePt }: ICategory) => (
+          {categories.map(({ name, namePt }: ICategory) => (
             <Link key={name} href={handleFilters(name)}>
               <button
                 className={`text-left text-white px-4 py-2 w-full text-sm font-semibold rounded-md hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-white bg-opacity-10'} `}
@@ -52,7 +52,8 @@ export default async function GameFilters({ searchParams }: ISearchParams) {
           ))}
         </div>
 
-        <PricesFilterForm searchParams={searchParams} />
+        <PricesFilterForm />
+        {/* searchParams={searchParams} */}
       </div>
     </div>
   )

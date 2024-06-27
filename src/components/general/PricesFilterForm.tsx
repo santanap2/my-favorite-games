@@ -1,20 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
+import GamesPlatformContext from '@/context/Context'
 import { currencyMask } from '@/helpers'
-import { ISearchParams } from '@/interfaces'
 import { useRouter } from 'next/navigation'
-import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react'
+import React, {
+  ChangeEvent,
+  SyntheticEvent,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
-export default function PricesFilterForm({ searchParams }: ISearchParams) {
+export default function PricesFilterForm() {
+  const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
   const [formFilters] = useState<string[]>([])
   const [formPrices, setFormPrices] = useState({
     minPrice: '',
     maxPrice: '',
   })
   const router = useRouter()
-  const queryParams = new URLSearchParams(searchParams).toString()
-  console.log(queryParams)
+  // { searchParams }: ISearchParams
+  // const queryParams = new URLSearchParams(searchParams).toString()
 
   const pricesHandler = ({
     target: { name, value },
@@ -40,6 +47,7 @@ export default function PricesFilterForm({ searchParams }: ISearchParams) {
         : pricesString
 
     router.push(`/home?${finalString}`)
+    setShowMenu({ ...showMenu, filters: !showMenu.filters })
   }
 
   useEffect(() => {

@@ -5,6 +5,9 @@ import { pageTitle } from '@/helpers'
 import { getGamesFiltered } from '@/services'
 import GameFilters from '@/components/menus/GameFilters'
 import NotFoundProducts from '@/components/general/NotFoundProducts'
+import GameFiltersMobile from '@/components/menus/GameFiltersMobile'
+import { getCategories } from '@/services/categories.requests'
+import { sortCategoriesByName } from '@/helpers/categories'
 
 export default async function Home({ searchParams }: ISearchParams) {
   const queryParams = new URLSearchParams(searchParams).toString()
@@ -13,11 +16,18 @@ export default async function Home({ searchParams }: ISearchParams) {
     data: { games, message },
   } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
 
+  const { data } = await getCategories()
+  const orderedCategories = sortCategoriesByName(data.categories)
+
   return (
     <div className="w-full h-full mt-24 xxl:mt-20 flex justify-start items-start gap-3">
       <title>{`Home - ${pageTitle}`}</title>
 
-      <GameFilters searchParams={searchParams} />
+      <GameFilters categories={orderedCategories} searchParams={searchParams} />
+      <GameFiltersMobile
+        categories={orderedCategories}
+        searchParams={searchParams}
+      />
 
       <div className="flex w-full pl-2">
         <div
