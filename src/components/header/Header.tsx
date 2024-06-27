@@ -45,7 +45,7 @@ export default async function Header() {
   const data = await result.json()
 
   return (
-    <header className="sm:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
+    <header className="md:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
       <div className="flex items-center justify-start lg:space-x-2 space-x-4 w-96">
         <Link href="/home">
           <img

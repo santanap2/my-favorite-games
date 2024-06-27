@@ -19,7 +19,7 @@ export default function LateralMyAccount() {
   const pathname = usePathname()
 
   return (
-    <div className="w-56 min-w-[224px] flex flex-col h-screen justify-between sm:hidden">
+    <div className="w-56 min-w-[224px] flex flex-col h-screen justify-between md:hidden">
       <div className="flex flex-col gap-1">
         <Link href={links.myAccount}>
           <div

@@ -29,7 +29,7 @@ export default async function MinhaConta() {
   const lastBoughtGames = allBoughtGames.slice(0, 12)
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 sm:border-none sm:pl-0">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
       <title>{`Minha conta - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col items-start justify-start animation-opacity transition-all">
@@ -93,7 +93,7 @@ export default async function MinhaConta() {
                 Ver todos
               </Link>
             </div>
-            <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-y-6">
+            <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 lg:gap-y-6">
               <>
                 {lastBoughtGames.length > 0 ? (
                   lastBoughtGames.map(({ name, id, image }: IGame) => (

@@ -16,7 +16,7 @@ export default async function MeusFavoritos() {
   } = await getAllFavorites(email)
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 sm:border-none sm:pl-0">
+    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0">
       <title>{`Meus favoritos - ${pageTitle}`}</title>
 
       <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 animation-opacity transition-all">
@@ -38,7 +38,7 @@ export default async function MeusFavoritos() {
         <div className="flex flex-col gap-6 w-full items-center">
           <MyFavoritesForm />
 
-          <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:gap-y-6">
+          <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 lg:gap-y-6">
             <AllFavorites email={email} allFavorites={favorites?.products} />
           </div>
         </div>

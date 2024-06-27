@@ -28,7 +28,7 @@ export default function MyAccountMenuMobile() {
     <>
       {showMenu.myAccount && (
         <div
-          className="bg-black bg-opacity-40 backdrop-blur-sm w-screen min-h-screen h-full absolute top-0 left-0 bottom-0 right-0 z-10 overflow-hidden"
+          className="bg-black bg-opacity-40 backdrop-blur-sm w-screen min-h-screen h-full fixed top-0 left-0 bottom-0 right-0 z-10 overflow-hidden"
           onClick={() =>
             setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
           }
