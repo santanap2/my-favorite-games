@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="flex w-screen bg-neutral-950 bg-opacity-40 backdrop-blur-sm border-t border-neutral-800 text-white justify-center items-center mt-16 xl:mt-12 py-4 xl:items-start z-10 animation-opacity transition-all text-xs">
       <div className="w-3/5 flex justify-between items-center xxl:w-[95%] flex-col gap-2">
         <img
-          src="logo.png"
+          src="/logo.png"
           alt="My Favorite Games"
           className="w-64 h-fit sm:w-4/5"
         />

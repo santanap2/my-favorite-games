@@ -6,8 +6,16 @@ export const getUserEvaluations = async (email: string) => {
   return result
 }
 
-export const getOneUserEvaluation = async (evaluationId: string) => {
-  const result = await api.get(`/get-user-evaluation/${evaluationId}`)
+export const getOneUserEvaluation = async ({
+  email,
+  evaluationId,
+}: {
+  email: string
+  evaluationId: string
+}) => {
+  const result = await api.get(
+    `/get-user-evaluation/${evaluationId}?email=${email}`,
+  )
   return result
 }
 
@@ -16,7 +24,13 @@ export const updateEvaluation = async (evaluationUpdate: IEvaluationUpdate) => {
   return result
 }
 
-export const createEvaluation = async (createEvaluation: ICreateEvaluation) => {
-  const result = await api.post('/add-evaluation', createEvaluation)
+export const createEvaluation = async ({
+  evaluation,
+  email,
+}: {
+  evaluation: ICreateEvaluation
+  email: string
+}) => {
+  const result = await api.post('/add-evaluation', { evaluation, email })
   return result
 }

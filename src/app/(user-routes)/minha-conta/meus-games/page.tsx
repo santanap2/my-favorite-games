@@ -26,7 +26,7 @@ export default async function MeusGames() {
   }
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
       <title>{`Meus games - ${pageTitle}`}</title>
 
       <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 animation-opacity transition-all">

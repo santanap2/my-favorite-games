@@ -1,225 +1,62 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-'use client'
 
-import LateralMyAccount from '@/components/menus/LateralMyAccount'
-import LoadingSpinner from '@/components/general/LoadingSpinner'
-import UpdateEvaluationSkeleton from '@/components/skeletons/UpdateEvaluationSkeleton'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
+import EvaluationForm from '@/components/general/EvaluationForm'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
-import { createEvaluation } from '@/services/evaluations'
 import { getGame } from '@/services/games.requests'
-import { zodResolver } from '@hookform/resolvers/zod'
-import {
-  ThumbsUp,
-  Star,
-  Warning,
-  CheckCircle,
-} from '@phosphor-icons/react/dist/ssr'
-import { useQuery } from '@tanstack/react-query'
+import { ThumbsUp } from '@phosphor-icons/react/dist/ssr'
+import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 
-import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import React from 'react'
 
-export default function AvaliarProduto({ params: { id } }: IGameIDParams) {
-  const [stars, setStars] = useState(5)
-  const [loading, setLoading] = useState(false)
-  const [evaluated, setEvaluated] = useState(false)
-  const [response, setResponse] = useState({
-    error: '',
-    success: '',
-  })
+export default async function AvaliarProduto({
+  params: { id },
+}: IGameIDParams) {
+  const session = await getServerSession(nextAuthOptions)
+  const email = session?.user?.email as string
 
   const {
-    data: gameData,
-    isLoading: gameIsLoading,
-    refetch: gameRefetch,
-  } = useQuery({
-    queryKey: ['game'],
-    queryFn: async () => await getGame(id),
-  })
-
-  const formSchema = z.object({
-    evaluation: z.object({
-      description: z.string(),
-    }),
-  })
-
-  type FormProps = z.infer<typeof formSchema>
-
-  const { handleSubmit, register } = useForm<FormProps>({
-    criteriaMode: 'all',
-    mode: 'all',
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      evaluation: {
-        description: '',
-      },
-    },
-  })
-
-  const handleFormSubmit = async (data: FormProps) => {
-    const evaluation = {
-      productId: Number(id),
-      stars,
-      description: data.evaluation.description,
-    }
-
-    const response = await createEvaluation(evaluation).catch((error) => {
-      if (error) {
-        setLoading(false)
-        setResponse({ success: '', error: error.response.data.message })
-        if (
-          error.response.data.message ===
-          'Você só pode avaliar um produto uma vez.'
-        )
-          setEvaluated(true)
-      }
-    })
-
-    if (response && response.status === 201) {
-      setLoading(false)
-      setEvaluated(true)
-      setResponse({ success: 'Produto avaliado com sucesso.', error: '' })
-    }
-  }
-
-  useEffect(() => {
-    gameRefetch()
-  }, [])
+    data: { game },
+  } = await getGame(id)
 
   return (
-    <>
-      {gameIsLoading ? (
-        <UpdateEvaluationSkeleton />
-      ) : (
-        <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
-          <title>{`Avaliar produto - ${pageTitle}`}</title>
+    <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
+      <title>{`Avaliar produto - ${pageTitle}`}</title>
 
-          <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
-            <div className="flex gap-1 w-full items-center justify-start relative">
-              <ThumbsUp
-                weight="fill"
-                className="text-indigo-700 sm:text-3xl text-5xl"
-              />
-              <h1 className="font-regular text-xl font-semibold">
-                Avaliar produto
-              </h1>
-            </div>
+      <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
+          <div className="flex gap-1 items-center justify-center w-full">
+            <div className="flex flex-col w-full h-full text-base">
+              <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
+                <ThumbsUp weight="bold" className="text-3xl" />
+                {`Avaliar produto - ${game.name}`}
+              </span>
 
-            <div className="w-full flex flex-col gap-6">
-              <div className="flex w-full sm:justify-start items-center gap-4">
-                <Link
-                  href={`/game/${gameData?.data.data.id}`}
-                  className="text-xl tracking-wide font-light"
-                >
-                  <img
-                    src={gameData?.data.data.image}
-                    alt={gameData?.data.data.name}
-                    className="rounded-md w-40 h-60 sm:w-24 sm:h-36 object-cover"
-                  />
-                </Link>
-                <Link
-                  href={`/game/${gameData?.data.data.id}`}
-                  className="text-xl tracking-wide font-light text-white hover:underline"
-                >
-                  {gameData?.data.data.name}
-                </Link>
-              </div>
-
-              <form
-                onSubmit={handleSubmit(handleFormSubmit)}
-                className="w-full bg-neutral-800 px-2 py-4 rounded-md shadow-md flex flex-col gap-4"
-              >
-                <label className="flex flex-col gap-1">
-                  <span className="text-sm tracking-wide font-semibold">
-                    Quantas estrelas você dá para o produto:
-                  </span>
-
-                  <div className="flex items-center">
-                    {new Array(5).fill('').map((_, index) => (
-                      <Star
-                        key={index}
-                        weight={index < stars ? 'fill' : 'duotone'}
-                        className={`${
-                          index < stars ? 'text-yellow-500' : 'text-white'
-                        } text-4xl cursor-pointer`}
-                        onClick={() => setStars(index + 1)}
-                      />
-                    ))}
-
-                    <span className="ml-4 text-neutral-500">{`( ${stars} )`}</span>
-                  </div>
-                </label>
-
-                <label htmlFor="description" className="flex flex-col gap-1">
-                  <span className="text-sm tracking-wide font-semibold">
-                    Descreva sua experiência com o produto:
-                  </span>
-                  <textarea
-                    {...register('evaluation.description')}
-                    className="border border-neutral-500 rounded-md px-2 py-1 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-700 placeholder:text-neutral-500"
-                    maxLength={500}
-                    id="description"
-                    placeholder="Escreva aqui sua avaliação"
-                  />
-                </label>
-
-                <div className="flex gap-6 sm:flex-col sm:gap-4 sm:items-center">
-                  {evaluated ? (
-                    <Link href="/minha-conta/minhas-avaliacoes">
-                      <button
-                        type="button"
-                        className={`p-2 sm:w-full w-64 ${
-                          response.success
-                            ? 'bg-indigo-700 hover:bg-indigo-700'
-                            : 'bg-indigo-700 hover:bg-indigo-700'
-                        } text-white font-light rounded-md shadow-md  transition-all flex items-center justify-center`}
-                      >
-                        Voltar para minhas avaliações
-                      </button>
-                    </Link>
-                  ) : (
-                    <button
-                      type="submit"
-                      className="p-2 sm:w-full w-64 bg-indigo-700 text-white font-light rounded-md shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center"
-                      onClick={() => setLoading(true)}
-                    >
-                      {loading ? <LoadingSpinner /> : 'Avaliar produto'}
-                    </button>
-                  )}
-
-                  {response.error && (
-                    <div className="flex gap-2 items-center justify-center w-fit">
-                      <Warning
-                        className="text-2xl text-red-500"
-                        weight="duotone"
-                      />
-                      <p className="text-red-500 text-sm font-light">
-                        {response.error}
-                      </p>
-                    </div>
-                  )}
-
-                  {response.success && (
-                    <div className="flex gap-2 items-center justify-center w-fit">
-                      <CheckCircle
-                        className="text-2xl text-green-500"
-                        weight="duotone"
-                      />
-                      <p className="text-green-500 text-sm font-light">
-                        {response.success}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </form>
+              <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+                Avalie experiência de compra e também sua experiência com o jogo
+              </span>
             </div>
           </div>
         </div>
-      )}
-    </>
+
+        <div className="w-full flex  gap-6">
+          <div className="flex w-full lg:flex-col items-center justify-start gap-10">
+            <Link
+              href={`/game/${game.id}`}
+              className="text-xl tracking-wide font-light"
+            >
+              <img
+                src={game.image}
+                alt={game.name}
+                className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96 min-w-[300px] md:min-w-[288px]"
+              />
+            </Link>
+            <EvaluationForm email={email} id={id} />
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }

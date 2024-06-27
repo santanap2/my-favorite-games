@@ -27,37 +27,45 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   } = await getAllFavorites(email)
 
   return (
-    <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
+    <div className="mt-24 xxl:mt-20 w-full h-full transition-all">
       <title>{`${game.name} - ${pageTitle}`}</title>
 
       <div className="w-full h-full animation-opacity">
-        <div className="flex flex-wrap items-center gap-1 w-fit text-xs sm:w-full max-w-full">
-          <Link
-            href="/"
-            className="text-neutral-300 hover:text-white hover:underline min-w-fit"
-          >
-            Todos os jogos
-          </Link>
-          <CaretRight weight="light" className="text-neutral-300 text-base" />
-          <Link
-            href={`/home?${game.category.name}=true`}
-            className="text-neutral-300 hover:text-white hover:underline min-w-fit"
-          >
-            {game.category.namePt}
-          </Link>
+        <div className="flex flex-wrap items-center gap-1 w-fit text-xs sm:w-full max-w-full"></div>
+        <div className="flex flex-col gap-1 items-start justify-center w-full text-white pb-5 border-b border-neutral-800">
+          <div className="flex gap-1 items-center justify-center w-full">
+            <div className="flex flex-col w-full h-full text-base">
+              <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
+                {game.name}
+              </span>
 
-          <CaretRight weight="light" className="text-neutral-300 text-base" />
+              <div className="flex items-center justify-start text-neutral-500 text-sm sm:text-sm sm:mt-1 gap-1">
+                <Link
+                  href="/"
+                  className=" hover:text-neutral-300 hover:underline min-w-fit"
+                >
+                  Todos os jogos
+                </Link>
+                <CaretRight weight="light" className=" text-base" />
+                <Link
+                  href={`/home?${game.category.name}=true`}
+                  className=" hover:text-neutral-300 hover:underline min-w-fit"
+                >
+                  {game.category.namePt}
+                </Link>
 
-          <Link
-            href={`/game/${id}`}
-            className="text-neutral-300 hover:text-white hover:underline min-w-fit"
-          >
-            {game.name}
-          </Link>
+                <CaretRight weight="light" className=" text-base" />
+
+                <Link
+                  href={`/game/${id}`}
+                  className=" hover:text-neutral-300 hover:underline min-w-fit"
+                >
+                  {game.name}
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className="mt-4 font-bold text-xl text-white sm:mt-2">
-          {game.name}
-        </h1>
 
         <div className="flex gap-10 mt-10 w-4/5 sm:mt-2 sm:w-full sm:justify-center sm:items-center sm:flex-col sm:gap-4">
           <img

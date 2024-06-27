@@ -7,24 +7,11 @@ import OrderDetails from '@/components/order/OrderDetails'
 import Link from 'next/link'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 import { getServerSession } from 'next-auth'
-import { headers } from 'next/headers'
+import { IGameIDParams } from '@/interfaces'
 
-export default async function PedidoSucesso() {
+export default async function PedidoSucesso({ params: { id } }: IGameIDParams) {
   const session = await getServerSession(nextAuthOptions)
   const email = session?.user?.email as string
-
-  const getId = () => {
-    const header = headers()
-    const referrer = header.get('referer')
-    if (referrer) {
-      const url = new URL(referrer)
-      const path = url.pathname
-      if (path.startsWith('/pedido-realizado/'))
-        return path.replace('/pedido-realizado/', '')
-    }
-    return ''
-  }
-  const id = getId()
 
   const { data } = await getOneUserOrder({ id, email })
 
