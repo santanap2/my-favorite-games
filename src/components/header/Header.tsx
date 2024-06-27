@@ -12,6 +12,7 @@ import {
   User,
 } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
+import MenuHeaderButton from './MenuHeaderButton'
 import FormHeader from './FormHeader'
 import CartButton from '../cart/Cart'
 
@@ -47,6 +48,7 @@ export default async function Header() {
   return (
     <header className="md:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-300 px-6 pr-8">
       <div className="flex items-center justify-start lg:space-x-2 space-x-4 w-96">
+        <MenuHeaderButton />
         <Link href="/home">
           <img
             src="/logo.png"
@@ -57,19 +59,19 @@ export default async function Header() {
         <Link href="/home">
           <HouseSimple
             weight="regular"
-            className="lg:flex hidden text-xl hover:text-indigo-700 transition-all"
+            className="lg:flex hidden text-xl hover:text-indigo-600 transition-all"
           />
         </Link>
       </div>
 
       <FormHeader />
 
-      <div className="flex items-center justify-end lg:space-x-2 space-x-4 w-96">
+      <div className="flex items-center justify-end lg:space-x-2 w-96">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={`${!session ? 'text-transparent' : 'hover:text-indigo-700'}`}
+                className={`${!session ? 'text-transparent' : 'hover:text-indigo-600'}`}
               >
                 <MyAccountHeaderButton
                   session={session}
@@ -80,7 +82,7 @@ export default async function Header() {
                 <NavigationMenuContent className="w-44 shadow-md bg-neutral-950 bg-opacity-80 flex flex-col gap-3 rounded-md p-4 mr-20 text-xs font-semibold">
                   <Link
                     href={links.myAccount}
-                    className="hover:text-indigo-700 transition-all"
+                    className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <User weight="regular" className="text-lg" />
@@ -90,7 +92,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myOrders}
-                    className="hover:text-indigo-700 transition-all"
+                    className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <Bag weight="regular" className="text-lg" />
@@ -100,7 +102,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myData}
-                    className="hover:text-indigo-700 transition-all"
+                    className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <IdentificationCard
@@ -113,7 +115,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myGames}
-                    className="hover:text-indigo-700 transition-all"
+                    className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <GameController weight="regular" className="text-lg" />
@@ -123,7 +125,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myFavorites}
-                    className="hover:text-indigo-700 transition-all"
+                    className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <Heart weight="regular" className="text-lg" />
@@ -133,7 +135,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myEvaluations}
-                    className="hover:text-indigo-700 transition-all"
+                    className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <ThumbsUp weight="regular" className="text-lg" />

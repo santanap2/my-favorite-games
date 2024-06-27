@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import GamesPlatformContext from '@/context/Context'
 import { calcSum, pageTitle, portionPrice, priceToBRL } from '@/helpers'
 import { IGame } from '@/interfaces'
 import { getUserCart } from '@/services'
@@ -10,18 +9,12 @@ import { Wallet } from '@phosphor-icons/react/dist/ssr'
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 export default function FinalizarCompra() {
-  const { screenSize } = useContext(GamesPlatformContext)
-
   const calcNameSlice = (name: string) => {
     const small = name.length > 25 ? `${name.slice(0, 25)}...` : name
-    const extraSmall = name.length > 20 ? `${name.slice(0, 20)}...` : name
-
-    if (screenSize < 370) return extraSmall
-    if (screenSize < 380) return small
-    return name
+    return small
   }
 
   const { data, isLoading, refetch } = useQuery({
