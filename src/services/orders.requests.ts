@@ -10,8 +10,8 @@ export const getOneUserOrder = async ({
   id,
   email,
 }: {
-  email: string
   id: string
+  email: string
 }) => {
   const result = await api.get(`/get-order/${id}?email=${email}`)
   return result

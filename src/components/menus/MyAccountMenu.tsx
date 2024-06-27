@@ -26,13 +26,13 @@ export default function LateralMyAccount() {
             className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myAccount && 'bg-opacity-10 bg-white'}`}
           >
             <User weight="regular" className="text-xl" />
-            <span>Minha conta</span>
+            <span>Resumo</span>
           </div>
         </Link>
 
         <Link href={links.myOrders}>
           <div
-            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myOrders && 'bg-opacity-10 bg-white'}`}
+            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname.includes(links.myOrders) && 'bg-opacity-10 bg-white'}`}
           >
             <Bag weight="regular" className="text-xl" />
             <span>Meus pedidos</span>
@@ -41,7 +41,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.myData}>
           <div
-            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myData && 'bg-opacity-10 bg-white'}`}
+            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname.includes(links.myData) && 'bg-opacity-10 bg-white'}`}
           >
             <IdentificationCard weight="regular" className="text-xl" />
             <span>Meus dados</span>
@@ -50,7 +50,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.myGames}>
           <div
-            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myGames && 'bg-opacity-10 bg-white'}`}
+            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname.includes(links.myGames) && 'bg-opacity-10 bg-white'}`}
           >
             <GameController weight="regular" className="text-xl" />
             <span>Meus games</span>
@@ -59,7 +59,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.myFavorites}>
           <div
-            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myFavorites && 'bg-opacity-10 bg-white'}`}
+            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname.includes(links.myFavorites) && 'bg-opacity-10 bg-white'}`}
           >
             <Heart weight="regular" className="text-xl" />
             <span>Meus favoritos</span>
@@ -68,7 +68,7 @@ export default function LateralMyAccount() {
 
         <Link href={links.myEvaluations}>
           <div
-            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myEvaluations && 'bg-opacity-10 bg-white'}`}
+            className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname.includes(links.myEvaluations) && 'bg-opacity-10 bg-white'}`}
           >
             <ThumbsUp weight="regular" className="text-xl" />
             <span>Minhas avaliações</span>

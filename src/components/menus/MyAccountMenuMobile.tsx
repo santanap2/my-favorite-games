@@ -52,7 +52,7 @@ export default function MyAccountMenuMobile() {
                 className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myAccount && 'bg-opacity-10 bg-white'}`}
               >
                 <User weight="regular" className="text-xl" />
-                <span>Minha conta</span>
+                <span>Resumo</span>
               </div>
             </Link>
 

@@ -1,53 +1,58 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-'use client'
-
 import OrderStatus from '@/components/order/OrderStatus'
-import { IGameIDParams } from '@/interfaces'
 import { getOneUserOrder } from '@/services/orders.requests'
-import {
-  CheckCircle,
-  ListPlus,
-  ShoppingBagOpen,
-} from '@phosphor-icons/react/dist/ssr'
-import { useQuery } from '@tanstack/react-query'
+import { ListPlus, ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 import OrderDetails from '@/components/order/OrderDetails'
 import Link from 'next/link'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
+import { getServerSession } from 'next-auth'
+import { headers } from 'next/headers'
 
-export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
-  const { data: orderData } = useQuery({
-    queryKey: ['userOrder'],
-    queryFn: async () => await getOneUserOrder(id),
-    retry: false,
-  })
+export default async function PedidoSucesso() {
+  const session = await getServerSession(nextAuthOptions)
+  const email = session?.user?.email as string
+
+  const getId = () => {
+    const header = headers()
+    const referrer = header.get('referer')
+    if (referrer) {
+      const url = new URL(referrer)
+      const path = url.pathname
+      if (path.startsWith('/pedido-realizado/'))
+        return path.replace('/pedido-realizado/', '')
+    }
+    return ''
+  }
+  const id = getId()
+
+  const { data } = await getOneUserOrder({ id, email })
 
   return (
-    <div className="w-full text-white">
-      <title>{`Pedido realizado com sucesso - #${id}`}</title>
+    <div className="w-full flex h-full gap-2 mt-24 xxl:mt-20 text-white">
+      <title>{`Pedido realizado - #${id}`}</title>
 
       <div className="w-full h-full flex flex-col items-center justify-center gap-4 animation-opacity transition-all">
-        <div className="w-full flex flex-col items-center justify-center">
-          <div className="flex gap-2 w-full items-center justify-center relative">
-            <ShoppingBagOpen
-              weight="fill"
-              className="text-white relative text-6xl"
-            />
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
+          <div className="flex gap-1 items-center justify-center w-full">
+            <div className="flex flex-col w-full h-full text-base justify-center sm:items-start items-center">
+              <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
+                <ShoppingBagOpen weight="bold" className="text-3xl" />
+                Pedido realizado com sucesso!
+              </span>
 
-            <h1 className="font-regular text-xl font-semibold relative">
-              Pedido realizado com sucesso!
-              <CheckCircle
-                weight="fill"
-                className="absolute text-indigo-700 -bottom-4 -left-8 bg-neutral-100 rounded-full text-3xl"
-              />
-            </h1>
+              <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+                Altere qualquer um dos seus dados cadastrados
+              </span>
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-6 w-full items-center justify-center mt-10 sm:mt-4">
-          <OrderStatus order={orderData?.data.data} />
-          <OrderDetails order={orderData?.data.data} />
+          <OrderStatus order={data.order} />
+          <OrderDetails order={data.order} />
           <Link href={`/minha-conta/meus-pedidos/${id}`}>
-            <button className="mt-6 bg-indigo-700 text-white sm:w-full p-3 px-12 rounded-md font-light shadow-md hover:bg-indigo-700 hover:shadow-lg flex gap-4 items-center justify-center">
+            <button className="mt-6 flex w-full justify-center items-center space-x-3 rounded-md bg-indigo-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40">
               <ListPlus className="text-xl" weight="bold" />
               <span>Ver mais detalhes</span>
             </button>

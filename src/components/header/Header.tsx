@@ -13,7 +13,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import FormHeader from './FormHeader'
-import Cart from '../cart/Cart'
+import CartButton from '../cart/Cart'
 
 import {
   NavigationMenu,
@@ -77,14 +77,14 @@ export default async function Header() {
                 />
               </NavigationMenuTrigger>
               {session && (
-                <NavigationMenuContent className="w-44 shadow-md bg-neutral-950 bg-opacity-80 flex flex-col gap-3 rounded-md p-4 mr-20 text-xs font-semibold">
+                <NavigationMenuContent className="w-44 shadow-md bg-neutral-950 flex flex-col gap-4 rounded-md p-4 mr-20 text-xs font-semibold">
                   <Link
                     href={links.myAccount}
                     className="hover:text-indigo-600 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <User weight="regular" className="text-lg" />
-                      <span>Minha conta</span>
+                      <span>Resumo</span>
                     </NavigationMenuLink>
                   </Link>
 
@@ -150,7 +150,7 @@ export default async function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Cart userCart={data.cart} sessionEmail={email} />
+        <CartButton userCart={data.cart} sessionEmail={email} />
       </div>
     </header>
   )

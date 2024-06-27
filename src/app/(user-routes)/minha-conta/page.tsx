@@ -30,7 +30,7 @@ export default async function MinhaConta() {
 
   return (
     <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
-      <title>{`Minha conta - ${pageTitle}`}</title>
+      <title>{`Resumo - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col items-start justify-start animation-opacity transition-all">
         <div className="w-full h-full flex flex-col gap-10 text-white items-start lg:gap-6">
