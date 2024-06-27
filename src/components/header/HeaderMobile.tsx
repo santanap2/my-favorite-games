@@ -27,10 +27,7 @@ export default async function HeaderMobile() {
       <div className="w-fit h-full flex items-center justify-center space-x-1">
         <MenuHeaderButton />
         <Link href="/home">
-          <HouseSimple
-            weight="regular"
-            className="text-2xl hover:text-indigo-700"
-          />
+          <HouseSimple weight="regular" className="text-2xl" />
         </Link>
       </div>
 
@@ -41,7 +38,7 @@ export default async function HeaderMobile() {
           href="/api/auth/signin"
           className="h-full w-full flex items-center justify-center"
         >
-          <User className="text-2xl hover:text-indigo-700" weight="regular" />
+          <User className="text-2xl" weight="regular" />
         </Link>
 
         <CartButton userCart={data.cart} sessionEmail={email} />

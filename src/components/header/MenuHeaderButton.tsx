@@ -3,17 +3,10 @@
 import GamesPlatformContext from '@/context/Context'
 import { TextIndent } from '@phosphor-icons/react/dist/ssr'
 import { usePathname } from 'next/navigation'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 export default function MenuHeaderButton() {
   const { setShowMenu, showMenu } = useContext(GamesPlatformContext)
-
-  const [hoverBtn, setHoverBtn] = useState({
-    search: false,
-    user: false,
-    cart: false,
-    menu: false,
-  })
 
   const pathname = usePathname()
 
@@ -35,16 +28,10 @@ export default function MenuHeaderButton() {
   }
 
   return (
-    <button
-      type="button"
-      className="hover:text-indigo-700 transition-all"
-      onClick={clickMenu}
-      onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
-      onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}
-    >
+    <button type="button" className="transition-all" onClick={clickMenu}>
       <TextIndent
         className="text-2xl"
-        weight={hoverBtn.menu ? 'duotone' : 'regular'}
+        weight={showMenu.filters || showMenu.myAccount ? 'fill' : 'regular'}
       />
     </button>
   )

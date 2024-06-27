@@ -26,7 +26,7 @@ export default async function GameFilters({
   }
 
   return (
-    <div className="sm:hidden w-56 h-full flex flex-col py-6  justify-between items-center text-white z-20 px-2 border-r border-neutral-800">
+    <div className="sm:hidden w-56 h-full flex flex-col pb-6  justify-between items-center text-white z-20 px-2 border-r border-neutral-800">
       <div className="flex flex-col items-center h-full justify-start w-full gap-10">
         <div className="flex flex-col w-full gap-1">
           <h3 className="font-bold text-base mb-1 px-4">Filtros</h3>
