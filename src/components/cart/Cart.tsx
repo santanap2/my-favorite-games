@@ -34,7 +34,7 @@ export default async function Cart({
 
   return (
     <Sheet>
-      <SheetTrigger className="w-full h-full flex items-center justify-center relative hover:text-indigo-700 transition-all">
+      <SheetTrigger className="h-full flex items-center justify-center relative hover:text-indigo-700 transition-all">
         <CartButton cartLength={cartLength} />
       </SheetTrigger>
       <SheetContent className="fixed z-50 right-0 top-0 bottom-0 min-h-screen w-[480px] bg-neutral-950 bg-opacity-80 backdrop-blur-sm border-l border-neutral-800 text-neutral-300 py-6 pl-6 shadow-2xl flex flex-col justify-start gap-0 sm:w-[85%] sm:py-3 sm:px-3">
