@@ -74,7 +74,7 @@ export default function PricesFilterForm({ searchParams }: ISearchParams) {
           type="text"
           name="minPrice"
           placeholder="R$ 00,00"
-          className="bg-transparent outline-none block w-full rounded-md border-0 py-1 px-3 text-white shadow-sm ring-1 ring-neutral-800 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="bg-transparent outline-none block w-full rounded-md border-0 py-1 px-3 text-white shadow-sm ring-1 ring-neutral-800 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6"
           onChange={(e) => pricesHandler(e)}
           value={formPrices.minPrice}
         />
@@ -93,7 +93,7 @@ export default function PricesFilterForm({ searchParams }: ISearchParams) {
           name="maxPrice"
           type="text"
           placeholder="R$ 00,00"
-          className="bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-neutral-800 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-neutral-800 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6"
           onChange={(e) => pricesHandler(e)}
           value={formPrices.maxPrice}
         />
@@ -101,7 +101,7 @@ export default function PricesFilterForm({ searchParams }: ISearchParams) {
 
       <button
         type="submit"
-        className="flex justify-center rounded-md bg-indigo-800 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40 transition-all"
+        className="flex justify-center rounded-md bg-indigo-800 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40 transition-all"
       >
         Filtrar
       </button>

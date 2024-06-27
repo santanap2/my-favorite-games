@@ -29,7 +29,7 @@ export default async function MinhaConta() {
   const lastBoughtGames = allBoughtGames.slice(0, 12)
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 sm:border-none sm:pl-0">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 sm:border-none sm:pl-0">
       <title>{`Minha conta - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col items-start justify-start animation-opacity transition-all">
@@ -56,7 +56,7 @@ export default async function MinhaConta() {
               </span>
               <Link
                 href="/minha-conta/meus-pedidos"
-                className="font-semibold min-w-fit text-indigo-600 hover:underline"
+                className="font-semibold min-w-fit text-indigo-700 hover:underline"
               >
                 Ver todos
               </Link>
@@ -88,7 +88,7 @@ export default async function MinhaConta() {
               </span>
               <Link
                 href="/minha-conta/meus-games"
-                className="font-semibold min-w-fit text-indigo-600 hover:underline"
+                className="font-semibold min-w-fit text-indigo-700 hover:underline"
               >
                 Ver todos
               </Link>

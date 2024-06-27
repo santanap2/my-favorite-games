@@ -37,7 +37,7 @@ export default function MenuHeaderButton() {
   return (
     <button
       type="button"
-      className="hover:text-indigo-600 transition-all"
+      className="hover:text-indigo-700 transition-all"
       onClick={clickMenu}
       onMouseEnter={() => setHoverBtn((prev) => ({ ...prev, menu: true }))}
       onMouseLeave={() => setHoverBtn((prev) => ({ ...prev, menu: false }))}

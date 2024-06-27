@@ -35,7 +35,7 @@ export default function AddToFavoritesButton({
           },
         })
       }}
-      className="w-14 h-14 bg-indigo-600 rounded-lg text-lg font-bold tracking-wider text-slate-100 flex items-center justify-center relative shadow-sm hover:bg-indigo-700 transition-all sm:h-12 sm:w-12"
+      className="w-14 h-14 bg-indigo-700 rounded-lg text-lg font-bold tracking-wider text-slate-100 flex items-center justify-center relative shadow-sm hover:bg-indigo-700 transition-all sm:h-12 sm:w-12"
     >
       <Heart
         weight={isFavorite ? 'fill' : 'bold'}

@@ -103,7 +103,7 @@ export default function Pagamento() {
           <div className="flex gap-1 w-fit items-center justify-center">
             <Wallet
               weight="fill"
-              className="text-indigo-600 sm:text-3xl text-5xl"
+              className="text-indigo-700 sm:text-3xl text-5xl"
             />
             <h1 className="font-regular text-xl font-semibold">
               Forma de pagamento
@@ -116,7 +116,7 @@ export default function Pagamento() {
                 onClick={() => pickPaymentMethod('pix')}
                 className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
                   paymentMethod.pix
-                    ? 'border-1 border-indigo-600'
+                    ? 'border-1 border-indigo-700'
                     : 'border-1 border-neutral-500'
                 }`}
               >
@@ -125,18 +125,18 @@ export default function Pagamento() {
                     {paymentMethod.pix ? (
                       <CheckCircle
                         weight="fill"
-                        className="text-indigo-600 sm:text-[24px] text-xl"
+                        className="text-indigo-700 sm:text-[24px] text-xl"
                       />
                     ) : (
                       <Circle
                         weight="regular"
-                        className="text-indigo-600 sm:text-[24px] text-xl"
+                        className="text-indigo-700 sm:text-[24px] text-xl"
                       />
                     )}
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.pix ? 'text-indigo-600' : 'text-white'
+                      paymentMethod.pix ? 'text-indigo-700' : 'text-white'
                     } sm:text-base`}
                   >
                     PIX
@@ -165,7 +165,7 @@ export default function Pagamento() {
                 onClick={() => pickPaymentMethod('bankSlip')}
                 className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
                   paymentMethod.bankSlip
-                    ? 'border-1 border-indigo-600'
+                    ? 'border-1 border-indigo-700'
                     : 'border-1 border-neutral-500'
                 }`}
               >
@@ -174,18 +174,18 @@ export default function Pagamento() {
                     {paymentMethod.bankSlip ? (
                       <CheckCircle
                         weight="fill"
-                        className="text-indigo-600 sm:text-[24px] text-xl"
+                        className="text-indigo-700 sm:text-[24px] text-xl"
                       />
                     ) : (
                       <Circle
                         weight="regular"
-                        className="text-indigo-600 sm:text-[24px] text-xl"
+                        className="text-indigo-700 sm:text-[24px] text-xl"
                       />
                     )}
                   </div>
                   <h1
                     className={`text-lg font-bold ${
-                      paymentMethod.bankSlip ? 'text-indigo-600' : 'text-white'
+                      paymentMethod.bankSlip ? 'text-indigo-700' : 'text-white'
                     } sm:text-base`}
                   >
                     Boleto bancário
@@ -215,7 +215,7 @@ export default function Pagamento() {
                 onClick={() => pickPaymentMethod('creditCard')}
                 className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
                   paymentMethod.creditCard
-                    ? 'border-1 border-indigo-600'
+                    ? 'border-1 border-indigo-700'
                     : 'border-1 border-neutral-500'
                 }`}
               >
@@ -224,19 +224,19 @@ export default function Pagamento() {
                     {paymentMethod.creditCard ? (
                       <CheckCircle
                         weight="fill"
-                        className="text-indigo-400 sm:text-[24px] text-xl"
+                        className="text-indigo-600 sm:text-[24px] text-xl"
                       />
                     ) : (
                       <Circle
                         weight="regular"
-                        className="text-indigo-400 sm:text-[24px] text-xl"
+                        className="text-indigo-600 sm:text-[24px] text-xl"
                       />
                     )}
                   </div>
                   <h1
                     className={`text-lg font-bold ${
                       paymentMethod.creditCard
-                        ? 'text-indigo-600'
+                        ? 'text-indigo-700'
                         : 'text-white'
                     } sm:text-base`}
                   >
@@ -277,7 +277,7 @@ export default function Pagamento() {
               </div>
               <button
                 type={paymentMethod.creditCard ? 'submit' : 'button'}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
+                className="w-full bg-indigo-700 hover:bg-indigo-700 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
                 form="creditCardForm"
                 onClick={checkPaymentMethod}
               >

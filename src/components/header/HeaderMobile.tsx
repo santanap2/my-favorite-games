@@ -29,7 +29,7 @@ export default async function HeaderMobile() {
         <Link href="/home">
           <HouseSimple
             weight="regular"
-            className="text-2xl hover:text-indigo-600"
+            className="text-2xl hover:text-indigo-700"
           />
         </Link>
       </div>
@@ -41,7 +41,7 @@ export default async function HeaderMobile() {
           href="/api/auth/signin"
           className="h-full w-full flex items-center justify-center"
         >
-          <User className="text-2xl hover:text-indigo-600" weight="regular" />
+          <User className="text-2xl hover:text-indigo-700" weight="regular" />
         </Link>
 
         <CartButton userCart={data.cart} sessionEmail={email} />

@@ -67,7 +67,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
           />
           <div className="flex flex-col justify-start items-start w-full h-full text-neutral-300 gap-2">
             <span className="text-sm">Vendido por: My Fav Games™</span>
-            <div className="text-indigo-600 text-4xl font-black sm:text-3xl">
+            <div className="text-indigo-700 text-4xl font-black sm:text-3xl">
               <span>{'R$ '}</span>
               <span>{priceToBRL(game.price * 0.9)}</span>
             </div>

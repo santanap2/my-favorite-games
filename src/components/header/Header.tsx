@@ -57,7 +57,7 @@ export default async function Header() {
         <Link href="/home">
           <HouseSimple
             weight="regular"
-            className="lg:flex hidden text-xl hover:text-indigo-600 transition-all"
+            className="lg:flex hidden text-xl hover:text-indigo-700 transition-all"
           />
         </Link>
       </div>
@@ -69,7 +69,7 @@ export default async function Header() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={`${!session ? 'text-transparent' : 'hover:text-indigo-600'}`}
+                className={`${!session ? 'text-transparent' : 'hover:text-indigo-700'}`}
               >
                 <MyAccountHeaderButton
                   session={session}
@@ -80,7 +80,7 @@ export default async function Header() {
                 <NavigationMenuContent className="w-44 shadow-md bg-neutral-950 bg-opacity-80 flex flex-col gap-3 rounded-md p-4 mr-20 text-xs font-semibold">
                   <Link
                     href={links.myAccount}
-                    className="hover:text-indigo-600 transition-all"
+                    className="hover:text-indigo-700 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <User weight="regular" className="text-lg" />
@@ -90,7 +90,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myOrders}
-                    className="hover:text-indigo-600 transition-all"
+                    className="hover:text-indigo-700 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <Bag weight="regular" className="text-lg" />
@@ -100,7 +100,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myData}
-                    className="hover:text-indigo-600 transition-all"
+                    className="hover:text-indigo-700 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <IdentificationCard
@@ -113,7 +113,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myGames}
-                    className="hover:text-indigo-600 transition-all"
+                    className="hover:text-indigo-700 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <GameController weight="regular" className="text-lg" />
@@ -123,7 +123,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myFavorites}
-                    className="hover:text-indigo-600 transition-all"
+                    className="hover:text-indigo-700 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <Heart weight="regular" className="text-lg" />
@@ -133,7 +133,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myEvaluations}
-                    className="hover:text-indigo-600 transition-all"
+                    className="hover:text-indigo-700 transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <ThumbsUp weight="regular" className="text-lg" />

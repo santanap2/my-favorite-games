@@ -15,11 +15,11 @@ import React from 'react'
 export default function OrderStatus({ order }: { order: IOrderData }) {
   const checkOrderStatus = () => {
     if (!order) return 'w-1/6'
-    if (order.status === 'awaitingPayment') return 'w-1/6 bg-indigo-600'
-    if (order.status === 'approvedPayment') return 'w-3/6 bg-indigo-600'
-    if (order.status === 'processing') return 'w-4/5 bg-indigo-600'
-    if (order.status === 'concluded') return 'w-6/6 bg-indigo-600'
-    if (order.status === 'canceled') return 'w-6/6 bg-indigo-600'
+    if (order.status === 'awaitingPayment') return 'w-1/6 bg-indigo-700'
+    if (order.status === 'approvedPayment') return 'w-3/6 bg-indigo-700'
+    if (order.status === 'processing') return 'w-4/5 bg-indigo-700'
+    if (order.status === 'concluded') return 'w-6/6 bg-indigo-700'
+    if (order.status === 'canceled') return 'w-6/6 bg-indigo-700'
   }
 
   return (
@@ -31,12 +31,12 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
       <div className="w-20 flex flex-col gap-4 items-center justify-center absolute left-0 z-10">
         <Storefront
           weight="fill"
-          className="rounded-3xl bg-neutral-900 p-2 border-2 border-indigo-600 text-indigo-600 sm:p-1 text-6xl"
+          className="rounded-3xl bg-neutral-900 p-2 border-2 border-indigo-700 text-indigo-700 sm:p-1 text-6xl"
         />
         <div className="flex flex-col items-center justify-center h-full">
           <CheckCircle
             weight="fill"
-            className="text-indigo-600 rounded-3xl bg-neutral-900 text-4xl"
+            className="text-indigo-700 rounded-3xl bg-neutral-900 text-4xl"
           />
           <span className="text-neutral-400 text-sm text-center">
             Pedido realizado
@@ -57,14 +57,14 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           className={`${
             order.status === 'awaitingPayment'
               ? 'text-neutral-500'
-              : 'text-indigo-600'
+              : 'text-indigo-700'
           } ${
             order.status === 'approvedPayment' ||
             order.status === 'processing' ||
             order.status === 'concluded'
-              ? 'text-indigo-600 border-indigo-600'
+              ? 'text-indigo-700 border-indigo-700'
               : order.status === 'canceled'
-                ? 'text-indigo-600 border-indigo-600'
+                ? 'text-indigo-700 border-indigo-700'
                 : 'border-neutral-500'
           } rounded-3xl bg-neutral-900 p-2 border-2 sm:p-1 text-6xl`}
         />
@@ -73,14 +73,14 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           {order.status === 'canceled' ? (
             <XCircle
               weight="fill"
-              className=" rounded-3xl bg-neutral-900 text-indigo-600 text-4xl"
+              className=" rounded-3xl bg-neutral-900 text-indigo-700 text-4xl"
             />
           ) : order.status === 'approvedPayment' ||
             order.status === 'processing' ||
             order.status === 'concluded' ? (
             <CheckCircle
               weight="fill"
-              className="rounded-3xl bg-neutral-900 text-indigo-600 text-4xl"
+              className="rounded-3xl bg-neutral-900 text-indigo-700 text-4xl"
             />
           ) : (
             <Circle
@@ -105,13 +105,13 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           }
           className={`${
             order.status === 'processing' || order.status === 'concluded'
-              ? 'text-indigo-600'
+              ? 'text-indigo-700'
               : 'text-neutral-500'
           } ${
             order.status === 'processing' || order.status === 'concluded'
-              ? 'text-indigo-600 border-indigo-600'
+              ? 'text-indigo-700 border-indigo-700'
               : order.status === 'canceled'
-                ? 'text-indigo-600 border-indigo-600'
+                ? 'text-indigo-700 border-indigo-700'
                 : 'border-neutral-500'
           } rounded-3xl bg-neutral-900 p-2 border-2 sm:p-1 text-6xl`}
         />
@@ -119,12 +119,12 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           {order.status === 'canceled' ? (
             <XCircle
               weight="fill"
-              className=" rounded-3xl bg-neutral-900 text-indigo-600 text-4xl"
+              className=" rounded-3xl bg-neutral-900 text-indigo-700 text-4xl"
             />
           ) : order.status === 'processing' || order.status === 'concluded' ? (
             <CheckCircle
               weight="fill"
-              className="rounded-3xl bg-neutral-900 text-indigo-600 text-4xl"
+              className="rounded-3xl bg-neutral-900 text-indigo-700 text-4xl"
             />
           ) : (
             <Circle
@@ -147,13 +147,13 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           }
           className={`${
             order.status === 'concluded'
-              ? 'text-indigo-600'
+              ? 'text-indigo-700'
               : 'text-neutral-500'
           } ${
             order.status === 'concluded'
-              ? 'text-indigo-600 border-indigo-600'
+              ? 'text-indigo-700 border-indigo-700'
               : order.status === 'canceled'
-                ? 'text-indigo-600 border-indigo-600'
+                ? 'text-indigo-700 border-indigo-700'
                 : 'border-neutral-500'
           } rounded-3xl bg-neutral-900 p-2 border-2 sm:p-1 text-6xl`}
         />
@@ -161,12 +161,12 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
           {order.status === 'canceled' ? (
             <XCircle
               weight="fill"
-              className=" rounded-3xl bg-neutral-900 text-indigo-600 text-4xl"
+              className=" rounded-3xl bg-neutral-900 text-indigo-700 text-4xl"
             />
           ) : order.status === 'concluded' ? (
             <CheckCircle
               weight="fill"
-              className="rounded-3xl bg-neutral-900 text-indigo-600 text-4xl"
+              className="rounded-3xl bg-neutral-900 text-indigo-700 text-4xl"
             />
           ) : (
             <Circle

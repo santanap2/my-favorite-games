@@ -53,7 +53,7 @@ export default function Login() {
                   errors.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.email && (
                 <span className="text-sm font-light text-red-500">
@@ -74,7 +74,7 @@ export default function Login() {
               <div className="text-sm">
                 <Link
                   href="/redefinir-senha"
-                  className="font-semibold text-indigo-600 hover:text-indigo-700 hover:underline"
+                  className="font-semibold text-indigo-700 hover:text-indigo-700 hover:underline"
                 >
                   Esqueceu a senha?
                 </Link>
@@ -92,7 +92,7 @@ export default function Login() {
                   errors.password
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.password && (
                 <span className="text-sm font-light text-red-500">
@@ -105,7 +105,7 @@ export default function Login() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40"
+              className="flex w-full justify-center rounded-md bg-indigo-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
               disabled={buttonDisabled()}
             >
               {loading.login ? <LoadingSpinner /> : 'Entrar'}
@@ -126,7 +126,7 @@ export default function Login() {
           Não possui uma conta?{' '}
           <Link
             href="/cadastro"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-700 hover:underline"
+            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700 hover:underline"
           >
             Cadastre-se agora
           </Link>

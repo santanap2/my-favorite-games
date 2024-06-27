@@ -100,7 +100,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
             <div className="flex gap-1 w-full items-center justify-start relative">
               <ThumbsUp
                 weight="fill"
-                className="text-indigo-600 sm:text-3xl text-5xl"
+                className="text-indigo-700 sm:text-3xl text-5xl"
               />
               <h1 className="font-regular text-xl font-semibold">
                 Editar avaliação
@@ -172,8 +172,8 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                         type="button"
                         className={`p-2 sm:w-full w-64 ${
                           response.success
-                            ? 'bg-indigo-600 hover:bg-indigo-700'
-                            : 'bg-indigo-600 hover:bg-indigo-700'
+                            ? 'bg-indigo-700 hover:bg-indigo-700'
+                            : 'bg-indigo-700 hover:bg-indigo-700'
                         } text-white font-light rounded-md shadow-md  transition-all flex items-center justify-center`}
                       >
                         Voltar para minhas avaliações
@@ -182,7 +182,7 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                   ) : (
                     <button
                       type="submit"
-                      className="p-2 sm:w-full w-64 bg-indigo-600 text-white font-light rounded-md shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center"
+                      className="p-2 sm:w-full w-64 bg-indigo-700 text-white font-light rounded-md shadow-md hover:bg-indigo-700 transition-all flex items-center justify-center"
                       onClick={() => setLoading(true)}
                     >
                       {loading ? <LoadingSpinner /> : 'Avaliar produto'}
@@ -204,10 +204,10 @@ export default function EditarAvaliacao({ params: { id } }: IGameIDParams) {
                   {response.success && (
                     <div className="flex gap-2 items-center justify-center w-fit">
                       <CheckCircle
-                        className="text-2xl text-indigo-600"
+                        className="text-2xl text-indigo-700"
                         weight="duotone"
                       />
-                      <p className="text-indigo-600 text-sm font-light">
+                      <p className="text-indigo-700 text-sm font-light">
                         {response.success}
                       </p>
                     </div>

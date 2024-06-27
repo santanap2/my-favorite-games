@@ -13,7 +13,7 @@ export default function MyAccountHeaderButton({
   return (
     <Link
       href="/api/auth/signin"
-      className="flex items-center justify-center hover:underline relative hover:text-indigo-600 transition-all text-white"
+      className="flex items-center justify-center hover:underline relative hover:text-indigo-700 transition-all text-white"
     >
       <span className="font-semibold text-xs">
         {session ? username : 'Entrar'}

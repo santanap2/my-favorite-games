@@ -18,7 +18,7 @@ export default function BuyNowButton({
         await buyOneItem({ email, gameId })
         router.push('/finalizar-compra')
       }}
-      className="w-64 h-14 bg-indigo-600 rounded-lg text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:bg-indigo-700 transition-all sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
+      className="w-64 h-14 bg-indigo-700 rounded-lg text-lg font-bold uppercase tracking-wider text-white shadow-sm hover:bg-indigo-700 transition-all sm:w-3/5 sm:font-semibold sm:text-sm sm:h-12"
     >
       Comprar agora
     </button>

@@ -49,7 +49,7 @@ export default function Cadastro() {
                   errors.registerUser?.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.email && (
                 <span className="text-sm font-light text-red-500">
@@ -76,7 +76,7 @@ export default function Cadastro() {
                   errors.registerUser?.confirmEmail
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.confirmEmail && (
                 <span className="text-sm font-light text-red-500">
@@ -103,7 +103,7 @@ export default function Cadastro() {
                   errors.registerUser?.name
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.name && (
                 <span className="text-sm font-light text-red-500">
@@ -131,7 +131,7 @@ export default function Cadastro() {
                   errors.registerUser?.phone
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.phone && (
                 <span className="text-sm font-light text-red-500">
@@ -160,7 +160,7 @@ export default function Cadastro() {
                   errors.registerUser?.password
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.password && (
                 <span className="text-sm font-light text-red-500">
@@ -189,7 +189,7 @@ export default function Cadastro() {
                   errors.registerUser?.confirmPassword
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.confirmPassword && (
                 <span className="text-sm font-light text-red-500">
@@ -201,7 +201,7 @@ export default function Cadastro() {
 
           <button
             type="submit"
-            className="mt-4 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40"
+            className="mt-4 flex w-full justify-center rounded-md bg-indigo-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (
@@ -232,7 +232,7 @@ export default function Cadastro() {
         <p className="mt-6 text-center text-sm text-neutral-500">
           <Link
             href="/api/auth/signin"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-700 hover:underline"
+            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700 hover:underline"
           >
             Retornar para o login
           </Link>

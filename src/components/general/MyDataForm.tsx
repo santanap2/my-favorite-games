@@ -42,7 +42,7 @@ export default function MyDataForm({
               errors.userData?.name
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.name && (
             <span className="text-sm font-light text-red-500">
@@ -70,7 +70,7 @@ export default function MyDataForm({
               errors.userData?.currentEmail
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.currentEmail && (
             <span className="text-sm font-light text-red-500">
@@ -97,7 +97,7 @@ export default function MyDataForm({
               errors.userData?.newEmail
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.newEmail && (
             <span className="text-sm font-light text-red-500">
@@ -125,7 +125,7 @@ export default function MyDataForm({
               errors.userData?.phone
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.phone && (
             <span className="text-sm font-light text-red-500">
@@ -152,7 +152,7 @@ export default function MyDataForm({
               errors.userData?.currentPassword
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.currentPassword && (
             <span className="text-sm font-light text-red-500">
@@ -179,7 +179,7 @@ export default function MyDataForm({
               errors.userData?.newPassword
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.newPassword && (
             <span className="text-sm font-light text-red-500">
@@ -206,7 +206,7 @@ export default function MyDataForm({
               errors.userData?.confirmNewPassword
                 ? 'ring-red-500 ring-opacity-60'
                 : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
           {errors.userData?.confirmNewPassword && (
             <span className="text-sm font-light text-red-500">
@@ -216,14 +216,14 @@ export default function MyDataForm({
         </div>
       </div>
 
-      <div className="text-indigo-600 text-sm font-bold">
+      <div className="text-indigo-700 text-sm font-bold">
         * Campos obrigatórios
       </div>
 
       <button
         type="submit"
         form="myDataForm"
-        className="flex justify-center rounded-md bg-indigo-600 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-40 transition-all"
+        className="flex justify-center rounded-md bg-indigo-700 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40 transition-all"
         disabled={!!userDataResponse.success}
       >
         {loading.updateUserData ? <LoadingSpinner /> : 'Atualizar dados'}

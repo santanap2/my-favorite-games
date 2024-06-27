@@ -1,5 +1,4 @@
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
-import LateralMyAccount from '@/components/menus/LateralMyAccount'
 import OrderDetails from '@/components/order/OrderDetails'
 import OrderStatus from '@/components/order/OrderStatus'
 import ProductOnOrder from '@/components/order/ProductOnOrder'
@@ -19,7 +18,7 @@ export default async function PedidoId({ params: { id } }: IGameIDParams) {
   } = await getOneUserOrder({ email, id })
 
   return (
-    <div className="mt-24 xxl:mt-20  w-full h-full">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 sm:border-none sm:pl-0">
       <title>{`Detalhes do pedido #${id} - ${pageTitle}`}</title>
 
       <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
