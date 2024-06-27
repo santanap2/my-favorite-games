@@ -52,8 +52,7 @@ export default async function GameFilters({
           ))}
         </div>
 
-        <PricesFilterForm />
-        {/* searchParams={searchParams} */}
+        <PricesFilterForm searchParams={searchParams} />
       </div>
     </div>
   )

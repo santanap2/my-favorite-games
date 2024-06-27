@@ -28,7 +28,7 @@ export default function MyAccountMenuMobile() {
     <>
       {showMenu.myAccount && (
         <div
-          className="bg-black bg-opacity-40 backdrop-blur-sm w-screen min-h-screen h-full fixed top-0 left-0 bottom-0 right-0 z-10 overflow-hidden"
+          className="hidden md:flex bg-black bg-opacity-40 backdrop-blur-sm w-screen min-h-screen h-full fixed top-0 left-0 bottom-0 right-0 z-10 overflow-hidden"
           onClick={() =>
             setShowMenu({ ...showMenu, myAccount: !showMenu.myAccount })
           }
@@ -43,7 +43,7 @@ export default function MyAccountMenuMobile() {
         unmountOnExit
       >
         <div
-          className="w-56 fixed left-0 top-14 bottom-0 flex flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm px-2 py-6 justify-between items-center text-white z-50 border-r border-neutral-800"
+          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0 flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm px-2 py-6 justify-between items-center text-white z-50 border-r border-neutral-800"
           ref={nodeRef}
         >
           <div className="flex flex-col gap-1 w-full">

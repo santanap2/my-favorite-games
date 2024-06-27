@@ -35,7 +35,7 @@ export default function GameFiltersMobile({
     <>
       {showMenu.filters && (
         <div
-          className="bg-black bg-opacity-40 backdrop-blur-sm w-screen h-screen fixed top-0 left-0 bottom-0 right-0 z-10 overflow-hidden"
+          className="hidden md:flex bg-black bg-opacity-40 backdrop-blur-sm w-screen h-screen fixed top-0 left-0 bottom-0 right-0 z-10 overflow-hidden"
           onClick={() =>
             setShowMenu({ ...showMenu, filters: !showMenu.filters })
           }
@@ -50,7 +50,7 @@ export default function GameFiltersMobile({
         unmountOnExit
       >
         <aside
-          className="w-56 fixed left-0 top-14 bottom-0 flex flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm py-6 justify-between items-center text-white z-50 px-2 border-r border-neutral-800"
+          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0  flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm py-6 justify-between items-center text-white z-50 px-2 border-r border-neutral-800"
           ref={nodeRef}
         >
           <div className="flex flex-col items-center h-full justify-start w-full gap-10 overflow-y-auto">
@@ -78,8 +78,7 @@ export default function GameFiltersMobile({
               ))}
             </div>
 
-            <PricesFilterForm />
-            {/* { searchParams }: ISearchParams */}
+            <PricesFilterForm searchParams={searchParams} />
           </div>
         </aside>
       </CSSTransition>

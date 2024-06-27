@@ -17,7 +17,7 @@ const initialValueContext = {
 
   showMenu: {
     filters: false,
-    myAccount: true,
+    myAccount: false,
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
 

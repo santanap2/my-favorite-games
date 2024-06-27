@@ -3,6 +3,7 @@
 
 import GamesPlatformContext from '@/context/Context'
 import { currencyMask } from '@/helpers'
+import { ISearchParams } from '@/interfaces'
 import { useRouter } from 'next/navigation'
 import React, {
   ChangeEvent,
@@ -12,16 +13,14 @@ import React, {
   useState,
 } from 'react'
 
-export default function PricesFilterForm() {
+export default function PricesFilterForm({ searchParams }: ISearchParams) {
   const { showMenu, setShowMenu } = useContext(GamesPlatformContext)
-  const [formFilters] = useState<string[]>([])
   const [formPrices, setFormPrices] = useState({
     minPrice: '',
     maxPrice: '',
   })
   const router = useRouter()
-  // { searchParams }: ISearchParams
-  // const queryParams = new URLSearchParams(searchParams).toString()
+  const queryParams = new URLSearchParams(searchParams).toString()
 
   const pricesHandler = ({
     target: { name, value },
@@ -31,22 +30,21 @@ export default function PricesFilterForm() {
 
   const formSubmit = (event: SyntheticEvent) => {
     event.preventDefault()
-    const categories = formFilters.map((filter) => `${filter}=true`)
+    const currentParams = new URLSearchParams(queryParams.toString())
 
-    const categoriesString =
-      categories.length > 0 ? `${categories.join('&')}` : ''
+    if (formPrices.minPrice) {
+      currentParams.set('minPrice', formPrices.minPrice)
+    } else {
+      currentParams.delete('minPrice')
+    }
 
-    const pricesString = Object.entries(formPrices)
-      .filter(([, value]) => value !== '')
-      .map(([key, value]) => `${key}=${value}`)
-      .join('&')
+    if (formPrices.maxPrice) {
+      currentParams.set('maxPrice', formPrices.maxPrice)
+    } else {
+      currentParams.delete('maxPrice')
+    }
 
-    const finalString =
-      categoriesString.length > 0
-        ? `${categoriesString}&${pricesString}`
-        : pricesString
-
-    router.push(`/home?${finalString}`)
+    router.push(`/home?${currentParams.toString()}`)
     setShowMenu({ ...showMenu, filters: !showMenu.filters })
   }
 
@@ -63,6 +61,13 @@ export default function PricesFilterForm() {
       maxPrice: currencyMask(formPrices.maxPrice),
     })
   }, [formPrices.maxPrice])
+
+  useEffect(() => {
+    const currentParams = new URLSearchParams(queryParams.toString())
+    const minPrice = currentParams.get('minPrice') || ''
+    const maxPrice = currentParams.get('maxPrice') || ''
+    setFormPrices({ minPrice, maxPrice })
+  }, [searchParams])
 
   return (
     <form
