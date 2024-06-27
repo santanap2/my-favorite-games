@@ -14,7 +14,7 @@ export default function EmptyCartButton({
       type="submit"
       form="empty-cart-form"
       onClick={async () => await emptyCart(sessionEmail)}
-      className="mt-2 mb-6 text-xs cursor-pointer flex gap-1 items-center justify-center hover:text-indigo-700 font-normal w-fit transition-all"
+      className="mt-2 mb-6 text-xs cursor-pointer flex gap-1 items-center justify-center hover:text-red-800 font-normal w-fit transition-all"
     >
       <Trash className="text-xl" weight="regular" />
       <span>Esvaziar</span>

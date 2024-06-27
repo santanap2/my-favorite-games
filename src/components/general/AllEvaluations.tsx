@@ -15,7 +15,6 @@ export default function AllEvaluations({
   boughtGames: IGameWithOrderInfo[]
 }) {
   const { filters } = useContext(GamesPlatformContext)
-  console.log(boughtGames)
   return (
     <>
       {boughtGames.length > 0 ? (

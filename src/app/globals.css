@@ -363,7 +363,7 @@ input[type=number] {
 }
 
 .background {
-  background: linear-gradient(180deg, var(--neutral900) 1%, var(--neutral950) 50%); 
+  background: linear-gradient(180deg, var(--neutral800) 1%, var(--neutral950) 30%); 
 }
 
 

@@ -12,6 +12,7 @@ import ItemCart from './ItemCart'
 import CheckoutButton from './CheckoutButton'
 import CartButton from '../header/CartButton'
 import EmptyCartForm from './EmptyCartForm'
+import * as SheetPrimitive from '@radix-ui/react-dialog'
 
 export default async function Cart({
   sessionEmail,
@@ -97,7 +98,9 @@ export default async function Cart({
           </div>
           {userCart && userCart.products.length > 0 && (
             <div className="w-full flex flex-col items-center justify-center gap-3 pt-6">
-              <CheckoutButton userCart={userCart} />
+              <SheetPrimitive.Close className="w-full">
+                <CheckoutButton userCart={userCart} />
+              </SheetPrimitive.Close>
             </div>
           )}
         </div>
