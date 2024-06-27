@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import OrderInfoSkeleton from '@/components/skeletons/OrderInfoSkeleton'
 import OrderStatus from '@/components/order/OrderStatus'
-import OrderStatusSkeleton from '@/components/skeletons/OrderStatusSkeleton'
 import { IGameIDParams } from '@/interfaces'
 import { getOneUserOrder } from '@/services/orders.requests'
 import {
@@ -17,7 +15,7 @@ import OrderDetails from '@/components/order/OrderDetails'
 import Link from 'next/link'
 
 export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
-  const { data: orderData, isLoading: orderIsLoading } = useQuery({
+  const { data: orderData } = useQuery({
     queryKey: ['userOrder'],
     queryFn: async () => await getOneUserOrder(id),
     retry: false,
@@ -46,23 +44,14 @@ export default function PedidoSucesso({ params: { id } }: IGameIDParams) {
         </div>
 
         <div className="flex flex-col gap-6 w-full items-center justify-center mt-10 sm:mt-4">
-          {orderIsLoading ? (
-            <>
-              <OrderStatusSkeleton />
-              <OrderInfoSkeleton />
-            </>
-          ) : (
-            <>
-              <OrderStatus order={orderData?.data.data} />
-              <OrderDetails order={orderData?.data.data} />
-              <Link href={`/minha-conta/meus-pedidos/${id}`}>
-                <button className="mt-6 bg-indigo-700 text-white sm:w-full p-3 px-12 rounded-md font-light shadow-md hover:bg-indigo-700 hover:shadow-lg flex gap-4 items-center justify-center">
-                  <ListPlus className="text-xl" weight="bold" />
-                  <span>Ver mais detalhes</span>
-                </button>
-              </Link>
-            </>
-          )}
+          <OrderStatus order={orderData?.data.data} />
+          <OrderDetails order={orderData?.data.data} />
+          <Link href={`/minha-conta/meus-pedidos/${id}`}>
+            <button className="mt-6 bg-indigo-700 text-white sm:w-full p-3 px-12 rounded-md font-light shadow-md hover:bg-indigo-700 hover:shadow-lg flex gap-4 items-center justify-center">
+              <ListPlus className="text-xl" weight="bold" />
+              <span>Ver mais detalhes</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

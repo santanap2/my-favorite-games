@@ -2,139 +2,189 @@
 
 import { calcSum, priceToBRL } from '@/helpers'
 import CredCardFormHooks from '@/hooks/CredCardFormHooks'
-import { getUserCart } from '@/services'
-import { useQuery } from '@tanstack/react-query'
+import { IShoppingCart } from '@/interfaces'
 import React from 'react'
 
-export default function CreditCardForm() {
+export default function CreditCardForm({
+  cart,
+  email,
+}: {
+  cart: IShoppingCart
+  email: string
+}) {
   const { handleSubmit, register, errors, handleFormSubmit } =
-    CredCardFormHooks()
-
-  const { data } = useQuery({
-    queryKey: ['cart'],
-    queryFn: async () => await getUserCart(),
-  })
+    CredCardFormHooks({ email })
 
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="flex flex-col gap-6 cursor-default appear-animation lg:gap-6"
-      id="creditCardForm animation-opacity transition-all"
+      className="flex flex-col gap-3 cursor-default mt-3"
+      id="creditCardForm"
     >
-      <label htmlFor="card-number" className="w-full relative">
+      <div>
+        <div className="w-full flex items-center justify-between gap-4">
+          <label
+            htmlFor="card-number"
+            className="block text-sm font-medium leading-6 text-white"
+          >
+            Número do cartão *
+          </label>
+          {errors.cardData?.cardNumber && (
+            <span className="text-sm font-light text-red-800 xl:hidden">
+              {errors.cardData.cardNumber.message}
+            </span>
+          )}
+        </div>
         <input
           {...register('cardData.cardNumber')}
           type="text"
           id="card-number"
           placeholder="0000 0000 0000 0000"
           maxLength={19}
-          className={`relative rounded-md w-full border  bg-neutral-900 focus:shadow-md focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardNumber && 'border-red-500'
-          }`}
+          className={`${
+            errors.cardData?.cardNumber
+              ? 'ring-red-800 ring-opacity-60'
+              : 'ring-neutral-600'
+          } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
         />
         {errors.cardData?.cardNumber && (
-          <span className="text-sm font-light text-red-500">
+          <span className="text-sm font-light text-red-800 hidden xl:flex">
             {errors.cardData.cardNumber.message}
           </span>
         )}
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
-          Número do cartão *
-        </span>
-      </label>
+      </div>
 
-      <label htmlFor="card-name" className="w-full relative">
+      <div>
+        <div className="w-full flex items-center justify-between gap-4">
+          <label
+            htmlFor="card-name"
+            className="block text-sm font-medium leading-6 text-white"
+          >
+            Nome impresso no cartão *
+          </label>
+          {errors.cardData?.cardName && (
+            <span className="text-sm font-light text-red-800 xl:hidden">
+              {errors.cardData.cardName.message}
+            </span>
+          )}
+        </div>
         <input
           {...register('cardData.cardName')}
           id="card-name"
           type="text"
           placeholder="Digite seu nome"
-          className={`relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-            errors.cardData?.cardName && 'border-red-500'
-          }`}
+          maxLength={19}
+          className={`${
+            errors.cardData?.cardName
+              ? 'ring-red-800 ring-opacity-60'
+              : 'ring-neutral-600'
+          } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
         />
-        {errors.cardData?.cardName && (
-          <span className="text-sm font-light text-red-500">
-            {errors.cardData.cardName.message}
+        {errors.cardData?.cardNumber && (
+          <span className="text-sm font-light text-red-800 hidden xl:flex">
+            {errors.cardData.cardNumber.message}
           </span>
         )}
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
-          Nome impresso no cartão *
-        </span>
-      </label>
+      </div>
 
-      <div className="w-full flex items-start justify-between lg:flex-col lg:gap-6">
-        <label htmlFor="card-date" className="w-[47.5%] relative lg:w-full">
+      <div className="w-full flex items-end justify-between xl:flex-col lg:gap-6 gap-4">
+        <div className="w-full">
+          <div className="w-full flex items-center justify-between gap-4">
+            <label
+              htmlFor="card-date"
+              className="block text-sm font-medium leading-6 text-white"
+            >
+              Data do vencimento *
+            </label>
+            {errors.cardData?.cardDate && (
+              <span className="text-sm font-light text-red-800 xl:hidden">
+                {errors.cardData.cardDate.message}
+              </span>
+            )}
+          </div>
           <input
             {...register('cardData.cardDate')}
             id="card-date"
             type="text"
             maxLength={5}
             placeholder="MM/AA"
-            className={`relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardDate && 'border-red-500'
-            }`}
+            className={`${
+              errors.cardData?.cardDate
+                ? 'ring-red-800 ring-opacity-60'
+                : 'ring-neutral-600'
+            } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
-          {errors.cardData?.cardDate && (
-            <span className="text-sm font-light text-red-500">
-              {errors.cardData.cardDate.message}
+          {errors.cardData?.cardNumber && (
+            <span className="text-sm font-light text-red-800 hidden xl:flex">
+              {errors.cardData.cardNumber.message}
             </span>
           )}
-          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
-            Data do vencimento *
-          </span>
-        </label>
+        </div>
 
-        <label htmlFor="card-cvv" className="w-[47.5%] relative lg:w-full">
+        <div className="w-full">
+          <div className="w-full flex items-center justify-between gap-4">
+            <label
+              htmlFor="card-cvv"
+              className="block text-sm font-medium leading-6 text-white"
+            >
+              Código de verificação (CVV) *
+            </label>
+            {errors.cardData?.cardCvv && (
+              <span className="text-sm font-light text-red-800 xl:hidden">
+                {errors.cardData.cardCvv.message}
+              </span>
+            )}
+          </div>
           <input
             {...register('cardData.cardCvv')}
             id="card-cvv"
             type="text"
             maxLength={3}
             placeholder="000"
-            className={`relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm ${
-              errors.cardData?.cardCvv && 'border-red-500'
-            }`}
+            className={`${
+              errors.cardData?.cardDate
+                ? 'ring-red-800 ring-opacity-60'
+                : 'ring-neutral-600'
+            } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
           />
-          {errors.cardData?.cardCvv && (
-            <span className="text-sm font-light text-red-500">
-              {errors.cardData.cardCvv.message}
+          {errors.cardData?.cardNumber && (
+            <span className="text-sm font-light text-red-800 hidden xl:flex">
+              {errors.cardData.cardNumber.message}
             </span>
           )}
-          <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
-            Código de verificação (CVV) *
-          </span>
-        </label>
+        </div>
       </div>
 
-      <label htmlFor="card-portions" className="w-full relative">
+      <div className="w-full">
+        <label
+          htmlFor="card-portions"
+          className="block text-sm font-medium leading-6 text-white"
+        >
+          Parcelamento
+        </label>
         <select
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="relative rounded-md w-full border bg-neutral-900 focus:shadow-lg focus:outline-none px-4 pt-4 pb-3 text-md font-light lg:text-sm"
+          className="bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6"
         >
           <option value="1" className="rounded-md py-4 h-10">
-            {`1x sem juros de R$ ${priceToBRL(
-              calcSum(data?.data.data.products).number,
-            )}`}
+            {`1x sem juros de R$ ${priceToBRL(calcSum(cart.products).number)}`}
           </option>
 
           <option value="2" className="rounded-md py-">
             {`2x sem juros de R$ ${priceToBRL(
-              calcSum(data?.data.data.products).number / 2,
+              calcSum(cart.products).number / 2,
             )}`}
           </option>
 
           <option value="3" className="rounded-md py-">
             {`3x sem juros de R$ ${priceToBRL(
-              calcSum(data?.data.data.products).number / 3,
+              calcSum(cart.products).number / 3,
             )}`}
           </option>
         </select>
-        <span className="absolute w-fit -top-2 text-xs left-4 z-0 bg-neutral-900 font-light py-[2px] px-1 text-white">
-          Parcelamento
-        </span>
-      </label>
+      </div>
     </form>
   )
 }

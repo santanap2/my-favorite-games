@@ -5,24 +5,24 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-export default function CredCardFormHooks() {
+export default function CredCardFormHooks({ email }: { email: string }) {
   const formSchema = z.object({
     cardData: z.object({
       cardNumber: z
         .string()
-        .min(16, 'Informe um numero de cartão válido')
-        .max(19, 'Informe um numero de cartão válido'),
+        .min(16, 'Informe um número de cartão válido')
+        .max(19, 'Informe um número de cartão válido'),
       cardName: z
         .string()
         .min(1, 'Informe o nome presente no cartão de crédito'),
       cardDate: z
         .string()
-        .min(4, 'Informe uma data de vencimento válida')
-        .max(5, 'Informe uma data de vencimento válida'),
+        .min(4, 'Informe uma data válida')
+        .max(5, 'Informe uma data válida'),
       cardCvv: z
         .string()
-        .min(3, 'Informe um numero de cartão válido')
-        .max(3, 'Informe um numero de cartão válido'),
+        .min(3, 'Informe um número válido')
+        .max(3, 'Informe um número válido'),
       cardPortions: z.string(),
     }),
   })
@@ -51,7 +51,7 @@ export default function CredCardFormHooks() {
   })
 
   const handleFormSubmit = async ({ cardData }: FormProps) => {
-    await createOrder({ paymentMethod: 'creditCard', cardData })
+    await createOrder({ email, paymentMethod: 'creditCard', cardData })
   }
 
   const cardNumberValue = watch('cardData.cardNumber')

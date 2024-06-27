@@ -160,6 +160,7 @@ export interface ICardData {
 export interface IPaymentData {
   paymentMethod: string
   cardData?: ICardData
+  email: string
 }
 
 export interface IFiltersData {

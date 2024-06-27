@@ -17,8 +17,16 @@ export const getOneUserOrder = async ({
   return result
 }
 
-export const createOrder = async (data: IPaymentData) => {
-  const result = await api.post('/create-order', { data })
+export const createOrder = async ({
+  email,
+  paymentMethod,
+  cardData,
+}: IPaymentData) => {
+  const result = await api.post(`/create-order`, {
+    paymentMethod,
+    cardData,
+    email,
+  })
   return result
 }
 
