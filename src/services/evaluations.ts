@@ -19,8 +19,18 @@ export const getOneUserEvaluation = async ({
   return result
 }
 
-export const updateEvaluation = async (evaluationUpdate: IEvaluationUpdate) => {
-  const result = await api.put('/update-evaluation', evaluationUpdate)
+export const updateEvaluation = async ({
+  evaluationUpdate,
+  email,
+}: {
+  email: string
+  evaluationUpdate: IEvaluationUpdate
+}) => {
+  console.log(email)
+  const result = await api.put('/update-evaluation', {
+    email,
+    evaluationUpdate,
+  })
   return result
 }
 

@@ -73,7 +73,6 @@ export default function CreditCardForm({
           id="card-name"
           type="text"
           placeholder="Digite seu nome"
-          maxLength={19}
           className={`${
             errors.cardData?.cardName
               ? 'ring-red-800 ring-opacity-60'

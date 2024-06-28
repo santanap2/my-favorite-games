@@ -37,7 +37,7 @@ export default async function MinhasAvaliacoesId({
           </div>
         </div>
 
-        <div className="w-full flex  gap-6">
+        <div className="w-full flex gap-6">
           <div className="flex w-full lg:flex-col justify-start gap-10">
             <Link
               href={`/game/${data.evaluation.product.id}`}
