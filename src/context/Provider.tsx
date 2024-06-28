@@ -1,15 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { IChildren } from '@/interfaces'
 import GamesPlatformContext from './Context'
 
 export const ContextGamesPlatform = ({ children }: IChildren) => {
-  const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0
-
   const [reseted, setReseted] = useState(false)
-
-  const [screenSize, setScreenSize] = useState(windowWidth)
 
   const [showMenu, setShowMenu] = useState({
     filters: false,
@@ -47,23 +43,9 @@ export const ContextGamesPlatform = ({ children }: IChildren) => {
     myEvaluations: 'date',
   })
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', () => setScreenSize(window.innerWidth))
-      return () => {
-        window.removeEventListener('resize', () =>
-          setScreenSize(window.innerWidth),
-        )
-      }
-    }
-  }, [])
-
   const contextValues = {
     reseted,
     setReseted,
-
-    screenSize,
-    setScreenSize,
 
     showMenu,
     setShowMenu,

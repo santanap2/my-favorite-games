@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import GamesPlatformContext from '@/context/Context'
 import { convertDate } from '@/helpers/date'
 import { IEvaluationCard } from '@/interfaces'
 import { CheckCircle, Star } from '@phosphor-icons/react/dist/ssr'
 import { useRouter } from 'next/navigation'
-import React, { useContext } from 'react'
+import React from 'react'
 
 export default function EvaluationCard({
   id,
@@ -15,17 +14,7 @@ export default function EvaluationCard({
   alreadyEvaluated,
   productEvaluation,
 }: IEvaluationCard) {
-  const { screenSize } = useContext(GamesPlatformContext)
   const router = useRouter()
-
-  const calcNameSlice = (name: string) => {
-    const small = name.length > 45 ? `${name.slice(0, 45)}...` : name
-    const extraSmall = name.length > 40 ? `${name.slice(0, 40)}...` : name
-
-    if (screenSize < 370) return extraSmall
-    if (screenSize < 600) return small
-    return name
-  }
 
   return (
     <div className="flex items-center justify-between gap-6 w-full max-w-3xl h-36 bg-neutral-950 border border-neutral-900 p-2 rounded-md shadow-md">
@@ -38,7 +27,7 @@ export default function EvaluationCard({
       <div className="flex flex-col w-full h-32 max-h-32 items-start justify-between gap-1">
         <div className="flex items-center justify-between w-full">
           <span className="text-base font-bold sm:text-lg sm:font-semibold w-full">
-            {calcNameSlice(name)}
+            {name.length > 45 ? `${name.slice(0, 45)}...` : name}
           </span>
           {alreadyEvaluated && (
             <div className="flex items-center justify-end gap-1 w-full lg:w-fit">

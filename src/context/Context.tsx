@@ -21,9 +21,6 @@ const initialValueContext = {
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
 
-  screenSize: 0,
-  setScreenSize: (state: number) => {},
-
   loading: {
     registerUser: false,
     updateUserData: false,

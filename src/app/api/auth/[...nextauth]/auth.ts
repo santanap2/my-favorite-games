@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { IUser } from '@/interfaces'
+import { ISession, IUser } from '@/interfaces'
 import { requestLogin } from '@/services'
 import NextAuth, { NextAuthOptions } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
@@ -45,7 +44,7 @@ export const nextAuthOptions: NextAuthOptions = {
     },
 
     async session({ session, token }) {
-      return { ...session, user: token.user } as any
+      return { ...session, user: token.user } as ISession
     },
   },
 }

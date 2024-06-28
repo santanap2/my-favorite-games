@@ -7,18 +7,6 @@ import {
   currencyMask,
 } from './masks'
 
-// import {
-//   getCartLocalStorage,
-//   addToCart,
-//   addOnlyOneToCart,
-//   removeFromCart,
-//   emptyCart,
-//   addUserLocalStorage,
-//   getUserLocalStorage,
-//   removeUserLocalStorage,
-// }
-// './localStorage'
-
 const pageTitle = 'My Favorite Games'
 
 export {
@@ -31,12 +19,4 @@ export {
   cvvMask,
   phoneNumberMask,
   currencyMask,
-  // getCartLocalStorage,
-  // addToCart,
-  // addOnlyOneToCart,
-  // removeFromCart,
-  // emptyCart,
-  // addUserLocalStorage,
-  // getUserLocalStorage,
-  // removeUserLocalStorage,
 }

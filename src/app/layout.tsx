@@ -5,7 +5,6 @@ import './globals.css'
 import Header from '@/components/header/Header'
 import Footer from '@/components/general/Footer'
 import { ContextGamesPlatform } from '@/context/Provider'
-import QueryProvider from '@/context/QueryProvider'
 import NextAuthSessionProvider from '@/context/SessionProvider'
 import HeaderMobile from '@/components/header/HeaderMobile'
 import { Toaster } from '@/components/ui/sonner'
@@ -35,12 +34,10 @@ export default async function RootLayout({
             <div className="flex w-full items-center justify-start flex-col">
               <div className="flex flex-col min-h-screen justify-between items-center w-full">
                 <div className="flex w-4/5 flex-col items-center justify-between xxl:w-[95%]">
-                  <QueryProvider>
-                    <Header />
-                    <HeaderMobile />
-                    <Toaster />
-                    {children}
-                  </QueryProvider>
+                  <Header />
+                  <HeaderMobile />
+                  <Toaster />
+                  {children}
                 </div>
                 <Footer />
               </div>

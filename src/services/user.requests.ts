@@ -26,8 +26,3 @@ export const requestLogin = async ({ email, password }: IUser) => {
   const result = await api.post('/login', { email, password })
   return result
 }
-
-export const requestLogout = async () => {
-  const result = await api.post('/logout')
-  return result
-}

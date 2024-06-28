@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 export interface ICard {
   image: string
@@ -12,15 +12,6 @@ export interface ICard {
 
 export interface IChildren {
   children: ReactNode
-}
-
-export interface IMenuItem {
-  Icon: string | FunctionComponent
-  name: string
-  size: number
-  link: string
-  iconClass: string
-  especialClass?: string
 }
 
 export interface IUserProductCard {
@@ -66,25 +57,10 @@ export interface ICategory {
   namePt: string
 }
 
-export interface IParamSearch {
-  params: {
-    search: string
-  }
-}
-
 export interface PaymentMethod {
   pix: boolean
   creditCard: boolean
   bankSlip: boolean
-}
-
-export interface IUserOrders {
-  orderNumber: number
-  price: number
-  date: Date
-  payment: string
-  status: string
-  items: IGame[]
 }
 
 export interface IUser {
@@ -116,14 +92,6 @@ export interface ILoading {
 export interface IResponseState {
   error: string
   success: string
-}
-
-export interface IPayloadJWT {
-  id: number
-  name: string
-  email: string
-  phone: string
-  token: string
 }
 
 export interface ISearchParams {
@@ -161,10 +129,6 @@ export interface IPaymentData {
   paymentMethod: string
   cardData?: ICardData
   email: string
-}
-
-export interface IFiltersData {
-  [key: string]: boolean
 }
 
 export interface IEvaluation {
@@ -216,6 +180,15 @@ export interface IServerSession {
     email?: string | null
     image?: string | null
   }
+}
+
+export interface ISession {
+  user: {
+    id: number
+    email: string
+    name: string
+  }
+  expires: string
 }
 
 export interface IShoppingCart {
