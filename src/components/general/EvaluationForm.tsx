@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle, Warning, Star } from '@phosphor-icons/react/dist/ssr'
+import { Warning, Star, Check } from '@phosphor-icons/react/dist/ssr'
 import React, { useState } from 'react'
 import LoadingSpinner from './LoadingSpinner'
 import { createEvaluation } from '@/services/evaluations'
@@ -74,7 +74,7 @@ export default function EvaluationForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="w-full h-full px-2 py-4 flex flex-col justify-between items-start gap-4"
+      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4"
     >
       <div className="flex flex-col gap-1 w-full">
         <label className="text-sm tracking-wide font-semibold text-neutral-200">
@@ -122,7 +122,7 @@ export default function EvaluationForm({
                 response.success
                   ? 'bg-indigo-700 hover:bg-indigo-700'
                   : 'bg-indigo-700 hover:bg-indigo-700'
-              } text-white font-light rounded-md shadow-md  transition-all flex items-center justify-center`}
+              } w-full flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40`}
             >
               Voltar para minhas avaliações
             </button>
@@ -146,7 +146,7 @@ export default function EvaluationForm({
 
         {response.success && (
           <div className="flex gap-2 items-center justify-center w-fit">
-            <CheckCircle className="text-2xl text-green-500" weight="duotone" />
+            <Check className="text-2xl text-green-500" weight="regular" />
             <p className="text-green-500 text-sm font-light">
               {response.success}
             </p>

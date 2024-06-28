@@ -38,7 +38,7 @@ export default async function MinhasAvaliacoes() {
         <div className="flex flex-col gap-6 w-full">
           <MyEvaluationsForm />
 
-          <div className="w-full grid grid-cols-2 gap-6 lg:grid-cols-1">
+          <div className="w-full grid grid-cols-2 gap-6 xl:grid-cols-1 lg:gap-2">
             <AllEvaluations
               boughtGames={boughtProductsData.boughtGames}
               evaluations={data?.evaluations}

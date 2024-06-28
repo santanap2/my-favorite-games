@@ -19,9 +19,9 @@ export default async function MinhasAvaliacoesId({
 
   return (
     <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
-      <title>{`Minhas avaliação: ${data.evaluation.product.name} - ${pageTitle}`}</title>
+      <title>{`Minha avaliação: ${data.evaluation.product.name} - ${pageTitle}`}</title>
 
-      <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+      <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
         <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
@@ -37,75 +37,83 @@ export default async function MinhasAvaliacoesId({
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-4">
-          <div className="flex w-full sm:justify-start items-center gap-4">
-            <img
-              src={data.evaluation.product.image}
-              alt={data.evaluation.product.name}
-              className="rounded-md w-40 h-60 sm:w-24 sm:h-24 object-cover"
-            />
-            <span className="text-xl tracking-wide font-light text-white">
-              {data.evaluation.product.name}
-            </span>
-          </div>
+        <div className="w-full flex  gap-6">
+          <div className="flex w-full lg:flex-col justify-start gap-10">
+            <Link
+              href={`/game/${data.evaluation.product.id}`}
+              className="text-xl tracking-wide font-light"
+            >
+              <img
+                src={data.evaluation.product.image}
+                alt={data.evaluation.product.name}
+                className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96 min-w-[300px] md:min-w-[288px]"
+              />
+            </Link>
 
-          <div className="flex flex-col gap-1">
-            <span className="sm:text-sm font-semibold tracking-wide">
-              Produto avaliado em:
-            </span>
-            <span className="text-sm tracking-wide font-light text-white">
-              {convertFullDate(data.evaluation.created_at)}
-            </span>
-          </div>
-
-          <div>
-            <span className="sm:text-sm font-semibold tracking-wide">
-              Sua nota para o produto:
-            </span>
-
-            <div className="flex items-center">
-              {new Array(5).fill('').map((item, index) => (
-                <Star
-                  key={index}
-                  weight={index < data.evaluation.stars ? 'fill' : 'duotone'}
-                  className={`${
-                    index < data.evaluation.stars
-                      ? 'text-yellow-500'
-                      : 'text-neutral-600'
-                  } text-3xl`}
-                />
-              ))}
-              <span className="ml-2 tracking-wide font-light text-white">
-                {`( ${data.evaluation.stars} )`}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <span className="sm:text-sm font-semibold tracking-wide">
-              Sua descrição para o produto:
-            </span>
-
-            {data.evaluation.description ? (
-              <div className="p-2 w-full min-w-fit bg-neutral-700 rounded-md border border-neutral-600 min-h-fit text-justify">
-                <span className="text-sm tracking-wide font-light text-white">
-                  {data.evaluation.description}
+            <div className="w-full h-full px-2 flex flex-col justify-between items-start gap-4">
+              <div className="flex flex-col gap-1">
+                <span className="text-sm tracking-wide font-semibold text-neutral-200">
+                  Produto avaliado em:
+                </span>
+                <span className="text-sm tracking-wide text-neutral-500">
+                  {convertFullDate(data.evaluation.created_at)}
                 </span>
               </div>
-            ) : (
-              <span className="font-light text-sm text-neutral-500">
-                Você não forneceu nenhuma descrição para o produto.
-              </span>
-            )}
+
+              <div>
+                <span className="text-sm tracking-wide font-semibold text-neutral-200">
+                  Sua nota para o produto:
+                </span>
+
+                <div className="flex items-center">
+                  {new Array(5).fill('').map((_, index) => (
+                    <Star
+                      key={index}
+                      weight={
+                        index < data.evaluation.stars ? 'fill' : 'duotone'
+                      }
+                      className={`${
+                        index < data.evaluation.stars
+                          ? 'text-yellow-500'
+                          : 'text-neutral-600'
+                      } text-2xl`}
+                    />
+                  ))}
+                  <span className="ml-4 text-neutral-500">
+                    {`( ${data.evaluation.stars} )`}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-sm tracking-wide font-semibold text-neutral-200">
+                  Sua descrição para o produto:
+                </span>
+
+                {data.evaluation.description ? (
+                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500">
+                    <span className="text-sm tracking-wide text-white">
+                      {data.evaluation.description}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500">
+                    <span className="text-sm tracking-wide text-red-800">
+                      Você não forneceu nenhuma descrição para o produto.
+                    </span>
+                  </div>
+                )}
+              </div>
+              <Link href={`/minha-conta/minhas-avaliacoes/editar/${id}`}>
+                <button
+                  type="button"
+                  className="flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
+                >
+                  Editar avaliação
+                </button>
+              </Link>
+            </div>
           </div>
-          <Link href={`/minha-conta/minhas-avaliacoes/editar/${id}`}>
-            <button
-              type="button"
-              className="w-64 sm:w-full px-4 py-2 text-base text-white font-light rounded-md shadow-md bg-indigo-700 hover:bg-indigo-700 hover:shadow-lg transition-all"
-            >
-              Editar avaliação
-            </button>
-          </Link>
         </div>
       </div>
     </div>

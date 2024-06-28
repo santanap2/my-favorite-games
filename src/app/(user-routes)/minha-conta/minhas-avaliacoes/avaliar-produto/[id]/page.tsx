@@ -22,7 +22,7 @@ export default async function AvaliarProduto({
   } = await getGame(id)
 
   return (
-    <div className="mt-24 xxl:mt-20  w-full h-full transition-all">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
       <title>{`Avaliar produto - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
