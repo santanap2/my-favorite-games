@@ -34,7 +34,7 @@ export default async function Header() {
   const username = session?.user?.name
 
   const result = await fetch(
-    `http://localhost:3003/get-user-cart?email=${email}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/get-user-cart?email=${email}`,
     {
       next: {
         tags: ['user-cart'],

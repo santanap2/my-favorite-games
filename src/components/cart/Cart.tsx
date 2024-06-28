@@ -21,7 +21,7 @@ export default async function Cart({
   sessionEmail: string | null
 }) {
   const result = await fetch(
-    `http://localhost:3003/get-user-cart?email=${sessionEmail}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/get-user-cart?email=${sessionEmail}`,
     {
       next: {
         tags: ['user-cart'],
