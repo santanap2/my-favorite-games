@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 export interface ICard {
   image: string
@@ -14,21 +14,13 @@ export interface IChildren {
   children: ReactNode
 }
 
-export interface IMenuItem {
-  Icon: string | FunctionComponent
-  name: string
-  size: number
-  link: string
-  iconClass: string
-  especialClass?: string
-}
-
 export interface IUserProductCard {
   image: string
   name: string
   gameId: number
   isFavorite?: boolean
   productId: number
+  email: string
 }
 
 export interface IGameIDParams {
@@ -49,6 +41,7 @@ export interface IGame {
   image: string
   description: string
   indexAndLength?: { index: number; lenght: number }
+  userEmail?: string | null
 }
 
 export interface ILastOrderDetail {
@@ -64,25 +57,10 @@ export interface ICategory {
   namePt: string
 }
 
-export interface IParamSearch {
-  params: {
-    search: string
-  }
-}
-
 export interface PaymentMethod {
   pix: boolean
   creditCard: boolean
   bankSlip: boolean
-}
-
-export interface IUserOrders {
-  orderNumber: number
-  price: number
-  date: Date
-  payment: string
-  status: string
-  items: IGame[]
 }
 
 export interface IUser {
@@ -114,14 +92,6 @@ export interface ILoading {
 export interface IResponseState {
   error: string
   success: string
-}
-
-export interface IPayloadJWT {
-  id: number
-  name: string
-  email: string
-  phone: string
-  token: string
 }
 
 export interface ISearchParams {
@@ -158,10 +128,7 @@ export interface ICardData {
 export interface IPaymentData {
   paymentMethod: string
   cardData?: ICardData
-}
-
-export interface IFiltersData {
-  [key: string]: boolean
+  email: string
 }
 
 export interface IEvaluation {
@@ -205,4 +172,43 @@ export interface ICreateEvaluation {
   description?: string
   stars: number
   productId: number
+}
+
+export interface IServerSession {
+  user?: {
+    name?: string | null
+    email?: string | null
+    image?: string | null
+  }
+}
+
+export interface ISession {
+  user: {
+    id: number
+    email: string
+    name: string
+  }
+  expires: string
+}
+
+export interface IShoppingCart {
+  user: {
+    id: number
+    name: string
+    email: string
+  }
+  products: {
+    id: number
+    name: string
+    categoryId: number
+    price: number
+    image: string
+    description: string
+    created_at: string
+    category: {
+      id: number
+      name: string
+      namePt: string
+    }
+  }[]
 }

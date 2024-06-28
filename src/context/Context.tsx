@@ -1,20 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-import {
-  ICardData,
-  ILoading,
-  IResponseState,
-  PaymentMethod,
-} from '@/interfaces'
+import { ILoading, IResponseState, PaymentMethod } from '@/interfaces'
 import { createContext } from 'react'
 
 const initialValueContext = {
   reseted: false,
   setReseted: (state: boolean) => {},
-
-  showCart: false,
-  setShowCart: (state: boolean) => {},
 
   paymentMethod: {
     pix: true,
@@ -25,15 +17,9 @@ const initialValueContext = {
 
   showMenu: {
     filters: false,
-    myAccount: true,
+    myAccount: false,
   },
   setShowMenu: (state: { filters: boolean; myAccount: boolean }) => {},
-
-  showSearchInputMobile: false,
-  setShowSearchInputMobile: (state: boolean) => {},
-
-  screenSize: 0,
-  setScreenSize: (state: number) => {},
 
   loading: {
     registerUser: false,
@@ -52,11 +38,16 @@ const initialValueContext = {
   loginResponse: { error: '', success: '' },
   setLoginResponse: (state: IResponseState) => {},
 
-  isAuthenticated: false,
-  setIsAuthenticated: (state: boolean) => {},
-
-  showPopUpMenu: false,
-  setShowPopUpMenu: (state: boolean) => {},
+  filters: {
+    myGames: 'alphabetical',
+    myFavorites: 'alphabetical',
+    myEvaluations: 'date',
+  },
+  setFilters: (state: {
+    myGames: string
+    myFavorites: string
+    myEvaluations: string
+  }) => {},
 }
 
 const GamesPlatformContext = createContext(initialValueContext)

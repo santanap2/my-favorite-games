@@ -1,70 +1,50 @@
 import React, { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import {
-  // Roboto,
-  Raleway,
-  // Quicksand,
-  // Inter,
-  // Exo_2 as Exo2,
-} from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from '@/components/header/Header'
+import Footer from '@/components/general/Footer'
 import { ContextGamesPlatform } from '@/context/Provider'
-import ShoppingCart from '@/components/ShoppingCart'
-import QueryProvider from '@/context/QueryProvider'
+import NextAuthSessionProvider from '@/context/SessionProvider'
+import HeaderMobile from '@/components/header/HeaderMobile'
+import { Toaster } from '@/components/ui/sonner'
 
-// const roboto = Roboto({
-//   subsets: ['latin'],
-//   weight: ['100', '300', '400', '500', '700', '900'],
-// })
-//
-// const inter = Inter({
-//   subsets: ['latin'],
-//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-// })
-//
-// const quicksand = Quicksand({
-//   subsets: ['latin'],
-//   weight: ['300', '400', '500', '600', '700'],
-// })
-
-const raleway = Raleway({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
-
-// const exo2 = Exo2({
-//   subsets: ['latin'],
-//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-// })
 
 export const metadata: Metadata = {
   title: 'My favorite games',
   description: 'Buy your favorite games here!',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode
+}) {
   return (
-    <ContextGamesPlatform>
-      <html lang="en">
-        <body
-          className={`${raleway.className} bg-slate-900 overflow-x-hidden background`}
-        >
-          <div className="flex w-full items-center justify-start flex-col">
-            <div className="flex flex-col min-h-screen justify-between items-center w-full">
-              <div className="flex w-3/4 flex-col items-center justify-between xxl:w-[95%]">
-                <QueryProvider>
+    <html lang="en">
+      <ContextGamesPlatform>
+        <NextAuthSessionProvider>
+          <body
+            className={`${inter.className} bg-neutral-900 overflow-x-hidden background`}
+          >
+            <div className="flex w-full items-center justify-start flex-col">
+              <div className="flex flex-col min-h-screen justify-between items-center w-full">
+                <div className="flex w-4/5 flex-col items-center justify-between xxl:w-[95%]">
                   <Header />
-                  <ShoppingCart />
+                  <HeaderMobile />
+                  <Toaster />
                   {children}
-                </QueryProvider>
+                </div>
+                <Footer />
               </div>
-              <Footer />
             </div>
-          </div>
-        </body>
-      </html>
-    </ContextGamesPlatform>
+          </body>
+        </NextAuthSessionProvider>
+      </ContextGamesPlatform>
+    </html>
   )
 }

@@ -6,5 +6,4 @@ export const links = {
   myFavorites: '/minha-conta/meus-favoritos',
   myEvaluations: '/minha-conta/minhas-avaliacoes',
   help: '/minha-conta/ajuda',
-  logout: '/logout',
 }

@@ -1,24 +1,24 @@
 import GamesPlatformContext from '@/context/Context'
-import { requestLogin } from '@/services/'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { redirect } from 'next/navigation'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export default function LoginHooks() {
-  const { setLoginResponse, setIsAuthenticated, loading, setLoading } =
+  const { loading, setLoading, loginResponse, setLoginResponse } =
     useContext(GamesPlatformContext)
 
+  const router = useRouter()
+
   const formSchema = z.object({
-    login: z.object({
-      email: z
-        .string()
-        .email('Informe um email válido')
-        .min(1, 'Informe seu email'),
-      password: z.string().min(8, 'Informe uma senha válida'),
-      rememberUser: z.boolean(),
-    }),
+    email: z
+      .string()
+      .email('Informe um email válido')
+      .min(1, 'Informe seu email'),
+    password: z.string().min(8, 'Informe uma senha válida'),
+    rememberUser: z.boolean(),
   })
 
   type FormProps = z.infer<typeof formSchema>
@@ -27,36 +27,57 @@ export default function LoginHooks() {
     handleSubmit,
     register,
     formState: { errors },
+    watch,
   } = useForm<FormProps>({
     criteriaMode: 'all',
     mode: 'all',
     resolver: zodResolver(formSchema),
     defaultValues: {
-      login: {
-        email: '',
-        password: '',
-        rememberUser: false,
-      },
+      email: '',
+      password: '',
+      rememberUser: false,
     },
   })
 
-  const handleFormSubmit = async (data: FormProps) => {
+  const buttonDisabled = () => {
+    const email = watch('email')
+    const password = watch('password')
+
+    if (!email || !password) return true
+    if (errors.email || errors.password) return true
+
+    return false
+  }
+
+  const handleFormSubmit = async ({ email, password }: FormProps) => {
     setLoading({ ...loading, login: true })
 
-    const response = await requestLogin(data.login).catch((error) => {
-      if (error) {
-        setLoginResponse({ error: error.response.data.message, success: '' })
-        setLoading({ ...loading, login: false })
-      }
+    const result = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
     })
 
-    if (response && response.status === 200) {
-      setLoginResponse({ error: '', success: response.data.message })
-      setIsAuthenticated(true)
-      setLoading({ ...loading, login: false, cart: !loading.cart })
+    if (result?.error) {
+      if (result.error === 'Request failed with status code 401') {
+        setLoginResponse({
+          ...loginResponse,
+          error: 'O email ou a senha inseridos estão incorretos.',
+        })
+        setLoading({ ...loading, login: false })
+        return
+      }
 
-      redirect('/minha-conta')
+      setLoginResponse({
+        ...loginResponse,
+        error: 'Ocorreu um erro inesperado.',
+      })
+      setLoading({ ...loading, login: false })
+      return
     }
+
+    setLoading({ ...loading, login: false })
+    router.replace('/minha-conta')
   }
 
   return {
@@ -64,5 +85,6 @@ export default function LoginHooks() {
     register,
     errors,
     handleFormSubmit,
+    buttonDisabled,
   }
 }
