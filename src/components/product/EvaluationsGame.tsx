@@ -9,7 +9,7 @@ export default function EvaluationsGame({
   evaluations: IEvaluation[]
 }) {
   return (
-    <div className="grid grid-cols-2 gap-6 pb-8 lg:flex lg:flex-col lg:gap-4 lg:w-full animation-opacity transition-all">
+    <div className="mt-6 sm:mt-2 grid grid-cols-2 gap-6 lg:flex lg:flex-col lg:gap-4 lg:w-full">
       {evaluations.length > 0 ? (
         evaluations.map(
           ({
@@ -21,7 +21,7 @@ export default function EvaluationsGame({
           }: IEvaluation) => (
             <div
               key={id}
-              className="w-full h-fit bg-neutral-800 p-4 rounded-md shadow-md text-base text-neutral-300 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit"
+              className="w-full h-fit bg-neutral-900 border border-neutral-800 p-4 rounded-md shadow-md text-base text-neutral-300 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit"
             >
               <div className="flex flex-col">
                 <h1 className="font-bold">{name}</h1>
@@ -29,8 +29,8 @@ export default function EvaluationsGame({
                   {new Array(stars).fill('').map((_item, index) => (
                     <Star
                       key={index}
-                      weight="duotone"
-                      className="text-yellow-500 text-xl"
+                      weight="fill"
+                      className="text-yellow-600 text-xl"
                     />
                   ))}
                 </div>
