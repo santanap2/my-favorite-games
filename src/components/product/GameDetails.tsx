@@ -101,7 +101,7 @@ export default function GameDetails({
                       <img
                         src={image}
                         alt={name}
-                        className="w-32 h-40 rounded-md "
+                        className="w-32 h-40 rounded-md object-cover"
                       />
                       <div className="flex flex-col justify-between items-start w-full h-16">
                         <span className="text-sm font-bold">
