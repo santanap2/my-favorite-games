@@ -42,6 +42,7 @@ const config: Config = {
       },
     },
     screens: {
+      '3xl': { max: '1800px' },
       xxl: { max: '1680px' },
       xl: { max: '1280px' },
       lg: { max: '1000px' },

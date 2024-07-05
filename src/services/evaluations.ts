@@ -26,7 +26,6 @@ export const updateEvaluation = async ({
   email: string
   evaluationUpdate: IEvaluationUpdate
 }) => {
-  console.log(email)
   const result = await api.put('/update-evaluation', {
     email,
     evaluationUpdate,
