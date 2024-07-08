@@ -1,23 +1,26 @@
-import React from 'react'
-import ProductCard from '@/components/product/ProductCard'
-import { IGame, ISearchParams } from '@/interfaces'
-import { pageTitle } from '@/helpers'
-import { getGamesFiltered } from '@/services'
-import GameFilters from '@/components/menus/GameFilters'
-import NotFoundProducts from '@/components/general/NotFoundProducts'
-import GameFiltersMobile from '@/components/menus/GameFiltersMobile'
-import { getCategories } from '@/services/categories.requests'
 import { sortCategoriesByName } from '@/helpers/categories'
+import { IGame, ISearchParams } from '@/interfaces'
+import { getGamesFiltered } from '@/services'
+import { getCategories } from '@/services/categories.requests'
+import { redirect } from 'next/navigation'
 
-export default async function Home({ searchParams }: ISearchParams) {
+import NotFoundProducts from '@/components/general/NotFoundProducts'
+import GameFilters from '@/components/menus/GameFilters'
+import GameFiltersMobile from '@/components/menus/GameFiltersMobile'
+import ProductCard from '@/components/product/ProductCard'
+import { pageTitle } from '@/helpers'
+
+export default async function HomeLayout({ searchParams }: ISearchParams) {
+  if (Object.keys(searchParams).length === 0) redirect('home/1')
+
+  const { data } = await getCategories()
+  const orderedCategories = sortCategoriesByName(data.categories)
+
   const queryParams = new URLSearchParams(searchParams).toString()
 
   const {
     data: { games, message },
   } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
-
-  const { data } = await getCategories()
-  const orderedCategories = sortCategoriesByName(data.categories)
 
   return (
     <div className="w-full h-full mt-24 xxl:mt-20 flex justify-start items-start gap-3">
