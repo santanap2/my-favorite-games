@@ -34,12 +34,76 @@ export default async function Home({
     data: { games, message },
   } = await getGamesFiltered(new URLSearchParams(queryParams).toString())
 
-  const itemsPerPage = 18
+  const itemsPerPage = 24
+  const pageNumber = Number(page)
   const totalPages = Math.ceil(games.length / itemsPerPage)
   const gamesToDisplay = () => {
     const startIndex = (Number(page) - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
     return games.slice(startIndex, endIndex)
+  }
+
+  const renderPaginationItems = () => {
+    const paginationItems = []
+
+    paginationItems.push(
+      <PaginationItem key={1}>
+        <PaginationLink
+          href={`/home/1`}
+          className={`hover:bg-neutral-700 hover:text-white ${Number(page) === 1 && 'border border-neutral-700'}`}
+        >
+          1
+        </PaginationLink>
+      </PaginationItem>,
+    )
+
+    if (pageNumber > 3) {
+      paginationItems.push(
+        <PaginationItem key="ellipsis1">
+          <PaginationEllipsis />
+        </PaginationItem>,
+      )
+    }
+
+    for (
+      let i = Math.max(2, pageNumber - 1);
+      i <= Math.min(totalPages - 1, pageNumber + 1);
+      i++
+    ) {
+      paginationItems.push(
+        <PaginationItem key={i}>
+          <PaginationLink
+            href={`/home/${i}`}
+            className={`hover:bg-neutral-700 hover:text-white ${pageNumber === i && 'border border-neutral-700'}`}
+          >
+            {i}
+          </PaginationLink>
+        </PaginationItem>,
+      )
+    }
+
+    if (pageNumber < totalPages - 2) {
+      paginationItems.push(
+        <PaginationItem key="ellipsis2">
+          <PaginationEllipsis />
+        </PaginationItem>,
+      )
+    }
+
+    if (totalPages > 1) {
+      paginationItems.push(
+        <PaginationItem key={totalPages}>
+          <PaginationLink
+            href={`/home/${totalPages}`}
+            className={`hover:bg-neutral-700 hover:text-white ${pageNumber === totalPages && 'border border-neutral-700'}`}
+          >
+            {totalPages}
+          </PaginationLink>
+        </PaginationItem>,
+      )
+    }
+
+    return paginationItems
   }
 
   return (
@@ -53,7 +117,7 @@ export default async function Home({
       />
 
       <div className="flex w-full pl-2">
-        <div className="w-full md:flex items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center">
           <div
             className={`${
               message === 'Nenhum jogo encontrado'
@@ -88,42 +152,13 @@ export default async function Home({
                 >
                   <PaginationItem>
                     <PaginationPrevious
-                      href={`/home/${Number(page) - 1}`}
-                      className="hover:bg-opacity-10 hover:text-white"
+                      href={`/home/${pageNumber - 1}`}
+                      className="hover:bg-neutral-700 hover:text-white"
                     />
                   </PaginationItem>
                 </button>
 
-                {new Array(totalPages).fill('').map(
-                  (_, index) =>
-                    index <= 2 && (
-                      <PaginationItem key={index + 1}>
-                        <PaginationLink
-                          href={`/home/${index + 1}`}
-                          className="hover:bg-opacity-10 hover:text-white"
-                        >
-                          {index + 1}
-                        </PaginationLink>
-                      </PaginationItem>
-                    ),
-                )}
-
-                {totalPages > 3 && (
-                  <>
-                    <PaginationItem>
-                      <PaginationEllipsis />
-                    </PaginationItem>
-
-                    <PaginationItem>
-                      <PaginationLink
-                        href={`/home/${totalPages}`}
-                        className="hover:bg-opacity-10 hover:text-white"
-                      >
-                        {totalPages}
-                      </PaginationLink>
-                    </PaginationItem>
-                  </>
-                )}
+                {renderPaginationItems()}
 
                 <button
                   type="button"
@@ -132,8 +167,8 @@ export default async function Home({
                 >
                   <PaginationItem>
                     <PaginationNext
-                      href={`/home/${Number(page) + 1}`}
-                      className="hover:bg-opacity-10 hover:text-white"
+                      href={`/home/${pageNumber + 1}`}
+                      className="hover:bg-neutral-700 hover:text-white"
                     />
                   </PaginationItem>
                 </button>
