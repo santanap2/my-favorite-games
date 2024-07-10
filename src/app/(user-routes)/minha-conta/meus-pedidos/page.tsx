@@ -1,4 +1,4 @@
-import { ArrowUUpLeft, Bag, SmileySad } from '@phosphor-icons/react/dist/ssr'
+import { ArrowUUpLeft, Bag } from '@phosphor-icons/react/dist/ssr'
 import React from 'react'
 import { IOrderData, ISearchParams } from '@/interfaces'
 import { pageTitle } from '@/helpers'
@@ -72,11 +72,8 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
                 />
               ))
             ) : (
-              <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 absolute ">
-                <SmileySad weight="light" className="text-3xl" />
-                <span className="text-sm">
-                  Você não possui nenhum pedido feito.
-                </span>
+              <div className="flex p-4 text-sm">
+                Você não possui nenhum pedido.
               </div>
             )}
             {}

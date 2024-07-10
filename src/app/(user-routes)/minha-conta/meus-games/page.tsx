@@ -47,7 +47,9 @@ export default async function MeusGames() {
 
         <div className="flex flex-col gap-6 w-full">
           <MyGamesForm />
-          <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 lg:gap-y-6">
+          <div
+            className={`${allBoughtGames.length !== 0 ? 'grid grid-cols-6 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5' : 'flex items-start justify-start'} w-full gap-6 sm:gap-x-1 sm:gap-y-3 lg:gap-y-6`}
+          >
             <BoughtGames email={email} allBoughtGames={allBoughtGames} />
           </div>
         </div>

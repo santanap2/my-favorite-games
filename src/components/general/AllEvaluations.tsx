@@ -2,7 +2,6 @@
 
 import { sortBoughtProductsByName } from '@/helpers/orders'
 import { IGameWithOrderInfo, IEvaluation } from '@/interfaces'
-import { SmileySad } from '@phosphor-icons/react/dist/ssr'
 import React, { useContext } from 'react'
 import EvaluationCard from '../product/EvaluationCard'
 import GamesPlatformContext from '@/context/Context'
@@ -82,11 +81,8 @@ export default function AllEvaluations({
             .reverse()
         )
       ) : (
-        <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-10 sm:mt-4 sm:text-center absolute">
-          <SmileySad weight="light" className="text-5xl" />
-          <span className="text-base font-light">
-            Você não possui nenhuma avaliação feita no momento.
-          </span>
+        <div className="flex p-4 text-sm">
+          Você não possui nenhuma avaliação.
         </div>
       )}
     </>

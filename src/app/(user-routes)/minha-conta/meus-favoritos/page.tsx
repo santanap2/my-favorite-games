@@ -38,8 +38,10 @@ export default async function MeusFavoritos() {
         <div className="flex flex-col gap-6 w-full items-center">
           <MyFavoritesForm />
 
-          <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 lg:gap-y-6">
-            <AllFavorites email={email} allFavorites={favorites?.products} />
+          <div
+            className={`${favorites.products.length !== 0 ? 'grid grid-cols-6 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5' : 'flex items-start justify-start'} w-full gap-6 sm:gap-x-1 sm:gap-y-3 lg:gap-y-6`}
+          >
+            <AllFavorites email={email} allFavorites={favorites.products} />
           </div>
         </div>
       </div>

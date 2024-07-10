@@ -7,7 +7,7 @@ import { getUserByEmail } from '@/services/user.requests'
 import Link from 'next/link'
 import React from 'react'
 import { getServerSession } from 'next-auth'
-import { SmileySad, User } from '@phosphor-icons/react/dist/ssr'
+import { User } from '@phosphor-icons/react/dist/ssr'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 
 export default async function MinhaConta() {
@@ -49,7 +49,7 @@ export default async function MinhaConta() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col gap-2 text-base">
+          <div className="w-full flex flex-col gap-2 text-base relative">
             <div className="w-full flex justify-between items-center">
               <span className="font-semibold w-full flex items-start justify-start">
                 Seu último pedido
@@ -71,11 +71,8 @@ export default async function MinhaConta() {
                   status={user.orders[user.orders.length - 1].status}
                 />
               ) : (
-                <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4">
-                  <SmileySad weight="regular" className="text-3xl" />
-                  <span className="text-sm">
-                    Você não possui nenhum pedido feito.
-                  </span>
+                <div className="flex p-4 text-sm">
+                  Você não possui nenhum pedido.
                 </div>
               )}
             </>
@@ -93,28 +90,25 @@ export default async function MinhaConta() {
                 Ver todos
               </Link>
             </div>
-            <div className="w-full grid grid-cols-6 gap-6 sm:gap-x-1 sm:gap-y-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 lg:gap-y-6">
-              <>
-                {lastBoughtGames.length > 0 ? (
-                  lastBoughtGames.map(({ name, id, image }: IGame) => (
-                    <UserProductCard
-                      key={id}
-                      name={name}
-                      image={image}
-                      gameId={id}
-                      productId={id}
-                      email={email}
-                    />
-                  ))
-                ) : (
-                  <div className="w-fit sm:w-full flex flex-col gap-1 items-center justify-center mt-6 sm:mt-0 p-4 absolute">
-                    <SmileySad weight="regular" className="text-3xl" />
-                    <span className="text-sm">
-                      Você não possui nenhum game comprado.
-                    </span>
-                  </div>
-                )}
-              </>
+            <div
+              className={`w-full  gap-6 sm:gap-x-1 sm:gap-y-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 lg:gap-y-6 ${lastBoughtGames.length !== 0 ? 'grid grid-cols-6' : 'flex items-start justify-start'}`}
+            >
+              {lastBoughtGames.length > 0 ? (
+                lastBoughtGames.map(({ name, id, image }: IGame) => (
+                  <UserProductCard
+                    key={id}
+                    name={name}
+                    image={image}
+                    gameId={id}
+                    productId={id}
+                    email={email}
+                  />
+                ))
+              ) : (
+                <div className="flex p-4 text-sm">
+                  Você não possui nenhum game.
+                </div>
+              )}
             </div>
           </div>
         </div>
