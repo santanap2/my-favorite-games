@@ -10,7 +10,12 @@ export default function ClipboardShare() {
     navigator.clipboard
       .writeText(url)
       .then(() => {
-        toast('Link copiado para a área de transferência.')
+        toast('Link copiado para a área de transferência.', {
+          style: {
+            color: 'rgb(255 255 255)',
+            display: 'flex',
+          },
+        })
       })
       .catch((err) => {
         console.error('Erro ao copiar o link: ', err)

@@ -28,6 +28,11 @@ export default function AddToCartButton({
           },
           actionButtonStyle: {
             backgroundColor: 'rgb(79 70 229)',
+            color: 'rgb(255 255 255)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'end',
+            fontWeight: 'bolder',
           },
         })
       }}

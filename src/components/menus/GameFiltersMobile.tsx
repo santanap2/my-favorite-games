@@ -35,7 +35,7 @@ export default function GameFiltersMobile({
     <>
       {showMenu.filters && (
         <div
-          className="hidden md:flex bg-black bg-opacity-40 backdrop-blur-sm w-screen h-screen fixed top-0 left-0 bottom-0 right-0 z-20 overflow-hidden"
+          className="hidden md:flex bg-black bg-opacity-40 backdrop-blur-sm w-screen h-dvh fixed top-0 left-0 bottom-0 right-0 z-20 overflow-hidden"
           onClick={() =>
             setShowMenu({ ...showMenu, filters: !showMenu.filters })
           }
