@@ -40,8 +40,17 @@ export default function GameDetails({
       setExpandMenus({ ...expandMenus, similar: !expandMenus.similar })
   }
 
+  const formatDescription = (text: string) => {
+    return text.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <br />
+      </React.Fragment>
+    ))
+  }
+
   return (
-    <div className="text-neutral-300 max-w-full h-full flex flex-col w-full">
+    <div className="text-neutral-300 h-full flex flex-col xxl:max-w-4xl max-w-2xl w-full">
       <div className="w-full border-b border-neutral-700 py-6">
         <button
           className="tracking-wide flex gap-2 hover:underline"
@@ -59,7 +68,7 @@ export default function GameDetails({
         {expandMenus.description && (
           <div className="mt-4 sm:mt-2">
             <h1 className=" font-medium text-base sm:text-sm">{name}</h1>
-            <p className="text-sm">{description}</p>
+            <p className="text-sm">{formatDescription(description)}</p>
           </div>
         )}
       </div>

@@ -57,7 +57,7 @@ export default function GameFiltersMobile({
             <div className="flex flex-col w-full gap-1">
               <div className="w-full flex justify-between items-center pb-2 border-b border-neutral-800 mb-4">
                 <h3 className="font-bold text-base mb-1 px-4">Filtros</h3>
-                <Link href="home">
+                <Link href="/home/1">
                   <button className="text-left px-4 py-2 w-full h-fit text-xs font-semibold rounded-md hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-between space-x-3 hover:text-red-600">
                     <Trash size={14} className="text-red-800" />
                     <span>Limpar</span>
