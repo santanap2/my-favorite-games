@@ -73,7 +73,7 @@ export default function UserProductCard({
                       color: 'rgb(255 255 255)',
                       display: 'flex',
                       justifyContent: 'center',
-                      alignItems: 'end',
+                      alignItems: 'center',
                       fontWeight: 'bold',
                     },
                   })
@@ -124,7 +124,7 @@ export default function UserProductCard({
                     color: 'rgb(255 255 255)',
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'end',
+                    alignItems: 'center',
                     fontWeight: 'bold',
                   },
                 })

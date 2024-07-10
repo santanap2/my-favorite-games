@@ -57,7 +57,7 @@ export default function ProductCardButton({
             color: 'rgb(255 255 255)',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'end',
+            alignItems: 'center',
             fontWeight: 'bold',
           },
         })
