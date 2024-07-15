@@ -1,22 +1,32 @@
 'use client'
 
+import { IServerSession } from '@/interfaces'
 import { addItemToCart, removeItemFromCart } from '@/services'
 import { PlusCircle, ShoppingBagOpen } from '@phosphor-icons/react/dist/ssr'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { toast } from 'sonner'
 
 export default function AddToCartButton({
   email,
   gameId,
+  session,
 }: {
   email: string
   gameId: string
+  session: IServerSession | null
 }) {
+  const router = useRouter()
   return (
     <button
-      type="submit"
+      type={session ? 'submit' : 'button'}
       form="add-to-cart-form"
       onClick={async () => {
+        if (!session) {
+          router.push('/api/auth/signin')
+          return
+        }
+
         const {
           data: { message },
         } = await addItemToCart({ email, gameId })

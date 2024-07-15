@@ -26,7 +26,7 @@ export default function GameDetails({
   similarGames: IGame[]
 }) {
   const [expandMenus, setExpandMenus] = useState({
-    description: true,
+    description: !(description.length > 700),
     evaluation: true,
     similar: true,
   })

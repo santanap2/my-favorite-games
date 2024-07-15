@@ -99,14 +99,15 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
               </div>
               <div className="flex flex-col">
                 <div className="flex gap-4 mt-20 sm:mt-6 sm:w-full sm:justify-center sm:items-center sm:gap-1">
-                  <BuyNowButton email={email} gameId={id} />
-                  <AddToCartForm gameId={id} email={email} />
+                  <BuyNowButton email={email} gameId={id} session={session} />
+                  <AddToCartForm gameId={id} email={email} session={session} />
                   <AddToFavoritesButton
                     alreadyFavorited={favorites?.products.some(
                       (product: IGame) => product.id === Number(id),
                     )}
                     gameId={id}
                     email={email}
+                    session={session}
                   />
                 </div>
                 <div className="flex text-neutral-100 items-center justify-end w-full mt-4 gap-2">
