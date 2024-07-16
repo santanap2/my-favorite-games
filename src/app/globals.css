@@ -365,6 +365,11 @@ input[type=number] {
 }
 
 .background {
-  background: linear-gradient(180deg, var(--neutral800) 1%, var(--neutral950) 30%);
-  background-attachment: fixed;
+  /* background: linear-gradient(180deg, var(--neutral800) 1%, var(--neutral950) 60%); */
+   background: radial-gradient(circle 900px at center bottom, var(--neutral800), var(--neutral950));
+   background-position: center center;
+   background-size: cover;
+   background-attachment: fixed;
+   width: 100dvw;
+   height: 100dvh;
 }

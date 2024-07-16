@@ -81,7 +81,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
 
         <div className="w-full h-full flex flex-row 3xl:flex-col gap-10 items-start justify-between mt-10">
           <div className="w-full flex gap-10 sm:mt-2 sm:w-full sm:justify-start sm:items-start md:flex-col sm:gap-4 max-w-3xl">
-            <div className="relative min-w-[300px] min-h-[400px]">
+            <div className="relative w-[300px] h-[400px] min-w-[300px] min-h-[400px]">
               <img
                 src={game.image}
                 alt={game.name}
