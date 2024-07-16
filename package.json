@@ -20,6 +20,8 @@
     "caniuse-lite": "^1.0.30001636",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "color-thief-react": "^2.1.0",
+    "colorthief": "^2.4.0",
     "dotenv": "^16.4.5",
     "embla-carousel-react": "^8.1.6",
     "jsonwebtoken": "^9.0.2",

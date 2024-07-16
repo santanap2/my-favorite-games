@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 
 import { pageTitle, portionPrice, priceToBRL } from '@/helpers'
@@ -18,6 +19,7 @@ import XShare from '@/components/share/XShare'
 import FacebookShare from '@/components/share/FacebookShare'
 import ClipboardShare from '@/components/share/ClipboardShare'
 import GameEvaluations from '@/components/product/GameEvaluations'
+import ColorThief from '@/components/ColorThief'
 
 export default async function GameId({ params: { id } }: IGameIDParams) {
   const session = await getServerSession(nextAuthOptions)
@@ -79,11 +81,15 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
 
         <div className="w-full h-full flex flex-row 3xl:flex-col gap-10 items-start justify-between mt-10">
           <div className="w-full flex gap-10 sm:mt-2 sm:w-full sm:justify-start sm:items-start md:flex-col sm:gap-4 max-w-3xl">
-            <img
-              src={game.image}
-              alt={game.name}
-              className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96"
-            />
+            <div className="relative min-w-[300px] min-h-[400px]">
+              <img
+                src={game.image}
+                alt={game.name}
+                className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96"
+              />
+              <ColorThief imageUrl={game.image} />
+            </div>
+
             <div className="flex flex-col justify-start items-start w-full h-full text-neutral-300 gap-2">
               <span className="text-sm">Vendido por: My Fav Games™</span>
               <div className="text-indigo-700 text-4xl font-black sm:text-3xl">

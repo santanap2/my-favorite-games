@@ -37,10 +37,11 @@ export default async function Home({
   const itemsPerPage = 24
   const pageNumber = Number(page)
   const totalPages = Math.ceil(games.length / itemsPerPage)
+  const sortedGames = games.sort((a: IGame, b: IGame) => a.id - b.id)
   const gamesToDisplay = () => {
     const startIndex = (Number(page) - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
-    return games.slice(startIndex, endIndex)
+    return sortedGames.slice(startIndex, endIndex)
   }
 
   const renderPaginationItems = () => {
