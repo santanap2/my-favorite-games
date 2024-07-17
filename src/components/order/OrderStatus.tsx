@@ -146,9 +146,7 @@ export default function OrderStatus({ order }: { order: IOrderData }) {
               : 'regular'
           }
           className={`${
-            order.status === 'concluded'
-              ? 'text-stone-300'
-              : 'text-stone-700'
+            order.status === 'concluded' ? 'text-stone-300' : 'text-stone-700'
           } ${
             order.status === 'concluded'
               ? 'text-stone-300 border-stone-300'
