@@ -31,7 +31,7 @@ export default function NotFoundPage() {
         </div>
         <Link
           href="/home"
-          className="flex w-full justify-center rounded-md bg-stone-300 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+          className="flex w-full justify-center rounded-md bg-stone-300 text-stone-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
         >
           Retornar para a página inicial
         </Link>

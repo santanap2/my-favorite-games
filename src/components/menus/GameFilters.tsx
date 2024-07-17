@@ -20,6 +20,7 @@ export default async function GameFilters({
     } else {
       currentParams.set(name, 'true')
     }
+    if (!currentParams.toString()) return '/home/1'
 
     const newQuery = currentParams.toString()
     return `/home?${newQuery}`
@@ -32,7 +33,7 @@ export default async function GameFilters({
           <div className="w-full flex justify-between items-center pb-2 border-b border-stone-800 mb-4">
             <h3 className="font-bold text-base mb-1 px-4">Filtros</h3>
             <Link href="/home/1">
-              <button className="text-left px-4 py-2 w-full h-fit text-xs font-semibold rounded-md  hover:bg-opacity-10 transition-all flex items-center justify-between space-x-3 hover:text-red-800">
+              <button className="text-left px-4 py-2 w-full h-fit text-xs font-semibold rounded-md hover:bg-stone-300 hover:bg-opacity-10 transition-all flex items-center justify-between space-x-3 hover:text-red-800">
                 <Trash size={14} className="text-red-800" />
                 <span>Limpar</span>
               </button>

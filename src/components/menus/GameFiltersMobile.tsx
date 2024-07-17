@@ -26,6 +26,7 @@ export default function GameFiltersMobile({
     } else {
       currentParams.set(name, 'true')
     }
+    if (!currentParams.toString()) return '/home/1'
 
     const newQuery = currentParams.toString()
     return `/home?${newQuery}`

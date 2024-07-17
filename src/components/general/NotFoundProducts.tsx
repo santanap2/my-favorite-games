@@ -8,14 +8,12 @@ export default function NotFoundProducts() {
       <span className="w-full text-sm text-center animation-opacity transition-all text-stone-300">
         Nenhum produto encontrado, tente novamente.
       </span>
-      <Link href="/">
-        <button
-          type="button"
-          className="flex gap-4 items-center justify-center p-4 py-2 bg-stone-300 rounded-md text-sm font-bold text-stone-800  transition-all"
-        >
-          <ArrowUUpLeft className="text-xl" />
-          <span>Voltar para a página inicial</span>
-        </button>
+      <Link
+        href="/home/1"
+        className="flex gap-4 items-center justify-center p-4 py-2 bg-stone-300 rounded-md text-sm font-bold text-stone-800  transition-all"
+      >
+        <ArrowUUpLeft className="text-xl" />
+        <span>Voltar para a página inicial</span>
       </Link>
     </div>
   )
