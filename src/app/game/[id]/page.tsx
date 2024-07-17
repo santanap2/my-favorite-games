@@ -40,11 +40,11 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   const shareText = `Confira ${game.name} em ${pageTitle}: ${process.env.NEXTAUTH_URL}/game/${id}`
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full transition-all text-neutral-300">
+    <div className="mt-24 xxl:mt-20 w-full h-full transition-all text-stone-300">
       <title>{`${game.name} - ${pageTitle}`}</title>
 
       <div className="w-full h-full animation-opacity">
-        <div className="flex flex-col gap-1 items-start justify-center w-full  pb-5 border-b border-neutral-800">
+        <div className="flex flex-col gap-1 items-start justify-center w-full  pb-5 border-b border-stone-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
@@ -54,14 +54,14 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
               <div className="flex flex-wrap items-center justify-start text-sm sm:text-sm sm:mt-1 gap-1">
                 <Link
                   href="/"
-                  className=" hover:text-neutral-300 hover:underline min-w-fit"
+                  className=" hover:text-stone-300 hover:underline min-w-fit"
                 >
                   Todos os jogos
                 </Link>
                 <CaretRight weight="light" className="text-base" />
                 <Link
                   href={`/home?${game.category.name}=true`}
-                  className=" hover:text-neutral-300 hover:underline min-w-fit"
+                  className=" hover:text-stone-300 hover:underline min-w-fit"
                 >
                   {game.category.namePt}
                 </Link>
@@ -70,7 +70,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
 
                 <Link
                   href={`/game/${id}`}
-                  className=" hover:text-neutral-300 hover:underline min-w-fit"
+                  className=" hover:text-stone-300 hover:underline min-w-fit"
                 >
                   {game.name}
                 </Link>
@@ -90,13 +90,13 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
               <ColorThief imageUrl={game.image} />
             </div>
 
-            <div className="flex flex-col justify-start items-start w-full h-full text-neutral-300 gap-2">
+            <div className="flex flex-col justify-start items-start w-full h-full text-stone-300 gap-2">
               <span className="text-sm">Vendido por: My Fav Games™</span>
               <div className="text-4xl font-black sm:text-3xl">
                 <span>{'R$ '}</span>
                 <span>{priceToBRL(game.price * 0.9)}</span>
               </div>
-              <div className="flex flex-col mt-6 text-neutral-300 text-sm sm:mt-0 sm:text-xs gap-1">
+              <div className="flex flex-col mt-6 text-stone-300 text-sm sm:mt-0 sm:text-xs gap-1">
                 <span>À vista no PIX com 10% de desconto</span>
                 <span>{`Ou em até 3x de R$${portionPrice(
                   game.price,

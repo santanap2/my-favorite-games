@@ -17,7 +17,7 @@ export default function CheckoutButton({
       onClick={() => {
         router.push('/finalizar-compra')
       }}
-      className="text-sm uppercase font-bold text-neutral-800 py-2 bg-neutral-300  rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
+      className="text-sm uppercase font-bold text-stone-800 py-2 bg-stone-300  rounded-md tracking-wide shadow-sm hover:shadow-lg w-4/5 sm:w-fit sm:px-4"
     >
       {`Finalizar compra -  R$ ${calcSum(userCart.products || []).string}`}
     </button>

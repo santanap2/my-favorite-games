@@ -40,7 +40,7 @@ export default function UserProductCard({
       </Link>
 
       {hover && (
-        <div className="user-product-card-bg absolute bottom-0 w-full h-32 rounded-b-md flex justify-between items-center xxl:hidden text-neutral-300">
+        <div className="user-product-card-bg absolute bottom-0 w-full h-32 rounded-b-md flex justify-between items-center xxl:hidden text-stone-300">
           <div className="w-full h-full flex items-end justify-start pl-3 pb-3 text-lg font-semibold hover:underline xxl:text-sm xxl:pl-1 xxl:pb-1">
             <Link href={`/game/${productId}`} className="w-full">
               {name.length > 32 ? `${name.slice(0, 32)}...` : name}

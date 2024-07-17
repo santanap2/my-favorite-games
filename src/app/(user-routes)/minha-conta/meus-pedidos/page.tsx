@@ -21,11 +21,11 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
   } = await getUserOrders(email, new URLSearchParams(queryParams).toString())
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
+    <div className="w-full h-full  border-l border-stone-800 pl-4 md:border-none md:pl-0 text-stone-300">
       <title>{`Meus pedidos - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col gap-10 sm:gap-6 animation-opacity transition-all">
-        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-stone-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
@@ -52,7 +52,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
                 <Link href="/minha-conta/meus-pedidos">
                   <button
                     type="button"
-                    className="flex gap-4 items-center justify-center p-4 py-2 bg-neutral-300 text-neutral-800 rounded-md text-sm font-bold  transition-all"
+                    className="flex gap-4 items-center justify-center p-4 py-2 bg-stone-300 text-stone-800 rounded-md text-sm font-bold  transition-all"
                   >
                     <ArrowUUpLeft className="text-xl" />
 

@@ -18,11 +18,11 @@ export default async function PedidoId({ params: { id } }: IGameIDParams) {
   } = await getOneUserOrder({ email, id })
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
+    <div className="w-full h-full border-l border-stone-800 pl-4 md:border-none md:pl-0 text-stone-300">
       <title>{`Detalhes do pedido #${id} - ${pageTitle}`}</title>
 
       <div className=" w-full h-full flex flex-col gap-10 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
-        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-stone-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
@@ -42,7 +42,7 @@ export default async function PedidoId({ params: { id } }: IGameIDParams) {
             <OrderStatus order={order} />
             <OrderDetails order={order} />
           </div>
-          <div className="flex flex-col w-fit gap-4 bg-neutral-950 border border-neutral-900 px-2 pt-4 rounded-md shadow-md sm:w-full sm:max-w-full">
+          <div className="flex flex-col w-fit gap-4 bg-stone-950 border border-stone-900 px-2 pt-4 rounded-md shadow-md sm:w-full sm:max-w-full">
             {order.products.map((product: IGame, index: number) => (
               <ProductOnOrder
                 key={product.id}

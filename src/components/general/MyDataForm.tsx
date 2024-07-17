@@ -22,7 +22,7 @@ export default function MyDataForm({
   return (
     <form
       id="myDataForm"
-      className="space-y-6 sm:w-full w-[576px] text-neutral-300"
+      className="space-y-6 sm:w-full w-[576px] text-stone-300"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       <div>
@@ -38,8 +38,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.name
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.name && (
             <span className="text-sm font-light text-red-500">
@@ -63,8 +63,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.currentEmail
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.currentEmail && (
             <span className="text-sm font-light text-red-500">
@@ -90,8 +90,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.newEmail
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.newEmail && (
             <span className="text-sm font-light text-red-500">
@@ -115,8 +115,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.phone
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.phone && (
             <span className="text-sm font-light text-red-500">
@@ -142,8 +142,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.currentPassword
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.currentPassword && (
             <span className="text-sm font-light text-red-500">
@@ -169,8 +169,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.newPassword
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.newPassword && (
             <span className="text-sm font-light text-red-500">
@@ -196,8 +196,8 @@ export default function MyDataForm({
             className={`${
               errors.userData?.confirmNewPassword
                 ? 'ring-red-500 ring-opacity-60'
-                : 'ring-neutral-600 ring-opacity-60'
-            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-stone-600 ring-opacity-60'
+            } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3  shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.userData?.confirmNewPassword && (
             <span className="text-sm font-light text-red-500">
@@ -212,7 +212,7 @@ export default function MyDataForm({
       <button
         type="submit"
         form="myDataForm"
-        className="flex justify-center rounded-md bg-neutral-300 text-neutral-800 px-20 py-1.5 text-sm font-semibold leading-6  shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40 transition-all"
+        className="flex justify-center rounded-md bg-stone-300 text-stone-800 px-20 py-1.5 text-sm font-semibold leading-6  shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40 transition-all"
         disabled={!!userDataResponse.success}
       >
         {loading.updateUserData ? <LoadingSpinner /> : 'Atualizar dados'}

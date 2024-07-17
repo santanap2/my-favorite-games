@@ -20,11 +20,11 @@ export default async function EditarAvaliacao({
   const { data } = await getOneUserEvaluation({ email, evaluationId: id })
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
+    <div className="w-full h-full border-l border-stone-800 pl-4 md:border-none md:pl-0 text-stone-300">
       <title>{`Editar avaliação - ${pageTitle}`}</title>
 
       <div className=" w-full h-full flex flex-col gap-10 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
-        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-stone-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">

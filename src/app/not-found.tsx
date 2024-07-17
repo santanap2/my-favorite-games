@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function NotFoundPage() {
   return (
-    <div className="fixed top-0 left-0 bottom-0 right-0 w-screen h-screen z-0 flex items-start justify-center text-neutral-300">
+    <div className="fixed top-0 left-0 bottom-0 right-0 w-screen h-screen z-0 flex items-start justify-center text-stone-300">
       <h1 className="absolute -top-[40%] sm:-top-[5%] right-96 sm:-right-10 -rotate-12 text-[40rem] sm:text-[18rem] font-extrabold tracking-tighter opacity-5">
         404
       </h1>
@@ -31,7 +31,7 @@ export default function NotFoundPage() {
         </div>
         <Link
           href="/home"
-          className="flex w-full justify-center rounded-md bg-neutral-300 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+          className="flex w-full justify-center rounded-md bg-stone-300 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
         >
           Retornar para a página inicial
         </Link>

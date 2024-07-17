@@ -17,7 +17,7 @@ export default function EvaluationCard({
   const router = useRouter()
 
   return (
-    <div className="flex items-center justify-between gap-6 w-full max-w-3xl h-36 bg-neutral-950 border border-neutral-900 p-2 rounded-md shadow-md">
+    <div className="flex items-center justify-between gap-6 w-full max-w-3xl h-36 bg-stone-950 border border-stone-900 p-2 rounded-md shadow-md">
       <img
         src={image}
         alt={name}
@@ -68,7 +68,7 @@ export default function EvaluationCard({
           </div>
 
           <button
-            className="flex xs:w-fit xs:text-xs w-48 justify-center rounded-md bg-neutral-300 px-3 py-1 sm:px-1 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all"
+            className="flex xs:w-fit xs:text-xs w-48 justify-center rounded-md bg-stone-300 px-3 py-1 sm:px-1 text-sm font-semibold leading-6 text-stone-800 shadow-sm  transition-all"
             onClick={() => {
               alreadyEvaluated
                 ? router.push(

@@ -5,7 +5,7 @@ export default function WhatsAppShare({ shareText }: { shareText: string }) {
   return (
     <Link
       href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`}
-      className="transition-all rounded-lg p-1 hover:scale-110 bg-[#25D366] text-neutral-300"
+      className="transition-all rounded-lg p-1 hover:scale-110 bg-[#25D366] text-stone-300"
       target="_blank"
     >
       <svg

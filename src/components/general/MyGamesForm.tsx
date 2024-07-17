@@ -18,7 +18,7 @@ export default function MyGamesForm() {
         <select
           name=""
           id="sortBy"
-          className="h-10 rounded-md px-3 focus:outline-none text-neutral-300 hover:shadow-lg w-60 text-left text-sm font-light bg-neutral-950 border border-neutral-900 shadow-md"
+          className="h-10 rounded-md px-3 focus:outline-none text-stone-300 hover:shadow-lg w-60 text-left text-sm font-light bg-stone-950 border border-stone-900 shadow-md"
           onChange={({ target: { value } }) =>
             setFilters({ ...filters, myGames: value })
           }

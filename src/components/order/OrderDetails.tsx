@@ -18,7 +18,7 @@ export default function OrderDetails({ order }: { order: IOrderData }) {
   }
 
   return (
-    <div className="text-neutral-300 flex flex-col gap-1 bg-neutral-950 border border-neutral-900 w-[600px] max-w-full p-4 rounded-md shadow-md text-sm sm:w-full animation-opacity transition-all">
+    <div className="text-stone-300 flex flex-col gap-1 bg-stone-950 border border-stone-900 w-[600px] max-w-full p-4 rounded-md shadow-md text-sm sm:w-full animation-opacity transition-all">
       <p>
         <span className="font-extrabold">Número do pedido:</span>
         <span>{` #${order.id}`}</span>

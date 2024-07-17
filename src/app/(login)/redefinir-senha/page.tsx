@@ -15,7 +15,7 @@ export default function RedefinirSenha() {
     RedefinirSenhaHooks()
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-300">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-stone-300">
       <title>{`Entrar - ${pageTitle}`}</title>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -51,8 +51,8 @@ export default function RedefinirSenha() {
                 className={`${
                   errors.resetPassword?.email
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.resetPassword?.email && (
                 <span className="text-sm font-light text-red-500">
@@ -65,7 +65,7 @@ export default function RedefinirSenha() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-neutral-300 text-neutral-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+              className="flex w-full justify-center rounded-md bg-stone-300 text-stone-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
               disabled={!!registerResponse.success}
             >
               Enviar

@@ -14,7 +14,7 @@ export default function Cadastro() {
   const { errors, handleFormSubmit, handleSubmit, register } = CadastroHooks()
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-300">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-stone-300">
       <title>{`Cadastre-se - ${pageTitle}`}</title>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
@@ -48,8 +48,8 @@ export default function Cadastro() {
                 className={`${
                   errors.registerUser?.email
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.email && (
                 <span className="text-sm font-light text-red-500">
@@ -75,8 +75,8 @@ export default function Cadastro() {
                 className={`${
                   errors.registerUser?.confirmEmail
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.confirmEmail && (
                 <span className="text-sm font-light text-red-500">
@@ -102,8 +102,8 @@ export default function Cadastro() {
                 className={`${
                   errors.registerUser?.name
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.name && (
                 <span className="text-sm font-light text-red-500">
@@ -130,8 +130,8 @@ export default function Cadastro() {
                 className={`${
                   errors.registerUser?.phone
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.phone && (
                 <span className="text-sm font-light text-red-500">
@@ -159,8 +159,8 @@ export default function Cadastro() {
                 className={`${
                   errors.registerUser?.password
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.password && (
                 <span className="text-sm font-light text-red-500">
@@ -188,8 +188,8 @@ export default function Cadastro() {
                 className={`${
                   errors.registerUser?.confirmPassword
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.registerUser?.confirmPassword && (
                 <span className="text-sm font-light text-red-500">
@@ -201,7 +201,7 @@ export default function Cadastro() {
 
           <button
             type="submit"
-            className="mt-4 flex w-full justify-center rounded-md bg-neutral-300 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+            className="mt-4 flex w-full justify-center rounded-md bg-stone-300 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-stone-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (
