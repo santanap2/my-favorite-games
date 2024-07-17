@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
-import ColorThief from '@/components/ColorThief'
+import ColorThief from '@/components/product/ColorThief'
 import EvaluationForm from '@/components/general/EvaluationForm'
 import { pageTitle } from '@/helpers'
 import { IGameIDParams } from '@/interfaces'
