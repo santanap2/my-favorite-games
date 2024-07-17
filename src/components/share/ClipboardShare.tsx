@@ -25,9 +25,9 @@ export default function ClipboardShare() {
   return (
     <button
       onClick={handleCopy}
-      className="transition-all rounded-lg p-1 hover:scale-110 bg-neutral-200"
+      className="transition-all rounded-lg p-1 hover:scale-110 bg-stone-300"
     >
-      <LinkSimple size={20} className="text-neutral-950" />
+      <LinkSimple size={20} className="text-stone-950" />
     </button>
   )
 }

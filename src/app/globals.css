@@ -67,7 +67,7 @@ input[type=number] {
 }
 
 .colored {
-  background: rgb(20 184 166);
+  background: var(--neutral800);
 }
 
 .user-product-card-bg {
@@ -365,6 +365,11 @@ input[type=number] {
 }
 
 .background {
-  background: linear-gradient(180deg, var(--purple1000) 1%, var(--neutral950) 30%);
-  background-attachment: fixed;
+  /* background: linear-gradient(180deg, var(--neutral800) 1%, var(--neutral950) 60%); */
+   background: radial-gradient(circle 900px at center bottom, var(--stone800), var(--stone950));
+   background-position: center center;
+   background-size: cover;
+   background-attachment: fixed;
+   width: 100dvw;
+   height: 100dvh;
 }

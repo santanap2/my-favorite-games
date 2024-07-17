@@ -18,36 +18,30 @@ export default function OrderDetails({ order }: { order: IOrderData }) {
   }
 
   return (
-    <div className="text-white flex flex-col gap-1 bg-neutral-950 border border-neutral-900 w-[600px] max-w-full p-4 rounded-md shadow-md text-sm sm:w-full animation-opacity transition-all">
+    <div className="text-stone-300 flex flex-col gap-1 bg-stone-950 border border-stone-900 w-[600px] max-w-full p-4 rounded-md shadow-md text-sm sm:w-full animation-opacity transition-all">
       <p>
-        <span className="font-extrabold text-indigo-700">
-          Número do pedido:
-        </span>
+        <span className="font-extrabold">Número do pedido:</span>
         <span>{` #${order.id}`}</span>
       </p>
 
       <p>
-        <span className="font-extrabold text-indigo-700">Data: </span>
+        <span className="font-extrabold">Data: </span>
         <span>{convertFullDate(order.created_at)}</span>
       </p>
 
       <p>
-        <span className="font-extrabold text-indigo-700">Valor: </span>
+        <span className="font-extrabold">Valor: </span>
         <span>{`R$ ${priceToBRL(order.value)}`}</span>
       </p>
 
       <p>
-        <span className="font-extrabold text-indigo-700">
-          Método de pagamento:{' '}
-        </span>
+        <span className="font-extrabold">Método de pagamento: </span>
         <span>{checkPaymentMethod(order.payment_method)}</span>
       </p>
 
       <p className="mt-4">
         <span>Confira seu email </span>
-        <span className="font-extrabold text-indigo-700">
-          {order.user?.email}
-        </span>
+        <span className="font-extrabold">{order.user?.email}</span>
         <span> para mais informações sobre seu pedido.</span>
       </p>
     </div>

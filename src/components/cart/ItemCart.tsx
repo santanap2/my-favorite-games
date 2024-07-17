@@ -13,7 +13,7 @@ export default function ItemCart({
   userEmail,
 }: IGame) {
   return (
-    <div className="flex justify-between items-center w-full gap-3 border-b border-neutral-900 pb-4 sm:pb-2 animation-opacity transition-all">
+    <div className="flex justify-between items-center w-full gap-3 border-b border-stone-900 pb-4 sm:pb-2 animation-opacity transition-all">
       <div className="w-24 h-24 min-w-[96px]">
         <img
           src={image}
@@ -26,7 +26,7 @@ export default function ItemCart({
           <h1 className="font-bold text-base sm:tracking-tight sm:text-sm sm:font-bold">
             {name}
           </h1>
-          <h3 className="text-sm sm:text-xs sm:font-light sm:tracking-tight text-neutral-500">
+          <h3 className="text-sm sm:text-xs sm:font-light sm:tracking-tight text-stone-300">
             {category.namePt}
           </h3>
         </div>

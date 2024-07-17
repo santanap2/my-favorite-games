@@ -29,12 +29,12 @@ export default async function MinhaConta() {
   const lastBoughtGames = allBoughtGames.slice(0, 12)
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
+    <div className="w-full h-full border-l border-stone-800 pl-4 md:border-none md:pl-0 text-stone-300">
       <title>{`Resumo - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col items-start justify-start animation-opacity transition-all">
-        <div className="w-full h-full flex flex-col gap-10 text-white items-start lg:gap-6">
-          <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
+        <div className="w-full h-full flex flex-col gap-10 items-start lg:gap-6">
+          <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-stone-800">
             <div className="flex gap-1 items-center justify-center w-full">
               <div className="flex flex-col w-full h-full text-base">
                 <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
@@ -42,7 +42,7 @@ export default async function MinhaConta() {
                   {`${user.name}`}
                 </span>
 
-                <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+                <span className="flex text-base sm:text-sm sm:mt-1">
                   Um resumo do seu último pedido e dos últimos jogos comprados
                 </span>
               </div>
@@ -56,7 +56,7 @@ export default async function MinhaConta() {
               </span>
               <Link
                 href="/minha-conta/meus-pedidos"
-                className="font-semibold min-w-fit text-indigo-700 hover:underline"
+                className="font-semibold min-w-fit hover:underline"
               >
                 Ver todos
               </Link>
@@ -85,7 +85,7 @@ export default async function MinhaConta() {
               </span>
               <Link
                 href="/minha-conta/meus-games"
-                className="font-semibold min-w-fit text-indigo-700 hover:underline"
+                className="font-semibold min-w-fit hover:underline"
               >
                 Ver todos
               </Link>

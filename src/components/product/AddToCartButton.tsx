@@ -37,8 +37,8 @@ export default function AddToCartButton({
             onClick: async () => await removeItemFromCart({ email, gameId }),
           },
           actionButtonStyle: {
-            backgroundColor: 'rgb(79 70 229)',
-            color: 'rgb(255 255 255)',
+            backgroundColor: 'rgb(212, 212, 212)',
+            color: 'rgb(38, 38, 38)',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -46,9 +46,9 @@ export default function AddToCartButton({
           },
         })
       }}
-      className="w-14 h-14 bg-indigo-700 rounded-lg text-lg font-bold uppercase tracking-wider text-white flex items-center justify-center relative shadow-sm hover:bg-indigo-600 transition-all sm:h-12 sm:w-12"
+      className="w-14 h-14 bg-stone-300 rounded-lg text-lg font-bold uppercase tracking-wider text-stone-800 flex items-center justify-center relative shadow-sm  transition-all sm:h-12 sm:w-12"
     >
-      <ShoppingBagOpen weight="bold" className="text-white relative text-3xl" />
+      <ShoppingBagOpen weight="bold" className="relative text-3xl" />
       <PlusCircle
         weight="fill"
         className="absolute top-1 right-1 sm:top-0 sm:right-0 text-xl"

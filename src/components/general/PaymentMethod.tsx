@@ -92,14 +92,14 @@ export default function PaymentMethod({
   }
 
   return (
-    <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center">
-      <div className="w-[70%] bg-neutral-950 border border-neutral-800 rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
+    <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center text-stone-300">
+      <div className="w-[70%] bg-stone-950 border border-stone-800 rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
         <div
           onClick={() => pickPaymentMethod('pix')}
-          className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
+          className={`bg-stone-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer  ${
             paymentMethod.pix
-              ? 'border-1 border-indigo-700'
-              : 'border-1 border-neutral-700'
+              ? 'border-1 border-white'
+              : 'border-1 border-stone-700'
           }`}
         >
           <div className="flex gap-4">
@@ -107,18 +107,15 @@ export default function PaymentMethod({
               {paymentMethod.pix ? (
                 <CheckCircle
                   weight="fill"
-                  className="text-indigo-700 sm:text-[24px] text-xl"
+                  className=" sm:text-[24px] text-xl"
                 />
               ) : (
-                <Circle
-                  weight="regular"
-                  className="text-indigo-700 sm:text-[24px] text-xl"
-                />
+                <Circle weight="regular" className=" sm:text-[24px] text-xl" />
               )}
             </div>
             <h1
               className={`text-lg font-bold ${
-                paymentMethod.pix ? 'text-indigo-700' : 'text-white'
+                paymentMethod.pix ? '' : ''
               } sm:text-base`}
             >
               PIX
@@ -139,10 +136,10 @@ export default function PaymentMethod({
         </div>
         <div
           onClick={() => pickPaymentMethod('bankSlip')}
-          className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
+          className={`bg-stone-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer  ${
             paymentMethod.bankSlip
-              ? 'border-1 border-indigo-700'
-              : 'border-1 border-neutral-700'
+              ? 'border-1 border-white'
+              : 'border-1 border-stone-700'
           }`}
         >
           <div className="flex gap-4">
@@ -150,22 +147,13 @@ export default function PaymentMethod({
               {paymentMethod.bankSlip ? (
                 <CheckCircle
                   weight="fill"
-                  className="text-indigo-700 sm:text-[24px] text-xl"
+                  className=" sm:text-[24px] text-xl"
                 />
               ) : (
-                <Circle
-                  weight="regular"
-                  className="text-indigo-700 sm:text-[24px] text-xl"
-                />
+                <Circle weight="regular" className=" sm:text-[24px] text-xl" />
               )}
             </div>
-            <h1
-              className={`text-lg font-bold ${
-                paymentMethod.bankSlip ? 'text-indigo-700' : 'text-white'
-              } sm:text-base`}
-            >
-              Boleto bancário
-            </h1>
+            <h1 className="text-lg font-bold  sm:text-base">Boleto bancário</h1>
           </div>
           {paymentMethod.bankSlip && (
             <div className="w-full appear-animation">
@@ -183,10 +171,10 @@ export default function PaymentMethod({
 
         <div
           onClick={() => pickPaymentMethod('creditCard')}
-          className={`bg-neutral-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer text-white ${
+          className={`bg-stone-900 px-6 py-4 border border-1 rounded-md flex flex-col gap-2 justify-start cursor-pointer  ${
             paymentMethod.creditCard
-              ? 'border-1 border-indigo-700'
-              : 'border-1 border-neutral-700'
+              ? 'border-1 border-white'
+              : 'border-1 border-stone-700'
           }`}
         >
           <div className="flex gap-4 w-full">
@@ -194,20 +182,13 @@ export default function PaymentMethod({
               {paymentMethod.creditCard ? (
                 <CheckCircle
                   weight="fill"
-                  className="text-indigo-600 sm:text-[24px] text-xl"
+                  className=" sm:text-[24px] text-xl"
                 />
               ) : (
-                <Circle
-                  weight="regular"
-                  className="text-indigo-600 sm:text-[24px] text-xl"
-                />
+                <Circle weight="regular" className=" sm:text-[24px] text-xl" />
               )}
             </div>
-            <h1
-              className={`text-lg font-bold ${
-                paymentMethod.creditCard ? 'text-indigo-700' : 'text-white'
-              } sm:text-base`}
-            >
+            <h1 className="text-lg font-bold  sm:text-base">
               Cartão de crédito
             </h1>
           </div>
@@ -218,8 +199,8 @@ export default function PaymentMethod({
         </div>
       </div>
 
-      <div className="bg-neutral-800 rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
-        <div className="w-full h-30 bg-neutral-900 shadow-md p-4 rounded-md flex flex-col items-center justify-center text-indigo-neutral-100 sm:w-60 sm:p-2">
+      <div className="bg-stone-950 border border-stone-800 rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:items-center sm:w-full sm:p-2 xl:w-1/3">
+        <div className="w-full h-30 bg-stone-900 border border-stone-700 shadow-md p-4 rounded-md flex flex-col items-center justify-center  sm:w-60 sm:p-2">
           <div className="text-sm flex">{whichPaymentMethod()}</div>
 
           {paymentMethod.creditCard ? (
@@ -243,7 +224,7 @@ export default function PaymentMethod({
         </div>
         <button
           type={paymentMethod.creditCard ? 'submit' : 'button'}
-          className="w-full bg-indigo-700 hover:bg-indigo-700 h-10 rounded-md text-white font-light text-regular shadow-md hover:shadow-lg"
+          className="w-full bg-stone-300 text-stone-800 font-bold h-10 rounded-md text-sm shadow-md hover:shadow-lg"
           form="creditCardForm"
           onClick={submitOrder}
         >

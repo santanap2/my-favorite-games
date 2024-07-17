@@ -15,7 +15,7 @@ export default function Login() {
   const { loginResponse, loading } = useContext(GamesPlatformContext)
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-stone-300">
       <title>{`Entrar - ${pageTitle}`}</title>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -24,7 +24,7 @@ export default function Login() {
           src="/logo-min.png"
           alt="My Fav Games"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
           Faça login em sua conta
         </h2>
       </div>
@@ -37,7 +37,7 @@ export default function Login() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-white"
+              className="block text-sm font-medium leading-6"
             >
               Endereço de email
             </label>
@@ -52,8 +52,8 @@ export default function Login() {
                 className={`${
                   errors.email
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.email && (
                 <span className="text-sm font-light text-red-500">
@@ -67,14 +67,14 @@ export default function Login() {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-sm font-medium leading-6"
               >
                 Senha
               </label>
               <div className="text-sm">
                 <Link
                   href="/redefinir-senha"
-                  className="font-semibold text-indigo-700 hover:text-indigo-700 hover:underline"
+                  className="font-semibold hover hover:underline"
                 >
                   Esqueceu a senha?
                 </Link>
@@ -91,8 +91,8 @@ export default function Login() {
                 className={`${
                   errors.password
                     ? 'ring-red-500 ring-opacity-60'
-                    : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+                    : 'ring-stone-600'
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.password && (
                 <span className="text-sm font-light text-red-500">
@@ -105,10 +105,10 @@ export default function Login() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
+              className="flex w-full justify-center rounded-md bg-stone-300 text-stone-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
               disabled={buttonDisabled()}
             >
-              {loading.login ? <LoadingSpinner /> : 'Entrar'}
+              {loading.login ? <LoadingSpinner colored /> : 'Entrar'}
             </button>
           </div>
         </form>
@@ -122,11 +122,11 @@ export default function Login() {
           </div>
         )}
 
-        <p className="mt-10 text-center text-sm text-neutral-500">
+        <p className="mt-10 text-center text-sm text-stone-500">
           Não possui uma conta?{' '}
           <Link
             href="/cadastro"
-            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700 hover:underline"
+            className="font-semibold leading-6 hover hover:underline text-stone-300"
           >
             Cadastre-se agora
           </Link>

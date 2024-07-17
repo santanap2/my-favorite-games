@@ -18,14 +18,14 @@ export default function CreditCardForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="flex flex-col gap-3 cursor-default mt-3"
+      className="flex flex-col gap-3 cursor-default mt-3 text-stone-300"
       id="creditCardForm"
     >
       <div>
         <div className="w-full flex items-center justify-between gap-4">
           <label
             htmlFor="card-number"
-            className="block text-sm font-medium leading-6 text-white"
+            className="block text-sm font-medium leading-6"
           >
             Número do cartão *
           </label>
@@ -44,8 +44,8 @@ export default function CreditCardForm({
           className={`${
             errors.cardData?.cardNumber
               ? 'ring-red-800 ring-opacity-60'
-              : 'ring-neutral-600'
-          } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+              : 'ring-stone-600'
+          } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
         />
         {errors.cardData?.cardNumber && (
           <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -58,7 +58,7 @@ export default function CreditCardForm({
         <div className="w-full flex items-center justify-between gap-4">
           <label
             htmlFor="card-name"
-            className="block text-sm font-medium leading-6 text-white"
+            className="block text-sm font-medium leading-6"
           >
             Nome impresso no cartão *
           </label>
@@ -76,8 +76,8 @@ export default function CreditCardForm({
           className={`${
             errors.cardData?.cardName
               ? 'ring-red-800 ring-opacity-60'
-              : 'ring-neutral-600'
-          } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+              : 'ring-stone-600'
+          } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
         />
         {errors.cardData?.cardNumber && (
           <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -91,7 +91,7 @@ export default function CreditCardForm({
           <div className="w-full flex items-center justify-between gap-4">
             <label
               htmlFor="card-date"
-              className="block text-sm font-medium leading-6 text-white"
+              className="block text-sm font-medium leading-6"
             >
               Data do vencimento *
             </label>
@@ -110,8 +110,8 @@ export default function CreditCardForm({
             className={`${
               errors.cardData?.cardDate
                 ? 'ring-red-800 ring-opacity-60'
-                : 'ring-neutral-600'
-            } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+                : 'ring-stone-600'
+            } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.cardData?.cardNumber && (
             <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -124,7 +124,7 @@ export default function CreditCardForm({
           <div className="w-full flex items-center justify-between gap-4">
             <label
               htmlFor="card-cvv"
-              className="block text-sm font-medium leading-6 text-white"
+              className="block text-sm font-medium leading-6"
             >
               Código de verificação (CVV) *
             </label>
@@ -143,8 +143,8 @@ export default function CreditCardForm({
             className={`${
               errors.cardData?.cardDate
                 ? 'ring-red-800 ring-opacity-60'
-                : 'ring-neutral-600'
-            } bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+                : 'ring-stone-600'
+            } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.cardData?.cardNumber && (
             <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -157,7 +157,7 @@ export default function CreditCardForm({
       <div className="w-full">
         <label
           htmlFor="card-portions"
-          className="block text-sm font-medium leading-6 text-white"
+          className="block text-sm font-medium leading-6"
         >
           Parcelamento
         </label>
@@ -165,7 +165,7 @@ export default function CreditCardForm({
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="bg-neutral-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-neutral-600 placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6"
+          className="bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
         >
           <option value="1" className="rounded-md py-4 h-10">
             {`1x sem juros de R$ ${priceToBRL(calcSum(cart.products).number)}`}

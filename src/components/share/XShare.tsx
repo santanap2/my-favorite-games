@@ -5,7 +5,7 @@ export default function XShare({ shareText }: { shareText: string }) {
   return (
     <Link
       href={`https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
-      className="transition-all rounded-lg p-1 hover:scale-110 border border-neutral-900 bg-black"
+      className="transition-all rounded-lg p-1 hover:scale-110 border border-stone-900 bg-black"
       target="_blank"
     >
       <svg

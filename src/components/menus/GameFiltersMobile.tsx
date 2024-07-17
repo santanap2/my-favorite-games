@@ -50,15 +50,15 @@ export default function GameFiltersMobile({
         unmountOnExit
       >
         <aside
-          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0  flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm py-6 justify-between items-center text-white z-50 px-2 border-r border-neutral-800"
+          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0  flex-col h-full bg-stone-950 bg-opacity-90 backdrop-blur-sm py-6 justify-between items-center text-stone-300 z-50 px-2 border-r border-stone-800"
           ref={nodeRef}
         >
           <div className="flex flex-col items-center h-full justify-start w-full gap-10 overflow-y-auto">
             <div className="flex flex-col w-full gap-1">
-              <div className="w-full flex justify-between items-center pb-2 border-b border-neutral-800 mb-4">
+              <div className="w-full flex justify-between items-center pb-2 border-b border-stone-800 mb-4">
                 <h3 className="font-bold text-base mb-1 px-4">Filtros</h3>
                 <Link href="/home/1">
-                  <button className="text-left px-4 py-2 w-full h-fit text-xs font-semibold rounded-md hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-between space-x-3 hover:text-red-600">
+                  <button className="text-left px-4 py-2 w-full h-fit text-xs font-semibold rounded-md  hover:bg-opacity-10 transition-all flex items-center justify-between space-x-3 hover:text-red-600">
                     <Trash size={14} className="text-red-800" />
                     <span>Limpar</span>
                   </button>
@@ -68,7 +68,7 @@ export default function GameFiltersMobile({
               {categories.map(({ name, namePt }: ICategory) => (
                 <Link key={name} href={handleFilters(name)}>
                   <button
-                    className={`text-left text-white px-4 py-2 w-full text-sm font-semibold rounded-md transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-white bg-opacity-10'} `}
+                    className={`text-left px-4 py-2 w-full text-sm font-semibold rounded-md transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-stone-300 bg-opacity-30'} `}
                   >
                     <span>{namePt}</span>
                     {queryParams.includes(name) && (

@@ -74,10 +74,10 @@ export default function EvaluationForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4"
+      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4 text-stone-300"
     >
       <div className="flex flex-col gap-1 w-full">
-        <label className="text-sm tracking-wide font-semibold text-neutral-200">
+        <label className="text-sm tracking-wide font-semibold">
           Quantas estrelas você dá para o produto:
         </label>
 
@@ -87,26 +87,26 @@ export default function EvaluationForm({
               key={index}
               weight={index < stars ? 'fill' : 'duotone'}
               className={`${
-                index < stars ? 'text-amber-500' : 'text-neutral-700'
+                index < stars ? 'text-amber-500' : 'text-stone-700'
               } text-2xl cursor-pointer`}
               onClick={() => setStars(index + 1)}
             />
           ))}
 
-          <span className="ml-4 text-neutral-500">{`( ${stars} )`}</span>
+          <span className="ml-4">{`( ${stars} )`}</span>
         </div>
       </div>
 
       <div className="flex flex-col gap-1 w-full">
         <label
           htmlFor="description"
-          className="text-sm tracking-wide font-semibold text-neutral-200"
+          className="text-sm tracking-wide font-semibold"
         >
           Descreva sua experiência com o produto:
         </label>
         <textarea
           {...register('evaluation.description')}
-          className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500"
+          className="border border-stone-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-stone-950 placeholder:text-stone-500"
           maxLength={500}
           id="description"
           placeholder="Escreva aqui sua avaliação"
@@ -118,11 +118,7 @@ export default function EvaluationForm({
           <Link href="/minha-conta/minhas-avaliacoes">
             <button
               type="button"
-              className={`p-2 sm:w-full w-64 ${
-                response.success
-                  ? 'bg-indigo-700 hover:bg-indigo-700'
-                  : 'bg-indigo-700 hover:bg-indigo-700'
-              } w-full flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40`}
+              className={`p-2 sm:w-full w-full flex justify-center rounded-md bg-stone-300 px-12 py-1.5 text-sm font-semibold leading-6 text-stone-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40`}
             >
               Voltar para minhas avaliações
             </button>
@@ -130,7 +126,7 @@ export default function EvaluationForm({
         ) : (
           <button
             type="submit"
-            className="flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
+            className="flex justify-center rounded-md bg-stone-300 px-12 py-1.5 text-sm font-semibold leading-6 text-stone-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             onClick={() => setLoading(true)}
           >
             {loading ? <LoadingSpinner /> : 'Avaliar produto'}
