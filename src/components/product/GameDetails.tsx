@@ -96,7 +96,7 @@ export default function GameDetails({
               loop: false,
             }}
           >
-            <CarouselPrevious className="text-white -950 bg-white bg-opacity-30 border-none rounded-full p-2 absolute top-auto left-0" />
+            <CarouselPrevious className="text-neutral-200 -950 bg-neutral-200 bg-opacity-30 border-none rounded-full p-2 absolute top-auto left-0" />
 
             <CarouselContent className="w-full -ml-4">
               {similarGames
@@ -116,14 +116,14 @@ export default function GameDetails({
                         <span className="text-sm font-bold">
                           {name.length > 20 ? `${name.slice(0, 20)}...` : name}
                         </span>
-                        <span className="text-indigo-700 text-sm font-bold">{`R$ ${priceToBRL(price)}`}</span>
+                        <span className="text-sm font-bold">{`R$ ${priceToBRL(price)}`}</span>
                       </div>
                     </Link>
                   </CarouselItem>
                 ))}
             </CarouselContent>
 
-            <CarouselNext className="text-white -950 bg-white bg-opacity-30 border-none rounded-full p-2 absolute top-auto right-0" />
+            <CarouselNext className="text-neutral-200 -950 bg-neutral-200 bg-opacity-30 border-none rounded-full p-2 absolute top-auto right-0" />
           </Carousel>
         )}
       </div>

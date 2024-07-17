@@ -8,9 +8,9 @@ export default function ColorThief({ imageUrl }: { imageUrl: string }) {
     crossOrigin: 'Anonymous',
   })
 
-  if (loading) return <p className="text-white">Carregando...</p>
+  if (loading) return <p className="hidden">Carregando...</p>
   if (error || !data)
-    return <p className="text-white">Ocorreu um erro ao carregar a cor.</p>
+    return <p className="hidden">Ocorreu um erro ao carregar a cor.</p>
 
   const calculateLuminance = ([r, g, b]: number[]) =>
     0.2126 * r + 0.7152 * g + 0.0722 * b

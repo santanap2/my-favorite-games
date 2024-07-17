@@ -16,7 +16,7 @@ export default async function FinalizarCompra() {
   const { data } = await getUserCart(email)
 
   return (
-    <div className="w-4/5 flex h-full mt-24 xxl:mt-20 flex-col gap-12 xxl:w-full lg:gap-6 text-white">
+    <div className="w-4/5 flex h-full mt-24 xxl:mt-20 flex-col gap-12 xxl:w-full lg:gap-6 text-neutral-200">
       <title>{`Finalizar compra - ${pageTitle}`}</title>
 
       <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
@@ -27,7 +27,7 @@ export default async function FinalizarCompra() {
               Finalizar compra
             </span>
 
-            <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+            <span className="flex text-base sm:text-sm sm:mt-1">
               Reveja seu carrinho e prossiga para o pagamento
             </span>
           </div>
@@ -64,7 +64,7 @@ export default async function FinalizarCompra() {
                       {namePt}
                     </h3>
                   </div>
-                  <div className="flex flex-col text-neutral-500 text-sm lg:text-xs lg:mt-0 lg:font-light">
+                  <div className="flex flex-col text-sm lg:text-xs lg:mt-0 lg:font-light">
                     <span>No PIX com 10% de desconto</span>
                     <span>{`Ou em até 3x de R$${portionPrice(
                       price,
@@ -82,7 +82,7 @@ export default async function FinalizarCompra() {
         </div>
 
         <div className="bg-neutral-950 border border-neutral-800 rounded-md shadow-md py-6 px-6 w-80 flex flex-col items-end gap-4 sm:w-64 xxl:w-1/3">
-          <h1 className="font-regular text-lg font-semibold uppercase text-white tracking-tighter">
+          <h1 className="font-regular text-lg font-semibold uppercase tracking-tighter">
             Resumo
           </h1>
 
@@ -96,7 +96,7 @@ export default async function FinalizarCompra() {
             )})`}</h3>
           </div>
 
-          <div className="w-full h-30 bg-neutral-900 border border-neutral-800 shadow-md p-4 rounded-md flex flex-col items-center justify-center text-indigo-600">
+          <div className="w-full h-30 bg-neutral-900 border border-neutral-800 shadow-md p-4 rounded-md flex flex-col items-center justify-center">
             <div className="text-sm">
               <span>Valor à vista no</span>
               <span className="font-semibold">{` PIX`}</span>
@@ -118,7 +118,7 @@ export default async function FinalizarCompra() {
             <Link href="/finalizar-compra/pagamento">
               <button
                 type="button"
-                className={`w-full bg-indigo-800 py-2 rounded-md text-white text-sm font-bold shadow-md hover:bg-indigo-700 transition-all lg:px-4`}
+                className={`w-full bg-neutral-200 text-neutral-800 py-2 rounded-md text-sm font-bold shadow-md  transition-all lg:px-4`}
               >
                 Ir para o pagamento
               </button>
@@ -127,7 +127,7 @@ export default async function FinalizarCompra() {
             <Link href="/home">
               <button
                 type="button"
-                className="w-full bg-trasparent py-2 rounded-md text-neutral-600 border border-neutral-600 text-sm font-bold hover:border-indigo-700 hover:text-indigo-700 transition-all md:px-0 xl:px-4 xl:py-2"
+                className="w-full bg-trasparent py-2 rounded-md text-sm font-bold hover transition-all md:px-0 xl:px-4 xl:py-2"
               >
                 Continuar comprando
               </button>

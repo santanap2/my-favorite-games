@@ -15,7 +15,7 @@ export default function RedefinirSenha() {
     RedefinirSenhaHooks()
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-200">
       <title>{`Entrar - ${pageTitle}`}</title>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -24,7 +24,7 @@ export default function RedefinirSenha() {
           src="/logo-min.png"
           alt="My Fav Games"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
           Redefinir senha
         </h2>
       </div>
@@ -37,7 +37,7 @@ export default function RedefinirSenha() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-white"
+              className="block text-sm font-medium leading-6"
             >
               Endereço de email
             </label>
@@ -48,12 +48,11 @@ export default function RedefinirSenha() {
                 type="email"
                 autoComplete="email"
                 placeholder="email@exemplo.com"
-                required
                 className={`${
                   errors.resetPassword?.email
                     ? 'ring-red-500 ring-opacity-60'
                     : 'ring-neutral-600'
-                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-indigo-700 sm:text-sm sm:leading-6`}
+                } bg-transparent outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset placeholder:text-neutral-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
               />
               {errors.resetPassword?.email && (
                 <span className="text-sm font-light text-red-500">
@@ -66,7 +65,7 @@ export default function RedefinirSenha() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
+              className="flex w-full justify-center rounded-md bg-neutral-200 text-neutral-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
               disabled={!!registerResponse.success}
             >
               Enviar
@@ -75,17 +74,17 @@ export default function RedefinirSenha() {
         </form>
 
         {reseted ? (
-          <span className="mt-6 text-sm font-light text-slate-200 text-center">
+          <span className="mt-6 text-sm font-light text-center">
             Por favor confira seu email para redefinir sua senha.
           </span>
         ) : (
           ''
         )}
 
-        <p className="mt-10 text-center text-sm text-neutral-500">
+        <p className="mt-10 text-center text-sm">
           <Link
             href="/api/auth/signin"
-            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700 hover:underline"
+            className="font-semibold leading-6 hover hover:underline"
             onClick={() => setRegisterResponse({ success: '', error: '' })}
           >
             Retornar para o Login

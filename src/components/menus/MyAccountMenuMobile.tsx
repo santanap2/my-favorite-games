@@ -43,13 +43,13 @@ export default function MyAccountMenuMobile() {
         unmountOnExit
       >
         <div
-          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0 flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm px-2 py-6 justify-between items-center text-white z-50 border-r border-neutral-800"
+          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0 flex-col h-full bg-neutral-950 text-neutral-200 bg-opacity-90 backdrop-blur-sm px-2 py-6 justify-between items-center z-50 border-r border-neutral-800"
           ref={nodeRef}
         >
           <div className="flex flex-col gap-1 w-full">
             <Link href={links.myAccount}>
               <div
-                className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myAccount && 'bg-opacity-10 bg-white'}`}
+                className={`flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md ${pathname === links.myAccount && 'bg-opacity-30 bg-neutral-200'}`}
               >
                 <User weight="regular" className="text-xl" />
                 <span>Resumo</span>
@@ -58,7 +58,7 @@ export default function MyAccountMenuMobile() {
 
             <Link href={links.myOrders}>
               <div
-                className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myOrders && 'bg-opacity-10 bg-white'}`}
+                className={`flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md ${pathname === links.myOrders && 'bg-opacity-30 bg-neutral-200'}`}
               >
                 <Bag weight="regular" className="text-xl" />
                 <span>Meus pedidos</span>
@@ -67,7 +67,7 @@ export default function MyAccountMenuMobile() {
 
             <Link href={links.myData}>
               <div
-                className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myData && 'bg-opacity-10 bg-white'}`}
+                className={`flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md ${pathname === links.myData && 'bg-opacity-30 bg-neutral-200'}`}
               >
                 <IdentificationCard weight="regular" className="text-xl" />
                 <span>Meus dados</span>
@@ -76,7 +76,7 @@ export default function MyAccountMenuMobile() {
 
             <Link href={links.myGames}>
               <div
-                className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myGames && 'bg-opacity-10 bg-white'}`}
+                className={`flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md ${pathname === links.myGames && 'bg-opacity-30 bg-neutral-200'}`}
               >
                 <GameController weight="regular" className="text-xl" />
                 <span>Meus games</span>
@@ -85,7 +85,7 @@ export default function MyAccountMenuMobile() {
 
             <Link href={links.myFavorites}>
               <div
-                className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myFavorites && 'bg-opacity-10 bg-white'}`}
+                className={`flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md ${pathname === links.myFavorites && 'bg-opacity-30 bg-neutral-200'}`}
               >
                 <Heart weight="regular" className="text-xl" />
                 <span>Meus favoritos</span>
@@ -94,7 +94,7 @@ export default function MyAccountMenuMobile() {
 
             <Link href={links.myEvaluations}>
               <div
-                className={`text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md ${pathname === links.myEvaluations && 'bg-opacity-10 bg-white'}`}
+                className={`flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md ${pathname === links.myEvaluations && 'bg-opacity-30 bg-neutral-200'}`}
               >
                 <ThumbsUp weight="regular" className="text-xl" />
                 <span>Minhas avaliações</span>
@@ -102,7 +102,7 @@ export default function MyAccountMenuMobile() {
             </Link>
 
             <button
-              className="text-white flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold hover:bg-white hover:bg-opacity-10 transition-all rounded-md"
+              className="flex gap-3 px-4 py-2 items-center w-full text-sm font-semibold transition-all rounded-md"
               onClick={() => signOut({ redirect: true, callbackUrl: '/home' })}
             >
               <SignOut weight="regular" className="text-xl" />

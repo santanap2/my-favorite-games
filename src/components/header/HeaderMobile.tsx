@@ -23,7 +23,7 @@ export default async function HeaderMobile() {
   const data = await result.json()
 
   return (
-    <header className="hidden w-screen h-14 md:flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-white px-2">
+    <header className="hidden w-screen h-14 md:flex items-center justify-between fixed left-0 top-0 z-30 bg-neutral-950 bg-opacity-80 border-b border-neutral-800 backdrop-blur-sm text-neutral-200 px-2">
       <div className="w-fit h-full flex items-center justify-center space-x-1">
         <MenuHeaderButton />
         <Link href="/home">

@@ -51,7 +51,7 @@ export default async function Home({
       <PaginationItem key={1}>
         <PaginationLink
           href={`/home/1`}
-          className={`hover:bg-neutral-700 hover:text-white ${Number(page) === 1 && 'border border-neutral-700'}`}
+          className={`hover:bg-neutral-700 hover:text-neutral-200 ${Number(page) === 1 && 'border border-neutral-700'}`}
         >
           1
         </PaginationLink>
@@ -75,7 +75,7 @@ export default async function Home({
         <PaginationItem key={i}>
           <PaginationLink
             href={`/home/${i}`}
-            className={`hover:bg-neutral-700 hover:text-white ${pageNumber === i && 'border border-neutral-700'}`}
+            className={`hover:bg-neutral-700 hover:text-neutral-200 ${pageNumber === i && 'border border-neutral-700'}`}
           >
             {i}
           </PaginationLink>
@@ -96,7 +96,7 @@ export default async function Home({
         <PaginationItem key={totalPages}>
           <PaginationLink
             href={`/home/${totalPages}`}
-            className={`hover:bg-neutral-700 hover:text-white ${pageNumber === totalPages && 'border border-neutral-700'}`}
+            className={`hover:bg-neutral-700 hover:text-neutral-200 ${pageNumber === totalPages && 'border border-neutral-700'}`}
           >
             {totalPages}
           </PaginationLink>
@@ -143,7 +143,7 @@ export default async function Home({
               ))
             )}
           </div>
-          <div className="text-white mt-12">
+          <div className="text-neutral-200 mt-12">
             <Pagination>
               <PaginationContent>
                 <button
@@ -154,7 +154,7 @@ export default async function Home({
                   <PaginationItem>
                     <PaginationPrevious
                       href={`/home/${pageNumber - 1}`}
-                      className="hover:bg-neutral-700 hover:text-white"
+                      className="hover:bg-neutral-700 hover:text-neutral-200"
                     />
                   </PaginationItem>
                 </button>
@@ -169,7 +169,7 @@ export default async function Home({
                   <PaginationItem>
                     <PaginationNext
                       href={`/home/${pageNumber + 1}`}
-                      className="hover:bg-neutral-700 hover:text-white"
+                      className="hover:bg-neutral-700 hover:text-neutral-200"
                     />
                   </PaginationItem>
                 </button>

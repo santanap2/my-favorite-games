@@ -18,10 +18,10 @@ export default async function MinhasAvaliacoesId({
   const { data } = await getOneUserEvaluation({ email, evaluationId: id })
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
       <title>{`Minha avaliação: ${data.evaluation.product.name} - ${pageTitle}`}</title>
 
-      <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+      <div className="w-full h-full flex flex-col gap-10 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
         <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
@@ -30,7 +30,7 @@ export default async function MinhasAvaliacoesId({
                 {`Minha avaliação: ${data.evaluation.product.name}`}
               </span>
 
-              <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+              <span className="flex text-base sm:text-sm sm:mt-1">
                 {`Confira sua avaliação de ${data.evaluation.product.name} e edite-a se quiser`}
               </span>
             </div>
@@ -52,16 +52,16 @@ export default async function MinhasAvaliacoesId({
 
             <div className="w-full h-full px-2 flex flex-col justify-between items-start gap-4">
               <div className="flex flex-col gap-1">
-                <span className="text-sm tracking-wide font-semibold text-neutral-200">
+                <span className="text-sm tracking-wide font-semibold">
                   Produto avaliado em:
                 </span>
-                <span className="text-sm tracking-wide text-neutral-500">
+                <span className="text-sm tracking-wide">
                   {convertFullDate(data.evaluation.created_at)}
                 </span>
               </div>
 
               <div>
-                <span className="text-sm tracking-wide font-semibold text-neutral-200">
+                <span className="text-sm tracking-wide font-semibold">
                   Sua nota para o produto:
                 </span>
 
@@ -79,25 +79,23 @@ export default async function MinhasAvaliacoesId({
                       } text-2xl`}
                     />
                   ))}
-                  <span className="ml-4 text-neutral-500">
-                    {`( ${data.evaluation.stars} )`}
-                  </span>
+                  <span className="ml-4">{`( ${data.evaluation.stars} )`}</span>
                 </div>
               </div>
 
               <div className="flex flex-col gap-2 w-full">
-                <span className="text-sm tracking-wide font-semibold text-neutral-200">
+                <span className="text-sm tracking-wide font-semibold">
                   Sua descrição para o produto:
                 </span>
 
                 {data.evaluation.description ? (
-                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500">
-                    <span className="text-sm tracking-wide text-white">
+                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-400">
+                    <span className="text-sm tracking-wide">
                       {data.evaluation.description}
                     </span>
                   </div>
                 ) : (
-                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500">
+                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950">
                     <span className="text-sm tracking-wide text-red-800">
                       Você não forneceu nenhuma descrição para o produto.
                     </span>
@@ -107,7 +105,7 @@ export default async function MinhasAvaliacoesId({
               <Link href={`/minha-conta/minhas-avaliacoes/editar/${id}`}>
                 <button
                   type="button"
-                  className="flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
+                  className="flex justify-center rounded-md bg-neutral-200 text-neutral-800 px-12 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
                 >
                   Editar avaliação
                 </button>

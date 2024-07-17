@@ -91,20 +91,20 @@ export default function EditEvaluationForm({
             />
           ))}
 
-          <span className="ml-4 text-neutral-500">{`( ${stars} )`}</span>
+          <span className="ml-4">{`( ${stars} )`}</span>
         </div>
       </div>
 
       <div className="flex flex-col gap-1 w-full">
         <label
           htmlFor="description"
-          className="text-sm tracking-wide font-semibold text-neutral-200"
+          className="text-sm tracking-wide font-semibold"
         >
           Descreva sua experiência com o produto:
         </label>
         <textarea
           {...register('evaluation.description')}
-          className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500"
+          className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-400"
           maxLength={500}
           id="description"
           placeholder={evaluation.description}
@@ -116,11 +116,7 @@ export default function EditEvaluationForm({
           <Link href="/minha-conta/minhas-avaliacoes">
             <button
               type="button"
-              className={`p-2 sm:w-full w-64 ${
-                response.success
-                  ? 'bg-indigo-700 hover:bg-indigo-700'
-                  : 'bg-indigo-700 hover:bg-indigo-700'
-              } w-full flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40`}
+              className={`p-2 sm:w-full w-full flex justify-center rounded-md bg-neutral-200 px-12 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40`}
             >
               Voltar para minhas avaliações
             </button>
@@ -128,7 +124,7 @@ export default function EditEvaluationForm({
         ) : (
           <button
             type="submit"
-            className="flex justify-center rounded-md bg-indigo-700 px-12 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:opacity-40"
+            className="flex justify-center rounded-md bg-neutral-200 px-12 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             onClick={() => setLoading(true)}
           >
             {loading ? <LoadingSpinner /> : 'Editar avaliação'}

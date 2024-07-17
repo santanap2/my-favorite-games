@@ -21,10 +21,10 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
   } = await getUserOrders(email, new URLSearchParams(queryParams).toString())
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0">
+    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
       <title>{`Meus pedidos - ${pageTitle}`}</title>
 
-      <div className="w-full h-full flex flex-col gap-10 text-white sm:gap-6 animation-opacity transition-all">
+      <div className="w-full h-full flex flex-col gap-10 sm:gap-6 animation-opacity transition-all">
         <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
@@ -33,7 +33,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
                 Meus pedidos
               </span>
 
-              <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+              <span className="flex text-base sm:text-sm sm:mt-1">
                 Confira todos os seus pedidos
               </span>
             </div>
@@ -52,7 +52,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
                 <Link href="/minha-conta/meus-pedidos">
                   <button
                     type="button"
-                    className="flex gap-4 items-center justify-center p-4 py-2 bg-indigo-800 rounded-md text-sm font-bold text-white hover:bg-indigo-700 transition-all"
+                    className="flex gap-4 items-center justify-center p-4 py-2 bg-neutral-200 text-neutral-800 rounded-md text-sm font-bold  transition-all"
                   >
                     <ArrowUUpLeft className="text-xl" />
 

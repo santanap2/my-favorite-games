@@ -17,7 +17,7 @@ export default function GameEvaluations({
     evaluations.length
 
   return (
-    <div className="w-full mt-10 text-white border-t border-neutral-700 py-6">
+    <div className="w-full mt-10 text-neutral-200 border-t border-neutral-700 py-6">
       <button
         className="tracking-wide flex gap-2 hover:underline"
         onClick={() => setExpandEvaluationMenu(!expandEvaluationMenu)}

@@ -41,8 +41,8 @@ export default function AddToFavoritesButton({
             },
           },
           cancelButtonStyle: {
-            backgroundColor: 'rgb(79 70 229)',
-            color: 'rgb(255 255 255)',
+            backgroundColor: 'rgb(229 229 229)',
+            color: 'rgb(38 38 38)',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -50,11 +50,11 @@ export default function AddToFavoritesButton({
           },
         })
       }}
-      className="w-14 h-14 bg-indigo-700 rounded-lg text-lg font-bold tracking-wider text-slate-100 flex items-center justify-center relative shadow-sm hover:bg-indigo-600 transition-all sm:h-12 sm:w-12"
+      className="w-14 h-14 bg-neutral-200 text-neutral-800 rounded-lg text-lg font-bold tracking-wider flex items-center justify-center relative shadow-sm  transition-all sm:h-12 sm:w-12"
     >
       <Heart
         weight={isFavorite ? 'fill' : 'bold'}
-        className="text-slate-100 relative text-3xl"
+        className="relative text-3xl"
       />
     </button>
   )

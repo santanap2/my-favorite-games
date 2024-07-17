@@ -40,18 +40,18 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   const shareText = `Confira ${game.name} em ${pageTitle}: ${process.env.NEXTAUTH_URL}/game/${id}`
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full transition-all">
+    <div className="mt-24 xxl:mt-20 w-full h-full transition-all text-neutral-200">
       <title>{`${game.name} - ${pageTitle}`}</title>
 
       <div className="w-full h-full animation-opacity">
-        <div className="flex flex-col gap-1 items-start justify-center w-full text-white pb-5 border-b border-neutral-800">
+        <div className="flex flex-col gap-1 items-start justify-center w-full  pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
                 {game.name}
               </span>
 
-              <div className="flex flex-wrap items-center justify-start text-neutral-500 text-sm sm:text-sm sm:mt-1 gap-1">
+              <div className="flex flex-wrap items-center justify-start text-sm sm:text-sm sm:mt-1 gap-1">
                 <Link
                   href="/"
                   className=" hover:text-neutral-300 hover:underline min-w-fit"
@@ -92,7 +92,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
 
             <div className="flex flex-col justify-start items-start w-full h-full text-neutral-300 gap-2">
               <span className="text-sm">Vendido por: My Fav Games™</span>
-              <div className="text-indigo-700 text-4xl font-black sm:text-3xl">
+              <div className="text-4xl font-black sm:text-3xl">
                 <span>{'R$ '}</span>
                 <span>{priceToBRL(game.price * 0.9)}</span>
               </div>
@@ -116,7 +116,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
                     session={session}
                   />
                 </div>
-                <div className="flex text-neutral-100 items-center justify-end w-full mt-4 gap-2">
+                <div className="flex items-center justify-end w-full mt-4 gap-2">
                   <span className="mr-4 text-sm font-bold flex items-center space-x-2">
                     <ShareNetwork size={24} weight="fill" />
                     <span>Compartilhe:</span>

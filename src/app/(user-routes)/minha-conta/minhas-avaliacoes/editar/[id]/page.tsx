@@ -19,10 +19,10 @@ export default async function EditarAvaliacao({
   const { data } = await getOneUserEvaluation({ email, evaluationId: id })
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
       <title>{`Editar avaliação - ${pageTitle}`}</title>
 
-      <div className=" w-full h-full flex flex-col gap-10 text-white sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
+      <div className=" w-full h-full flex flex-col gap-10 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
         <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
@@ -31,7 +31,7 @@ export default async function EditarAvaliacao({
                 {`Editar avaliação: ${data.evaluation.product.name}`}
               </span>
 
-              <span className="flex text-neutral-500 text-base sm:text-sm sm:mt-1">
+              <span className="flex text-base sm:text-sm sm:mt-1">
                 {`Altere as estrelas e a descrição da sua avaliação de ${data.evaluation.product.name}`}
               </span>
             </div>
