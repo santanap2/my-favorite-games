@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
 import { getServerSession } from 'next-auth'
 import EditEvaluationForm from '@/components/general/EditEvaluationForm'
-import ColorThief from '@/components/ColorThief'
+import ColorThief from '@/components/product/ColorThief'
 
 export default async function EditarAvaliacao({
   params: { id },

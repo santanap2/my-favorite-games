@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
-import ColorThief from '@/components/ColorThief'
+import ColorThief from '@/components/product/ColorThief'
 import { pageTitle } from '@/helpers'
 import { convertFullDate } from '@/helpers/date'
 import { IGameIDParams } from '@/interfaces'

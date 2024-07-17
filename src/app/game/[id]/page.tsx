@@ -19,7 +19,7 @@ import XShare from '@/components/share/XShare'
 import FacebookShare from '@/components/share/FacebookShare'
 import ClipboardShare from '@/components/share/ClipboardShare'
 import GameEvaluations from '@/components/product/GameEvaluations'
-import ColorThief from '@/components/ColorThief'
+import ColorThief from '@/components/product/ColorThief'
 
 export default async function GameId({ params: { id } }: IGameIDParams) {
   const session = await getServerSession(nextAuthOptions)

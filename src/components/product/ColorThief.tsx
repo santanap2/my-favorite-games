@@ -32,6 +32,8 @@ export default function ColorThief({ imageUrl }: { imageUrl: string }) {
         top: 0,
         left: 0,
         zIndex: -1,
+        transform: 'scale(0)',
+        animation: 'growAndFadeIn 1s forwards',
       }}
     />
   )
