@@ -26,7 +26,7 @@ export default async function GameFilters({
   }
 
   return (
-    <div className="md:hidden w-56 h-full flex flex-col pb-6  justify-between items-center text-neutral-200 z-20 px-2 border-r border-neutral-800">
+    <div className="md:hidden w-56 h-full flex flex-col pb-6  justify-between items-center text-neutral-300 z-20 px-2 border-r border-neutral-800">
       <div className="flex flex-col items-center h-full justify-start w-full gap-10">
         <div className="flex flex-col w-full gap-1">
           <div className="w-full flex justify-between items-center pb-2 border-b border-neutral-800 mb-4">
@@ -42,7 +42,7 @@ export default async function GameFilters({
           {categories.map(({ name, namePt }: ICategory) => (
             <Link key={name} href={handleFilters(name)}>
               <button
-                className={`text-left text-neutral-200 px-4 py-2 w-full text-sm font-semibold rounded-md hover:bg-neutral-200 hover:bg-opacity-10 transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-neutral-200 bg-opacity-30'} `}
+                className={`text-left text-neutral-300 px-4 py-2 w-full text-sm font-semibold rounded-md hover:bg-neutral-300 hover:bg-opacity-10 transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-neutral-300 bg-opacity-30'} `}
               >
                 <span>{namePt}</span>
                 {queryParams.includes(name) && (

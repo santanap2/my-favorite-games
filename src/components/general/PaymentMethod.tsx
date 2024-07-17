@@ -92,7 +92,7 @@ export default function PaymentMethod({
   }
 
   return (
-    <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center text-neutral-200">
+    <div className="flex justify-between items-start w-full h-full sm:flex-col sm:gap-4 sm:items-center text-neutral-300">
       <div className="w-[70%] bg-neutral-950 border border-neutral-800 rounded-md shadow-md p-6 flex flex-col gap-4 sm:w-full xl:w-3/5">
         <div
           onClick={() => pickPaymentMethod('pix')}
@@ -224,7 +224,7 @@ export default function PaymentMethod({
         </div>
         <button
           type={paymentMethod.creditCard ? 'submit' : 'button'}
-          className="w-full bg-neutral-200 text-neutral-800 font-bold h-10 rounded-md text-sm shadow-md hover:shadow-lg"
+          className="w-full bg-neutral-300 text-neutral-800 font-bold h-10 rounded-md text-sm shadow-md hover:shadow-lg"
           form="creditCardForm"
           onClick={submitOrder}
         >

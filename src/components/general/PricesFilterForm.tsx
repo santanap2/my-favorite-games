@@ -73,7 +73,7 @@ export default function PricesFilterForm({ searchParams }: ISearchParams) {
     <form
       onSubmit={formSubmit}
       id="lateral-filters"
-      className="w-full flex flex-col gap-3 px-4 text-neutral-200"
+      className="w-full flex flex-col gap-3 px-4 text-neutral-300"
     >
       <h3 className="font-bold text-base">Preço</h3>
 
@@ -114,7 +114,7 @@ export default function PricesFilterForm({ searchParams }: ISearchParams) {
 
       <button
         type="submit"
-        className="flex justify-center rounded-md bg-neutral-200 text-neutral-800 px-20 py-1.5 text-sm font-semibold leading-6 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40 transition-all"
+        className="flex justify-center rounded-md bg-neutral-300 text-neutral-800 px-20 py-1.5 text-sm font-semibold leading-6 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40 transition-all"
       >
         Filtrar
       </button>

@@ -26,7 +26,7 @@ export default function ItemCart({
           <h1 className="font-bold text-base sm:tracking-tight sm:text-sm sm:font-bold">
             {name}
           </h1>
-          <h3 className="text-sm sm:text-xs sm:font-light sm:tracking-tight text-neutral-200">
+          <h3 className="text-sm sm:text-xs sm:font-light sm:tracking-tight text-neutral-300">
             {category.namePt}
           </h3>
         </div>

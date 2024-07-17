@@ -29,7 +29,7 @@ export default async function MinhaConta() {
   const lastBoughtGames = allBoughtGames.slice(0, 12)
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
       <title>{`Resumo - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col items-start justify-start animation-opacity transition-all">

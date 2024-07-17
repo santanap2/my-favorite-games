@@ -27,7 +27,7 @@ export default function ProductCardButton({
     <button
       type={session ? 'submit' : 'button'}
       form="product-card-form"
-      className="flex items-center justify-center h-8 text-sm font-bold text-neutral-800 sm:text-md bg-neutral-200 w-full p-2 rounded-md text-center transition-all duration-300"
+      className="flex items-center justify-center h-8 text-sm font-bold text-neutral-800 sm:text-md bg-neutral-300 w-full p-2 rounded-md text-center transition-all duration-300"
       onMouseEnter={() => {
         setHover(true)
         setHoverPrice(true)
@@ -53,12 +53,12 @@ export default function ProductCardButton({
               await removeItemFromCart({ email, gameId: id.toString() }),
           },
           cancelButtonStyle: {
-            backgroundColor: 'rgb(79 70 229)',
-            color: 'rgb(255 255 255)',
+            backgroundColor: 'rgb(212, 212, 212)',
+            color: 'rgb(38, 38, 38)',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            fontWeight: 'bold',
+            fontWeight: 'bolder',
           },
         })
       }}

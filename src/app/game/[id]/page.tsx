@@ -40,7 +40,7 @@ export default async function GameId({ params: { id } }: IGameIDParams) {
   const shareText = `Confira ${game.name} em ${pageTitle}: ${process.env.NEXTAUTH_URL}/game/${id}`
 
   return (
-    <div className="mt-24 xxl:mt-20 w-full h-full transition-all text-neutral-200">
+    <div className="mt-24 xxl:mt-20 w-full h-full transition-all text-neutral-300">
       <title>{`${game.name} - ${pageTitle}`}</title>
 
       <div className="w-full h-full animation-opacity">

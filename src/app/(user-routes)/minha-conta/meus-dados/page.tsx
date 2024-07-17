@@ -14,7 +14,7 @@ export default async function MeusDados() {
   } = await getUserByEmail(session?.user?.email)
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
+    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
       <title>{`Meus dados - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col gap-10 sm:gap-6">

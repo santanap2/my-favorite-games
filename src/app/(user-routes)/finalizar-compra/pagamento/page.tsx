@@ -13,7 +13,7 @@ export default async function Pagamento() {
   const { data } = await getUserCart(email)
 
   return (
-    <div className="mt-24 xxl:mt-20  w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-neutral-200">
+    <div className="mt-24 xxl:mt-20  w-4/5 flex flex-col gap-10 xxl:w-full sm:gap-6 animation-opacity transition-all text-neutral-300">
       <title>{`Pagamento - ${pageTitle}`}</title>
 
       <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">

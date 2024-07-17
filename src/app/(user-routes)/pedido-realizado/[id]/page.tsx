@@ -16,7 +16,7 @@ export default async function PedidoSucesso({ params: { id } }: IGameIDParams) {
   const { data } = await getOneUserOrder({ id, email })
 
   return (
-    <div className="w-full flex h-full gap-2 mt-24 xxl:mt-20 text-neutral-200">
+    <div className="w-full flex h-full gap-2 mt-24 xxl:mt-20 text-neutral-300">
       <title>{`Pedido realizado - #${id}`}</title>
 
       <div className="w-full h-full flex flex-col items-center justify-center gap-4 animation-opacity transition-all">
@@ -39,7 +39,7 @@ export default async function PedidoSucesso({ params: { id } }: IGameIDParams) {
           <OrderStatus order={data.order} />
           <OrderDetails order={data.order} />
           <Link href={`/minha-conta/meus-pedidos/${id}`}>
-            <button className="mt-6 flex w-full justify-center items-center space-x-3 rounded-md bg-neutral-200 px-3 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40">
+            <button className="mt-6 flex w-full justify-center items-center space-x-3 rounded-md bg-neutral-300 px-3 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40">
               <ListPlus className="text-xl" weight="bold" />
               <span>Ver mais detalhes</span>
             </button>

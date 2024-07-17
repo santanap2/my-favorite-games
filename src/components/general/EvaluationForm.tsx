@@ -74,7 +74,7 @@ export default function EvaluationForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4 text-neutral-200"
+      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4 text-neutral-300"
     >
       <div className="flex flex-col gap-1 w-full">
         <label className="text-sm tracking-wide font-semibold">
@@ -106,7 +106,7 @@ export default function EvaluationForm({
         </label>
         <textarea
           {...register('evaluation.description')}
-          className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-400"
+          className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500"
           maxLength={500}
           id="description"
           placeholder="Escreva aqui sua avaliação"
@@ -118,7 +118,7 @@ export default function EvaluationForm({
           <Link href="/minha-conta/minhas-avaliacoes">
             <button
               type="button"
-              className={`p-2 sm:w-full w-full flex justify-center rounded-md bg-neutral-200 px-12 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40`}
+              className={`p-2 sm:w-full w-full flex justify-center rounded-md bg-neutral-300 px-12 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40`}
             >
               Voltar para minhas avaliações
             </button>
@@ -126,7 +126,7 @@ export default function EvaluationForm({
         ) : (
           <button
             type="submit"
-            className="flex justify-center rounded-md bg-neutral-200 px-12 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+            className="flex justify-center rounded-md bg-neutral-300 px-12 py-1.5 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             onClick={() => setLoading(true)}
           >
             {loading ? <LoadingSpinner /> : 'Avaliar produto'}

@@ -18,7 +18,7 @@ export default function CreditCardForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="flex flex-col gap-3 cursor-default mt-3 text-neutral-200"
+      className="flex flex-col gap-3 cursor-default mt-3 text-neutral-300"
       id="creditCardForm"
     >
       <div>

@@ -68,7 +68,7 @@ export default function EvaluationCard({
           </div>
 
           <button
-            className="flex xs:w-fit xs:text-xs w-48 justify-center rounded-md bg-neutral-200 px-3 py-1 sm:px-1 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all"
+            className="flex xs:w-fit xs:text-xs w-48 justify-center rounded-md bg-neutral-300 px-3 py-1 sm:px-1 text-sm font-semibold leading-6 text-neutral-800 shadow-sm  transition-all"
             onClick={() => {
               alreadyEvaluated
                 ? router.push(

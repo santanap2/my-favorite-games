@@ -15,7 +15,7 @@ export default function RedefinirSenha() {
     RedefinirSenhaHooks()
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-200">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-300">
       <title>{`Entrar - ${pageTitle}`}</title>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -65,7 +65,7 @@ export default function RedefinirSenha() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-neutral-200 text-neutral-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+              className="flex w-full justify-center rounded-md bg-neutral-300 text-neutral-800 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
               disabled={!!registerResponse.success}
             >
               Enviar

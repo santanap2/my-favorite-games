@@ -22,7 +22,7 @@ export default function FormHeader() {
       <input
         {...register('headerSearch.headerInput')}
         type="text"
-        className="bg-neutral-900 bg-opacity-40 w-full outline-none block rounded-full border-0 py-1.5 px-3 pr-10 text-neutral-200 shadow-sm ring-1 ring-inset ring-neutral-700 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+        className="bg-neutral-900 bg-opacity-40 w-full outline-none block rounded-full border-0 py-1.5 px-3 pr-10 text-neutral-300 shadow-sm ring-1 ring-inset ring-neutral-700 placeholder:text-neutral-500 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
         placeholder="Qual jogo procura?"
       />
       <button

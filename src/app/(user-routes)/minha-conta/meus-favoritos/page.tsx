@@ -19,7 +19,7 @@ export default async function MeusFavoritos() {
     <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0">
       <title>{`Meus favoritos - ${pageTitle}`}</title>
 
-      <div className=" w-full h-full flex flex-col gap-10 text-neutral-200 sm:gap-6 animation-opacity transition-all">
+      <div className=" w-full h-full flex flex-col gap-10 text-neutral-300 sm:gap-6 animation-opacity transition-all">
         <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">

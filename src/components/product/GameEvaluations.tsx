@@ -17,7 +17,7 @@ export default function GameEvaluations({
     evaluations.length
 
   return (
-    <div className="w-full mt-10 text-neutral-200 border-t border-neutral-700 py-6">
+    <div className="w-full mt-10 text-neutral-300 border-t border-neutral-700 py-6">
       <button
         className="tracking-wide flex gap-2 hover:underline"
         onClick={() => setExpandEvaluationMenu(!expandEvaluationMenu)}
@@ -32,7 +32,7 @@ export default function GameEvaluations({
                 className={`text-xl ${index < Math.floor(starsAverage) ? 'text-yellow-600' : 'text-neutral-800'}`}
               />
             ))}
-            <span className="ml-2 text-sm font-normal text-neutral-400 hover:no-underline">{`(${evaluations.length === 0 ? '0' : starsAverage.toFixed(1)})`}</span>
+            <span className="ml-2 text-sm font-normal text-neutral-500 hover:no-underline">{`(${evaluations.length === 0 ? '0' : starsAverage.toFixed(1)})`}</span>
           </span>
         </span>
         {expandEvaluationMenu ? (

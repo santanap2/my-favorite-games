@@ -21,7 +21,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
   } = await getUserOrders(email, new URLSearchParams(queryParams).toString())
 
   return (
-    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
+    <div className="w-full h-full  border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
       <title>{`Meus pedidos - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col gap-10 sm:gap-6 animation-opacity transition-all">
@@ -52,7 +52,7 @@ export default async function MeusPedidos({ searchParams }: ISearchParams) {
                 <Link href="/minha-conta/meus-pedidos">
                   <button
                     type="button"
-                    className="flex gap-4 items-center justify-center p-4 py-2 bg-neutral-200 text-neutral-800 rounded-md text-sm font-bold  transition-all"
+                    className="flex gap-4 items-center justify-center p-4 py-2 bg-neutral-300 text-neutral-800 rounded-md text-sm font-bold  transition-all"
                   >
                     <ArrowUUpLeft className="text-xl" />
 

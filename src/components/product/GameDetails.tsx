@@ -96,7 +96,7 @@ export default function GameDetails({
               loop: false,
             }}
           >
-            <CarouselPrevious className="text-neutral-200 -950 bg-neutral-200 bg-opacity-30 border-none rounded-full p-2 absolute top-auto left-0" />
+            <CarouselPrevious className="text-neutral-300 -950 bg-neutral-300 bg-opacity-30 border-none rounded-full p-2 absolute top-auto left-0" />
 
             <CarouselContent className="w-full -ml-4">
               {similarGames
@@ -123,7 +123,7 @@ export default function GameDetails({
                 ))}
             </CarouselContent>
 
-            <CarouselNext className="text-neutral-200 -950 bg-neutral-200 bg-opacity-30 border-none rounded-full p-2 absolute top-auto right-0" />
+            <CarouselNext className="text-neutral-300 -950 bg-neutral-300 bg-opacity-30 border-none rounded-full p-2 absolute top-auto right-0" />
           </Carousel>
         )}
       </div>

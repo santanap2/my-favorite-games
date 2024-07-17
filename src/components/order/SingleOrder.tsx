@@ -65,7 +65,7 @@ export default function SingleOrder({
   return (
     <div
       key={orderNumber}
-      className="w-full h-28 md:h-fit md:py-4 bg-neutral-950 border border-neutral-900 py-1 px-4 rounded-md shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative text-neutral-200"
+      className="w-full h-28 md:h-fit md:py-4 bg-neutral-950 border border-neutral-900 py-1 px-4 rounded-md shadow-sm flex justify-between items-center xxl:px-1 xxl:justify-center xxl:flex-col xxl:gap-2 xxl:pb-1 relative text-neutral-300"
     >
       <table className="w-5/6 xxl:w-full">
         <thead className="w-full">

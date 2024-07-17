@@ -14,7 +14,7 @@ export default function Cadastro() {
   const { errors, handleFormSubmit, handleSubmit, register } = CadastroHooks()
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-200">
+    <div className="flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8 mt-12 w-full text-neutral-300">
       <title>{`Cadastre-se - ${pageTitle}`}</title>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
@@ -201,7 +201,7 @@ export default function Cadastro() {
 
           <button
             type="submit"
-            className="mt-4 flex w-full justify-center rounded-md bg-neutral-200 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+            className="mt-4 flex w-full justify-center rounded-md bg-neutral-300 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             disabled={!!registerResponse.success}
           >
             {loading.registerUser ? (

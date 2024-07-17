@@ -50,7 +50,7 @@ export default function GameFiltersMobile({
         unmountOnExit
       >
         <aside
-          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0  flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm py-6 justify-between items-center text-neutral-200 z-50 px-2 border-r border-neutral-800"
+          className="hidden md:flex w-56 fixed left-0 top-14 bottom-0  flex-col h-full bg-neutral-950 bg-opacity-90 backdrop-blur-sm py-6 justify-between items-center text-neutral-300 z-50 px-2 border-r border-neutral-800"
           ref={nodeRef}
         >
           <div className="flex flex-col items-center h-full justify-start w-full gap-10 overflow-y-auto">
@@ -68,7 +68,7 @@ export default function GameFiltersMobile({
               {categories.map(({ name, namePt }: ICategory) => (
                 <Link key={name} href={handleFilters(name)}>
                   <button
-                    className={`text-left px-4 py-2 w-full text-sm font-semibold rounded-md transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-neutral-200 bg-opacity-30'} `}
+                    className={`text-left px-4 py-2 w-full text-sm font-semibold rounded-md transition-all flex items-center justify-between ${queryParams.includes(name) && 'bg-neutral-300 bg-opacity-30'} `}
                   >
                     <span>{namePt}</span>
                     {queryParams.includes(name) && (

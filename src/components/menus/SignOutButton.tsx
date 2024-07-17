@@ -10,7 +10,7 @@ export default function SignOutButton() {
       className="flex gap-2"
       onClick={() => signOut({ redirect: true, callbackUrl: '/home' })}
     >
-      <SignOut weight="regular" className="text-xl" />
+      <SignOut weight="regular" className="text-lg" />
       <span>Sair</span>
     </button>
   )

@@ -16,7 +16,7 @@ export default async function FinalizarCompra() {
   const { data } = await getUserCart(email)
 
   return (
-    <div className="w-4/5 flex h-full mt-24 xxl:mt-20 flex-col gap-12 xxl:w-full lg:gap-6 text-neutral-200">
+    <div className="w-4/5 flex h-full mt-24 xxl:mt-20 flex-col gap-12 xxl:w-full lg:gap-6 text-neutral-300">
       <title>{`Finalizar compra - ${pageTitle}`}</title>
 
       <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-neutral-800">
@@ -118,7 +118,7 @@ export default async function FinalizarCompra() {
             <Link href="/finalizar-compra/pagamento">
               <button
                 type="button"
-                className={`w-full bg-neutral-200 text-neutral-800 py-2 rounded-md text-sm font-bold shadow-md  transition-all lg:px-4`}
+                className={`w-full bg-neutral-300 text-neutral-800 py-2 rounded-md text-sm font-bold shadow-md  transition-all lg:px-4`}
               >
                 Ir para o pagamento
               </button>

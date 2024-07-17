@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/auth'
+import ColorThief from '@/components/ColorThief'
 import { pageTitle } from '@/helpers'
 import { convertFullDate } from '@/helpers/date'
 import { IGameIDParams } from '@/interfaces'
@@ -18,7 +19,7 @@ export default async function MinhasAvaliacoesId({
   const { data } = await getOneUserEvaluation({ email, evaluationId: id })
 
   return (
-    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-200">
+    <div className="w-full h-full border-l border-neutral-800 pl-4 md:border-none md:pl-0 text-neutral-300">
       <title>{`Minha avaliação: ${data.evaluation.product.name} - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col gap-10 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
@@ -43,11 +44,14 @@ export default async function MinhasAvaliacoesId({
               href={`/game/${data.evaluation.product.id}`}
               className="text-xl tracking-wide font-light"
             >
-              <img
-                src={data.evaluation.product.image}
-                alt={data.evaluation.product.name}
-                className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96 min-w-[300px] md:min-w-[288px]"
-              />
+              <div className="relative w-[300px] h-[400px] min-w-[300px] min-h-[400px]">
+                <img
+                  src={data.evaluation.product.image}
+                  alt={data.evaluation.product.name}
+                  className="w-[300px] h-[400px] rounded-md shadow-md object-cover md:w-72 md:h-96 min-w-[300px] md:min-w-[288px]"
+                />
+                <ColorThief imageUrl={data.evaluation.product.image} />
+              </div>
             </Link>
 
             <div className="w-full h-full px-2 flex flex-col justify-between items-start gap-4">
@@ -89,7 +93,7 @@ export default async function MinhasAvaliacoesId({
                 </span>
 
                 {data.evaluation.description ? (
-                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-400">
+                  <div className="border border-neutral-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-neutral-950 placeholder:text-neutral-500">
                     <span className="text-sm tracking-wide">
                       {data.evaluation.description}
                     </span>
@@ -105,7 +109,7 @@ export default async function MinhasAvaliacoesId({
               <Link href={`/minha-conta/minhas-avaliacoes/editar/${id}`}>
                 <button
                   type="button"
-                  className="flex justify-center rounded-md bg-neutral-200 text-neutral-800 px-12 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+                  className="flex justify-center rounded-md bg-neutral-300 text-neutral-800 px-12 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
                 >
                   Editar avaliação
                 </button>
