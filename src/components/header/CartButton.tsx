@@ -16,10 +16,10 @@ export default async function CartButton({
     >
       <button
         type="submit"
-        className="relative hover:bg-stone-200 hover:bg-opacity-10 p-2 sm:p-0 rounded-md"
+        className="relative hover:bg-zinc-200 hover:bg-opacity-10 p-2 sm:p-0 rounded-md"
       >
         <ShoppingBagOpen weight="regular" className="text-2xl" />
-        <span className="bg-stone-300 font-extrabold sm:font-bold text-xs sm:text-xs text-stone-800 rounded-full w-5 h-5 sm:w-4 sm:h-4 p-1 flex justify-center items-center absolute top-0 -right-1 sm:-top-2 sm:-right-2">
+        <span className="bg-zinc-300 font-extrabold sm:font-bold text-xs sm:text-xs text-zinc-800 rounded-full w-5 h-5 sm:w-4 sm:h-4 p-1 flex justify-center items-center absolute top-0 -right-1 sm:-top-2 sm:-right-2">
           {cartLength}
         </span>
       </button>

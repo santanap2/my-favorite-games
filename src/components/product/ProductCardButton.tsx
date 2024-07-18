@@ -27,7 +27,7 @@ export default function ProductCardButton({
     <button
       type={session ? 'submit' : 'button'}
       form="product-card-form"
-      className="flex items-center justify-center h-8 text-sm font-bold text-stone-800 sm:text-md bg-stone-300 w-full p-2 rounded-md text-center transition-all duration-300"
+      className="flex items-center justify-center h-8 text-sm font-bold text-zinc-800 sm:text-md bg-zinc-300 w-full p-2 rounded-md text-center transition-all duration-300"
       onMouseEnter={() => {
         setHover(true)
         setHoverPrice(true)

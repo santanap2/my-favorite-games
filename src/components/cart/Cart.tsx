@@ -35,10 +35,10 @@ export default async function Cart({
 
   return (
     <Sheet>
-      <SheetTrigger className="h-full flex items-center justify-center relative transition-all text-stone-300">
+      <SheetTrigger className="h-full flex items-center justify-center relative transition-all text-zinc-300">
         <CartButton cartLength={cartLength} />
       </SheetTrigger>
-      <SheetContent className="fixed z-50 right-0 top-0 bottom-0 h-dvh w-[480px] bg-stone-950 bg-opacity-80 backdrop-blur-sm border-l border-stone-800 text-stone-300 py-6 pl-6 shadow-2xl flex flex-col justify-start gap-0 sm:w-[85%] sm:py-3 sm:px-3">
+      <SheetContent className="fixed z-50 right-0 top-0 bottom-0 h-dvh w-[480px] bg-zinc-950 bg-opacity-80 backdrop-blur-sm border-l border-zinc-800 text-zinc-300 py-6 pl-6 shadow-2xl flex flex-col justify-start gap-0 sm:w-[85%] sm:py-3 sm:px-3">
         <SheetHeader>
           <SheetTitle className="tracking-wider font-black text-base text-start w-full">
             Carrinho

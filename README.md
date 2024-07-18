@@ -1,4 +1,4 @@
-# <img src="public/logo-min.png" alt="Logo do Projeto" width="28" height="28"> My Favorite Games
+# <img src="public/logo-min.png" alt="Logo" width="32" height="32"> My Favorite Games
 
 O My Favorite Games é um projeto pessoal fictício de um e-commerce para compra de jogos online.
 
@@ -7,7 +7,7 @@ Toda a aplicação é alimentada por uma [API](https://github.com/santanap2/gami
 
 [Acesse agora o My Favorite Games](https://myfavgames.vercel.app/)
 
-
+<img src="public/readme/site.png" alt="Overview do site" width="768" height="432">
 
 ## Fluxo da aplicação
 
@@ -20,13 +20,13 @@ O cabeçalho é um item fixo do site, ele é exibido em todas as páginas da apl
 5) Em dispositivos mobile, um botão de lista no canto esquerdo do cabeçalho é exibido para abrir o menu lateral. Se o usuário estiver na rota "/home", o botão abrirá o menu de filtros da página inicial, se estiver em qualquer rota referente a "/minha-conta" abrirá o menu com as páginas do usuário e um botão para fazer logout.
 
 
-### Página inicial (/home)
+### Página inicial
 1) São exibidos jogos disponíveis para compra a partir de uma requisição feita para a API, com paginação exibindo 24 itens por página.
 2) Cada card dos jogos possui imagem, nome, categoria e um botão contendo o preço do produto. Ao passar o mouse por cima do botão é exibido o ícone de adicionar ao carrinho e ao clicar no botão o item é adicionado somente se o usuário estiver autenticado. Caso contrário, ocorre um redirecionamento para a página de Login.
 3) O usuário pode filtrar os jogos pela categoria, preço mínimo e preço máximo. Os filtros não se sobrepõem, ou seja, é possível selecionar quantos filtros o usuário desejar ao mesmo tempo.
 
 
-### Página do produto (/game/id)
+### Página do produto
 1) No topo são exibidos o nome do jogo e botões que direcionam para a página inicial e para a categoria que o jogo pertence.
 2) Abaixo são exibidos a capa do jogo e as condições de pagamento. Pouco abaixo, há um botão para comprar agora (esvazia todo o carrinho e adiciona apenas esse jogo), botão para adicionar ao carrinho e botão para adicionar/remover dos favoritos. O botão de favorito ficará preenchido se o jogo estiver nos favoritos do usuário. Todos esses três botões requerem autenticação do usuário.
 3) Lateralmente (ou abaixo, a depender do tamanho da tela), são exibidos detalhes do jogo, como sua descrição fornecida pela publicadora e jogos similares também disponíveis para a venda.
@@ -121,18 +121,20 @@ O cabeçalho é um item fixo do site, ele é exibido em todas as páginas da apl
 2) A nota (estrelas) e a descrição ao carregar a página serão as que o usuário forneceu previamente em sua avaliação.
 3) Ao clicar no botão "Editar avaliação", os campos serão validada e a avaliação feita. Posteriormente, haverá um feedback para o usuário em caso de sucesso ou erro e o botão exibirá a frase "Voltar para minhas avaliações" em caso de sucesso.
 
-### Tecnologias utilizadas
-Principais
+## Tecnologias utilizadas
+### Principais:
   - ReactJS;
   - NextJS 14;
   - Typescript;
   - Next Auth: autenticação de usuário.
-Estilização
+    
+### Estilização:
   - TailwindCSS;
   - Phosphor Icons e Lucide-React: ícones da aplicação;
   - Shadcn UI: alguns componentes visuais;
   - React-Transition-Group: animação de menus laterais;
-Outros
+    
+### Outros:
   - Axios: requisições para a API;
   - React-Hook-Form e Zod: validação de formulários;
   - Context API: gerenciamento de estado global;

@@ -29,7 +29,7 @@ export default function FormOrdersSelect({ searchParams }: ISearchParams) {
         <select
           name=""
           id="filters"
-          className="h-10 rounded-md px-3 focus:outline-none text-stone-300 hover:shadow-lg w-60 text-left text-sm font-light bg-stone-950 border border-stone-900 shadow-md"
+          className="h-10 rounded-md px-3 focus:outline-none text-zinc-300 hover:shadow-lg w-60 text-left text-sm font-light bg-zinc-950 border border-zinc-900 shadow-md"
           onChange={({ target: { value } }) =>
             router.push(`/minha-conta/meus-pedidos?filter=${value}`)
           }

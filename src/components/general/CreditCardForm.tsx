@@ -18,7 +18,7 @@ export default function CreditCardForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="flex flex-col gap-3 cursor-default mt-3 text-stone-300"
+      className="flex flex-col gap-3 cursor-default mt-3 text-zinc-300"
       id="creditCardForm"
     >
       <div>
@@ -44,8 +44,8 @@ export default function CreditCardForm({
           className={`${
             errors.cardData?.cardNumber
               ? 'ring-red-800 ring-opacity-60'
-              : 'ring-stone-600'
-          } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+              : 'ring-zinc-600'
+          } bg-zinc-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-zinc-600 placeholder:text-zinc-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
         />
         {errors.cardData?.cardNumber && (
           <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -76,8 +76,8 @@ export default function CreditCardForm({
           className={`${
             errors.cardData?.cardName
               ? 'ring-red-800 ring-opacity-60'
-              : 'ring-stone-600'
-          } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+              : 'ring-zinc-600'
+          } bg-zinc-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-zinc-600 placeholder:text-zinc-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
         />
         {errors.cardData?.cardNumber && (
           <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -110,8 +110,8 @@ export default function CreditCardForm({
             className={`${
               errors.cardData?.cardDate
                 ? 'ring-red-800 ring-opacity-60'
-                : 'ring-stone-600'
-            } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-zinc-600'
+            } bg-zinc-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-zinc-600 placeholder:text-zinc-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.cardData?.cardNumber && (
             <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -143,8 +143,8 @@ export default function CreditCardForm({
             className={`${
               errors.cardData?.cardDate
                 ? 'ring-red-800 ring-opacity-60'
-                : 'ring-stone-600'
-            } bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
+                : 'ring-zinc-600'
+            } bg-zinc-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-zinc-600 placeholder:text-zinc-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6`}
           />
           {errors.cardData?.cardNumber && (
             <span className="text-sm font-light text-red-800 hidden xl:flex">
@@ -165,7 +165,7 @@ export default function CreditCardForm({
           {...register('cardData.cardPortions')}
           id="card-portions"
           placeholder="1x de R$ 499,90"
-          className="bg-stone-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-stone-600 placeholder:text-stone-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+          className="bg-zinc-950 outline-none block w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-zinc-600 placeholder:text-zinc-700 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
         >
           <option value="1" className="rounded-md py-4 h-10">
             {`1x sem juros de R$ ${priceToBRL(calcSum(cart.products).number)}`}

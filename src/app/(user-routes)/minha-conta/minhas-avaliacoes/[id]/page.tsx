@@ -19,11 +19,11 @@ export default async function MinhasAvaliacoesId({
   const { data } = await getOneUserEvaluation({ email, evaluationId: id })
 
   return (
-    <div className="w-full h-full border-l border-stone-800 pl-4 md:border-none md:pl-0 text-stone-300">
+    <div className="w-full h-full border-l border-zinc-800 pl-4 md:border-none md:pl-0 text-zinc-300">
       <title>{`Minha avaliação: ${data.evaluation.product.name} - ${pageTitle}`}</title>
 
       <div className="w-full h-full flex flex-col gap-10 sm:gap-6 xxl:justify-center xxl:items-center animation-opacity transition-all">
-        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-stone-800">
+        <div className="flex flex-col gap-1 items-start justify-center w-full pb-5 border-b border-zinc-800">
           <div className="flex gap-1 items-center justify-center w-full">
             <div className="flex flex-col w-full h-full text-base">
               <span className="font-extrabold text-2xl sm:text-lg flex gap-2 items-center justify-center w-fit">
@@ -79,7 +79,7 @@ export default async function MinhasAvaliacoesId({
                       className={`${
                         index < data.evaluation.stars
                           ? 'text-yellow-500'
-                          : 'text-stone-600'
+                          : 'text-zinc-600'
                       } text-2xl`}
                     />
                   ))}
@@ -93,13 +93,13 @@ export default async function MinhasAvaliacoesId({
                 </span>
 
                 {data.evaluation.description ? (
-                  <div className="border border-stone-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-stone-950 placeholder:text-stone-500">
+                  <div className="border border-zinc-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-zinc-950 placeholder:text-zinc-500">
                     <span className="text-sm tracking-wide">
                       {data.evaluation.description}
                     </span>
                   </div>
                 ) : (
-                  <div className="border border-stone-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-stone-950">
+                  <div className="border border-zinc-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-zinc-950">
                     <span className="text-sm tracking-wide text-red-800">
                       Você não forneceu nenhuma descrição para o produto.
                     </span>
@@ -109,7 +109,7 @@ export default async function MinhasAvaliacoesId({
               <Link href={`/minha-conta/minhas-avaliacoes/editar/${id}`}>
                 <button
                   type="button"
-                  className="flex justify-center rounded-md bg-stone-300 text-stone-800 px-12 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+                  className="flex justify-center rounded-md bg-zinc-300 text-zinc-800 px-12 py-1.5 text-sm font-semibold leading-6 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
                 >
                   Editar avaliação
                 </button>

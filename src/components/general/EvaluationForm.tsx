@@ -74,7 +74,7 @@ export default function EvaluationForm({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4 text-stone-300"
+      className="w-full h-full px-2 flex flex-col justify-between items-start gap-4 text-zinc-300"
     >
       <div className="flex flex-col gap-1 w-full">
         <label className="text-sm tracking-wide font-semibold">
@@ -87,7 +87,7 @@ export default function EvaluationForm({
               key={index}
               weight={index < stars ? 'fill' : 'duotone'}
               className={`${
-                index < stars ? 'text-amber-500' : 'text-stone-700'
+                index < stars ? 'text-amber-500' : 'text-zinc-700'
               } text-2xl cursor-pointer`}
               onClick={() => setStars(index + 1)}
             />
@@ -106,7 +106,7 @@ export default function EvaluationForm({
         </label>
         <textarea
           {...register('evaluation.description')}
-          className="border border-stone-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-stone-950 placeholder:text-stone-500"
+          className="border border-zinc-800 rounded-md p-2 w-full resize-none h-40 sm:h-80 md:h-60 focus:outline-none focus:shadow-md bg-zinc-950 placeholder:text-zinc-500"
           maxLength={500}
           id="description"
           placeholder="Escreva aqui sua avaliação"
@@ -118,7 +118,7 @@ export default function EvaluationForm({
           <Link href="/minha-conta/minhas-avaliacoes">
             <button
               type="button"
-              className={`p-2 sm:w-full w-full flex justify-center rounded-md bg-stone-300 px-12 py-1.5 text-sm font-semibold leading-6 text-stone-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40`}
+              className={`p-2 sm:w-full w-full flex justify-center rounded-md bg-zinc-300 px-12 py-1.5 text-sm font-semibold leading-6 text-zinc-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40`}
             >
               Voltar para minhas avaliações
             </button>
@@ -126,7 +126,7 @@ export default function EvaluationForm({
         ) : (
           <button
             type="submit"
-            className="flex justify-center rounded-md bg-stone-300 px-12 py-1.5 text-sm font-semibold leading-6 text-stone-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
+            className="flex justify-center rounded-md bg-zinc-300 px-12 py-1.5 text-sm font-semibold leading-6 text-zinc-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             onClick={() => setLoading(true)}
           >
             {loading ? <LoadingSpinner colored /> : 'Avaliar produto'}

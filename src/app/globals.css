@@ -360,7 +360,7 @@ input[type=number] {
 
 .background {
   /* background: linear-gradient(180deg, var(--neutral800) 1%, var(--neutral950) 60%); */
-   background: radial-gradient(circle 900px at center bottom, var(--stone800), var(--stone950));
+   background: radial-gradient(circle 900px at center bottom, var(--zinc800), var(--zinc950));
    background-position: center center;
    background-size: cover;
    background-attachment: fixed;

@@ -21,7 +21,7 @@ export default function EvaluationsGame({
           }: IEvaluation) => (
             <div
               key={id}
-              className="w-full h-fit bg-stone-950 border border-stone-800 p-4 rounded-md shadow-md text-base text-stone-300 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit"
+              className="w-full h-fit bg-zinc-950 border border-zinc-800 p-4 rounded-md shadow-md text-base text-zinc-300 flex flex-col gap-6 tracking-wide sm:p-5 lg:w-full lg:h-fit"
             >
               <div className="flex flex-col">
                 <h1 className="font-bold">{name}</h1>

@@ -17,7 +17,7 @@ export default function FormHeaderMobile() {
       <input
         {...registerMobile('headerMobileSearch.headerMobileInput')}
         type="text"
-        className="bg-stone-900 bg-opacity-40 w-56 outline-none block rounded-full border-0 py-1.5 px-4 pr-10 text-stone-300 shadow-sm ring-1 ring-inset ring-stone-700 placeholder:text-stone-500 focus:ring-2 focus:ring-inset focus:ring-white text-sm leading-6"
+        className="bg-zinc-900 bg-opacity-40 w-56 outline-none block rounded-full border-0 py-1.5 px-4 pr-10 text-zinc-300 shadow-sm ring-1 ring-inset ring-zinc-700 placeholder:text-zinc-500 focus:ring-2 focus:ring-inset focus:ring-white text-sm leading-6"
         placeholder="Qual jogo procura?"
       />
       <button type="submit" className="absolute right-2 bg-transparent">

@@ -46,7 +46,7 @@ export default function AddToCartButton({
           },
         })
       }}
-      className="w-14 h-14 bg-stone-300 rounded-lg text-lg font-bold uppercase tracking-wider text-stone-800 flex items-center justify-center relative shadow-sm  transition-all sm:h-12 sm:w-12"
+      className="w-14 h-14 bg-zinc-300 rounded-lg text-lg font-bold uppercase tracking-wider text-zinc-800 flex items-center justify-center relative shadow-sm  transition-all sm:h-12 sm:w-12"
     >
       <ShoppingBagOpen weight="bold" className="relative text-3xl" />
       <PlusCircle

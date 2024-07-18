@@ -50,8 +50,8 @@ export default function GameDetails({
   }
 
   return (
-    <div className="text-stone-300 h-full flex flex-col xxl:max-w-4xl max-w-2xl w-full">
-      <div className="w-full border-b border-stone-700 py-6">
+    <div className="text-zinc-300 h-full flex flex-col xxl:max-w-4xl max-w-2xl w-full">
+      <div className="w-full border-b border-zinc-700 py-6">
         <button
           className="tracking-wide flex gap-2 hover:underline"
           onClick={() => clickExpandMenu('description')}
@@ -96,7 +96,7 @@ export default function GameDetails({
               loop: false,
             }}
           >
-            <CarouselPrevious className="text-stone-300 -950 bg-stone-300 bg-opacity-30 border-none rounded-full p-2 absolute top-auto left-0" />
+            <CarouselPrevious className="text-zinc-300 -950 bg-zinc-300 bg-opacity-30 border-none rounded-full p-2 absolute top-auto left-0" />
 
             <CarouselContent className="w-full -ml-4">
               {similarGames
@@ -123,7 +123,7 @@ export default function GameDetails({
                 ))}
             </CarouselContent>
 
-            <CarouselNext className="text-stone-300 -950 bg-stone-300 bg-opacity-30 border-none rounded-full p-2 absolute top-auto right-0" />
+            <CarouselNext className="text-zinc-300 -950 bg-zinc-300 bg-opacity-30 border-none rounded-full p-2 absolute top-auto right-0" />
           </Carousel>
         )}
       </div>

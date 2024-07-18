@@ -45,7 +45,7 @@ export default async function Header() {
   const data = await result.json()
 
   return (
-    <header className="md:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-stone-950 bg-opacity-80 border-b border-stone-800 backdrop-blur-sm text-stone-300 px-6 pr-8">
+    <header className="md:hidden w-screen h-14 flex items-center justify-between fixed left-0 top-0 z-30 bg-zinc-950 bg-opacity-80 border-b border-zinc-800 backdrop-blur-sm text-zinc-300 px-6 pr-8">
       <div className="flex items-center justify-start lg:space-x-2 space-x-4 w-96">
         <Link href="/home">
           <img
@@ -56,7 +56,7 @@ export default async function Header() {
         </Link>
         <Link
           href="/home"
-          className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md"
+          className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md"
         >
           <HouseSimple
             weight="regular"
@@ -72,7 +72,7 @@ export default async function Header() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={`${!session ? 'text-transparent' : 'hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md hover:text-stone-300'} mr-1`}
+                className={`${!session ? 'text-transparent' : 'hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md hover:text-zinc-300'} mr-1`}
               >
                 <MyAccountHeaderButton
                   session={session}
@@ -80,10 +80,10 @@ export default async function Header() {
                 />
               </NavigationMenuTrigger>
               {session && (
-                <NavigationMenuContent className="w-44 shadow-md bg-stone-950 border border-stone-800 flex flex-col gap-1 rounded-md p-1 mr-20 text-xs font-semibold">
+                <NavigationMenuContent className="w-44 shadow-md bg-zinc-950 border border-zinc-800 flex flex-col gap-1 rounded-md p-1 mr-20 text-xs font-semibold">
                   <Link
                     href={links.myAccount}
-                    className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
+                    className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <User weight="regular" className="text-lg" />
@@ -93,7 +93,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myOrders}
-                    className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
+                    className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <Bag weight="regular" className="text-lg" />
@@ -103,7 +103,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myData}
-                    className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
+                    className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <IdentificationCard
@@ -116,7 +116,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myGames}
-                    className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
+                    className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <GameController weight="regular" className="text-lg" />
@@ -126,7 +126,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myFavorites}
-                    className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
+                    className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <Heart weight="regular" className="text-lg" />
@@ -136,7 +136,7 @@ export default async function Header() {
 
                   <Link
                     href={links.myEvaluations}
-                    className="hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
+                    className="hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all"
                   >
                     <NavigationMenuLink className="flex gap-2">
                       <ThumbsUp weight="regular" className="text-lg" />
@@ -144,7 +144,7 @@ export default async function Header() {
                     </NavigationMenuLink>
                   </Link>
 
-                  <NavigationMenuLink className="flex gap-2 hover:text-red-600 hover:bg-stone-300 hover:bg-opacity-10 p-2 rounded-md transition-all">
+                  <NavigationMenuLink className="flex gap-2 hover:text-red-600 hover:bg-zinc-300 hover:bg-opacity-10 p-2 rounded-md transition-all">
                     <SignOutButton />
                   </NavigationMenuLink>
                 </NavigationMenuContent>
