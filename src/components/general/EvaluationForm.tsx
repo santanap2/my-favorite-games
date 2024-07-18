@@ -129,7 +129,7 @@ export default function EvaluationForm({
             className="flex justify-center rounded-md bg-stone-300 px-12 py-1.5 text-sm font-semibold leading-6 text-stone-800 shadow-sm  transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40"
             onClick={() => setLoading(true)}
           >
-            {loading ? <LoadingSpinner /> : 'Avaliar produto'}
+            {loading ? <LoadingSpinner colored /> : 'Avaliar produto'}
           </button>
         )}
 

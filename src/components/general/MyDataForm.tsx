@@ -215,7 +215,11 @@ export default function MyDataForm({
         className="flex justify-center rounded-md bg-stone-300 text-stone-800 px-20 py-1.5 text-sm font-semibold leading-6  shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-40 transition-all"
         disabled={!!userDataResponse.success}
       >
-        {loading.updateUserData ? <LoadingSpinner /> : 'Atualizar dados'}
+        {loading.updateUserData ? (
+          <LoadingSpinner colored />
+        ) : (
+          'Atualizar dados'
+        )}
       </button>
 
       {userDataResponse.success && (

@@ -206,8 +206,7 @@ export default function Cadastro() {
           >
             {loading.registerUser ? (
               <span className="flex items-center justify-center w-full gap-4">
-                <LoadingSpinner />
-                <span>Carregando...</span>
+                <LoadingSpinner colored />
               </span>
             ) : (
               'Cadastrar'
