@@ -4,7 +4,7 @@ O My Favorite Games é um projeto pessoal fictício de um e-commerce para compra
 
 Toda a aplicação é alimentada por uma [API](https://github.com/santanap2/my-favorite-games-api) também desenvolvida por mim exclusivamente para essa aplicação, visando suprir suas necessidades.
 
-[Acesse agora o My Favorite Games](https://myfavgames.vercel.app/)
+[Acesse agora o My Favorite Games](https://myfavoritegames.vercel.app/)
 
 <img src="public/readme/site.png" alt="Overview do site" width="768" height="432">
 
