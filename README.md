@@ -2,12 +2,34 @@
 
 O My Favorite Games é um projeto pessoal fictício de um e-commerce para compra de jogos online.
 
-Toda a aplicação é alimentada por uma [API](https://github.com/santanap2/gaming-ecommerce-api) também desenvolvida por mim exclusivamente para essa aplicação, visando suprir suas necessidades.
-
+Toda a aplicação é alimentada por uma [API](https://github.com/santanap2/my-favorite-games-api) também desenvolvida por mim exclusivamente para essa aplicação, visando suprir suas necessidades.
 
 [Acesse agora o My Favorite Games](https://myfavgames.vercel.app/)
 
 <img src="public/readme/site.png" alt="Overview do site" width="768" height="432">
+
+<img src="public/readme/game-page-3.png" alt="Overview do site" height="432">
+<img src="public/readme/my-account.png" alt="Overview do site" height="432">
+
+## Tecnologias utilizadas
+### Principais:
+  - ReactJS;
+  - NextJS 14;
+  - Typescript;
+  - Next Auth: autenticação de usuário.
+    
+### Estilização:
+  - TailwindCSS;
+  - Phosphor Icons e Lucide-React: ícones da aplicação;
+  - Shadcn UI: alguns componentes visuais;
+  - React-Transition-Group: animação de menus laterais;
+    
+### Outros:
+  - Axios: requisições para a API;
+  - React-Hook-Form e Zod: validação de formulários;
+  - Context API: gerenciamento de estado global;
+  - ESLint: legibilidade e organização do código;
+  - Variáveis de ambiente com .env.
 
 ## Fluxo da aplicação
 
@@ -120,23 +142,3 @@ O cabeçalho é um item fixo do site, ele é exibido em todas as páginas da apl
 1) É bem similar à página de avaliação de produto, com os mesmos campos.
 2) A nota (estrelas) e a descrição ao carregar a página serão as que o usuário forneceu previamente em sua avaliação.
 3) Ao clicar no botão "Editar avaliação", os campos serão validada e a avaliação feita. Posteriormente, haverá um feedback para o usuário em caso de sucesso ou erro e o botão exibirá a frase "Voltar para minhas avaliações" em caso de sucesso.
-
-## Tecnologias utilizadas
-### Principais:
-  - ReactJS;
-  - NextJS 14;
-  - Typescript;
-  - Next Auth: autenticação de usuário.
-    
-### Estilização:
-  - TailwindCSS;
-  - Phosphor Icons e Lucide-React: ícones da aplicação;
-  - Shadcn UI: alguns componentes visuais;
-  - React-Transition-Group: animação de menus laterais;
-    
-### Outros:
-  - Axios: requisições para a API;
-  - React-Hook-Form e Zod: validação de formulários;
-  - Context API: gerenciamento de estado global;
-  - ESLint: legibilidade e organização do código;
-  - Variáveis de ambiente com .env.
