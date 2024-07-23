@@ -8,6 +8,7 @@ import { ContextGamesPlatform } from '@/context/Provider'
 import NextAuthSessionProvider from '@/context/SessionProvider'
 import HeaderMobile from '@/components/header/HeaderMobile'
 import { Toaster } from '@/components/ui/sonner'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,6 +38,7 @@ export default async function RootLayout({
                   <Header />
                   <HeaderMobile />
                   <Toaster />
+                  <Analytics />
                   {children}
                 </div>
                 <Footer />
